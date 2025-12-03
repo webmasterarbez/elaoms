@@ -1,0 +1,20 @@
+# Production dependencies for ElevenLabs OpenMemory Integration
+
+# Web framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Data validation
+pydantic>=2.5.0
+
+# Environment configuration
+python-dotenv>=1.0.0
+
+# ElevenLabs SDK
+elevenlabs>=1.0.0
+
+# OpenMemory SDK (mem0ai provides OpenMemory functionality)
+mem0ai>=0.1.0
+
+# HTTP client for async requests
+httpx>=0.26.0
