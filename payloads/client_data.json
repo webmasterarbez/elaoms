@@ -1,0 +1,4 @@
+caller_id	string	The phone number of the caller
+agent_id	string	The ID of the agent receiving the call
+called_number	string	The Twilio number that was called
+call_sid	string	Unique identifier for the Twilio call
