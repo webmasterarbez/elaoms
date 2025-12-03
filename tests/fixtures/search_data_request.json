@@ -1,0 +1,10 @@
+{
+  "query": "What is the user's name and preferences?",
+  "user_id": "+16129782029",
+  "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+  "conversation_id": "conv_8701kb8xfaaney589jkc6pjesxrc",
+  "context": {
+    "current_topic": "user inquiry",
+    "call_duration_secs": 15
+  }
+}

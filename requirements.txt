@@ -13,8 +13,8 @@ python-dotenv>=1.0.0
 # ElevenLabs SDK
 elevenlabs>=1.0.0
 
-# OpenMemory SDK (mem0ai provides OpenMemory functionality)
-mem0ai>=0.1.0
+# OpenMemory SDK
+openmemory-py>=1.0.0
 
 # HTTP client for async requests
 httpx>=0.26.0

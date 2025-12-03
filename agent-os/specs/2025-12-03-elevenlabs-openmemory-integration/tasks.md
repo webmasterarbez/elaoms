@@ -86,15 +86,15 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 #### Task Group 2: Request and Response Models
 **Dependencies:** Task Group 1
 
-- [ ] 2.0 Complete Pydantic models for all webhooks
-  - [ ] 2.1 Write 6 focused tests for Pydantic models
+- [x] 2.0 Complete Pydantic models for all webhooks
+  - [x] 2.1 Write 6 focused tests for Pydantic models
     - Test ClientDataRequest validation with valid input
     - Test ClientDataResponse serialization with all fields
     - Test PostCallTranscriptionPayload parsing from sample JSON
     - Test SearchDataRequest validation
     - Test invalid phone number format rejection
     - Test optional field handling (null/missing values)
-  - [ ] 2.2 Create `/app/models/requests.py` with request models
+  - [x] 2.2 Create `/app/models/requests.py` with request models
     - `ClientDataRequest`: caller_id, agent_id, called_number, call_sid
     - `SearchDataRequest`: query, user_id, agent_id, context fields
     - `PostCallWebhookRequest`: type, event_timestamp, data (nested models)
@@ -103,22 +103,22 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
     - `DataCollectionResult`: data_collection_id, value, json_schema, rationale
     - `ConversationInitiationClientData`: dynamic_variables, conversation_config_override
     - Reference: `/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/payloads/post_call_transcription.json`
-  - [ ] 2.3 Create `/app/models/responses.py` with response models
+  - [x] 2.3 Create `/app/models/responses.py` with response models
     - `DynamicVariables`: user_name, user_profile_summary, last_call_summary
     - `ConversationConfigOverride`: agent config with firstMessage
     - `ClientDataResponse`: dynamic_variables, conversation_config_override
     - `MemoryItem`: content, sector, salience, timestamp
     - `ProfileData`: name, summary, phone_number
     - `SearchDataResponse`: profile, memories array
-  - [ ] 2.4 Add field validation and documentation
+  - [x] 2.4 Add field validation and documentation
     - Phone number format validation (E.164 format)
     - Required vs optional field annotations
     - Field descriptions for OpenAPI schema generation
     - Use Pydantic v2 syntax (model_validator, field_validator)
-  - [ ] 2.5 Copy sample payloads to test fixtures
+  - [x] 2.5 Copy sample payloads to test fixtures
     - Copy `/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/payloads/post_call_transcription.json` to `/tests/fixtures/`
     - Create additional sample payloads for client-data and search-data
-  - [ ] 2.6 Ensure Pydantic model tests pass
+  - [x] 2.6 Ensure Pydantic model tests pass
     - Run ONLY the 6 tests written in 2.1
     - Verify models correctly parse sample payloads
 
@@ -143,29 +143,29 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 #### Task Group 3: HMAC Authentication
 **Dependencies:** Task Group 1
 
-- [ ] 3.0 Complete HMAC authentication middleware
-  - [ ] 3.1 Write 5 focused tests for HMAC authentication
+- [x] 3.0 Complete HMAC authentication middleware
+  - [x] 3.1 Write 5 focused tests for HMAC authentication
     - Test valid signature passes verification
     - Test invalid signature returns 401
     - Test expired timestamp (>30 min) returns 401
     - Test malformed signature header returns 401
     - Test missing signature header returns 401
-  - [ ] 3.2 Create `/app/auth/hmac.py` with HMAC validation
+  - [x] 3.2 Create `/app/auth/hmac.py` with HMAC validation
     - Parse `elevenlabs-signature` header format: `t=timestamp,v0=hash`
     - Extract timestamp and hash components
     - Compute SHA256 HMAC of `{timestamp}.{request_body}`
     - Use `ELEVENLABS_POST_CALL_KEY` as the secret
     - Compare computed hash with `v0` value using constant-time comparison
-  - [ ] 3.3 Implement timestamp validation
+  - [x] 3.3 Implement timestamp validation
     - Parse Unix timestamp from signature header
     - Enforce 30-minute (1800 seconds) tolerance window
     - Reject requests outside tolerance with 401 status
-  - [ ] 3.4 Create FastAPI dependency for HMAC verification
+  - [x] 3.4 Create FastAPI dependency for HMAC verification
     - Create async dependency function `verify_hmac_signature`
     - Read raw request body for signature computation
     - Return 401 Unauthorized with descriptive error on failure
     - Make dependency injectable for protected endpoints
-  - [ ] 3.5 Ensure HMAC authentication tests pass
+  - [x] 3.5 Ensure HMAC authentication tests pass
     - Run ONLY the 5 tests written in 3.1
     - Verify authentication logic works correctly
 
@@ -178,6 +178,7 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 **Files to Create/Modify:**
 - `/app/auth/hmac.py`
 - `/app/auth/__init__.py`
+- `/tests/test_auth.py`
 
 ---
 
@@ -186,36 +187,36 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 #### Task Group 4: OpenMemory Client and Memory Operations
 **Dependencies:** Task Group 1, Task Group 2
 
-- [ ] 4.0 Complete OpenMemory integration layer
-  - [ ] 4.1 Write 6 focused tests for memory operations
+- [x] 4.0 Complete OpenMemory integration layer
+  - [x] 4.1 Write 6 focused tests for memory operations
     - Test OpenMemory client initialization in REMOTE mode
     - Test memory add operation with correct parameters
     - Test memory query operation returns structured results
     - Test user summary retrieval
     - Test userId isolation (phone number as user ID)
     - Test memory storage with decayLambda=0 (permanent retention)
-  - [ ] 4.2 Create `/app/memory/client.py` with OpenMemory client wrapper
+  - [x] 4.2 Create `/app/memory/client.py` with OpenMemory client wrapper
     - Initialize OpenMemory SDK in REMOTE mode
     - Configure with `url` from OPENMEMORY_PORT and `apiKey` from OPENMEMORY_KEY
     - Export singleton client instance
     - Handle connection errors gracefully
-  - [ ] 4.3 Create `/app/memory/profiles.py` for caller profile management
+  - [x] 4.3 Create `/app/memory/profiles.py` for caller profile management
     - `get_user_profile(phone_number)`: Query OpenMemory for user data
     - `get_user_summary(phone_number)`: Retrieve `/users/{userId}/summary`
     - `build_dynamic_variables(profile)`: Format profile data for ElevenLabs response
     - `build_conversation_override(profile)`: Generate personalized firstMessage
     - Handle new callers (no profile) - return None/empty values
-  - [ ] 4.4 Create `/app/memory/extraction.py` for transcript processing
+  - [x] 4.4 Create `/app/memory/extraction.py` for transcript processing
     - `extract_user_info(data_collection_results)`: Extract name, etc. from analysis
     - `extract_user_messages(transcript)`: Filter transcript for role="user" messages
     - `create_profile_memories(user_info, phone_number)`: Store profile facts with high salience
     - `store_conversation_memories(messages, phone_number)`: Store each user message
     - All memories: `userId=phone_number`, `decayLambda=0`, appropriate salience
-  - [ ] 4.5 Implement memory query for search-data webhook
+  - [x] 4.5 Implement memory query for search-data webhook
     - `search_memories(query, phone_number)`: Query OpenMemory with search query
     - Return structured results with profile and memories array
     - Handle empty results gracefully
-  - [ ] 4.6 Ensure memory layer tests pass
+  - [x] 4.6 Ensure memory layer tests pass
     - Run ONLY the 6 tests written in 4.1
     - Verify OpenMemory integration works correctly
 
@@ -238,8 +239,8 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 #### Task Group 5: FastAPI Webhook Handlers
 **Dependencies:** Task Group 2, Task Group 3, Task Group 4
 
-- [ ] 5.0 Complete all webhook endpoint handlers
-  - [ ] 5.1 Write 8 focused tests for webhook endpoints
+- [x] 5.0 Complete all webhook endpoint handlers
+  - [x] 5.1 Write 8 focused tests for webhook endpoints
     - Test POST /webhook/client-data returns profile for known caller
     - Test POST /webhook/client-data returns empty for new caller
     - Test POST /webhook/search-data returns relevant memories
@@ -248,13 +249,13 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
     - Test POST /webhook/post-call saves transcription payload
     - Test POST /webhook/post-call saves audio payload (base64 decode)
     - Test GET /health returns healthy status
-  - [ ] 5.2 Create `/app/main.py` FastAPI application entry point
+  - [x] 5.2 Create `/app/main.py` FastAPI application entry point
     - Initialize FastAPI app with title and description
     - Import and configure startup validation from config
     - Create /health endpoint for service health check
     - Include webhook routers
     - Configure CORS if needed for development
-  - [ ] 5.3 Create `/app/webhooks/client_data.py` handler
+  - [x] 5.3 Create `/app/webhooks/client_data.py` handler
     - POST /webhook/client-data endpoint
     - NO HMAC authentication (as specified)
     - Parse ClientDataRequest from request body
@@ -264,14 +265,14 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
     - Build ConversationConfigOverride with personalized firstMessage for returning callers
     - Return empty/null values for new callers (let ElevenLabs use defaults)
     - Return ClientDataResponse
-  - [ ] 5.4 Create `/app/webhooks/search_data.py` handler
+  - [x] 5.4 Create `/app/webhooks/search_data.py` handler
     - POST /webhook/search-data endpoint
     - NO HMAC authentication (as specified)
     - Parse SearchDataRequest from request body
     - Extract search query and user context
     - Query OpenMemory using om.query() with search query and userId
     - Return SearchDataResponse with profile and memories array
-  - [ ] 5.5 Create `/app/webhooks/post_call.py` handler
+  - [x] 5.5 Create `/app/webhooks/post_call.py` handler
     - POST /webhook/post-call endpoint
     - HMAC authentication REQUIRED (use verify_hmac_signature dependency)
     - Parse PostCallWebhookRequest from request body
@@ -279,20 +280,20 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
       - `post_call_transcription`: Process and save transcription
       - `post_call_audio`: Decode base64 and save audio
       - `call_initiation_failure`: Save failure log
-  - [ ] 5.6 Implement payload storage in post_call.py
+  - [x] 5.6 Implement payload storage in post_call.py
     - Extract conversation_id from payload
     - Create directory: `{PAYLOAD_STORAGE_PATH}/{conversation_id}/`
     - Save transcription as `{conversation_id}_transcription.json`
     - Decode base64 audio and save as `{conversation_id}_audio.mp3`
     - Save failures as `{conversation_id}_failure.json`
     - Handle file system errors gracefully
-  - [ ] 5.7 Implement memory processing in post_call.py
+  - [x] 5.7 Implement memory processing in post_call.py
     - Extract caller phone number from `data.conversation_initiation_client_data.dynamic_variables.system__caller_id`
     - Extract user info from `data.analysis.data_collection_results`
     - Store profile facts as memories with salience=high, decayLambda=0
     - Store each transcript entry where role="user" as individual memory
     - Tag all memories with userId=phone_number
-  - [ ] 5.8 Ensure webhook tests pass
+  - [x] 5.8 Ensure webhook tests pass
     - Run ONLY the 8 tests written in 5.1
     - Verify all endpoints respond correctly
 
@@ -310,6 +311,7 @@ This integration builds a FastAPI backend connecting ElevenLabs Agents Platform 
 - `/app/webhooks/search_data.py`
 - `/app/webhooks/post_call.py`
 - `/app/webhooks/__init__.py`
+- `/tests/test_webhooks.py`
 
 ---
 
