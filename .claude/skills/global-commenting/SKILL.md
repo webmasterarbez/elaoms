@@ -1,11 +1,22 @@
 ---
 name: Global Commenting
-description: Your approach to handling global commenting. Use this skill when working on files where global commenting comes into play.
+description: "Write self-documenting code with minimal, helpful comments that explain the 'why' rather than the 'what'. Use this skill when: (1) Adding comments to explain complex logic or algorithms, (2) Documenting public APIs, functions, or classes, (3) Reviewing whether comments are necessary or redundant, (4) Writing docstrings or JSDoc comments, (5) Removing outdated or misleading comments, (6) Deciding whether code needs comments or should be refactored for clarity, (7) Avoiding comments about temporary fixes or recent changes, (8) Making code self-explanatory through better naming and structure, (9) Adding TODO comments for future work, (10) Documenting non-obvious business logic or edge cases."
 ---
 
 # Global Commenting
 
-This Skill provides Claude Code with specific guidance on how to adhere to coding standards as they relate to how it should handle global commenting.
+## When to use this skill:
+
+- When adding comments to explain complex logic or algorithms
+- When documenting public APIs, functions, or classes
+- When reviewing whether comments are necessary or redundant
+- When writing docstrings, JSDoc, or type annotations
+- When removing outdated or misleading comments
+- When deciding whether code needs comments or should be refactored for clarity
+- When avoiding comments about temporary fixes or recent changes (keep comments evergreen)
+- When making code self-explanatory through better naming and structure
+- When adding TODO comments for future work
+- When documenting non-obvious business logic or edge cases
 
 ## Instructions
 
