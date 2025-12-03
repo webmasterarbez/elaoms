@@ -2,12 +2,16 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+include = ["app*"]
+exclude = ["tests*", "docs*", "payloads*", "scripts*", "agent-os*"]
+
 [project]
 name = "elevenlabs-openmemory-integration"
 version = "0.1.0"
 description = "FastAPI backend integrating ElevenLabs Agents Platform with OpenMemory for persistent caller profiles"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.12"
 authors = [
     {name = "ElevenLabs OpenMemory Integration Team"}
@@ -15,7 +19,6 @@ authors = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
     "Framework :: FastAPI",
