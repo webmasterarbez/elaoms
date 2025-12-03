@@ -8,15 +8,30 @@ This module contains 4 focused tests for the configuration system:
 """
 
 import os
+import sys
 import tempfile
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 
 import pytest
 
 
+def _clear_config_module_cache():
+    """Clear config module from sys.modules to ensure fresh imports."""
+    modules_to_remove = [
+        key for key in list(sys.modules.keys())
+        if key.startswith("app.config") or key == "app"
+    ]
+    for module in modules_to_remove:
+        del sys.modules[module]
+
+
 class TestConfigurationLoading:
     """Test suite for configuration loading functionality."""
+
+    def setup_method(self):
+        """Clear module cache before each test to ensure fresh imports."""
+        _clear_config_module_cache()
 
     def test_environment_variable_loading_with_all_required_vars(self) -> None:
         """Test that all required environment variables are loaded correctly."""
@@ -48,29 +63,22 @@ class TestConfigurationLoading:
 
     def test_validation_fails_when_required_vars_missing(self) -> None:
         """Test that validation fails with descriptive error when required vars are missing."""
-        # Clear all relevant environment variables
-        env_vars_to_remove = [
-            "ELEVENLABS_API_KEY",
-            "ELEVENLABS_POST_CALL_KEY",
-            "ELEVENLABS_CLIENT_DATA_KEY",
-            "ELEVENLABS_SEARCH_DATA_KEY",
-            "OPENMEMORY_KEY",
-            "OPENMEMORY_PORT",
-            "OPENMEMORY_DB_PATH",
-            "PAYLOAD_STORAGE_PATH",
-        ]
+        # We need to mock load_dotenv to prevent it from loading the .env file
+        # and clear the environment to ensure no variables are set
+        with patch("dotenv.load_dotenv"):
+            with patch.dict(os.environ, {}, clear=True):
+                from app.config import Settings, ConfigurationError
 
-        # Create environment with missing required variables
-        with patch.dict(os.environ, {}, clear=True):
-            from app.config import Settings, ConfigurationError
-
-            with pytest.raises(ConfigurationError) as exc_info:
+                # Create settings (this doesn't raise, values will be empty strings)
                 settings = Settings()
-                settings.validate()
 
-            # Check that error message is descriptive
-            error_message = str(exc_info.value)
-            assert "ELEVENLABS_API_KEY" in error_message or "required" in error_message.lower()
+                # Validation should raise ConfigurationError since all values are empty
+                with pytest.raises(ConfigurationError) as exc_info:
+                    settings.validate()
+
+                # Check that error message is descriptive
+                error_message = str(exc_info.value)
+                assert "ELEVENLABS_API_KEY" in error_message or "required" in error_message.lower()
 
     def test_config_object_exposes_all_settings(self) -> None:
         """Test that the config object properly exposes all settings as attributes."""
