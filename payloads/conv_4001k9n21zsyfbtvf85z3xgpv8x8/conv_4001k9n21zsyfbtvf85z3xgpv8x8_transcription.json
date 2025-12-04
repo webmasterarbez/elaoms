@@ -1,0 +1,1272 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1764874177,
+  "data": {
+    "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+    "conversation_id": "conv_4001k9n21zsyfbtvf85z3xgpv8x8",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Hello! What is your name?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 0,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.17099821899319068
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "My name is Stefan.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.1101622860005591
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Hello Stefan. What is your last name?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 4,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.429591136999079
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.35398569800599944
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4295750320015941
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.19565664399124216
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 462,
+                "price": 6.929999999999999e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 9,
+                "price": 5.399999999999999e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "But yet...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 7,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.148779058989021
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Could you please spell that out for me?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 10,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.5567441159946611
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.47750602499581873
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.5567187959968578
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.19105390799813904
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 474,
+                "price": 7.11e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 9,
+                "price": 5.399999999999999e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "B-R-E-E-T.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 14,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.1123961679986678
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you, Stefan Breet. What is your email address?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 19,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.418907653001952
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.3452907850005431
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.41888448399549816
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.22223551399656571
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 493,
+                "price": 7.395000000000001e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 13,
+                "price": 7.8e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Stephan at Arbez.com.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 23,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12842833700415213
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you. Could you please spell out Arbez for me to ensure accuracy?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 31,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.41169486900616903
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.2773690119938692
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.41166572899965104
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.2710035890049767
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 513,
+                "price": 7.695e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 16,
+                "price": 9.6e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "A-R-B-E-Z.com.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 35,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12704094999935478
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you, Stefan. So your email address is stefan@arbez.com. Is that correct?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 42,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.42430973300361075
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.3391035139939049
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4242899069940904
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.30923904199153185
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 541,
+                "price": 8.115e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 21,
+                "price": 1.26e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 54,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12704094999935478
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Stefan, are you still there?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 54,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.3212500700028613
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.26373951000277884
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.32122234400594607
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.1670093519933289
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 563,
+                "price": 8.445e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 7,
+                "price": 4.2000000000000004e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I'm here.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 56,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.20851436600787565
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Great. Just confirming, is your email address stefan@arbez.com?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 60,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.4358527510048589
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.30742235999787226
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4358270640077535
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.28125887499481905
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 575,
+                "price": 8.625e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 16,
+                "price": 9.6e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 65,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.15456933999666944
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you for confirming. What is your address?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 67,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.3662880199990468
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.30685714799619745
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.36626703399815597
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.21192143599910196
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 592,
+                "price": 8.88e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 10,
+                "price": 6e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "My address is 112 Cobblestone Lane Winona Minnesota 55987",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 70,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12784534500679
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you. Could you please confirm the spelling of Winona and Minnesota for me?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 84,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.5095335009973496
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.37921770999673754
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.5095142659993144
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.2751345879951259
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 620,
+                "price": 9.3e-05
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 16,
+                "price": 9.6e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "W-I-N-O Winona. W-I-N-O-N-A. And then Minnesota is M-I-N-N-E-S-T-O- I got it wrong.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 90,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12045098798989784
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "No worries at all. Please take your time and spell out Minnesota for me when you're ready.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 113,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.46983090399589855
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.3459721449908102
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4792992639995646
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.16842522799561266
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 682,
+                "price": 0.00010229999999999999
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 21,
+                "price": 1.26e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "M-I-N-N-E-S-T-O",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 120,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.19439590399269946
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you for spelling that out. So, to confirm, your address is one one two Cobblestone Lane, Winona, Minnesota, five five nine eight seven. Is that correct?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 125,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.37300317600602284
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.29551996299414895
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4246970840031281
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.20361260000208858
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 718,
+                "price": 0.0001077
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 36,
+                "price": 2.1599999999999996e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "- Yes, have a good day.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 134,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.1425525279919384
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you, Stefan. You too! I have your full user...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 151,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.41329867599415593
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.3213528439955553
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.5767833429999882
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.22991501798969693
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.5-flash": {
+              "input": {
+                "tokens": 762,
+                "price": 0.0001143
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 56,
+                "price": 3.3600000000000004e-05
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "Thank you, Stefan. You too! I have your full user profile as: First name - Stefan, Last name - Breet, Email address - stefan@arbez.com, Address - one one two Cobblestone Lane, Winona, Minnesota, five five nine eight seven.",
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1762717139,
+      "accepted_time_unix_secs": 1762717139,
+      "call_duration_secs": 155,
+      "cost": 1038,
+      "deletion_settings": {
+        "deletion_time_unix_secs": null,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "signed_url",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "gemini-2.5-flash": {
+                "input": {
+                  "tokens": 6995,
+                  "price": 0.0010492499999999998
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 230,
+                  "price": 0.000138
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "gemini-2.5-flash": {
+                "input": {
+                  "tokens": 6995,
+                  "price": 0.0010492499999999998
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 230,
+                  "price": 0.000138
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 0.00118725,
+        "llm_charge": 6,
+        "call_charge": 1032,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "phnum_01jxj3hwx1fava7g3snzm5e2f8",
+        "agent_number": "+16123241623",
+        "external_number": "+16129782029",
+        "type": "twilio",
+        "stream_sid": "MZcda62161e94e3ad3e9528ee7b677bb90",
+        "call_sid": "CA8d0a71396fbaf8322d55ba033c4f753d"
+      },
+      "batch_call": null,
+      "termination_reason": "Call ended by remote party",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": null,
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": false,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": false,
+          "used": false
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "twilio",
+      "conversation_initiation_source_version": null,
+      "timezone": null,
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "ui",
+      "agent_last_updated_from": "ui"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {},
+      "data_collection_results": {
+        "Last name": {
+          "data_collection_id": "Last name",
+          "value": "Breet",
+          "json_schema": {
+            "type": "string",
+            "description": "Last name",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The agent asks the user for their last name, and the user responds with 'But yet...'. The agent then asks the user to spell it out, and the user spells out 'B-R-E-E-T'. Therefore, the last name is 'Breet'."
+        },
+        "First Name": {
+          "data_collection_id": "First Name",
+          "value": "Stefan",
+          "json_schema": {
+            "type": "string",
+            "description": "First name",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user states that their name is Stefan in the conversation at 2025-11-09T19:39:01+00:00. Therefore, the first name is Stefan."
+        },
+        "Address": {
+          "data_collection_id": "Address",
+          "value": "112 Cobblestone Lane Winona Minnesota 55987",
+          "json_schema": {
+            "type": "string",
+            "description": "Full address",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user provides their address as '112 Cobblestone Lane Winona Minnesota 55987' in the conversation at 2025-11-09T19:40:09+00:00. The agent confirms the address at 2025-11-09T19:41:04+00:00 and the user confirms it at 2025-11-09T19:41:13+00:00."
+        },
+        "Email": {
+          "data_collection_id": "Email",
+          "value": "stefan@arbez.com",
+          "json_schema": {
+            "type": "string",
+            "description": "Email address",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user provides the email address \"Stephan at Arbez.com\" at 2025-11-09T19:39:22+00:00, which is later confirmed as \"stefan@arbez.com\" at 2025-11-09T19:39:59+00:00 and 2025-11-09T19:40:04+00:00."
+        }
+      },
+      "call_successful": "success",
+      "transcript_summary": "The agent is collecting user information. The user provides their first name (Stefan), last name (Breet), email (stefan@arbez.com), and address (112 Cobblestone Lane, Winona, Minnesota, 55987). The agent confirms the spelling of the last name, email domain, city and state. The user confirms the address and ends the conversation.\n",
+      "call_summary_title": "Collecting User Information"
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": {
+          "voice_id": "cjVigY5qzO86Huf0OWal",
+          "stability": null,
+          "speed": null,
+          "similarity_boost": null
+        },
+        "conversation": null,
+        "agent": {
+          "first_message": "Hello! What is your name?",
+          "language": "en",
+          "prompt": null
+        }
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "caller_id": "+16129782029",
+        "called_number": "+16123241623",
+        "call_sid": "CA8d0a71396fbaf8322d55ba033c4f753d",
+        "user_context": "1 memories, 1 patterns | low | avg_sal=0.70 | top: procedural(1, sal=0.36): \"I have completed your profile. 647733+00...\"",
+        "system__agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+        "system__current_agent_id": "agent_5001k9myfdmae9ntkrhxfr5b4tqy",
+        "system__conversation_id": "conv_4001k9n21zsyfbtvf85z3xgpv8x8",
+        "system__caller_id": "+16129782029",
+        "system__called_number": "+16123241623",
+        "system__call_duration_secs": 154,
+        "system__time_utc": "2025-11-09T19:41:34.179621+00:00",
+        "system__time": "Sunday, 19:41 09 November 2025",
+        "system__timezone": null,
+        "system__call_sid": "CA8d0a71396fbaf8322d55ba033c4f753d"
+      }
+    },
+    "has_audio": true,
+    "has_user_audio": true,
+    "has_response_audio": true
+  }
+}

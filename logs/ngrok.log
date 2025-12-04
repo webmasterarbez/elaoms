@@ -1,21 +1,13 @@
-t=2025-12-04T07:03:54-0600 lvl=info msg="no configuration paths supplied"
-t=2025-12-04T07:03:54-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
-t=2025-12-04T07:03:54-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
-t=2025-12-04T07:03:54-0600 lvl=info msg="FIPS 140 mode" enabled=false
-t=2025-12-04T07:03:54-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
-t=2025-12-04T07:03:54-0600 lvl=info msg="client session established" obj=tunnels.session
-t=2025-12-04T07:03:54-0600 lvl=info msg="tunnel session started" obj=tunnels.session
-t=2025-12-04T07:03:54-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
-t=2025-12-04T07:03:57-0600 lvl=info msg=start pg=/api/tunnels id=a70a33d7b250d116
-t=2025-12-04T07:03:57-0600 lvl=info msg=end pg=/api/tunnels id=a70a33d7b250d116 status=200 dur=221.146µs
-t=2025-12-04T07:03:57-0600 lvl=info msg=start pg=/api/tunnels id=c12885e1b869b034
-t=2025-12-04T07:03:57-0600 lvl=info msg=end pg=/api/tunnels id=c12885e1b869b034 status=200 dur=150.154µs
-t=2025-12-04T07:04:17-0600 lvl=info msg="join connections" obj=join id=a32b1cf2eb07 l=127.0.0.1:8000 r=192.145.247.124:54468
-t=2025-12-04T07:06:09-0600 lvl=info msg="join connections" obj=join id=c4dbc564a6ec l=127.0.0.1:8000 r=192.145.247.124:54412
-t=2025-12-04T07:14:51-0600 lvl=info msg="join connections" obj=join id=0270fd13c762 l=127.0.0.1:8000 r=192.145.247.124:54394
-t=2025-12-04T07:21:21-0600 lvl=info msg="join connections" obj=join id=c34da120833c l=127.0.0.1:8000 r=192.145.247.124:54446
-t=2025-12-04T07:22:06-0600 lvl=info msg="join connections" obj=join id=23c7cdd52669 l=127.0.0.1:8000 r=192.145.247.124:54384
-t=2025-12-04T07:22:29-0600 lvl=info msg="join connections" obj=join id=b4855eaf0b51 l=127.0.0.1:8000 r=192.145.247.124:54398
-t=2025-12-04T07:22:53-0600 lvl=info msg="join connections" obj=join id=6d216d78d723 l=127.0.0.1:8000 r=192.145.247.124:54476
-t=2025-12-04T07:23:34-0600 lvl=info msg="join connections" obj=join id=783484363e89 l=127.0.0.1:8000 r=192.145.247.124:54418
-t=2025-12-04T07:24:40-0600 lvl=info msg="join connections" obj=join id=d195bc975a79 l=127.0.0.1:8000 r=192.145.247.124:54448
+t=2025-12-04T12:49:23-0600 lvl=info msg="no configuration paths supplied"
+t=2025-12-04T12:49:23-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
+t=2025-12-04T12:49:23-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
+t=2025-12-04T12:49:23-0600 lvl=info msg="FIPS 140 mode" enabled=false
+t=2025-12-04T12:49:23-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-12-04T12:49:23-0600 lvl=info msg="client session established" obj=tunnels.session
+t=2025-12-04T12:49:23-0600 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-12-04T12:49:23-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
+t=2025-12-04T12:49:26-0600 lvl=info msg=start pg=/api/tunnels id=5d8f937ea25ca225
+t=2025-12-04T12:49:26-0600 lvl=info msg=end pg=/api/tunnels id=5d8f937ea25ca225 status=200 dur=269.478µs
+t=2025-12-04T12:49:26-0600 lvl=info msg=start pg=/api/tunnels id=240f9fa37246ef15
+t=2025-12-04T12:49:26-0600 lvl=info msg=end pg=/api/tunnels id=240f9fa37246ef15 status=200 dur=171.775µs
+t=2025-12-04T12:49:37-0600 lvl=info msg="join connections" obj=join id=fd3df32af29a l=127.0.0.1:8000 r=192.145.247.124:53998

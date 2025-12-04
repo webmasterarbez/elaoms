@@ -1780,3 +1780,40 @@ INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
 2025-12-04 07:24:41,455 - app.memory.extraction - INFO - Stored 139 conversation memories for +16124833213
 2025-12-04 07:24:41,455 - app.webhooks.post_call - INFO - Stored 139 conversation memories for +16124833213
 2025-12-04 07:24:41,455 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [43126] using WatchFiles
+INFO:     Started server process [43156]
+INFO:     Waiting for application startup.
+2025-12-04 12:49:21,920 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-04 12:49:21,922 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-04 12:49:37,450 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_4001k9n21zsyfbtvf85z3xgpv8x8
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 12:49:37,451 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_4001k9n21zsyfbtvf85z3xgpv8x8
+2025-12-04 12:49:37,454 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_4001k9n21zsyfbtvf85z3xgpv8x8/conv_4001k9n21zsyfbtvf85z3xgpv8x8_transcription.json
+2025-12-04 12:49:37,454 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-04 12:49:37,536 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,537 - app.memory.extraction - INFO - Stored profile memory for +16129782029: last_name=Breet
+2025-12-04 12:49:37,540 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,541 - app.memory.extraction - INFO - Stored profile memory for +16129782029: first_name=Stefan
+2025-12-04 12:49:37,551 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,552 - app.memory.extraction - INFO - Stored profile memory for +16129782029: address=112 Cobblestone Lane Winona Minnesota 55987
+2025-12-04 12:49:37,561 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,561 - app.memory.extraction - INFO - Stored profile memory for +16129782029: email=stefan@arbez.com
+2025-12-04 12:49:37,561 - app.webhooks.post_call - INFO - Stored 4 profile memories for +16129782029
+2025-12-04 12:49:37,590 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,599 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,603 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,606 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,613 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,616 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,619 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,623 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,629 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,636 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,639 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,645 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 12:49:37,645 - app.memory.extraction - INFO - Stored 12 conversation memories for +16129782029
+2025-12-04 12:49:37,646 - app.webhooks.post_call - INFO - Stored 12 conversation memories for +16129782029
+2025-12-04 12:49:37,646 - app.webhooks.post_call - INFO - Completed transcription processing for conv_4001k9n21zsyfbtvf85z3xgpv8x8
