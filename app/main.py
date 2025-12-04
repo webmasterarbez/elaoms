@@ -49,11 +49,6 @@ async def lifespan(app: FastAPI):
 
     # Shutdown
     logger.info("Shutting down ElevenLabs OpenMemory Integration...")
-    try:
-        from app.memory.client import close_client
-        close_client()
-    except Exception as e:
-        logger.warning(f"Error during shutdown: {e}")
 
 
 # Create FastAPI application

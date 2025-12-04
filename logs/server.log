@@ -1,0 +1,1158 @@
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [94623] using WatchFiles
+INFO:     Started server process [94626]
+INFO:     Waiting for application startup.
+2025-12-03 11:04:46,357 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:04:46,358 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     127.0.0.1:42816 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42816 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:42818 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42818 - "GET /openapi.json HTTP/1.1" 200 OK
+2025-12-03 11:05:39,065 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:05:39,066 - app.memory.client - INFO - Initializing OpenMemory client in REMOTE mode at http://localhost:8080
+2025-12-03 11:05:39,066 - app.memory.client - INFO - OpenMemory client initialized successfully
+2025-12-03 11:05:39,066 - app.memory.profiles - ERROR - Error retrieving user profile for +16129782029: asyncio.run() cannot be called from a running event loop
+/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/app/memory/profiles.py:82: RuntimeWarning: coroutine 'OpenMemory._query_async' was never awaited
+  return None
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-12-03 11:05:39,066 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [8581] using WatchFiles
+INFO:     Started server process [8584]
+INFO:     Waiting for application startup.
+2025-12-03 11:17:44,946 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:17:44,947 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 11:17:50,728 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:17:50,728 - app.memory.client - INFO - Initializing OpenMemory client in REMOTE mode at http://localhost:8080
+2025-12-03 11:17:50,728 - app.memory.client - INFO - OpenMemory client initialized successfully
+2025-12-03 11:17:50,728 - app.memory.profiles - ERROR - Error retrieving user profile for +16129782029: asyncio.run() cannot be called from a running event loop
+/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/app/memory/profiles.py:82: RuntimeWarning: coroutine 'OpenMemory._query_async' was never awaited
+  return None
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-12-03 11:17:50,729 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52710 - "GET /health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/memory/profiles.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:19:25,649 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+2025-12-03 11:19:25,649 - app.memory.client - INFO - OpenMemory client closed successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8584]
+INFO:     Started server process [10692]
+INFO:     Waiting for application startup.
+2025-12-03 11:19:26,322 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:19:26,322 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/memory/profiles.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:19:38,981 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10692]
+INFO:     Started server process [11108]
+INFO:     Waiting for application startup.
+2025-12-03 11:19:39,642 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:19:39,643 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:19:47,958 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11108]
+INFO:     Started server process [11383]
+INFO:     Waiting for application startup.
+2025-12-03 11:19:48,594 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:19:48,595 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 11:19:56,543 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:19:56,600 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:19:56,600 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:19:56,601 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     127.0.0.1:52158 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 11:20:07,094 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:20:07,112 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:20:07,113 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:20:07,113 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     192.145.247.124:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:20:27,923 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11383]
+INFO:     Stopping reloader process [8581]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [12741] using WatchFiles
+INFO:     Started server process [12747]
+INFO:     Waiting for application startup.
+2025-12-03 11:20:33,070 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:20:33,071 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 11:20:43,416 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:20:43,456 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:20:43,457 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:20:43,457 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 11:21:34,095 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:21:34,114 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:21:34,114 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:21:34,114 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     127.0.0.1:39584 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 11:23:13,120 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:23:13,141 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:23:13,142 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:23:13,142 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+INFO:     127.0.0.1:39932 - "POST /webhook/client-data HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/models/responses.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:23:43,454 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12747]
+INFO:     Started server process [16710]
+INFO:     Waiting for application startup.
+2025-12-03 11:23:44,079 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:23:44,080 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 11:24:14,269 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [16710]
+INFO:     Started server process [17314]
+INFO:     Waiting for application startup.
+2025-12-03 11:24:14,951 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 11:24:14,952 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 11:24:24,816 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:24:24,860 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:24:24,861 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:24:24,861 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+2025-12-03 11:24:24,861 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {}}
+INFO:     127.0.0.1:53604 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 11:24:30,378 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 11:24:30,395 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 11:24:30,395 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 11:24:30,395 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+2025-12-03 11:24:30,395 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {}}
+INFO:     192.145.247.124:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:35:18,946 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [17314]
+INFO:     Stopping reloader process [12741]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [86561] using WatchFiles
+INFO:     Started server process [86564]
+INFO:     Waiting for application startup.
+2025-12-03 12:35:24,060 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:35:24,061 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 12:35:46,513 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 12:35:46,554 - httpx - INFO - HTTP Request: POST http://localhost:8080/query "HTTP/1.1 200 OK"
+2025-12-03 12:35:46,554 - app.memory.profiles - INFO - No profile found for user +16129782029
+2025-12-03 12:35:46,554 - app.webhooks.client_data - INFO - No profile found for new caller +16129782029
+2025-12-03 12:35:46,554 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 12:36:09,258 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_2301kbjqzh64f12a5b2ka0j1nyq9
+2025-12-03 12:36:09,259 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_2301kbjqzh64f12a5b2ka0j1nyq9/conv_2301kbjqzh64f12a5b2ka0j1nyq9_transcription.json
+2025-12-03 12:36:09,259 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-03 12:36:09,259 - app.memory.client - INFO - Initializing OpenMemory client in REMOTE mode at http://localhost:8080
+2025-12-03 12:36:09,259 - app.memory.client - INFO - OpenMemory client initialized successfully
+2025-12-03 12:36:09,260 - app.memory.extraction - ERROR - Error storing profile memories: asyncio.run() cannot be called from a running event loop
+/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/app/memory/extraction.py:135: RuntimeWarning: coroutine 'OpenMemory._add_async' was never awaited
+  return []
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-12-03 12:36:09,260 - app.webhooks.post_call - INFO - Stored 1 profile memories for +16129782029
+2025-12-03 12:36:09,260 - app.memory.extraction - ERROR - Error storing conversation memories: asyncio.run() cannot be called from a running event loop
+/home/ubuntu/12022025/elevenlabs_agents_open_memory_system/app/memory/extraction.py:186: RuntimeWarning: coroutine 'OpenMemory._add_async' was never awaited
+  return []
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+2025-12-03 12:36:09,260 - app.webhooks.post_call - INFO - Stored 2 conversation memories for +16129782029
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 12:36:09,467 - app.webhooks.post_call - ERROR - Failed to parse webhook request: 1 validation error for PostCallWebhookRequest
+data.status
+  Field required [type=missing, input_value={'agent_id': 'agent_8501k...qqqqqqqqqqqqqqqqqqqqqq'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 400 Bad Request
+WARNING:  WatchFiles detected changes in 'app/models/requests.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:36:56,747 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+2025-12-03 12:36:56,747 - app.memory.client - INFO - OpenMemory client closed successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [86564]
+INFO:     Started server process [88656]
+INFO:     Waiting for application startup.
+2025-12-03 12:36:57,393 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:36:57,394 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/memory/extraction.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:37:39,174 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88656]
+INFO:     Started server process [89507]
+INFO:     Waiting for application startup.
+2025-12-03 12:37:39,871 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:37:39,872 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59922 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59922 - "GET /openapi.json HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:38:30,187 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [89507]
+INFO:     Started server process [90636]
+INFO:     Waiting for application startup.
+2025-12-03 12:38:30,809 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:38:30,809 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:38:38,988 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [90636]
+INFO:     Started server process [90930]
+INFO:     Waiting for application startup.
+2025-12-03 12:38:39,669 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:38:39,670 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     127.0.0.1:42762 - "GET /health HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:41:16,071 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [90930]
+INFO:     Started server process [93659]
+INFO:     Waiting for application startup.
+2025-12-03 12:41:16,699 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:41:16,700 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:41:56,304 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [93659]
+INFO:     Started server process [94633]
+INFO:     Waiting for application startup.
+2025-12-03 12:41:56,967 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:41:56,968 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/memory/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:43:10,324 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [94633]
+INFO:     Started server process [96003]
+INFO:     Waiting for application startup.
+2025-12-03 12:43:10,720 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:43:10,721 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:43:15,330 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96003]
+INFO:     Started server process [96271]
+INFO:     Waiting for application startup.
+2025-12-03 12:43:16,022 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 12:43:16,022 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 12:44:30,124 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [96271]
+INFO:     Stopping reloader process [86561]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [24504] using WatchFiles
+INFO:     Started server process [24507]
+INFO:     Waiting for application startup.
+2025-12-03 13:10:35,480 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:10:35,481 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 13:10:51,073 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 13:10:51,117 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-03 13:10:51,117 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-03 13:10:51,117 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': 'User name is Stefan'}, 'conversation_config_override': {'agent': {'first_message': 'Welcome back, Stefan! How can I help you today?'}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 13:11:43,962 - app.webhooks.post_call - ERROR - Failed to parse webhook request: 2 validation errors for PostCallWebhookRequest
+data.transcript.7.message
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+data.transcript.8.message
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.12/v/string_type
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 400 Bad Request
+2025-12-03 13:11:44,128 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_7501kbjszqp8e74rd9ra28wkdmc3
+2025-12-03 13:11:44,131 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_7501kbjszqp8e74rd9ra28wkdmc3/conv_7501kbjszqp8e74rd9ra28wkdmc3_audio.mp3
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46628 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46628 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46628 - "GET /openapi.json HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/models/requests.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:20:29,977 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24507]
+INFO:     Started server process [35342]
+INFO:     Waiting for application startup.
+2025-12-03 13:20:30,329 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:20:30,330 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/requests.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:20:37,744 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35342]
+INFO:     Started server process [35670]
+INFO:     Waiting for application startup.
+2025-12-03 13:20:38,088 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:20:38,089 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/requests.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:20:52,340 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35670]
+INFO:     Started server process [36005]
+INFO:     Waiting for application startup.
+2025-12-03 13:20:52,681 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:20:52,682 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:21:03,703 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36005]
+INFO:     Started server process [36405]
+INFO:     Waiting for application startup.
+2025-12-03 13:21:04,056 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:21:04,057 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:21:42,193 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36405]
+INFO:     Started server process [37091]
+INFO:     Waiting for application startup.
+2025-12-03 13:21:42,540 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:21:42,540 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/webhooks/post_call.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:22:06,551 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37091]
+INFO:     Started server process [37587]
+INFO:     Waiting for application startup.
+2025-12-03 13:22:06,909 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:22:06,910 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 13:22:16,225 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37587]
+INFO:     Stopping reloader process [24504]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [37981] using WatchFiles
+INFO:     Started server process [37986]
+INFO:     Waiting for application startup.
+2025-12-03 13:22:17,525 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 13:22:17,526 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     127.0.0.1:33908 - "POST /webhook/post-call HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:55834 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55834 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55850 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55850 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55850 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55850 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 15:46:12,038 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [37986]
+INFO:     Stopping reloader process [37981]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [75503] using WatchFiles
+INFO:     Started server process [75506]
+INFO:     Waiting for application startup.
+2025-12-03 15:46:17,095 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 15:46:17,096 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 15:46:32,393 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-03 15:46:32,437 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-03 15:46:32,437 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-03 15:46:32,437 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': 'User name is Stefan'}, 'conversation_config_override': {'agent': {'first_message': 'Welcome back, Stefan! How can I help you today?'}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-03 15:46:51,763 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_4801kbk2wsz7f29venxvwzhk426m
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 15:46:51,763 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_4801kbk2wsz7f29venxvwzhk426m
+2025-12-03 15:46:51,765 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_4801kbk2wsz7f29venxvwzhk426m/conv_4801kbk2wsz7f29venxvwzhk426m_transcription.json
+2025-12-03 15:46:51,765 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-03 15:46:51,784 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 15:46:51,784 - app.memory.extraction - INFO - Stored profile memory for +16129782029: first_name=Stefan
+2025-12-03 15:46:51,785 - app.webhooks.post_call - INFO - Stored 1 profile memories for +16129782029
+2025-12-03 15:46:51,807 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 15:46:51,807 - app.memory.extraction - INFO - Stored 1 conversation memories for +16129782029
+2025-12-03 15:46:51,807 - app.webhooks.post_call - INFO - Stored 1 conversation memories for +16129782029
+2025-12-03 15:46:51,807 - app.webhooks.post_call - INFO - Completed transcription processing for conv_4801kbk2wsz7f29venxvwzhk426m
+2025-12-03 15:46:51,894 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_4801kbk2wsz7f29venxvwzhk426m
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 15:46:51,894 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_4801kbk2wsz7f29venxvwzhk426m
+2025-12-03 15:46:51,895 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_4801kbk2wsz7f29venxvwzhk426m/conv_4801kbk2wsz7f29venxvwzhk426m_audio.mp3
+2025-12-03 15:46:51,895 - app.webhooks.post_call - INFO - Completed audio processing for conv_4801kbk2wsz7f29venxvwzhk426m
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-03 15:47:28,887 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [75506]
+INFO:     Stopping reloader process [75503]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [23289] using WatchFiles
+INFO:     Started server process [23292]
+INFO:     Waiting for application startup.
+2025-12-03 18:04:12,165 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 18:04:12,166 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 401 Unauthorized
+INFO:     192.145.247.124:0 - "GET /webhook/post-call HTTP/1.1" 405 Method Not Allowed
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 401 Unauthorized
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 401 Unauthorized
+2025-12-03 18:15:40,617 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 18:15:40,620 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+2025-12-03 18:15:40,627 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01k04qved0ej19h9h0ddcgqnbz/conv_01k04qved0ej19h9h0ddcgqnbz_transcription.json
+2025-12-03 18:15:40,627 - app.webhooks.post_call - INFO - Processing memories for caller: +16124833213
+2025-12-03 18:15:40,703 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,703 - app.memory.extraction - INFO - Stored profile memory for +16124833213: session_date=2025-07-14T15:11:31+00:00
+2025-12-03 18:15:40,708 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,708 - app.memory.extraction - INFO - Stored profile memory for +16124833213: comfort_level=And I need to stop at this point in time.
+2025-12-03 18:15:40,715 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,715 - app.memory.extraction - INFO - Stored profile memory for +16124833213: key_life_event=The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach. He swam in the ocean and was impressed by its size. He drove through the desert at night because it was too hot during the day. The biggest takeaway from the trip was the fact that they could drive that far in those older cars.
+2025-12-03 18:15:40,719 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,720 - app.memory.extraction - INFO - Stored profile memory for +16124833213: user_name=Ken
+2025-12-03 18:15:40,724 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,725 - app.memory.extraction - INFO - Stored profile memory for +16124833213: consent_given=false
+2025-12-03 18:15:40,725 - app.webhooks.post_call - INFO - Stored 5 profile memories for +16124833213
+2025-12-03 18:15:40,746 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,750 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,755 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,762 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,768 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,772 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,778 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,783 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,788 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,792 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,797 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,801 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,805 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:40,809 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,016 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,020 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,024 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,027 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,032 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,036 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,041 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,045 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,050 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,055 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,060 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,064 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,069 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,074 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,079 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,084 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,089 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,093 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,098 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,123 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,154 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,158 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,162 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,166 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,171 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,175 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,180 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,184 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,188 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,193 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,197 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,201 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,206 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,210 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,215 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,419 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,423 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,428 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,432 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,436 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,441 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,446 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,450 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,454 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,459 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,665 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,670 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,673 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,879 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,884 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,889 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,894 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,900 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,905 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,910 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,912 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,917 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,919 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,924 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,929 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,935 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,940 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,942 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,944 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,950 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:41,952 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,158 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,163 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,168 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,173 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,179 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,185 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,191 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,195 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,201 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,206 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,211 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,217 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,224 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,230 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,236 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:15:42,239 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,239 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,240 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,240 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,241 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,241 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,242 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,242 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,243 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,244 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,244 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,245 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,245 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,246 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,246 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,247 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,247 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,248 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,248 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,249 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,249 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,250 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,250 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,251 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,252 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,252 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,253 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,253 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,254 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,254 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,255 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,255 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,256 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,256 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,257 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,257 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,258 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,258 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,259 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,259 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,260 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,260 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,261 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,261 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,262 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,262 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,263 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,263 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,264 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,264 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,264 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,265 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,265 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,266 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,266 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,267 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,267 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,268 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,269 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,269 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,269 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,270 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,270 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,271 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,271 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,271 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,272 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,272 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,273 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,274 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,274 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,275 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,275 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,275 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,276 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,276 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,277 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,278 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,279 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,279 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,280 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,280 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,281 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,281 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,282 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,282 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,282 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:15:42,283 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:15:42,283 - app.memory.extraction - INFO - Stored 95 conversation memories for +16124833213
+2025-12-03 18:15:42,283 - app.webhooks.post_call - INFO - Stored 95 conversation memories for +16124833213
+2025-12-03 18:15:42,283 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 401 Unauthorized
+2025-12-03 18:16:59,454 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 18:16:59,455 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+2025-12-03 18:16:59,463 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01k04qved0ej19h9h0ddcgqnbz/conv_01k04qved0ej19h9h0ddcgqnbz_transcription.json
+2025-12-03 18:16:59,464 - app.webhooks.post_call - INFO - Processing memories for caller: +16124833213
+2025-12-03 18:16:59,481 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,482 - app.memory.extraction - INFO - Stored profile memory for +16124833213: session_date=2025-07-14T15:11:31+00:00
+2025-12-03 18:16:59,484 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,485 - app.memory.extraction - INFO - Stored profile memory for +16124833213: comfort_level=And I need to stop at this point in time.
+2025-12-03 18:16:59,487 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,487 - app.memory.extraction - INFO - Stored profile memory for +16124833213: key_life_event=The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach. He swam in the ocean and was impressed by its size. He drove through the desert at night because it was too hot during the day. The biggest takeaway from the trip was the fact that they could drive that far in those older cars.
+2025-12-03 18:16:59,491 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,491 - app.memory.extraction - INFO - Stored profile memory for +16124833213: user_name=Ken
+2025-12-03 18:16:59,496 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,496 - app.memory.extraction - INFO - Stored profile memory for +16124833213: consent_given=false
+2025-12-03 18:16:59,496 - app.webhooks.post_call - INFO - Stored 5 profile memories for +16124833213
+2025-12-03 18:16:59,515 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,519 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,523 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,527 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,531 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,535 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,540 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,543 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,546 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,549 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,552 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,555 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,559 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,561 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,565 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,568 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,571 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,574 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,577 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,581 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,583 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,586 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,590 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,592 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,595 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,598 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,600 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,603 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,606 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,608 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,611 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,614 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,617 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,619 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,622 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,625 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,628 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,631 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,633 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,636 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,639 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,641 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,644 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,646 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,649 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,652 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,655 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,657 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,660 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,663 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,666 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,669 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,671 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,674 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,677 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,679 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,682 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,685 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,687 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,690 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,693 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,696 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,698 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,701 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,703 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,706 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,709 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,711 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,714 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,717 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,720 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,724 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,727 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,730 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,735 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,737 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,740 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,743 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,746 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,749 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,751 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,754 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,757 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,760 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,763 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,765 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,768 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,770 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,773 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,776 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,778 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,780 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,783 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,786 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,788 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 18:16:59,791 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,791 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,792 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,792 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,793 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,793 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,794 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,794 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,795 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,795 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,796 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,796 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,797 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,797 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,798 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,798 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,798 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,799 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,799 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,799 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,800 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,801 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,801 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,801 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,802 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,802 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,803 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,803 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,804 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,804 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,805 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,805 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,806 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,806 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,807 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,807 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,807 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,808 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,808 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,808 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,809 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,809 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,810 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,810 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,811 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,811 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,812 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,812 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,813 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,813 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,814 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,814 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,815 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,815 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,816 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,816 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,817 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,817 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,818 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,818 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,819 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,819 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,819 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,820 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,820 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,820 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,821 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,821 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,822 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,822 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,823 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,823 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,824 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,825 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,825 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,825 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,826 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,826 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,827 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,827 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,828 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,828 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,829 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,829 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,830 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,830 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,831 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:16:59,831 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:16:59,831 - app.memory.extraction - INFO - Stored 95 conversation memories for +16124833213
+2025-12-03 18:16:59,831 - app.webhooks.post_call - INFO - Stored 95 conversation memories for +16124833213
+2025-12-03 18:16:59,832 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01k04qved0ej19h9h0ddcgqnbz
+2025-12-03 18:17:31,485 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 18:17:31,486 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+2025-12-03 18:17:31,494 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01k04qved0ej19h9h0ddcgqnbz/conv_01k04qved0ej19h9h0ddcgqnbz_transcription.json
+2025-12-03 18:17:31,494 - app.webhooks.post_call - INFO - Processing memories for caller: +16124833213
+2025-12-03 18:17:31,510 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,511 - app.memory.extraction - WARNING - Failed to store profile memory: 429 - {"error":"rate_limit_exceeded","retry_after":28}
+2025-12-03 18:17:31,512 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,512 - app.memory.extraction - WARNING - Failed to store profile memory: 429 - {"error":"rate_limit_exceeded","retry_after":28}
+2025-12-03 18:17:31,513 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,513 - app.memory.extraction - WARNING - Failed to store profile memory: 429 - {"error":"rate_limit_exceeded","retry_after":28}
+2025-12-03 18:17:31,514 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,514 - app.memory.extraction - WARNING - Failed to store profile memory: 429 - {"error":"rate_limit_exceeded","retry_after":28}
+2025-12-03 18:17:31,515 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,515 - app.memory.extraction - WARNING - Failed to store profile memory: 429 - {"error":"rate_limit_exceeded","retry_after":28}
+2025-12-03 18:17:31,515 - app.webhooks.post_call - INFO - Stored 0 profile memories for +16124833213
+2025-12-03 18:17:31,532 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,532 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,533 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,533 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,534 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,534 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,535 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,535 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,536 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,536 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,536 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,537 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,537 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,537 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,538 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,538 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,539 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,539 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,541 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,541 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,541 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,542 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,542 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,543 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,544 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,544 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,544 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,545 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,545 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,546 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,547 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,547 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,548 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,548 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,548 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,549 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,549 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,550 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,550 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,551 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,551 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,552 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,552 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,553 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,553 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,553 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,554 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,554 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,555 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,555 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,556 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,556 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,557 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,557 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,557 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,558 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,558 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,559 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,559 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,559 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,560 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,560 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,561 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,561 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,562 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,562 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,565 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,565 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,566 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,566 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,567 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,567 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,568 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,568 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,568 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,569 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,569 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,569 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,570 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,571 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,571 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,572 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,573 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,573 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,573 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,574 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,574 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,575 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,576 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,576 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,576 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,577 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,577 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,578 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,579 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,579 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,579 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,580 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,580 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,581 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,581 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,582 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,582 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,583 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,583 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,584 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,584 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,585 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,585 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,585 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,586 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,586 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,587 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,587 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,588 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,588 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,589 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,589 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,590 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,591 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,591 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,592 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,592 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,593 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,593 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,594 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,594 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,595 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,595 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,596 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,596 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,596 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,597 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,597 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,598 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,598 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,599 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,599 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,600 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,600 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,601 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,601 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,601 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,602 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,602 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,602 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,603 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,603 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,604 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,604 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,605 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,605 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,606 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,606 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,607 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,607 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,608 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,608 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,609 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,609 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,610 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,610 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,611 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,611 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,611 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,612 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,612 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,612 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,613 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,613 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,614 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,615 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,615 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,616 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,616 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,617 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,617 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,618 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,618 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,619 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,619 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,619 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,620 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,620 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,621 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,621 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,622 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,622 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,623 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,623 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,623 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,624 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,624 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,624 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,625 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,625 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,626 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,626 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,627 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,627 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,628 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,628 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,628 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,629 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,629 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,629 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,630 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,630 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,631 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,631 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,632 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,632 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,633 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,633 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,634 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,634 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,634 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,635 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,635 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,635 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,636 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,636 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,637 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,637 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,638 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,638 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,639 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,639 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,640 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,640 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,640 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,641 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,641 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,642 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,642 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,642 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,643 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,643 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,644 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,644 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,645 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,645 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,646 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,646 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,647 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,647 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,647 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,648 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,648 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,648 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,649 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,649 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,650 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,650 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,651 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,651 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,652 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,652 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,653 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,653 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,653 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,654 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,654 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,655 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,655 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,655 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,656 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,656 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,657 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,657 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,658 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,658 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,659 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,659 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,660 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,660 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,661 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 429 Too Many Requests"
+2025-12-03 18:17:31,661 - app.memory.extraction - WARNING - Failed to store conversation memory: 429
+2025-12-03 18:17:31,661 - app.memory.extraction - INFO - Stored 0 conversation memories for +16124833213
+2025-12-03 18:17:31,661 - app.webhooks.post_call - INFO - Stored 0 conversation memories for +16124833213
+2025-12-03 18:17:31,661 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     127.0.0.1:52560 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52568 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52568 - "GET /openapi.json HTTP/1.1" 200 OK

@@ -1,0 +1,20 @@
+t=2025-12-03T18:04:13-0600 lvl=info msg="no configuration paths supplied"
+t=2025-12-03T18:04:13-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
+t=2025-12-03T18:04:13-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
+t=2025-12-03T18:04:13-0600 lvl=info msg="FIPS 140 mode" enabled=false
+t=2025-12-03T18:04:13-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-12-03T18:04:13-0600 lvl=info msg="client session established" obj=tunnels.session
+t=2025-12-03T18:04:13-0600 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-12-03T18:04:14-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
+t=2025-12-03T18:04:16-0600 lvl=info msg=start pg=/api/tunnels id=acf9ef16deb26605
+t=2025-12-03T18:04:16-0600 lvl=info msg=end pg=/api/tunnels id=acf9ef16deb26605 status=200 dur=197.881µs
+t=2025-12-03T18:04:16-0600 lvl=info msg=start pg=/api/tunnels id=f8b539dc8d582cd2
+t=2025-12-03T18:04:16-0600 lvl=info msg=end pg=/api/tunnels id=f8b539dc8d582cd2 status=200 dur=159.748µs
+t=2025-12-03T18:05:46-0600 lvl=info msg="join connections" obj=join id=0cb2d9708727 l=127.0.0.1:8000 r=192.145.247.124:62244
+t=2025-12-03T18:06:28-0600 lvl=info msg="join connections" obj=join id=b1d5de710c63 l=127.0.0.1:8000 r=192.145.247.124:51390
+t=2025-12-03T18:06:35-0600 lvl=info msg="join connections" obj=join id=d2fb386fa469 l=127.0.0.1:8000 r=192.145.247.124:51343
+t=2025-12-03T18:15:22-0600 lvl=info msg="join connections" obj=join id=8bb17c289be6 l=127.0.0.1:8000 r=192.145.247.124:63908
+t=2025-12-03T18:15:40-0600 lvl=info msg="join connections" obj=join id=a6d9d2861bc2 l=127.0.0.1:8000 r=192.145.247.124:63931
+t=2025-12-03T18:16:34-0600 lvl=info msg="join connections" obj=join id=1a268ccbb7d9 l=127.0.0.1:8000 r=192.145.247.124:62284
+t=2025-12-03T18:16:59-0600 lvl=info msg="join connections" obj=join id=14285f23c0fb l=127.0.0.1:8000 r=192.145.247.124:62300
+t=2025-12-03T18:17:31-0600 lvl=info msg="join connections" obj=join id=8134ac1159a7 l=127.0.0.1:8000 r=192.145.247.124:62249

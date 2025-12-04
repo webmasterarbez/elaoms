@@ -153,9 +153,9 @@ class TranscriptEntry(BaseModel):
         ...,
         description="The role of the speaker: 'agent' or 'user'",
     )
-    message: str = Field(
-        ...,
-        description="The content of the message spoken",
+    message: Optional[str] = Field(
+        default=None,
+        description="The content of the message spoken (can be null for tool-only turns)",
     )
     time_in_call_secs: int = Field(
         ...,
@@ -311,6 +311,22 @@ class PhoneCallInfo(BaseModel):
         ...,
         description="Phone provider type (e.g., 'twilio')",
     )
+    direction: Optional[str] = Field(
+        default=None,
+        description="Call direction ('inbound' or 'outbound')",
+    )
+    phone_number_id: Optional[str] = Field(
+        default=None,
+        description="Phone number ID",
+    )
+    agent_number: Optional[str] = Field(
+        default=None,
+        description="Agent's phone number",
+    )
+    external_number: Optional[str] = Field(
+        default=None,
+        description="External caller's phone number",
+    )
     stream_sid: Optional[str] = Field(
         default=None,
         description="Stream SID for the call",
@@ -384,12 +400,30 @@ class InitiationTrigger(BaseModel):
     )
 
 
+class ChargingInfo(BaseModel):
+    """Charging information for the call."""
+
+    dev_discount: bool = Field(default=False, description="Developer discount applied")
+    is_burst: bool = Field(default=False, description="Whether this was a burst call")
+    tier: Optional[str] = Field(default=None, description="Pricing tier")
+    llm_usage: Optional[dict[str, Any]] = Field(default=None, description="LLM usage details")
+    llm_price: Optional[float] = Field(default=None, description="LLM price")
+    llm_charge: Optional[float] = Field(default=None, description="LLM charge")
+    call_charge: Optional[float] = Field(default=None, description="Call charge")
+    free_minutes_consumed: Optional[float] = Field(default=None, description="Free minutes consumed")
+    free_llm_dollars_consumed: Optional[float] = Field(default=None, description="Free LLM dollars consumed")
+
+
 class CallMetadata(BaseModel):
     """Metadata about the call."""
 
     start_time_unix_secs: Optional[int] = Field(
         default=None,
         description="Unix timestamp when the call started",
+    )
+    accepted_time_unix_secs: Optional[int] = Field(
+        default=None,
+        description="Unix timestamp when the call was accepted",
     )
     end_time_unix_secs: Optional[int] = Field(
         default=None,
@@ -414,6 +448,10 @@ class CallMetadata(BaseModel):
     authorization_method: Optional[str] = Field(
         default=None,
         description="Method used for authorization",
+    )
+    charging: Optional[ChargingInfo] = Field(
+        default=None,
+        description="Charging information for the call",
     )
     phone_call: Optional[PhoneCallInfo] = Field(
         default=None,
@@ -578,8 +616,8 @@ class PostCallData(BaseModel):
         ...,
         description="The unique identifier for the conversation",
     )
-    status: str = Field(
-        ...,
+    status: Optional[str] = Field(
+        default=None,
         description="Status of the conversation (e.g., 'done')",
     )
     user_id: Optional[str] = Field(

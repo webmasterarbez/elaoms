@@ -2,7 +2,8 @@
 
 This module handles the POST /webhook/post-call endpoint:
 - HMAC authentication REQUIRED (uses verify_hmac_signature dependency)
-- Parses PostCallWebhookRequest from request body
+- Returns 200 immediately after HMAC verification
+- Processes payload asynchronously in background task
 - Handles three webhook types:
   - post_call_transcription: Process and save transcription
   - post_call_audio: Decode base64 and save audio
@@ -11,13 +12,14 @@ This module handles the POST /webhook/post-call endpoint:
 - Implements memory processing for OpenMemory integration
 """
 
+import asyncio
 import base64
 import json
 import logging
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request, status
 
 from app.config import settings
 from app.auth.hmac import verify_hmac_signature
@@ -182,7 +184,7 @@ def _extract_caller_phone(request_data: PostCallWebhookRequest) -> str | None:
     return None
 
 
-def _process_memories(request_data: PostCallWebhookRequest) -> None:
+async def _process_memories(request_data: PostCallWebhookRequest) -> None:
     """Process and store memories from post-call transcription.
 
     This function:
@@ -211,8 +213,8 @@ def _process_memories(request_data: PostCallWebhookRequest) -> None:
     # Store profile facts as memories
     if user_info:
         try:
-            create_profile_memories(user_info, phone_number)
-            logger.info(f"Stored {len(user_info)} profile memories for {phone_number}")
+            results = await create_profile_memories(user_info, phone_number)
+            logger.info(f"Stored {len(results)} profile memories for {phone_number}")
         except Exception as e:
             logger.error(f"Failed to store profile memories: {e}")
 
@@ -221,10 +223,69 @@ def _process_memories(request_data: PostCallWebhookRequest) -> None:
         user_messages = extract_user_messages(request_data.data.transcript)
         if user_messages:
             try:
-                store_conversation_memories(user_messages, phone_number)
-                logger.info(f"Stored {len(user_messages)} conversation memories for {phone_number}")
+                results = await store_conversation_memories(user_messages, phone_number)
+                logger.info(f"Stored {len(results)} conversation memories for {phone_number}")
             except Exception as e:
                 logger.error(f"Failed to store conversation memories: {e}")
+
+
+async def _process_webhook_payload(payload_dict: dict[str, Any]) -> None:
+    """Process webhook payload in background.
+
+    This function handles all webhook types asynchronously after
+    the immediate 200 response has been sent to ElevenLabs.
+
+    Args:
+        payload_dict: The raw webhook payload as a dictionary.
+    """
+    try:
+        # Parse the request
+        request_data = PostCallWebhookRequest(**payload_dict)
+        webhook_type = request_data.type
+        conversation_id = request_data.data.conversation_id
+
+        logger.info(f"Background processing webhook: type={webhook_type}, conversation_id={conversation_id}")
+
+        if webhook_type == "post_call_transcription":
+            # Save transcription
+            _save_transcription(conversation_id, payload_dict)
+            # Process memories
+            await _process_memories(request_data)
+            logger.info(f"Completed transcription processing for {conversation_id}")
+
+        elif webhook_type == "post_call_audio":
+            # Extract and save audio
+            audio_base64 = payload_dict.get("data", {}).get("full_audio")
+            if audio_base64:
+                _save_audio(conversation_id, audio_base64)
+                logger.info(f"Completed audio processing for {conversation_id}")
+            else:
+                logger.warning(f"No full_audio found in post_call_audio webhook for {conversation_id}")
+
+        elif webhook_type == "call_initiation_failure":
+            # Save failure log
+            _save_failure(conversation_id, payload_dict)
+            logger.info(f"Saved failure log for {conversation_id}")
+
+        else:
+            logger.warning(f"Unknown webhook type: {webhook_type}")
+
+    except Exception as e:
+        logger.error(f"Error in background webhook processing: {e}", exc_info=True)
+        # Save raw payload for debugging
+        try:
+            conversation_id = payload_dict.get("data", {}).get("conversation_id", "unknown")
+            storage_dir = _get_storage_path(conversation_id)
+            _ensure_directory_exists(storage_dir)
+            error_file = storage_dir / f"{conversation_id}_error.json"
+            with open(error_file, "w") as f:
+                json.dump({
+                    "error": str(e),
+                    "payload": payload_dict
+                }, f, indent=2)
+            logger.info(f"Saved error payload to {error_file}")
+        except Exception as save_error:
+            logger.error(f"Failed to save error payload: {save_error}")
 
 
 @router.post(
@@ -233,120 +294,62 @@ def _process_memories(request_data: PostCallWebhookRequest) -> None:
     description=(
         "Webhook called by ElevenLabs after a call completes. "
         "Handles transcription, audio, and failure payloads. "
-        "HMAC authentication is required."
+        "HMAC authentication is required. "
+        "Returns 200 immediately after HMAC verification; processing happens in background."
     ),
     responses={
-        200: {"description": "Webhook processed successfully"},
+        200: {"description": "Webhook received and queued for processing"},
         401: {"description": "HMAC authentication failed"},
-        500: {"description": "Internal server error"},
     },
 )
 async def post_call_webhook(
     request: Request,
+    background_tasks: BackgroundTasks,
     _: None = Depends(verify_hmac_signature),
 ) -> dict[str, Any]:
     """Handle post-call webhook for transcription, audio, and failure processing.
 
     This endpoint:
     1. Validates HMAC signature (via dependency)
-    2. Parses the webhook payload
-    3. Routes to appropriate handler based on webhook type
-    4. Saves payload to storage
-    5. Processes memories for transcription webhooks
+    2. Returns 200 immediately to acknowledge receipt
+    3. Processes payload asynchronously in background task
+
+    This design ensures ElevenLabs always receives a timely response,
+    preventing webhook timeouts regardless of processing complexity.
 
     Args:
         request: FastAPI Request object
+        background_tasks: FastAPI BackgroundTasks for async processing
         _: HMAC signature verification dependency
 
     Returns:
-        Success response with processing details
+        Immediate success response acknowledging webhook receipt
     """
-    # Parse the request body
+    # Parse JSON body - minimal validation here for fast response
     try:
         body = await request.body()
         payload_dict = json.loads(body)
-        request_data = PostCallWebhookRequest(**payload_dict)
     except json.JSONDecodeError as e:
         logger.error(f"Failed to parse JSON payload: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid JSON payload: {e}"
-        )
-    except Exception as e:
-        logger.error(f"Failed to parse webhook request: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid request payload: {e}"
-        )
+        # Still return 200 but log the error - don't block ElevenLabs
+        return {
+            "status": "error",
+            "message": f"Invalid JSON payload: {e}"
+        }
 
-    webhook_type = request_data.type
-    conversation_id = request_data.data.conversation_id
+    # Extract basic info for logging (without full Pydantic validation)
+    webhook_type = payload_dict.get("type", "unknown")
+    conversation_id = payload_dict.get("data", {}).get("conversation_id", "unknown")
 
     logger.info(f"Post-call webhook received: type={webhook_type}, conversation_id={conversation_id}")
 
-    try:
-        if webhook_type == "post_call_transcription":
-            # Save transcription and process memories
-            _save_transcription(conversation_id, payload_dict)
-            _process_memories(request_data)
+    # Queue background processing - this runs after response is sent
+    background_tasks.add_task(_process_webhook_payload, payload_dict)
 
-            return {
-                "status": "success",
-                "type": webhook_type,
-                "conversation_id": conversation_id,
-                "message": "Transcription saved and memories processed"
-            }
-
-        elif webhook_type == "post_call_audio":
-            # Extract and save audio
-            # Audio is in data.audio_base64 (if present in the payload)
-            audio_base64 = payload_dict.get("data", {}).get("audio_base64")
-            if audio_base64:
-                _save_audio(conversation_id, audio_base64)
-                return {
-                    "status": "success",
-                    "type": webhook_type,
-                    "conversation_id": conversation_id,
-                    "message": "Audio saved successfully"
-                }
-            else:
-                logger.warning(f"No audio_base64 found in post_call_audio webhook")
-                return {
-                    "status": "success",
-                    "type": webhook_type,
-                    "conversation_id": conversation_id,
-                    "message": "Audio webhook received but no audio data present"
-                }
-
-        elif webhook_type == "call_initiation_failure":
-            # Save failure log
-            _save_failure(conversation_id, payload_dict)
-
-            return {
-                "status": "success",
-                "type": webhook_type,
-                "conversation_id": conversation_id,
-                "message": "Failure log saved"
-            }
-
-        else:
-            logger.warning(f"Unknown webhook type: {webhook_type}")
-            return {
-                "status": "success",
-                "type": webhook_type,
-                "conversation_id": conversation_id,
-                "message": f"Received unknown webhook type: {webhook_type}"
-            }
-
-    except IOError as e:
-        logger.error(f"File system error processing webhook: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to save payload: {e}"
-        )
-    except Exception as e:
-        logger.error(f"Error processing post-call webhook: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error processing webhook: {e}"
-        )
+    # Return immediately - processing continues in background
+    return {
+        "status": "received",
+        "type": webhook_type,
+        "conversation_id": conversation_id,
+        "message": "Webhook received and queued for processing"
+    }

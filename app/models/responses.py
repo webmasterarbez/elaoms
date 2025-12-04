@@ -24,6 +24,8 @@ class DynamicVariables(BaseModel):
     to enable personalized greetings and context-aware responses.
     """
 
+    model_config = ConfigDict(extra="allow")
+
     user_name: Optional[str] = Field(
         default=None,
         description="The user's name for personalized greetings",

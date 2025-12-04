@@ -1,22 +1,15 @@
-"""OpenMemory client and memory operations.
+"""OpenMemory memory operations via REST API.
 
 This module provides the memory integration layer for the ElevenLabs OpenMemory
 integration. It includes:
 
-- Client: OpenMemory SDK client wrapper for remote mode operations
 - Profiles: Caller profile management and dynamic variable building
 - Extraction: Transcript processing and memory storage
 
-All memory operations use phone numbers as the userId for multi-tenant isolation,
-and store memories with decayLambda=0 for permanent retention.
+All memory operations use direct HTTP calls via httpx.AsyncClient to avoid
+async event loop conflicts. Phone numbers are used as userId for multi-tenant
+isolation, and memories are stored with decayLambda=0 for permanent retention.
 """
-
-from app.memory.client import (
-    get_openmemory_client,
-    reset_client,
-    close_client,
-    OpenMemoryConnectionError,
-)
 
 from app.memory.profiles import (
     get_user_profile,
@@ -35,11 +28,6 @@ from app.memory.extraction import (
 )
 
 __all__ = [
-    # Client
-    "get_openmemory_client",
-    "reset_client",
-    "close_client",
-    "OpenMemoryConnectionError",
     # Profiles
     "get_user_profile",
     "get_user_summary",

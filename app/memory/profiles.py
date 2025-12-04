@@ -1,7 +1,7 @@
 """Caller profile management for OpenMemory integration.
 
 This module provides functions for:
-- Retrieving user profiles from OpenMemory
+- Retrieving user profiles from OpenMemory via REST API
 - Getting user summaries via the OpenMemory API
 - Building dynamic variables for ElevenLabs response
 - Generating personalized conversation overrides
@@ -12,10 +12,9 @@ All operations use the phone number as the userId for multi-tenant isolation.
 import logging
 from typing import Any, Optional
 
-import requests
+import httpx
 
 from app.config import settings
-from app.memory.client import get_openmemory_client, OpenMemoryConnectionError
 from app.models.responses import (
     DynamicVariables,
     ConversationConfigOverride,
@@ -26,10 +25,11 @@ from app.models.responses import (
 logger = logging.getLogger(__name__)
 
 
-def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
-    """Query OpenMemory for user profile data.
+async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
+    """Query OpenMemory for user profile data via REST API.
 
     Retrieves stored memories for a user to build their profile.
+    Uses direct HTTP calls to avoid async event loop conflicts.
 
     Args:
         phone_number: The user's phone number in E.164 format (e.g., +16129782029).
@@ -45,20 +45,42 @@ def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
         }
     """
     try:
-        client = get_openmemory_client()
+        openmemory_url = settings.openmemory_url
+        api_key = settings.OPENMEMORY_KEY
 
-        # Query memories with userId filter to get user-specific data
-        results = client.query(
-            query="user profile information preferences name",
-            k=20,
-            filters={"userId": phone_number}
-        )
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
 
-        if not results or not results.get("results"):
+        # Query memories via REST API
+        query_payload = {
+            "query": "user profile information preferences name",
+            "k": 20,
+            "filters": {"user_id": phone_number}
+        }
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.post(
+                f"{openmemory_url}/memory/query",
+                json=query_payload,
+                headers=headers
+            )
+
+            if response.status_code == 404:
+                logger.info(f"No profile found for user {phone_number}")
+                return None
+
+            if response.status_code != 200:
+                logger.warning(f"OpenMemory query returned status {response.status_code}: {response.text}")
+                return None
+
+            results = response.json()
+
+        if not results or not results.get("matches"):
             logger.info(f"No profile found for user {phone_number}")
             return None
 
-        memories = results.get("results", [])
+        memories = results.get("matches", [])
 
         # Extract name from memories if available
         name = _extract_name_from_memories(memories)
@@ -74,15 +96,15 @@ def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
             "phone_number": phone_number
         }
 
-    except OpenMemoryConnectionError as e:
-        logger.error(f"Failed to connect to OpenMemory: {e}")
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error querying OpenMemory for {phone_number}: {e}")
         return None
     except Exception as e:
         logger.error(f"Error retrieving user profile for {phone_number}: {e}")
         return None
 
 
-def get_user_summary(phone_number: str) -> Optional[dict[str, Any]]:
+async def get_user_summary(phone_number: str) -> Optional[dict[str, Any]]:
     """Retrieve user summary from OpenMemory API.
 
     Calls the /users/{userId}/summary endpoint to get a comprehensive
@@ -105,26 +127,26 @@ def get_user_summary(phone_number: str) -> Optional[dict[str, Any]]:
         openmemory_url = settings.openmemory_url
         api_key = settings.OPENMEMORY_KEY
 
-        headers = {
-            "Content-Type": "application/json"
-        }
+        headers = {"Content-Type": "application/json"}
         if api_key:
             headers["Authorization"] = f"Bearer {api_key}"
 
         # URL encode the phone number for the path
-        encoded_user_id = requests.utils.quote(phone_number, safe="")
+        from urllib.parse import quote
+        encoded_user_id = quote(phone_number, safe="")
         url = f"{openmemory_url}/users/{encoded_user_id}/summary"
 
-        response = requests.get(url, headers=headers, timeout=10)
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.get(url, headers=headers)
 
-        if response.status_code == 404:
-            logger.info(f"No summary found for user {phone_number}")
-            return None
+            if response.status_code == 404:
+                logger.info(f"No summary found for user {phone_number}")
+                return None
 
-        response.raise_for_status()
-        return response.json()
+            response.raise_for_status()
+            return response.json()
 
-    except requests.exceptions.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Error fetching user summary for {phone_number}: {e}")
         return None
     except Exception as e:
@@ -298,7 +320,7 @@ def _get_last_call_summary(memories: list[dict[str, Any]]) -> Optional[str]:
     # Sort by timestamp if available, get the most recent
     episodic_memories = [
         m for m in memories
-        if m.get("sector") == "episodic"
+        if m.get("primary_sector") == "episodic"
     ]
 
     if not episodic_memories:

@@ -16,9 +16,10 @@ All memories are stored with:
 import logging
 from typing import Any, Optional
 
-from app.memory.client import get_openmemory_client, OpenMemoryConnectionError
+import httpx
+
+from app.config import settings
 from app.models.requests import TranscriptEntry, DataCollectionResult
-from app.models.responses import ProfileData, MemoryItem, SearchDataResponse
 
 logger = logging.getLogger(__name__)
 
@@ -78,7 +79,7 @@ def extract_user_messages(transcript: list[TranscriptEntry]) -> list[str]:
     return user_messages
 
 
-def create_profile_memories(
+async def create_profile_memories(
     user_info: dict[str, Any],
     phone_number: str
 ) -> list[dict[str, Any]]:
@@ -99,43 +100,59 @@ def create_profile_memories(
         logger.info("No user info to store")
         return []
 
+    openmemory_url = settings.openmemory_url
+    api_key = settings.OPENMEMORY_KEY
+
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    results = []
+
     try:
-        client = get_openmemory_client()
-        results = []
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            for key, value in user_info.items():
+                if value is None:
+                    continue
 
-        for key, value in user_info.items():
-            if value is None:
-                continue
+                # Create human-readable content
+                content = _format_profile_content(key, value)
 
-            # Create human-readable content
-            content = _format_profile_content(key, value)
+                if not content:
+                    continue
 
-            if not content:
-                continue
+                payload = {
+                    "content": content,
+                    "tags": ["profile", key],
+                    "metadata": {"field": key, "value": str(value)},
+                    "user_id": phone_number,
+                    "salience": HIGH_SALIENCE,
+                    "decay_lambda": PERMANENT_DECAY
+                }
 
-            result = client.add(
-                content=content,
-                tags=["profile", key],
-                metadata={"field": key, "value": str(value)},
-                userId=phone_number,
-                salience=HIGH_SALIENCE,
-                decayLambda=PERMANENT_DECAY
-            )
+                response = await client.post(
+                    f"{openmemory_url}/memory/add",
+                    json=payload,
+                    headers=headers
+                )
 
-            results.append(result)
-            logger.info(f"Stored profile memory for {phone_number}: {key}={value}")
+                if response.status_code == 200:
+                    results.append(response.json())
+                    logger.info(f"Stored profile memory for {phone_number}: {key}={value}")
+                else:
+                    logger.warning(f"Failed to store profile memory: {response.status_code} - {response.text}")
 
         return results
 
-    except OpenMemoryConnectionError as e:
-        logger.error(f"Failed to connect to OpenMemory: {e}")
-        return []
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error storing profile memories: {e}")
+        return results
     except Exception as e:
         logger.error(f"Error storing profile memories: {e}")
-        return []
+        return results
 
 
-def store_conversation_memories(
+async def store_conversation_memories(
     messages: list[str],
     phone_number: str
 ) -> list[dict[str, Any]]:
@@ -155,38 +172,54 @@ def store_conversation_memories(
         logger.info("No messages to store")
         return []
 
+    openmemory_url = settings.openmemory_url
+    api_key = settings.OPENMEMORY_KEY
+
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    results = []
+
     try:
-        client = get_openmemory_client()
-        results = []
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            for idx, message in enumerate(messages):
+                if not message or len(message.strip()) < 3:
+                    continue
 
-        for idx, message in enumerate(messages):
-            if not message or len(message.strip()) < 3:
-                continue
+                payload = {
+                    "content": message,
+                    "tags": ["conversation", "user_message"],
+                    "metadata": {"message_index": idx, "type": "user_utterance"},
+                    "user_id": phone_number,
+                    "salience": MEDIUM_SALIENCE,
+                    "decay_lambda": PERMANENT_DECAY
+                }
 
-            result = client.add(
-                content=message,
-                tags=["conversation", "user_message"],
-                metadata={"message_index": idx, "type": "user_utterance"},
-                userId=phone_number,
-                salience=MEDIUM_SALIENCE,
-                decayLambda=PERMANENT_DECAY
-            )
+                response = await client.post(
+                    f"{openmemory_url}/memory/add",
+                    json=payload,
+                    headers=headers
+                )
 
-            results.append(result)
-            logger.debug(f"Stored conversation memory {idx} for {phone_number}")
+                if response.status_code == 200:
+                    results.append(response.json())
+                    logger.debug(f"Stored conversation memory {idx} for {phone_number}")
+                else:
+                    logger.warning(f"Failed to store conversation memory: {response.status_code}")
 
         logger.info(f"Stored {len(results)} conversation memories for {phone_number}")
         return results
 
-    except OpenMemoryConnectionError as e:
-        logger.error(f"Failed to connect to OpenMemory: {e}")
-        return []
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error storing conversation memories: {e}")
+        return results
     except Exception as e:
         logger.error(f"Error storing conversation memories: {e}")
-        return []
+        return results
 
 
-def search_memories(
+async def search_memories(
     query: str,
     phone_number: str,
     limit: int = 10
@@ -205,27 +238,44 @@ def search_memories(
         A dictionary with 'profile' and 'memories' keys.
         Handles empty results gracefully.
     """
-    try:
-        client = get_openmemory_client()
+    openmemory_url = settings.openmemory_url
+    api_key = settings.OPENMEMORY_KEY
 
-        # Query with userId filter for isolation
-        results = client.query(
-            query=query,
-            k=limit,
-            filters={"userId": phone_number}
-        )
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            payload = {
+                "query": query,
+                "k": limit,
+                "filters": {"user_id": phone_number}
+            }
+
+            response = await client.post(
+                f"{openmemory_url}/memory/query",
+                json=payload,
+                headers=headers
+            )
+
+            if response.status_code != 200:
+                logger.warning(f"OpenMemory query failed: {response.status_code}")
+                return {"profile": None, "memories": []}
+
+            results = response.json()
 
         # Parse results into structured format
         memories = []
         name = None
         summary_parts = []
 
-        raw_results = results.get("results", []) if results else []
+        raw_results = results.get("matches", []) if results else []
 
         for memory in raw_results:
             memory_item = {
                 "content": memory.get("content", ""),
-                "sector": memory.get("sector", "semantic"),
+                "sector": memory.get("primary_sector", "semantic"),
                 "salience": memory.get("salience", 0.5),
             }
             memories.append(memory_item)
@@ -256,8 +306,8 @@ def search_memories(
             "memories": memories
         }
 
-    except OpenMemoryConnectionError as e:
-        logger.error(f"Failed to connect to OpenMemory: {e}")
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error searching memories: {e}")
         return {"profile": None, "memories": []}
     except Exception as e:
         logger.error(f"Error searching memories: {e}")
