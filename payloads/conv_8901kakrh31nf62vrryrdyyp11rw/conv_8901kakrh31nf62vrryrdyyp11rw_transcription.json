@@ -1,0 +1,939 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1764811369,
+  "data": {
+    "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+    "conversation_id": "conv_8901kakrh31nf62vrryrdyyp11rw",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 6,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Hello, I'm here and ready to help. Could you please share your first name and last name so I can assist you better?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 7,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.16012659599982726
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.1034373089996734
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.24949219599966455
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.4162992920000761
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1178,
+                "price": 0.00028272
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 28,
+                "price": 0.00014
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Stefan Breit.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 14,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.176964255000712
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Nice to meet you, Stefan. How can I assist you today?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 16,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.10103203900052904
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.05070965600043564
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.14163550400007807
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.344380070000625
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1221,
+                "price": 0.00029303999999999995
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 15,
+                "price": 7.5e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, I'd like you to know that my favorite color is blue.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 20,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.12725504300033208
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you for sharing that, Stefan. I've noted your favorite color is blue. Is there anything specific you'd like to discuss or any way I can assist you today?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 25,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.06668364999950427
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.03534691099957854
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.44639522499983286
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.3911010299998452
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1261,
+                "price": 0.00030263999999999996
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 36,
+                "price": 0.00018
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I want you to remember my email address.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 35,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.13787507899996854
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Of course, Stefan. Please share your email address, and I\u2019ll make sure to remember it for future reference.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 38,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.08285524599978089
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.05515880099937931
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.1843101389995354
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.35109979699973337
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1315,
+                "price": 0.0003156
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 24,
+                "price": 0.00012
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "It is stefan at",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 45,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.727745817000141
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "It looks like...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 49,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.10244305600008374
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.03844796400062478
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.1771924009999566
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.44733827999971254
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "It looks like your email address is incomplete. Could you please provide the full email address so I can remember it correctly?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "biz dot com.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 49,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.19098743499944248
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you, Stefan. I\u2019ve now remembered your email address: stefan at biz dot com. Let me know if there\u2019s anything else you\u2019d like me to keep in mind.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 52,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.06261511799948494
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.03391990399995848
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.24420086600002833
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.36287153600005695
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1372,
+                "price": 0.00032928
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 39,
+                "price": 0.000195
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yeah, no, and you got the wrong email address.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 60,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.17920067599970935
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "I apologize, Stefan. Let me correct that. Please share your email address again, and I\u2019ll make sure to get it right this time.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 63,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.07965253500060498
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.04146902299999056
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.2689146520006034
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.4402595920000749
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1432,
+                "price": 0.00034368
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 30,
+                "price": 0.00015
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Stefan at rbiz dot com.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 71,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.186246506000316
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Thank you for clarifying, Stefan. I\u2019ve now correctly noted your email address as stefan at rbiz dot com. Is there anything else you\u2019d like me to remember or assist with?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 77,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.20917744600046717
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.09988443099973665
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.4258572959997764
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.41022556999996596
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1480,
+                "price": 0.0003552
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 41,
+                "price": 0.000205
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "That's great. Thank you.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 87,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.3408995950003373
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "You're very welcome, Stefan. If you need any help with anything else, just let me know. Have a wonderful day!...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 89,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.08647983799983194
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.04413114300041343
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.196669920000204
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.3720984409992525
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "qwen3-30b-a3b": {
+              "input": {
+                "tokens": 1537,
+                "price": 0.00036888
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 27,
+                "price": 0.000135
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "You're very welcome, Stefan. If you need any help with anything else, just let me know. Have a wonderful day!",
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1763747335,
+      "accepted_time_unix_secs": 1763747336,
+      "call_duration_secs": 96,
+      "cost": 662,
+      "deletion_settings": {
+        "deletion_time_unix_secs": null,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "signed_url",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "qwen3-30b-a3b": {
+                "input": {
+                  "tokens": 10796,
+                  "price": 0.0025910399999999997
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 240,
+                  "price": 0.0012
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "qwen3-30b-a3b": {
+                "input": {
+                  "tokens": 15002,
+                  "price": 0.0036004799999999992
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 319,
+                  "price": 0.001595
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 0.005195479999999999,
+        "llm_charge": 23,
+        "call_charge": 639,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "phnum_01jxj3hwx1fava7g3snzm5e2f8",
+        "agent_number": "+16123241623",
+        "external_number": "+16129782029",
+        "type": "twilio",
+        "stream_sid": "MZ04118dd264118c01ad8eb972fca1b334",
+        "call_sid": "CA1e46935ba84521995aa68af0aeb46a56"
+      },
+      "batch_call": null,
+      "termination_reason": "Call ended by remote party",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": null,
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": false,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": false,
+          "used": false
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "twilio",
+      "conversation_initiation_source_version": null,
+      "timezone": "UTC",
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "ui",
+      "agent_last_updated_from": "ui"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {},
+      "data_collection_results": {
+        "first_name": {
+          "data_collection_id": "first_name",
+          "value": "Stefan",
+          "json_schema": {
+            "type": "string",
+            "description": "First name",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user provides their first name as 'Stefan' in the message at 2025-11-21T17:49:09+00:00."
+        },
+        "last_name": {
+          "data_collection_id": "last_name",
+          "value": "Breit",
+          "json_schema": {
+            "type": "string",
+            "description": "Last name",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user states their full name as 'Stefan Breit' at 2025-11-21T17:49:09+00:00. Therefore, the last name is 'Breit'."
+        }
+      },
+      "call_successful": "success",
+      "transcript_summary": "The user, Stefan Breit, interacted with the agent, sharing his name, favorite color (blue), and email address. The agent initially recorded the email address incorrectly but corrected it after the user provided the correct information: stefan at rbiz dot com. The agent confirmed the correction and offered further assistance.\n",
+      "call_summary_title": "Email Address Correction"
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": null,
+        "conversation": null,
+        "agent": null
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "system__agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+        "system__current_agent_id": "agent_8501k9r8sbb5fjbbym8c9y1jqt9b",
+        "system__conversation_id": "conv_8901kakrh31nf62vrryrdyyp11rw",
+        "system__caller_id": "+16129782029",
+        "system__called_number": "+16123241623",
+        "system__call_duration_secs": 95,
+        "system__time_utc": "2025-11-21T17:50:31.487095+00:00",
+        "system__time": "Friday, 17:50 21 November 2025",
+        "system__timezone": "UTC",
+        "system__call_sid": "CA1e46935ba84521995aa68af0aeb46a56"
+      }
+    },
+    "has_audio": true,
+    "has_user_audio": true,
+    "has_response_audio": true
+  }
+}

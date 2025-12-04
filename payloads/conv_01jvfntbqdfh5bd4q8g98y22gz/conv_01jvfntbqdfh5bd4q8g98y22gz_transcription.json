@@ -1,0 +1,3273 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1764853457,
+  "data": {
+    "agent_id": "agent_01jvaxb67newtrqxfzwgkk97tz",
+    "conversation_id": "conv_01jvfntbqdfh5bd4q8g98y22gz",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Welcome. I'm here to help document your professional journey. Let's begin with what inspired you to start your company. What core problem were you aiming to solve initially? Feel free to share key moments or challenges that shaped your path. Take your time - we want to...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 0,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Welcome. I'm here to help document your professional journey. Let's begin with what inspired you to start your company. What core problem were you aiming to solve initially? Feel free to share key moments or challenges that shaped your path. Take your time - we want to capture your story authentically.",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Hey, can we pick up where we left off earlier today?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 14,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "I need to clarify something - I actually don't have access to any earlier conversation we might have had today. Each conversation with me starts fresh. However, I'd be happy to continue exploring your professional journey from wherever you'd like to start. Perhaps you could remind me what aspect of your story we were discussing, and we can proceed from there?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 21,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.2055249199984246
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7965519879944623
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 2085,
+                "price": 0.006255
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 74,
+                "price": 0.00111
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You already asked me what inspired Arbez.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 41,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Ah,...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 46,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Ah, I apologize for any confusion, but I actually don't have any record of our previous conversation about Arbez. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "get started. You asked me how I succeeded. You asked me what makes our company different than others. You asked me what kept us motivated. You asked me what was the hardest thing in the beginning.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 41,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Thank you for catching me up. Since we've already covered those foundational aspects about Arbez, I'd like to dive deeper into a specific period of your journey. Could you tell me about a pivotal moment or decision that really changed the trajectory of the company? Sometimes these turning points aren't obvious until we look back at them.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 60,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.941598094002984
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7774768860035692
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 2223,
+                "price": 0.006669
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 72,
+                "price": 0.00108
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 86,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Hello? Are you still there? I...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 87,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.881209533996298
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8042765779973706
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Hello? Are you still there? I noticed you haven't responded. I'm very interested in hearing about those key moments in Arbez's development, but if you need a moment or would prefer to focus on a different aspect of your journey, please let me know.",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yeah, it was the first time. Yep, yep. The first time a career counselor called me for some help, I was astonished. And before you know it, we ended up licensing our online platform to our first career consulting firm. It was astonishing to me to realize what a big help it was to career counselors.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 88,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a fascinating turning point - when your platform's value became clear through that career counselor's outreach. Could you walk me through how that initial conversation evolved into your first licensing deal? I'm particularly interested in what adjustments or insights you gained from working with career consulting professionals that perhaps shaped your platform's development.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 116,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.2064855379940127
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5698948110002675
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 2388,
+                "price": 0.007164
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 68,
+                "price": 0.00102
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, first, it was a career counselor calling me and saying, my clients keep going to your events, and they say it's been tremendously helpful. Do you mind if I come? And I said, no, not at all.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 137,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 152,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.939177156004007
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5664052459978848
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That's such an organic way for your business to evolve - through word-of-mouth from satisfied clients. What happened when the career counselor attended? Did their professional perspective offer any new insights about how your platform could serve their industry specifically?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "career counselor came to my event, and they kept coming. And then more of them kept coming. And they kept telling me that they were learning new things, and they were becoming better career counselors, and it was really helping them to get the professional recruiter's perspective. And that was something that just never occurred to me before they approached me.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 137,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "What a powerful example of organic growth through word-of-mouth and discovering an unexpected audience. It sounds like you inadvertently created a valuable professional development resource for career counselors. When you noticed this pattern of counselors attending and benefiting from your events, how did you adapt your approach or content to better serve both job seekers and these career professionals?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 174,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3059371459967224
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7652022279944504
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 2590,
+                "price": 0.00777
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 76,
+                "price": 0.00114
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, we had already built the online job hunt, our first online job hunt course for job seekers. And so I invited some career counselors to check it out and give us feedback. And they absolutely loved it. And they said not only was it going to be a huge help to their clients, but that they were going to learn a lot from me as well.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 196,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That must have been incredibly validating to receive such positive feedback from industry professionals. How did this feedback from career counselors influence the evolution of your online course? Did you make any significant changes to the platform or content based on their insights, or did it open up new possibilities for how you could serve both job seekers and career professionals simultaneously?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 219,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.9492847599976812
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6541283249971457
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 2745,
+                "price": 0.008235
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 72,
+                "price": 0.00108
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes, it opened up new possibilities on how we could serve job seekers and career counselors simultaneously. At the same time, we got career coaches from colleges and universities starting to attend our events and follow us online. And they started asking for help, and they started asking me to come and speak. And they kept asking me to come back and speak, and my speaking career took off. That was a happy accident. I never, ever planned on becoming a professional speaker, but it ended up being something that I love and wonderful exposure for our business and our online platform. Furthermore, where colleges and universities were concerned, more and more college career coaches started reaching out to us and, again, inviting me to speak, and when I told them about our online course, they were extremely interested because their students were having trouble understanding what we were talking about. So I think that's one of the reasons why we're having trouble getting jobs. What they were teaching them wasn't working\u2014not in the new world of work.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 241,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a remarkable...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 309,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 6.23079601200152
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 5.543304345999786
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That's a remarkable chain of events - how one opportunity led to another, creating this ripple effect from individual career counselors to college career centers. It's particularly interesting how you identified that gap between traditional career guidance and the realities of the modern workplace. Could you tell me more about the specific insights or approaches in your program that these college career coaches found so different from conventional methods? ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Even the best career coaches just ran out of time. People need more than just an hour a week, and career coaches were just really struggling to give people the level of support and education and inspiration that they needed and wanted.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 309,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 328,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.0358377599986852
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6284883719999925
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That's such a crucial insight about the gap between traditional career coaching capacity and what job seekers actually need. It sounds like your platform became a solution to a systemic problem - the limited time and resources career coaches had to serve their clients effectively. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "And the platform really freed them up to do more of the coaching and less of the basic stuff.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 309,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "What an incredible evolution - from running events to becoming an educational platform that empowers career coaches and counselors to be more effective in their work. It sounds like you identified a crucial gap: career professionals were limited by time constraints and perhaps working with outdated methods for the modern job market. Could you share more about how you managed this rapid expansion from individual events to speaking engagements to creating a platform that universities and career centers could rely on?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 337,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.2738162129971897
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6303594950004481
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3114,
+                "price": 0.009342
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 93,
+                "price": 0.001395
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "By doing pilots and soliciting feedback.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 366,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 372,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That's a smart, methodical approach. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "So go build a little, test a little, take the feedback, tweak a little. It was an iterative process.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 366,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That iterative approach sounds very strategic. Could you walk me through one specific example of how feedback from a pilot program led to an important change or improvement in your platform? I'm particularly interested in hearing about a moment when user feedback really surprised you or challenged your initial assumptions.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 383,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 5.800420597995981
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 5.530426681994868
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3251,
+                "price": 0.009753
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 58,
+                "price": 0.00087
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 401,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Could you elaborate o n that...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 403,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.7581429810015834
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6371623149971128
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3314,
+                "price": 0.009942
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 26,
+                "price": 0.00039
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "Could you elaborate on that example? What specific feedback did you receive and how did it shape your platform's development?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Users asked us if we could do a little progress chart to show them their progress in the system so that they knew they were accomplishing things and feeling successful, and that was something that hadn't even occurred to us, and people kept asking for it, so we built it, and it was really well loved, not only by job seekers, but also by career counselors, because then, with our platform, they could figure out who were the students that were doing the work and who were the students that were falling behind, and they could reach out to the ones that were not using it and find out where were they stuck, why were they stuck, and get them moving again with the online content. .",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 404,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a brilliant example of how user feedback led to a feature that served multiple purposes - motivating job seekers while giving career counselors a valuable tracking tool. It really shows the power of listening to your users. When you implemented this progress tracking system, did you notice any changes in how users engaged with the platform or how career counselors structured their coaching sessions?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 452,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.189256100995408
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6018721539949183
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3471,
+                "price": 0.010413
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 77,
+                "price": 0.001155
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Absolutely. It increased the usage. People were moving through the system faster and they were getting further in the system because they were getting that sense of satisfaction and they could see their progress, which was rewarding. And so then they weren't as discouraged about the whole job search thing.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 471,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's fascinating how a seemingly simple feature like progress tracking had such a significant impact on user engagement and emotional well-being during the job search process. It really speaks to the psychological aspect of job hunting that many might overlook. Looking back at this evolution from events to a comprehensive platform, what would you say was the most unexpected lesson you learned about supporting both job seekers and career professionals?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 491,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.4418160330023966
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.9867481729961582
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3610,
+                "price": 0.01083
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 82,
+                "price": 0.00123
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, you actually just mentioned it. The emotional support, that isn't something that occurred to me in the beginning. I just was so excited to be able to share insider secrets. It didn't even occur to me that people were hungry for or needed the emotional support and once I started \u2013 well what happened is we \u2013 our first course was released in the form of CDs.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 515,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 541,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.079537463003362
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8177678990032291
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That's quite a journey from CDs to an online platform. The evolution of both the technology and your understanding of user needs is remarkable. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "job seeker said to me that I am \u2013 that she was really freaked out about job hunting and overwhelmed but my voice calmed her down. And knowing that she had an expert who was helping her was so helpful that she actually went to bed listening to my voice because it calmed her down and let her sleep through the night because she knew she was in good hands and she wasn't alone.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 515,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "What a powerful and unexpected revelation about the human element of your work. It's remarkable how your voice became not just an educational tool, but a source of comfort and reassurance during what can be an incredibly stressful time in people's lives. How did this feedback about the emotional impact of your content influence your approach to creating future materials and developing the platform?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 567,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.0190690669987816
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6631812600026024
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 3863,
+                "price": 0.011589
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 76,
+                "price": 0.00114
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, first of all, it motivated me to keep going and to not give up and to keep fighting to make this company successful. The second thing that that feedback about my ability to provide emotional support taught me that I needed to be thoughtful about that and be sure to include a little confidence boost or inspiration in the forms of messages or tips and tricks or my favorite quotes to inspire people and help them to get through the emotional challenges. So it made my content better.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 589,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a meaningful evolution in your approach - recognizing that successful job searching isn't just about tactics and strategies, but also about emotional resilience. It's particularly touching that this feedback not only helped you serve your users better but also gave you the motivation to persist with your own entrepreneurial journey. Could you share a specific challenge you faced while building the company where this kind of user feedback helped you stay committed to your mission?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 631,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 6.388903279999795
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 5.69907610899827
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 4037,
+                "price": 0.012111
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 90,
+                "price": 0.00135
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "ourselves, and we just couldn't figure it out. We couldn't figure out why were people driving all over town to hear me speak or listening to my free content online, but they wouldn't pay a really reasonable fee to get the entire course, all of our online content. We just couldn't figure it out. And then it finally occurred to us. Job seekers actually don't know how badly they need the help. They really have no idea. So we're trying to figure out what's going on with them, and we're trying to figure out how they can get that help, and we're trying to figure out how complicated a job search can be, and they have no idea where they're making mistakes. And so they just don't know how badly they need the help until they're in a crisis and they've been unemployed for too long, or they've been...you know maybe they're not unemployed but their job hunting and are just discouraged. So by the point they realize that they really need help, it's like a little bit of shame there too. You know people will spend money on golf lessons and tennis lessons, but there's some people who are just not interested in golf. And so you have to be able to get them involved in the process of getting them involved. And so that has been a challenge for us to figure out how to help people understand, you know, you really do need some help here, and it's an investment worth making. You know, you're really worth it. This is your career. You're going to spend eight, nine, ten hours of your day with people that you work with. You should love what you do for a living. You should be happy and successful, but you can't figure it out on your own, and you shouldn't try to. And I think that's the biggest thing about being an entrepreneur is that there are some interesting barriers for people to spend money on career help.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 658,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a profound insight about the psychology of job seekers - the challenge of helping people recognize they need support before they hit a crisis point. It reminds me of the saying \"you don't know what you don't know.\" How did this realization about the awareness gap influence your marketing and outreach strategy? Did it change how you positioned your services or communicated their value?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 805,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3322911200011731
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6878190040006302
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 4531,
+                "price": 0.013593
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 82,
+                "price": 0.00123
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "It did. In the beginning, our course was A to Z, everything you need, and we were so excited to give people absolutely everything they needed from A to Z. But we realized that people didn't want to do all of that work and it was intimidating and they really wanted like a bite-sized solution. Some people wanted a silver bullet, but more so, they didn't want me to help them plan their entire garden. They wanted to get an answer to how do I make gardenias grow? And so based on that feedback, we broke our course up into bite-sized chunks and let people buy it a la carte. So if all they wanted was resume help, that's all they had to buy. Or if all they wanted was interview or negotiation help, that's all they had to buy instead of buying the whole course. And that made a big difference also.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 826,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a brilliant pivot - making your content more accessible by breaking it into digestible, specific solutions rather than presenting an overwhelming comprehensive package. It really shows how understanding user psychology can be just as important as having great content. When you made this shift to modular offerings, did you notice any patterns in which modules people tended to start with, and did it lead to them eventually exploring more of your content?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 883,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3569039659996633
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7299912230009795
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 4798,
+                "price": 0.014394
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 86,
+                "price": 0.00129
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes, it did. So people come in droves for resume writing, interview help, and negotiation help. Like how much money should I be asking for? How do I negotiate for more money? So those were three of the things that people knew they needed help with, and that's what they would come for. They would start with that, and then they would fall in love with our content and how helpful it was, and then they would move on to other modules.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 909,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's really interesting how those three specific pain points - resumes, interviews, and salary negotiation - served as gateway topics that built trust and demonstrated value. It shows great business insight to let users start where they feel most comfortable rather than forcing them into a full program. Could you share how you maintained quality and continuity across these individual modules while still making them work as standalone solutions?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 939,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3830665330024203
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7349791050000931
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 4984,
+                "price": 0.014952
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 81,
+                "price": 0.001215
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, funny enough, because I became a professional speaker and I kept getting invited to speak all over the place, I was getting feedback on a weekly and sometimes daily basis on our content. And so that just really allowed us to keep the content fresh, keep updating it. We also stay very well. We're hungry learners. We stay very well read. And so we listen to user feedback. But we also look at trends. You know, AI is an excellent example of that. AI wasn't a thing, you know, even two years ago. And now it's just huge and it's transforming our world. That's an example of a thing that we just are always staying on top of what's new with, you know, careers and global workforce and technology, all of those things.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 963,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a fantastic example of how your speaking engagements created a powerful feedback loop - keeping you connected to real-world needs while helping you stay ahead of industry trends. Speaking of evolving trends like AI, how do you balance incorporating new developments while maintaining the core principles that have proven successful in your platform? I'd love to hear about how you approach these kinds of technological shifts in your content strategy.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1019,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.606673882000905
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.933520660000795
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 5231,
+                "price": 0.015693
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 85,
+                "price": 0.001275
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Tons of research. We test a lot. We read a lot. We talk to people. And we talk to our customers and ask them for feedback. And we pilot new things and ask them for feedback.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1044,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1063,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That commitment to continuous research and testing seems to be a cornerstone of your success. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "So we build little things, and we build little modules and ask for feedback before we go build, you know, we solicit feedback. That's really the iterative process and asking for feedback and reading and listening and learning. Oh, and also network. We know that it's critical for us to stay very well connected to the business world, hiring managers, you know, so it's really important for us to stay connected to the employer side of the world as well so we know what they're looking for and what they're struggling with.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1044,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That comprehensive approach - combining research, testing, user feedback, and maintaining strong connections with employers - really shows how you've created such an effective bridge between job seekers and the hiring world. Could you share a specific example of when employer feedback helped you adjust your platform or content in a way that made your job seekers more successful in their searches?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1104,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.9255859659970156
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.86175701799948
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 5480,
+                "price": 0.01644
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 73,
+                "price": 0.001095
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "That's a really good question. Let me think about it.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1130,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Take your time. Sometimes the most valuable insights come from reflecting on specific experiences that made a real difference.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1133,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.9185005069957697
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.918246150999039
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 5569,
+                "price": 0.016707
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 24,
+                "price": 0.00036
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1146,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Are you still there? I'd love to hear about any example that comes to mind about how employer feedback influenced your platform's development.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1147,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.8304291469976306
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7112347509973915
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 5597,
+                "price": 0.016791
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 30,
+                "price": 0.00045
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yeah, I'm still there, but, you know, the employer feedback...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1156,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes?...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1163,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.8954446450006799
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8510258390015224
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Yes? Please continue - I'm very interested in hearing about the employer feedback and its impact on your platform.",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "helped influence our interview preparation, so we listened to employers about, you know, we were getting feedback from them that our candidates that came through our process were so much more enjoyable to interview because they knew what they wanted, they were prepared for the interview, they did their research ahead of time, and so the employer feedback really validated the kind of interview prep that we were giving people because the employers were, the hiring ratio, the number of our candidates who were getting job offers was just two and three interviews versus, you know, the industry average was really staggering, so that employer feedback really encouraged, it validated our content and encouraged us to keep going.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1156,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a powerful validation - hearing directly from employers that your candidates were standing out and securing positions more efficiently than the industry average. It really demonstrates the practical impact of your preparation methods. When you received this feedback about interview success rates, did it lead you to emphasize or enhance any particular aspects of your interview preparation content?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1211,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3990656940004556
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8696485680047772
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 5789,
+                "price": 0.017367
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 68,
+                "price": 0.00102
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes, it really helped us because we were able to give employer testimonials that we used those employer testimonials to help our job seekers understand that their hard work was really going to pay off and that it was worth following our advice and spending the time, taking the time to prepare really well for the interviews. sort of like that old adage, you know, cut twice, measure twice, cut once, or measure three times, cut once, you know, preparation for the interview. Real stories of real people, feedback from employers, and success stories of how fast our job seekers were getting jobs versus their competitors was really compelling. So we started using data, using statistics, and to demonstrate the power of our advice.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1236,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's brilliant how you leveraged real employer testimonials and success metrics to both validate your methods and motivate new users. It creates a powerful cycle - employers confirm your approach works, which encourages job seekers to fully commit to the preparation process, leading to more successful interviews and more positive employer feedback. Looking back at this journey from events to a comprehensive platform with proven results, what would you say has been your proudest achievement in terms of impact on people's careers?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1299,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.0312022949947277
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5677643109956989
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 6007,
+                "price": 0.018021
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 99,
+                "price": 0.001485
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, can I get back to that last question about employer feedback? The other thing that we heard from employers is that the fit was so much better and the retention rates were much higher and the early, the fast ramp up and the productivity of new hires was much higher. So recruitment costs, time to fill were much lower, but the quality of the candidate and the fit and the longevity of the new hires, the retention rates were so much stronger and that was really powerful feedback to get as well.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1330,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a crucial insight - your platform wasn't just helping people get jobs, but helping them find the right jobs where they could thrive long-term. It really shows how thorough preparation and self-awareness lead to better matches for both employers and employees. How did this feedback about improved retention and faster productivity influence how you approached teaching candidates about company culture fit and long-term career planning?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1367,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3547229870018782
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7512475920011639
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 6216,
+                "price": 0.018648
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 84,
+                "price": 0.00126
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, we added some content around that to help people understand that if you don't prepare well for an interview and if you don't interview the employer, you might get the job, but you might be miserable. And a paycheck, if all you want is a paycheck, we can teach you to go do that. But what we really want is for you to be happy and successful in your new career or your new job. And so, again, that feedback, that direct feedback about retention rates and fit rate and happiness and success, all of that helps us make our content richer, more meaningful, and more compelling to job seekers.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1391,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a meaningful evolution in your approach - helping people understand that the goal isn't just landing any job, but finding the right fit for long-term success and satisfaction. It really elevates the conversation from just job hunting tactics to career fulfillment strategy. Could you share a particularly memorable success story where this emphasis on fit and preparation made a significant difference in someone's career trajectory?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1432,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 2.234532030997798
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.579802074993495
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 6437,
+                "price": 0.019311
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 82,
+                "price": 0.00123
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Can you ask me that question later? I've got so many examples, I don't even know where to begin. So can you ask me that question later?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1459,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Of course, I understand wanting to take time to think about the most impactful example. Let's shift gears a bit - you mentioned earlier how you've adapted to new trends like AI. How are you currently helping career counselors and job seekers navigate these rapid technological changes in the job market?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1468,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.1350738189939875
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6407379089941969
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 6555,
+                "price": 0.019665
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 65,
+                "price": 0.000975
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know what? I'm actually ready with an example for you about a really high-impact story of success about a job seeker and how we changed their life.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1487,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes, please share! I'd love to hear this success story that came to mind.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1499,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.9993290200000047
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8880484399996931
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 6657,
+                "price": 0.019971
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 21,
+                "price": 0.000315
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Okay, so Eric is very smart. He's a really talented financial analyst. He was early 20s working at a bank, absolutely miserable, working in a cube, pushing numbers through a system all day every day. He wasn't motivated. He was making good money, but he was really unhappy. And he came to us for help. Initially, he just wanted a new job, but we started asking questions like we always do. Is that all you want is just a job, or do you want to love what you do for a living? And he looked at us and said, well, yeah. I mean I want a job, and I want to love what I do for a living. Great. Then let's stop the job hunt for a moment. Let's take it step back and figure out why do you hate this job you're in so much, and what do you think would be fun for you to do for a living? And so we kicked back and looked at the, you know, what are your greatest strengths and passions, and what would be fun for you, and what should you do? And he ended up, he got two tremendous job offers, making a bunch more money at other banks. But we cautioned him because he was still going to be stuck in a cube doing work that didn't motivate him. And we encouraged him to consider consulting. He was very good at that and I think it's something that you can learn from your experience with the job. And he was scared but he did it anyway. Eric ended up landing a job as a financial analyst consultant. He tried to get into the industry, but then he got fired and had no job offer for his entire career, which is why Eric has been working so hard on this project since the beginning of his career. He tripled his income and all of a sudden was traveling a lot for work and having that food blast. So that's a great example of the power of just taking a pause and stepping back to ask a handful of questions before you just go get yourself a job so that you're really, you know, one of the biggest mistakes that job seekers make is they start their job search by hitting the Internet and applying for things, and that's a huge mistake. Do you want to know an analogy that is really the perfect analogy for this? It's like if somebody wants to be a doctor, they can't do it. They can't do it. But if somebody wants to buy a new house and they just hop in their car and start driving all over the city looking for signs in people's front yards, that is a terrible way to find a house. Sure, eventually you'll find one, but it's going to take you months and months and months and you're going to waste a ton of time looking at houses that you don't want and houses that you can't afford. And unfortunately, that's how most people approach their job search. They hit the internet and just start throwing spaghetti up against the wall. At our BEZ we teach people to first ask the question, what kind of house do you want? What kind of neighborhood do you want to live in? What's your budget? All sorts of questions like that in a job search. The first thing we do is help people isolate their target so they don't waste a whole bunch of time and energy applying for jobs that they ultimately either don't want or aren't qualified for. That is the biggest gift that our content gives to our users and customers.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1504,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a powerful success story about Eric - it really illustrates how taking that crucial step back to examine career goals holistically, rather than just jumping into job applications, can lead to transformative outcomes. I love your house-hunting analogy too - it perfectly captures why random job applications without a clear strategy can be so ineffective. Could you tell me about how you developed this targeted approach? What led you to realize that helping people define their \"ideal house\" before house-hunting, so to speak, was so critical to career success?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1697,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.828245381002489
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.0443985710007837
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 7412,
+                "price": 0.022236
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 113,
+                "price": 0.001695
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Well, the way I figured it out is on the hiring side of the desk, you know, you're trying to figure out if this person is going to be happy long term, if they've got the skills and if they've got the passion and desire for your job. You don't just want to hire somebody who's qualified and can do the work. You want to hire somebody who's going to love coming to work every day. And so really I learned as a recruiter, because you may or may not remember, I worked straight commissions, which means I didn't get paid until I got somebody hired. And most importantly, if they quit or got hired in the first three months, I had to pay my money back. So that taught me to be really, really thorough in the interviewing process to ask questions about people's motivations. You know, what kind of a boss really motivates them? What kind of work gets them jumping out of bed in the morning? You know, what's a really bad day? So I learned as a recruiter to ask terrific questions to uncover people's personal motivation and job satisfaction criteria. And the thing is, if a candidate was well prepared, those interviews were a lot of fun. But most candidates couldn't answer my questions. They hadn't taken the time to figure it out. And so those interviews became downright painful for me because I had to ask them what they thought about me and how I felt about myself and how I felt about myself. I'd ask questions like, you know, what does an ideal manager look like to you? And they'd look at me like a deer in a headlight. And so all of a sudden what should have been an enjoyable, easy conversation was painful. I had to drag things out of people kicking and screaming because they just hadn't thought about it and they weren't prepared. So it really was from the hiring side of the desk that gave me the perspective of what candidates needed to think about before they started applying for jobs and interviewing so that they could make sure that they find the right fit and so that companies could make sure they were hiring someone who would be happy and successful for the long term.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1729,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's fascinating how your experience as a commission-based recruiter, where your success literally depended on making lasting matches, shaped your understanding of what makes a successful job search. It really explains why your platform emphasizes self-reflection and preparation - you've seen firsthand how unprepared candidates struggle in interviews and potentially end up in mismatched positions. How do you help people who might be resistant to this kind of deep self-reflection process, especially when they're feeling pressure to find a job quickly?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1850,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.5486607659986475
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8570071569993161
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 7983,
+                "price": 0.023949
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 107,
+                "price": 0.001605
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Stats. Statistics, statistics, statistics. We've been able to map the success rate of our job seekers with industry standards, and it's really staggering to look at how quickly people find jobs and their satisfaction rates once they find those jobs with long-term retention rates and job satisfaction and career success. We just basically... statistics, we've been in the business long enough that we're able to show people how much faster, successful, and happy they will be if they use our approach to career transition.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1881,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's really smart - using hard data to demonstrate why taking that initial time for self-reflection ultimately leads to faster, better outcomes. It must be particularly convincing when someone can see how your approach actually shortens the overall job search timeline compared to the scattered application method. Could you share some of the most compelling statistics that have helped...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1923,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.4177328660007333
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7806016120011918
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8197,
+                "price": 0.024591
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 83,
+                "price": 0.001245
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "That's really smart - using hard data to demonstrate why taking that initial time for self-reflection ultimately leads to faster, better outcomes. It must be particularly convincing when someone can see how your approach actually shortens the overall job search timeline compared to the scattered application method. Could you share some of the most compelling statistics that have helped convince skeptical job seekers to trust this more strategic approach?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Absolutely.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1940,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Please go ahead - I'd love to hear those key...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1943,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8274,
+                "price": 0.024822
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 24,
+                "price": 0.00036
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "Please go ahead - I'd love to hear those key statistics that really demonstrate the effectiveness of your approach.",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes, absolutely.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1945,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes? I'm very interested in...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1946,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.7940571579965763
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.7492893659946276
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8296,
+                "price": 0.024888
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 43,
+                "price": 0.000645
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "Yes? I'm very interested in hearing which statistics have proven most effective in convincing people to take that crucial preparation time. Could you share some specific numbers that really demonstrate the impact of your approach?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "7 months to 3 weeks. But for more statistics, you should ask my business partner because we've got them all documented. I just don't have them in my head at my fingertips. So ask my business partner to give you those critical statistics about the success of our content.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1947,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's a dramatic difference - reducing job search time from seven months to just three weeks is remarkable. Since you mentioned your business partner, could you tell me about how that partnership developed and how your different strengths have contributed to Arbez's success?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1968,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.5032501259993296
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.008609536998847
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8372,
+                "price": 0.025116
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 54,
+                "price": 0.00081
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yep. My business partner is also my husband. Now before you fall out of your chair, because it's not very often that people are able to successfully work together. Stefan and I have been married now 25 years. We met at work. We've got really complimentary skills. He's brilliant when it comes to technology, software development, all of that, and I happen to be really good at communication, and we're both, both of us, we're professional recruiters, and so we're both really good at that expertise and hiring. We both sold consulting services as well, so we know what employers are looking for. Yeah, so that business partnership has been great because when I have an idea, I'm able to run it by him and he can do it. And then when you're done with the project, you can go back and say, hey, this is a great idea. And he pokes holes in it and challenges me. And then when I've got a dream or a vision, he can usually bring that to life with technology pretty quickly.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1982,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's wonderful how your complementary skills in recruitment, consulting, and technology have created such a strong foundation for the business. It sounds like you've found a great balance where your communication and vision work hand-in-hand with his technical expertise. How has your shared background in recruitment...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2043,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.356301749998238
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.909381293997285
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8652,
+                "price": 0.025956
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 76,
+                "price": 0.00114
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "That's wonderful how your complementary skills in recruitment, consulting, and technology have created such a strong foundation for the business. It sounds like you've found a great balance where your communication and vision work hand-in-hand with his technical expertise. How has your shared background in recruitment shaped your approach to developing solutions for both job seekers and career counselors?",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yes.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2057,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Would you like to share more about how your shared recruitment background has influenced your approach to the business?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2059,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8718,
+                "price": 0.026154
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 23,
+                "price": 0.000345
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Yeah, absolutely. We know what employers want, and now after so many years working with job seekers, we know what job seekers want and need. And because we've got that unique perspective of both sides of the hiring desk, we're able to give both sides what they want. And that's been a really powerful differentiator for us.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2067,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That dual perspective really sets you apart - understanding both the employer's hiring challenges and the job seeker's journey. Looking back at your journey from those first career counselor inquiries to building this comprehensive platform with your husband, what would you say has been the most unexpected joy or reward of this work?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2090,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3505051140018622
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.9167531909988611
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 8816,
+                "price": 0.026448
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 64,
+                "price": 0.00096
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, when people tell us that we changed their life, that work was no fun. They'd never had a job they enjoyed, and now they jump out of bed in the morning and they feel like they're not only having fun at work, but like they're making a difference in this world. And it's changed their life. It's a life-changing thing because people are happier at work, and when you're happy at work, you're happier at home. When you're successful at work, work is less stressful. When you're making more money, which of course comes with all of that, when you're happy and successful at work, guess what? You stand out. You end up being a more valuable employee. You end up making more money. And so, you know, happiness and success and the money usually follows. And that's just been, it's been really humbling and incredibly rewarding to hear those stories from people about how our content has helped some change their life in so many positive ways.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2111,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's truly meaningful - knowing that your work isn't just helping people find jobs, but actually transforming their entire quality of life. The ripple effect of career satisfaction into personal happiness and financial well-being really shows the deeper impact of what you've built. What vision do you have for Arbez's future as the workplace continues to evolve with new technologies and changing expectations?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2178,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.4491460049976013
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.9826240539987339
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 9097,
+                "price": 0.027291
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 81,
+                "price": 0.001215
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "We want to continue giving people the tools and inspiration that they need to find their dream job and get paid top dollar and get more money, freedom, and fun out of work. So one of our sons named Arbez the dream job company, and I think that really sums it up very well. And what that means is if you're in your dream job, you're probably making more money, having more success, and having more fun at work. And isn't that what we all deserve? Isn't that what everybody wants? They want to make a good living, feel successful, and feel like their work matters, and have some fun along the way. And that's what we're all about, and so we're going to keep doing it and we'll just keep adapting with new technology like AI. Oh, my gosh, it is so exciting what the future holds for companies and employees. It's just really exciting, but it's also terrifying for us as well because I think there are a lot of things that are happening in the world right now that are not going to be able to be done by people who don't understand the power of AI. They don't understand how to adapt their career, their skills to stay employed in the new world of work, and we can't wait to be there to help them figure all that stuff out.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2201,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such an inspiring mission - helping people adapt and thrive in this rapidly changing workplace while staying true to your core purpose as \"the dream job company.\" Your enthusiasm for both the opportunities and challenges ahead is contagious. One final question: given all your experience helping others find their path, what advice would you give to entrepreneurs who are just starting their journey of building a company around their passion?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2284,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 2.0380577979958616
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.0184544879957684
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 9460,
+                "price": 0.02838
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 84,
+                "price": 0.00126
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Oh, gosh, I love this question. And I actually have done a lot of speaking to groups of entrepreneurs. My advice for an entrepreneur is find that one thing that really lights you on fire.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2309,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2326,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 9588,
+                "price": 0.028764
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 5,
+                "price": 7.5e-05
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "Yes...",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "What's the problem in the world that you want to solve? If you can figure out what that burning desire is or that one problem that you want to solve, that people need, it's really \u2013 first, you've got to find your fire. You've got to find your own motivation. If you want to start a company just because your mom or dad or a friend told you should, that is not the reason to start a company. You have to really want it because being an entrepreneur is not easy. It's not easy at all, and you've got to have the fire in the belly every single day. You've got to believe in what you want to build. There's got to be a need and a market for it. So, um, you know, you're not going to have all the answers. You're going to learn a lot of lessons along the way, and you're going to have to pivot. So another piece of advice is find the fire in the belly, take that first step, but be willing to give up your fear and ask for feedback. Listen to it and adapt and pivot. Don't throw everything away, but you've got to learn as you go and just stay focused. Wake up every day believing that you can do it because there's so much more out there than just a few minutes. Another thing I learned the hard way is, oh my gosh, I really thought I had to figure it all out on my own. I waited way too long as an entrepreneur to start building a network of other entrepreneurs who could support and inspire me, who I could brainstorm with, we could refer business back and forth, we could encourage each other, we could give each other tips and tricks. I waited too long on that. And so if you're going to be an entrepreneur, it can be a very lonely, hard way to make a living. Don't try and do it alone. Find people you can trust, find people you would like to work with and find them for yourself. And then the other thing is that there's always this fear of being left out of the group. And so if you're going to be an entrepreneur, it can be a very lonely, hard way to make a living. Don't try and do it alone. Find people you can trust, find people you admire and help them and they will help",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2309,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such powerful advice - especially about finding your \"fire in the belly\" and building a supportive network of fellow entrepreneurs. It really resonates with your own journey of staying passionate about helping people find career fulfillment while being willing to adapt and pivot based on feedback. Thank you for sharing your story and insights so generously. Is there anything else you'd like to add about your entrepreneurial journey or vision for the future?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2441,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.4561415099960868
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.0005424179980764
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 10081,
+                "price": 0.030243
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 91,
+                "price": 0.001365
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Just that, you know, if you can dream it, you can do it. And really, the sky's the limit. And people just fear. Oh my gosh, we haven't talked about this. The one other thing I want to talk about, we've talked about mindset and inner critic. Really the thing that's the one most important thing for job seekers, even employers, entrepreneurs, anybody who wants to get more money, freedom, and fun out of work, they have to be willing to face their fears, figure out what it is that you're afraid of, and then figure out how to offset that fear. Fear is not something to run away from. If you're scared of something, that's a sign that you're onto something good and you should pay attention to that and then figure out what are you afraid of? What are you really afraid of and why? All right, what's the worst that can happen? If that happens, what are you going to do about it? The sooner your willing to face your fears for anything in life, the sooner you'll be able to achieve your wildest dreams. You will fall down. You know what? If you're not falling down, you're not dreaming big enough and you're not trying enough. You're playing it safe. You can't play it safe and wind up doing what you love for a living and finding happiness and success. You've got to take risks and just know going into it that sometimes you're going to get it wrong and you're going to go fall flat on your face, and that's okay. That means that you're doing the right stuff. If you never scrape your knees, you're not having enough fun out there. You're not playing. You're not stretching your boundaries, and it's time to start, you know, go big or go home.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2467,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That's such a powerful final message about embracing fear as a signpost for growth rather than a stop sign. Your perspective on viewing failures and setbacks as evidence that you're pushing boundaries and truly living is incredibly inspiring. Thank you for sharing your wisdom and experience so openly. Before we wrap up, is there anything else you'd like to share?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2581,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.426695024005312
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.971712248006952
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 10562,
+                "price": 0.031686
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 74,
+                "price": 0.00111
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Nope.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2603,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Thank you for sharing your remarkable journey and insights about building Arbez. Your story of transforming from events to a comprehensive platform that changes lives is truly inspiring. I appreciate you taking the time for this interview.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2605,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.2708110690000467
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.9564974560053088
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "system",
+            "request_id": "toolu_vrtx_01YYsxYDWddJwGRDzXq3otzr",
+            "tool_name": "end_call",
+            "params_as_json": "{\"reason\": \"The interview has reached a natural conclusion with the interviewee indicating they have nothing more to add.\", \"message\": \"Thank you for sharing your inspiring entrepreneurial journey with Arbez. Your insights about helping people find their dream jobs while facing fears and embracing growth will be valuable to many. Have a wonderful day!\"}",
+            "tool_has_been_called": true,
+            "tool_details": null
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2605,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "toolu_vrtx_01YYsxYDWddJwGRDzXq3otzr",
+            "tool_name": "end_call",
+            "result_value": "{\"status\": \"success\", \"reason\": \"The interview has reached a natural conclusion with the interviewee indicating they have nothing more to add.\", \"message\": \"Thank you for sharing your inspiring entrepreneurial journey with Arbez. Your insights about helping people find their dream jobs while facing fears and embracing growth will be valuable to many. Have a wonderful day!\"}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.5011287209999864,
+            "dynamic_variable_updates": [],
+            "type": "system",
+            "result": null
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 2605,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "claude-3-5-sonnet": {
+              "input": {
+                "tokens": 10643,
+                "price": 0.031929
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 171,
+                "price": 0.002565
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1747504148,
+      "accepted_time_unix_secs": 1747504148,
+      "call_duration_secs": 2620,
+      "cost": 17465,
+      "deletion_settings": {
+        "deletion_time_unix_secs": 1810579016,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "public",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "claude-3-5-sonnet": {
+                "input": {
+                  "tokens": 244693,
+                  "price": 0.7340789999999999
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 2837,
+                  "price": 0.04255499999999999
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "claude-3-5-sonnet": {
+                "input": {
+                  "tokens": 1356652,
+                  "price": 4.069956
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 9043,
+                  "price": 0.13564500000000002
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 4.205601000000001,
+        "llm_charge": null,
+        "call_charge": null,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "sajgUFwhccZYcL58PFiL",
+        "agent_number": "+16123241623",
+        "external_number": "+16125082017",
+        "type": "twilio",
+        "stream_sid": "MZ925871b3bfe2aa9d90a34ac2ee6770e3",
+        "call_sid": "CAe3e7c4739399d17af19255da3dd3ed5d"
+      },
+      "batch_call": null,
+      "termination_reason": "end_call tool was called.",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": null,
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": false,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": false,
+          "used": false
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "unknown",
+      "conversation_initiation_source_version": null,
+      "timezone": null,
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "unknown",
+      "agent_last_updated_from": "unknown"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {
+        "empathy_and_tone": {
+          "criteria_id": "empathy_and_tone",
+          "result": "success",
+          "rationale": "The agent consistently maintained an appropriate, empathetic, and professional tone throughout the conversation. It actively listened, acknowledged the user's points, and asked thoughtful follow-up questions. The agent also provided positive reinforcement and encouragement, creating a supportive and engaging environment. Examples include: 'That's a fascinating turning point', 'What a powerful example of organic growth', 'That's a brilliant example of how user feedback led to a feature that served multiple purposes', 'That's such a meaningful evolution in your approach', 'That's such a powerful final message about embracing fear'. The agent also appropriately ended the conversation."
+        },
+        "coverage_of_key_topics": {
+          "criteria_id": "coverage_of_key_topics",
+          "result": "success",
+          "rationale": "The agent successfully covered the core interview areas. The conversation explores the company's background (origin of Arbez, inspiration - 1747504148, founding problem), milestones (pivotal moments like the first career counselor outreach - 1747504236, development of the online platform), challenges (helping job seekers understand they need help - 1747504806, balancing new trends with core principles - 1747505167), and vision (future of Arbez - 1747506326)."
+        },
+        "response_accuracy": {
+          "criteria_id": "response_accuracy",
+          "result": "success",
+          "rationale": "The agent consistently provided factually correct and contextually relevant responses based on the user's input throughout the conversation. It accurately summarized and built upon the information provided by the user, demonstrating a clear understanding of the context. The agent's questions were relevant to the user's experiences and insights, and it effectively guided the conversation to explore various aspects of the user's entrepreneurial journey with Arbez."
+        },
+        "clarity_and_naturalness": {
+          "criteria_id": "clarity_and_naturalness",
+          "result": "success",
+          "rationale": "The agent's responses were generally clear, concise, and delivered in a natural, human-like manner. The agent effectively summarized the user's points, asked relevant follow-up questions, and maintained a conversational tone throughout the interview. For example, the agent's response at timestamp 1747504485 demonstrates its ability to synthesize information and formulate a pertinent question. The agent also acknowledged the user's pauses and provided encouragement, as seen at timestamps 1747505281 and 1747505295, contributing to a more human-like interaction."
+        },
+        "engagement_depth": {
+          "criteria_id": "engagement_depth",
+          "result": "success",
+          "rationale": "The agent successfully maintained a multi-turn conversation with meaningful follow-up questions throughout the transcript. The agent built upon the user's responses, asked for specific examples, and explored different facets of the user's entrepreneurial journey. For example, after the user mentioned the importance of emotional support (1747504663), the agent followed up by asking how this influenced future content creation (1747504715). The agent also adapted to the user's cues, such as when the user wanted to return to a previous topic (1747505635), demonstrating active listening and engagement."
+        }
+      },
+      "data_collection_results": {
+        "Participant Details": {
+          "data_collection_id": "Participant Details",
+          "value": "founder of Arbez",
+          "json_schema": {
+            "type": "string",
+            "description": "Name, role, and company of the interviewee",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The interviewee is the founder of Arbez, and her husband is her business partner. The name of the interviewee is not explicitly stated in the conversation."
+        },
+        "Company Overview": {
+          "data_collection_id": "Company Overview",
+          "value": "Mission: To help people find their dream job and get paid top dollar. Founding Year: Not explicitly mentioned. Core Products/Services: Online platform providing tools and inspiration for job seekers and career counselors. Industry Sector: Career development and job search assistance.",
+          "json_schema": {
+            "type": "string",
+            "description": "Mission, founding year, core products/services, and industry sector",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The conversation provides information about Arbez's mission, which is to help people find their dream job and get paid top dollar. It also mentions that the company was founded by a husband and wife team, Stefan and his wife, who have complementary skills in technology and communication. The core products/services include an online platform that provides tools and inspiration for job seekers and career counselors. The industry sector is career development and job search assistance. However, the founding year is not explicitly mentioned in the conversation."
+        },
+        "Quotes and Highlights": {
+          "data_collection_id": "Quotes and Highlights",
+          "value": "If you can dream it, you can do it. And really, the sky's the limit... If you're not falling down, you're not dreaming big enough and you're not trying enough. You're playing it safe.",
+          "json_schema": {
+            "type": "string",
+            "description": "Memorable statements or anecdotes suitable for direct inclusion in a story",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user shared several memorable statements and anecdotes throughout the conversation. The most suitable for direct inclusion in a story is: \"If you can dream it, you can do it. And really, the sky's the limit... If you're not falling down, you're not dreaming big enough and you're not trying enough. You're playing it safe.\" This quote encapsulates the entrepreneurial spirit and the importance of embracing risk, which is a central theme of the conversation."
+        },
+        "Founder\u2019s Background": {
+          "data_collection_id": "Founder\u2019s Background",
+          "value": "We know what employers want, and now after so many years working with job seekers, we know what job seekers want and need. And because we've got that unique perspective of both sides of the hiring desk, we're able to give both sides what they want. And that's been a really powerful differentiator for us.",
+          "json_schema": {
+            "type": "string",
+            "description": "Education, prior experience, and motivation for starting the company",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user describes their experience as a recruiter, which led to the development of their company, Arbez. They also discuss their partnership with their husband, Stefan, and how their complementary skills have contributed to the company's success. The user also mentions their motivation for starting the company, which is to help people find their dream jobs and get paid top dollar."
+        },
+        "Key Milestones": {
+          "data_collection_id": "Key Milestones",
+          "value": "None",
+          "json_schema": {
+            "type": "string",
+            "description": "Major achievements, funding rounds, and product launches",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The conversation discusses the evolution of Arbez, including the initial licensing deal with a career consulting firm, the development of the online job hunt course, and the expansion to colleges and universities. It also mentions the addition of a progress chart based on user feedback and the shift to bite-sized modules for the course. However, there is no mention of specific funding rounds or major product launches. Therefore, I cannot extract the requested information."
+        }
+      },
+      "call_successful": "success",
+      "transcript_summary": "The AI agent interviewed the user about their company, Arbez, focusing on its evolution, key decisions, and impact. The user shared insights about discovering the needs of career counselors, developing an online platform, and the importance of emotional support in job searching. They emphasized the value of user feedback, iterative development, and adapting to trends like AI. The conversation highlighted the significance of self-reflection, targeted job searching, and the company's mission to help people find fulfilling careers. The user also shared advice for entrepreneurs, stressing passion, networking, and embracing fear.\n",
+      "call_summary_title": null
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": null,
+        "conversation": null,
+        "agent": null
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "system__agent_id": "agent_01jvaxb67newtrqxfzwgkk97tz",
+        "system__caller_id": "+16125082017",
+        "system__time_utc": "2025-05-17T18:32:48.190263+00:00",
+        "system__call_sid": "CAe3e7c4739399d17af19255da3dd3ed5d",
+        "system__called_number": "+16123241623",
+        "system__conversation_id": "conv_01jvfntbqdfh5bd4q8g98y22gz",
+        "system__call_duration_secs": 2619
+      }
+    },
+    "has_audio": true,
+    "has_user_audio": true,
+    "has_response_audio": true
+  }
+}

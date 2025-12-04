@@ -58,22 +58,26 @@ def extract_user_info(
     return extracted
 
 
-def extract_user_messages(transcript: list[TranscriptEntry]) -> list[str]:
-    """Filter transcript for user messages only.
+def extract_user_messages(transcript: list[TranscriptEntry]) -> list[dict[str, Any]]:
+    """Filter transcript for user messages with timing information.
 
-    Extracts all messages where role="user" from the conversation transcript.
+    Extracts all messages where role="user" from the conversation transcript,
+    including the time_in_call_secs for temporal ordering within the conversation.
 
     Args:
         transcript: List of TranscriptEntry objects from the post-call webhook.
 
     Returns:
-        A list of user message strings.
+        A list of dictionaries with 'message' and 'time_in_call_secs' keys.
     """
     user_messages = []
 
     for entry in transcript:
         if entry.role == "user" and entry.message:
-            user_messages.append(entry.message)
+            user_messages.append({
+                "message": entry.message,
+                "time_in_call_secs": entry.time_in_call_secs
+            })
 
     logger.debug(f"Extracted {len(user_messages)} user messages from transcript")
     return user_messages
@@ -81,7 +85,8 @@ def extract_user_messages(transcript: list[TranscriptEntry]) -> list[str]:
 
 async def create_profile_memories(
     user_info: dict[str, Any],
-    phone_number: str
+    phone_number: str,
+    conversation_context: dict[str, Any] | None = None
 ) -> list[dict[str, Any]]:
     """Store profile facts as memories with high salience.
 
@@ -92,6 +97,8 @@ async def create_profile_memories(
     Args:
         user_info: Dictionary of user information (e.g., {"first_name": "Stefan"}).
         phone_number: The user's phone number for userId isolation.
+        conversation_context: Optional dict with conversation_id, timestamp_utc,
+            and event_timestamp for grouping memories together.
 
     Returns:
         A list of memory creation results from OpenMemory.
@@ -121,10 +128,20 @@ async def create_profile_memories(
                 if not content:
                     continue
 
+                # Build metadata with conversation context for grouping
+                metadata = {
+                    "field": key,
+                    "value": str(value),
+                }
+                if conversation_context:
+                    metadata["conversation_id"] = conversation_context.get("conversation_id")
+                    metadata["timestamp_utc"] = conversation_context.get("timestamp_utc")
+                    metadata["event_timestamp"] = conversation_context.get("event_timestamp")
+
                 payload = {
                     "content": content,
                     "tags": ["profile", key],
-                    "metadata": {"field": key, "value": str(value)},
+                    "metadata": metadata,
                     "user_id": phone_number,
                     "salience": HIGH_SALIENCE,
                     "decay_lambda": PERMANENT_DECAY
@@ -153,8 +170,9 @@ async def create_profile_memories(
 
 
 async def store_conversation_memories(
-    messages: list[str],
-    phone_number: str
+    messages: list[dict[str, Any]],
+    phone_number: str,
+    conversation_context: dict[str, Any] | None = None
 ) -> list[dict[str, Any]]:
     """Store each user message as an individual memory.
 
@@ -162,8 +180,10 @@ async def store_conversation_memories(
     This enables detailed conversation recall and context building.
 
     Args:
-        messages: List of user message strings.
+        messages: List of dicts with 'message' and 'time_in_call_secs' keys.
         phone_number: The user's phone number for userId isolation.
+        conversation_context: Optional dict with conversation_id, timestamp_utc,
+            and event_timestamp for grouping memories together.
 
     Returns:
         A list of memory creation results from OpenMemory.
@@ -183,14 +203,28 @@ async def store_conversation_memories(
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
-            for idx, message in enumerate(messages):
+            for idx, msg_data in enumerate(messages):
+                message = msg_data.get("message", "")
+                time_in_call_secs = msg_data.get("time_in_call_secs")
+
                 if not message or len(message.strip()) < 3:
                     continue
+
+                # Build metadata with conversation context for grouping
+                metadata = {
+                    "message_index": idx,
+                    "type": "user_utterance",
+                    "time_in_call_secs": time_in_call_secs,
+                }
+                if conversation_context:
+                    metadata["conversation_id"] = conversation_context.get("conversation_id")
+                    metadata["timestamp_utc"] = conversation_context.get("timestamp_utc")
+                    metadata["event_timestamp"] = conversation_context.get("event_timestamp")
 
                 payload = {
                     "content": message,
                     "tags": ["conversation", "user_message"],
-                    "metadata": {"message_index": idx, "type": "user_utterance"},
+                    "metadata": metadata,
                     "user_id": phone_number,
                     "salience": MEDIUM_SALIENCE,
                     "decay_lambda": PERMANENT_DECAY

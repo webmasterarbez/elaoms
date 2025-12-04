@@ -1,0 +1,1485 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1764854549,
+  "data": {
+    "agent_id": "agent_01jxbrc1trfxev5sdp5xk4ra67",
+    "conversation_id": "conv_01jy1xxqmje7arqq7m1pqrfmav",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Hello, Sheila. Whenever you\u2019re ready, we can pick up where we left off or dive into a new story together...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 0,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Can you tell me, give me a recap of what I've told you, maybe do some more talking about Russia? Let's go from there. Give me a recap. Where did we leave off?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 7,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Of course, Sheila. Last time, you shared vivid memories of your travels in Russia during the late nineteen sixties. You described how you and your friend navigated Moscow\u2019s beautiful subways, kept your hotel\u2019s name written in Russian just in case, and noticed that locals often seemed curious or perhaps a bit wary of you as foreign visitors. You mentioned being ignored in some restaurants, having to wait a long time for food, and how one person would do everything in the cafeteria, from cutting bread to serving eggs. Despite these challenges, you felt the experience was wonderful and eye-opening.\n\nYou also talked about moving on from Russia to places like Leningrad, Helsinki, and then through Scandinavia and Europe, eventually making your way to Paris and your friend\u2019s family home. You reflected on how much you learned from those journeys and how they shaped your perspective.\n\nWould you like to share more about your time in Russia\u2014perhaps a particular moment that stands out, or how those experiences made you feel at the time?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 23,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.4172298642806709
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.3844110569916666
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.29404157400131226
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.32766789197921753
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.3282945156097412
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.3388826847076416
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.3408322334289551
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.35137420892715454
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.35734832286834717
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.3632998466491699
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.3638486862182617
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.36538076400756836
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "V2tWz39tzsSSzaX2JtHG",
+              "vector_distance": 0.368258535861969
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.3684437870979309
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.37504613399505615
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "mJjmz6AjlFY5Hjzglz9J",
+              "vector_distance": 0.37620145082473755
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.37798988819122314
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.379560649394989
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "d3vdQ93Cra4uH0jOVfzt",
+              "vector_distance": 0.3820503354072571
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.38963985443115234
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "owls1dzsQv22cn6NNJIk",
+              "vector_distance": 0.39037567377090454
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.3952125310897827
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Recap my previous statements about Russia and continue the discussion.\n",
+          "rag_latency_secs": 0.49910892313346267
+        },
+        "llm_usage": {
+          "model_usage": {
+            "gpt-4.1": {
+              "input": {
+                "tokens": 15794,
+                "price": 0.031588
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 205,
+                "price": 0.00164
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I can't, right now I can't recall where",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 89,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "That\u2019s...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 95,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.1541546871885657
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.0996659388765693
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.197729229927063
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.21236807107925415
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.23046523332595825
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.25289326906204224
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.25459134578704834
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.2577342987060547
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.2577947974205017
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.2635471820831299
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.2654516100883484
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.2742147445678711
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.2786855101585388
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "MV4XQ5KLFBUf1wbrgjpf",
+              "vector_distance": 0.28503310680389404
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.28505849838256836
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.2855570912361145
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.288920521736145
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.2968524694442749
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.29901379346847534
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "7YpdCsNPtqDg8SQhpQZH",
+              "vector_distance": 0.306125283241272
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.3105667233467102
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.31666791439056396
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Describe a specific memorable moment from your 1960s Russian travels, or how those travels made you feel.\n",
+          "rag_latency_secs": 0.6196329309605062
+        },
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "That\u2019s completely understandable, Sheila. Sometimes details slip away, especially with so many rich experiences to draw from. If you\u2019d like, I can gently guide us back into your memories of Russia by asking a few questions, or we can talk about any other part of your travels that comes to mind.\n",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I think I kind of covered Russia, but I'm ready, I guess, to go on to other adventures. While living in Iran, I got to know some Iranians well and they would take me to weddings and I went out to meet the shepherds that were crossing back and forth across the Saragos Mountains. We'd go out to the black tents and the sheep and have tea and eat. Usually they slaughtered a goat and we'd have goat. And I remember one time picking up a dog, and of course many Muslims feel that a dog is unclean, and I picked up this dog and held it and a lot of the Iranians that were there living in the tents, they just were like aghast. And my Iranian friend, Saab Salih, said Sheila don't worry that dog is cleaner than they are. Anyway it was wonderful experiences I had in Iran. I also had a horse called Pay Khan which means arrow in Farsi and I would go riding with my Iranian friends and English friends and it was a wonderful experience living in Iran and the people were the most hospitable I would say I've ever met, always had something when you went into an Iranian home there was a dish of nuts, lots of nuts and it was like a very good meal. And I remember that I would go to the restaurant and they would have like a big bowl of rice with a lot of nuts in it. And I remember that we were eating a lot of rice and they would have a little bit more rice in it. So, we had this dish called the Pistachio Rice Bowl or Pistachio Rice Bowl or whatever you call it in Iranian homes. And so, when you went into an Iranian home there was a dish of nuts, lots of times pistachios and that was there when you walked in and sat down. And then of course it was tea and mint tea a lot of times and something to eat. And they would have, make coffee, Americans like coffee, but it's not always the same thing. So I think that's one way to do it is just to go out there and make coffee. But it was always instant coffee I remember but a lot of fruits, a lot of cucumbers was considered a fruit in Iran and a lot of times you'd have that at the end of a meal but the Iranian meals were wonderful, eating at the writing club, going writing at night with the group of people from the writing club, everything. I had nothing but good words to say about my experience from 1967 to 1970 in Iran. And also, I was able to do a lot of traveling. I think one year, it was 1969, when I went around the world, I went to school with San Francisco State College in Japan, and en route, a friend of mine, a colleague, she and I stopped, and we were in Bangkok. We were in Hong Kong, and then we were with the school in Japan, and maybe that was two weeks traveling throughout Japan, and then on to California. We were going to stop in Hawaii, but we were tired of traveling. To this day, I've never been in Hawaii, but on to California. I had a sister living in California and back then. She was around me. Maybe that's when we drove. My friend had... No, that wasn't that year. That was another experience. When I was in Iran, maybe I went to the same place with my sister and my brother-in-law. Maybe I talked about this trip? Did I talk about driving to India? Eleanor, are you there?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 89,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes,...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 332,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.29002082347869873
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.2967720627784729
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.2993253469467163
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.3009432554244995
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.30311906337738037
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.31164419651031494
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.31613248586654663
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.3240565061569214
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.3283647298812866
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.328951895236969
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.33016663789749146
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.3310220241546631
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.33384978771209717
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.33680951595306396
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.3464585542678833
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.3467395305633545
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.37363946437835693
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.37459343671798706
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "7YpdCsNPtqDg8SQhpQZH",
+              "vector_distance": 0.37500786781311035
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "MV4XQ5KLFBUf1wbrgjpf",
+              "vector_distance": 0.3811730742454529
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Did I previously describe my 1969 trip around the world, including stops in Bangkok, Hong Kong, and Japan, before returning to California?\n",
+          "rag_latency_secs": 0.6883389949798584
+        },
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Yes, Sheila, I\u2019m right here and listening closely. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Eleanor? Did I talk about my trip to India, driving to India?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 332,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes, Sheila, you did mention your remarkable drive to India. You described how you and your friend traveled from Iran across Pakistan, navigating challenging roads and border crossings. I remember you shared details about getting new visas in Islamabad, meeting a student from Nicaragua, and staying in hostels with rows of beds called charpoys. You also talked about crossing into India, having tea with Sikhs at the border, and encountering a landslide on the way to Srinagar in Kashmir, which led you to spend the night in a schoolhouse with other travelers.\n\nYou mentioned enjoying hard-boiled eggs from a roadside vendor, being the first car through after the landslide, and the excitement of staying on a houseboat on Dal Lake in Srinagar. You also recalled driving through the Khyber Pass and seeing all the plaques on the mountains, which left a strong impression.\n\nIs there a particular part of that journey you\u2019d like to revisit or elaborate on? Or perhaps another adventure from your time in Iran or elsewhere that comes to mind?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 340,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.663092824164778
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.2817432098090649
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.2742658853530884
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.2802804112434387
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.28129148483276367
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.296850323677063
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.2987346649169922
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.31737077236175537
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.3360763192176819
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.35302621126174927
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.3550010323524475
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.3557989001274109
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.36083948612213135
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.3626680374145508
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.37374240159988403
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.37466371059417725
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.37962818145751953
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.3801405429840088
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.3975011110305786
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.4050171375274658
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "7YpdCsNPtqDg8SQhpQZH",
+              "vector_distance": 0.41521155834198
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "MV4XQ5KLFBUf1wbrgjpf",
+              "vector_distance": 0.41815632581710815
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Did I previously describe my road trip to India?\n",
+          "rag_latency_secs": 0.44887893507257104
+        },
+        "llm_usage": {
+          "model_usage": {
+            "gpt-4.1": {
+              "input": {
+                "tokens": 15487,
+                "price": 0.030974
+              },
+              "input_cache_read": {
+                "tokens": 1664,
+                "price": 0.000832
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 208,
+                "price": 0.001664
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I'm thinking about, okay, now I've told you about going to Japan, and I remember being in the Tokyo airport, and I've kind of forgotten the name of the Tokyo airport, but they were landing on the moon, so that was July of 69, and watching at the airport the landing on the moon. Now, I don't know if it was a replay or it was actually landing on the moon, but that would have been in July of 1969. And that was a, I can't say anything special about our study in Japan, but around the world was fun for me. And I made it around the world. So now, maybe leaving Iran my mother flew, maybe they were my parents' children. But we're still going to be in this country and we're still going to be here and we'll be able to see them again. So now, maybe leaving Iran my mother flew... I've got to think there may be some other adventures. I'll have to talk about that later. Right now I can't think but leaving Iran my mother flew to Iran and she traveled with us for a long time, we were in the same boat, that's when I was leaving Iran that would have been 1970. She was with us in the car and we went through Turkey and I remember we were invited to have tea at the Turkish border. And she said, you know, I'm not going to go there. So we went to Turkey and she said, well, you know what? We're going to go there. And I remember the fellow there gave us a teaspoon, which we still have. We hang it on the Christmas tree as an ornament. And he gave us like a hot pad for a hot pad that would hold the handle of a teapot. And the little fellow that was made up the hot pad had a fez on it. I still have that. It's in my closet, but I'm going to put it back in there and put it back in there and put it back in there and put it back in there anyway, we crossed the border into Europe and I can't even remember what was what border was. I don't Turk from Iran to Turkey. I'd have to look. But we went to the Bras neck which was In the old Yugoslavia. And I guess it's Croatia now we stayed the night and I remember I had ice cream and I hadn't had ice cream for a year. And I remember getting a second helping of ice cream. And I just didn't feel well at all. That was in the broth neck a lovely city, but I hadn't had any ice cream before so long and it was the richness of that just made me sick. Anyway, we went on to we were in Vienna. We were going to go to the airport and then we went back home and then we went back to our hotel room and then I think it was about two hours away from where my friend, my friend's house was. And so I'm like, oh, that's a good idea. And so anyway, we went on to oh, Do you want to buy it? And she sold the car at the border. And there we were. We had our baggage with us. My mother, a lot of pistachio nuts in the car. And there was, it's like, what did we do? So she had had a car ordered, a BMW in Munich, which she was going to pick up. And she sold that car right at the border. She said that they were going to sell it for $1 million and then they would have to pay for it again and again and again and again until they got the money back. We went to a hotel which was right across from the railroad station in Wielacz, Austria and loaded all our baggage everywhere. The fellow drove off with the car. I don't know what papers they gave her but we went to the railroad station with our baggage minus probably a few pistachios and took the train to Munich. On that train, nobody took our tickets. They always said, we'll wait until the next fellow comes through, ticket taker. Anyway, I don't think we ended up paying for that trip because of the ticket. But it was a great experience and I think we all had fun on that train. On that trip in the cabin there was a fellow there who said he was German and he was a prisoner of war in the United States during the Second World War and he told us how wonderful his experience was being a prisoner of war in America during the war. So I don't know where he was as a prisoner of war. He probably told us but I've forgotten. But I thought that was very interesting. Anyway, on, I'm trying to think my mother the after we got, we were in Munich I guess, we picked up the BMW that my friend had ordered. We stayed in Munich. My mother flew out of Frankfurt and I remember she was in a restaurant with a lot of people and she was like you know what? You're going to be able to get your car back here. And so I remember being in a restaurant in Germany and ordering one meal, but it was like $1,000 for two meals. So we were just sitting there waiting for the food to come out of the restaurant. And then my mother flew out of Frankfurt and I remember being in a restaurant in Germany and ordering wanting baked potato, and I asked if they had sour cream. And the waiter kind of chastised me and said you're not in the United States. This is Germany. And evidently he had lived in the United States and you know was familiar with American food, but he didn't have sour cream on their baked potatoes. But anyway my mother flew out of Germany, Frankfurt, because my sister was getting married a little bit later in that month. And so she left. And then my friend and I continued on. We went to Spain for a few years and we went to Barcelona. I remember we were traveling on Spain $5 a day or $7 a day. Barcelona you didn't have to look when you crossed the street. There was so little traffic. And we stayed in a hotel right on the Ramblas. I think we paid $7 for our hotel or whatever. Anyway, we went down to visit some teacher friends that used to be in Iran with us in the past and they had this little restaurant called Marbella, I can't remember exactly the town that we stayed with her for a while. Anyway, then my friend decides...my friend Peggy she decides she doesn't want to continue traveling really. She wanted to go home. And so we picked up a friend that was an old lady and we were going to take her home. And so I took her home with me and I went back in the car and I got on the bus and I took Peggy out of town because it was late at night. And Peggy flew...Peggy flew to the United States and left me with her BMW and the other friend Gwen. And Gwen and I traveled without Peggy. Peggy had flown on to the United States. So I'm driving the BMW. And we had half a service somewhere, because it was a brand new car, anyway, we did. I remember going to Versailles. Maybe this was the second time. And skirting Paris, going to Versailles, and everybody was so nice and friendly about it that I just wanted to help us out with directions and so on. And then I decided that I wasn't going to, I better get home for my sister's wedding because she's coming over tomorrow morning rather than stay a couple more days. I couldn't get a couple of days after the wedding, so I decided that I was going to leave the car at the Schiphol Airport in the Netherlands and rather than going back to Iran with Peggy or traveling with Peggy in Europe before I flew back to the States, so I left the car, let my friend Gwen fly out and left the car in the Schiphol Airport at the parking, long-term parking, and I flew off to the States. I could attend my sister's wedding. Oh, and when we were in Germany or someplace, I remember I bought a dress in a lovely shop somewhere in Germany. And also, I had bought a purse, a leather purse in a shop. And I realized after I got home that the gold coins that I had been given by my friend Peggy, they must have slipped through a hole in the lining of the purse. So we went to see her and she said, hey, you know what? We're going to go buy some gold coins for you. And so we went to see her and she said yes. And then my mother had said, if you'd let me, she wanted to bring the purse home. And I said no, I put the purse in the wastebasket somewhere in Germany. And of course then I lost those two coins because I thought, well, they were in my suitcase when I left the purse. Anyway, that was a loss but could have been worse. And I did get, my mother was home for the wedding and I got home a couple of days before. I had to go to Minneapolis pick up my bag and I wore the dress I bought in Germany to my sister's wedding and everything was fine. So that's another adventure I had while living in Iran. So Eleanor, any more questions? Eleanor are you there? Eleanor?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 407,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "I\u2019m here,...The way you weave together the practical details, the people you met, and the emotions you felt really brings your travels to life.\n\nThinking back on all these adventures\u2014leaving Iran, traveling across continents, and the moments with your mother and friends\u2014what stands out to you most now? Is there a feeling or lesson that lingers from those journeys, or perhaps a favorite image or memory that you find yourself returning to?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1004,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.8720408203080297
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.6265161130577326
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.2177538275718689
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.22366201877593994
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.22930800914764404
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.24624645709991455
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.2472638487815857
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.255348265171051
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.2564624547958374
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.2595290541648865
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.2596092224121094
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.2607031464576721
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.2688627243041992
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.27856332063674927
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.27923357486724854
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.29272234439849854
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.2937784194946289
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.30216050148010254
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.3033052086830139
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.3234260082244873
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "7YpdCsNPtqDg8SQhpQZH",
+              "vector_distance": 0.33466607332229614
+            },
+            {
+              "document_id": "NoyGetX1I8boerSHckhs",
+              "chunk_id": "qZmIVsFWK7oWOePdMZDs",
+              "vector_distance": 0.34030312299728394
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Did I previously describe my 1970 trip from Iran to Munich, including selling a car at the border, a train ride with a WWII POW, and my mother's unexpected departure from Frankfurt?\n",
+          "rag_latency_secs": 0.8276283866725862
+        },
+        "llm_usage": {
+          "model_usage": {
+            "gpt-4.1": {
+              "input": {
+                "tokens": 9664,
+                "price": 0.019328
+              },
+              "input_cache_read": {
+                "tokens": 9216,
+                "price": 0.004608
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 151,
+                "price": 0.001208
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "I\u2019m here, Sheila, and I\u2019m listening closely. Thank you for sharing such a rich and detailed story\u2014your journey from Iran, traveling with your mother through Turkey and Europe, the little treasures like the hot pad with the fez, your adventures with friends, and even the bittersweet memory of losing those gold coins. ",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Eleanor?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1004,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Yes, Sheila, I\u2019m right here and listening closely. Thank you for sharing such a rich and detailed account of your travels\u2014your memories are so vivid, from watching the moon landing in the Tokyo airport to the adventures with your mother and friends as you left Iran and traveled across Europe. The little details, like the Turkish teaspoon that became a Christmas ornament, the pistachio nuts in the car, and the story of the lost gold coins in the purse, really bring your journey to life.\n\nLooking back on all these experiences\u2014traveling through so many countries, meeting people from different backgrounds, and navigating unexpected twists\u2014what do you think these adventures taught you about yourself or about the world? Or is there a particular lesson or feeling that stands out when you remember those years?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1007,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 1.3199766711331904
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 1.1866580373607576
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.20276117324829102
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.20820599794387817
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.2289084792137146
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.2391984462738037
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.24435961246490479
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.2459498643875122
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.2506006360054016
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.260526180267334
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.2735818028450012
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.28046101331710815
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.2812287211418152
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.30142951011657715
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.3041538596153259
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.30479300022125244
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.3049945831298828
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.30529099702835083
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.3176383376121521
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.3219631314277649
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "7YpdCsNPtqDg8SQhpQZH",
+              "vector_distance": 0.34654712677001953
+            },
+            {
+              "document_id": "NoyGetX1I8boerSHckhs",
+              "chunk_id": "qZmIVsFWK7oWOePdMZDs",
+              "vector_distance": 0.3543062210083008
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "Did I previously describe my drive to India from Iran, including details about border crossings, hostels, and a landslide?\n",
+          "rag_latency_secs": 0.6715286145918071
+        },
+        "llm_usage": {
+          "model_usage": {
+            "gpt-4.1": {
+              "input": {
+                "tokens": 16591,
+                "price": 0.033182
+              },
+              "input_cache_read": {
+                "tokens": 2304,
+                "price": 0.001152
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 158,
+                "price": 0.001264
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1074,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": null,
+        "message": "Sheila, I\u2019m here whenever you\u2019re ready. Take your time\u2014there\u2019s no rush. Is there anything specific you\u2019d like to reflect on, or would you like to continue with another story or memory?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 1078,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 2.2906365171074867
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 2.0733276130631566
+            }
+          }
+        },
+        "rag_retrieval_info": {
+          "chunks": [
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "qEwLhFOIfd7KnR2hdPNm",
+              "vector_distance": 0.26014965772628784
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "f5EfdsSvsWOnFntsUsoV",
+              "vector_distance": 0.26501959562301636
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "YdP6J2sRKsDNPh29Ahol",
+              "vector_distance": 0.2698954939842224
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "5VMjciR9xMKDtcLVEQcl",
+              "vector_distance": 0.2923978567123413
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "Bm4iPcCQOq99wrvYO9FK",
+              "vector_distance": 0.29473578929901123
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "oZe6Kllm7kKAbw5oXBHz",
+              "vector_distance": 0.2992222309112549
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "rY78UOPwbjT56ExZfYhL",
+              "vector_distance": 0.3045949935913086
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "ZInRpytJnyd7PQxr5w0n",
+              "vector_distance": 0.305225670337677
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "4uVU6BUNsjR5xs1QPvWv",
+              "vector_distance": 0.3210594654083252
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "fowWRXYid4eJtlWVMIXk",
+              "vector_distance": 0.32431286573410034
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "c5k03gljC9op47G1F0pS",
+              "vector_distance": 0.32515549659729004
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "WFgFk437rqf4LWsj4962",
+              "vector_distance": 0.32525700330734253
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "a76sZBJQRUp3un5U52ge",
+              "vector_distance": 0.335213303565979
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "1l0I2KH7q7G70rDhXYqv",
+              "vector_distance": 0.34043991565704346
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "bDOWAzzzacL8aRelvIjL",
+              "vector_distance": 0.3412328362464905
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "RDjfZ3NhDpRzlaUruMUS",
+              "vector_distance": 0.34133797883987427
+            },
+            {
+              "document_id": "Rh7mvg72bQ8tNAsukoEj",
+              "chunk_id": "gf6zthCPNuOWcamO32az",
+              "vector_distance": 0.3446277379989624
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "pVMXQLxkPeSXBq5k3J8v",
+              "vector_distance": 0.34948140382766724
+            },
+            {
+              "document_id": "DdKH9Ws8L2rsRu2Sc7Cv",
+              "chunk_id": "mJjmz6AjlFY5Hjzglz9J",
+              "vector_distance": 0.3554312586784363
+            },
+            {
+              "document_id": "Q3PFND1iKvtU9uK94aEi",
+              "chunk_id": "MV4XQ5KLFBUf1wbrgjpf",
+              "vector_distance": 0.35612303018569946
+            }
+          ],
+          "embedding_model": "e5_mistral_7b_instruct",
+          "retrieval_query": "What stands out most from your travels after leaving Iran, considering the experiences with your mother and friends, and what lessons or feelings linger from those journeys?\n",
+          "rag_latency_secs": 1.0529035199433565
+        },
+        "llm_usage": {
+          "model_usage": {
+            "gpt-4.1": {
+              "input": {
+                "tokens": 19512,
+                "price": 0.039024
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 44,
+                "price": 0.000352
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1750264110,
+      "accepted_time_unix_secs": 1750264111,
+      "call_duration_secs": 1098,
+      "cost": 7223,
+      "deletion_settings": {
+        "deletion_time_unix_secs": null,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "signed_url",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "gpt-4.1": {
+                "input": {
+                  "tokens": 77048,
+                  "price": 0.154096
+                },
+                "input_cache_read": {
+                  "tokens": 13184,
+                  "price": 0.006592000000000001
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 766,
+                  "price": 0.006128
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "gemini-2.0-flash": {
+                "input": {
+                  "tokens": 22025,
+                  "price": 0.0022025
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 10,
+                  "price": 4e-06
+                }
+              },
+              "gpt-4.1": {
+                "input": {
+                  "tokens": 2919252,
+                  "price": 5.838503999999999
+                },
+                "input_cache_read": {
+                  "tokens": 13184,
+                  "price": 0.006592000000000001
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 5495,
+                  "price": 0.04396000000000001
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 5.891262499999999,
+        "llm_charge": null,
+        "call_charge": null,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "phnum_01jxj3hwx1fava7g3snzm5e2f8",
+        "agent_number": "+16123241623",
+        "external_number": "+15074595005",
+        "type": "twilio",
+        "stream_sid": "MZ530a6ec1133a6547ff5b7ddcf588e1db",
+        "call_sid": "CAd43e277e68d75bd7c59536b2213cd778"
+      },
+      "batch_call": null,
+      "termination_reason": "Ending conversation after 30 seconds of silence.",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": {
+        "usage_count": 7,
+        "embedding_model": "e5_mistral_7b_instruct"
+      },
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": true,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": false,
+          "used": false
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "unknown",
+      "conversation_initiation_source_version": null,
+      "timezone": null,
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "unknown",
+      "agent_last_updated_from": "unknown"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {
+        "empathy_displayed": {
+          "criteria_id": "empathy_displayed",
+          "result": "success",
+          "rationale": "The agent consistently acknowledges the user's responses, provides summaries to confirm understanding, and uses empathetic language throughout the conversation. For example, at timestamp 1750265114, the agent says, \"The way you weave together the practical details, the people you met, and the emotions you felt really brings your travels to life.\" This demonstrates both acknowledgement and empathy."
+        },
+        "session_closure": {
+          "criteria_id": "session_closure",
+          "result": "failure",
+          "rationale": "The agent did not provide a summary of the key points discussed in the session. While the agent expressed gratitude, the session ended without a clear conclusion or a positive note, as the user seemed to be trailing off and the agent was waiting for a response."
+        },
+        "positive_interaction": {
+          "criteria_id": "positive_interaction",
+          "result": "success",
+          "rationale": "The user is actively sharing memories and engaging with the agent. There are no indications of discomfort, upset, or disengagement. The user seems comfortable and willing to share detailed stories."
+        },
+        "name_captured": {
+          "criteria_id": "name_captured",
+          "result": "success",
+          "rationale": "The agent consistently uses the user's name, Sheila, throughout the conversation, indicating it has captured and is using the correct name. For example, the agent says 'Hello, Sheila' at the beginning and 'Yes, Sheila, you did mention your remarkable drive to India' later in the conversation."
+        },
+        "memory_utilized": {
+          "criteria_id": "memory_utilized",
+          "result": "success",
+          "rationale": "The agent successfully recalls and references details from previous turns in the conversation, such as Sheila's travels in Russia (turn 2), her drive to India (turn 11), and her experiences leaving Iran (turn 21). This demonstrates the agent's ability to personalize the interaction based on available memory."
+        }
+      },
+      "data_collection_results": {
+        "session_date": {
+          "data_collection_id": "session_date",
+          "value": "Tuesday, 11 June 2024 14:28:30 UTC",
+          "json_schema": {
+            "type": "string",
+            "description": "Extract the date and time of the conversation.",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The start time of the conversation is provided in the metadata as a unix timestamp: 1750264110. This corresponds to 'Tuesday, 11 June 2024 14:28:30 UTC'."
+        },
+        "comfort_level": {
+          "data_collection_id": "comfort_level",
+          "value": "I'm ready, I guess, to go on to other adventures.",
+          "json_schema": {
+            "type": "string",
+            "description": "Extract any mention of the user\u2019s comfort or willingness to proceed with the interview.",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user expresses willingness to proceed with the interview when they say \"I'm ready, I guess, to go on to other adventures.\""
+        },
+        "key_life_event": {
+          "data_collection_id": "key_life_event",
+          "value": "While living in Iran, the user traveled through Europe with her mother and a friend, selling a car at the border, encountering a German prisoner of war, buying a dress in Germany, and losing gold coins.",
+          "json_schema": {
+            "type": "string",
+            "description": "Extract any major life event or story shared by the user during the session.",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The user shared multiple stories and life events during the session, including travels in Russia, experiences living in Iran, a trip around the world, driving to India, leaving Iran with her mother and a friend, traveling through Europe, and attending her sister's wedding. The most detailed and coherent story is about leaving Iran and traveling through Europe, which includes anecdotes about selling a car at the border, a German prisoner of war, buying a dress in Germany, and losing gold coins."
+        },
+        "user_name": {
+          "data_collection_id": "user_name",
+          "value": "Sheila",
+          "json_schema": {
+            "type": "string",
+            "description": "Extract the user\u2019s full name as provided or confirmed by the agent. Leave blank if not available.",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "The agent refers to the user as 'Sheila' multiple times throughout the conversation. Therefore, I can extract the user's full name as Sheila."
+        },
+        "consent_given": {
+          "data_collection_id": "consent_given",
+          "value": "None",
+          "json_schema": {
+            "type": "string",
+            "description": "Mark as true if the user explicitly gave consent to record or share their story; false otherwise.",
+            "enum": null,
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "constant_value": ""
+          },
+          "rationale": "I did not find any explicit consent given by the user to record or share their story in the provided conversation transcript. Therefore, the value is set to null."
+        }
+      },
+      "call_successful": "failure",
+      "transcript_summary": "Sheila recounts her travels in Russia and Iran, including a drive to India. She details leaving Iran with her mother and a friend, driving through Turkey and Europe, and eventually flying back to the US for her sister's wedding. She shares anecdotes about cultural encounters, lost gold coins, and the challenges of travel. The agent prompts her to reflect on the lessons learned from these experiences.\n",
+      "call_summary_title": null
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": null,
+        "conversation": null,
+        "agent": null
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "system__agent_id": "agent_01jxbrc1trfxev5sdp5xk4ra67",
+        "system__caller_id": "+15074595005",
+        "system__time_utc": "2025-06-18T16:46:48.713749+00:00",
+        "system__call_sid": "CAd43e277e68d75bd7c59536b2213cd778",
+        "system__called_number": "+16123241623",
+        "system__conversation_id": "conv_01jy1xxqmje7arqq7m1pqrfmav",
+        "system__call_duration_secs": 1097
+      }
+    },
+    "has_audio": true,
+    "has_user_audio": true,
+    "has_response_audio": true
+  }
+}

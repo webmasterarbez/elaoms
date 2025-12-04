@@ -184,14 +184,43 @@ def _extract_caller_phone(request_data: PostCallWebhookRequest) -> str | None:
     return None
 
 
+def _extract_conversation_context(request_data: PostCallWebhookRequest) -> dict[str, Any]:
+    """Extract conversation context including timestamp and conversation ID.
+
+    Extracts temporal and identification data for grouping memories together:
+    - conversation_id: Unique identifier for this conversation
+    - event_timestamp: Unix timestamp when the event occurred
+    - timestamp_utc: ISO 8601 UTC timestamp from dynamic_variables
+
+    Args:
+        request_data: The parsed webhook request.
+
+    Returns:
+        Dictionary with conversation_id, event_timestamp, and timestamp_utc.
+    """
+    context = {
+        "conversation_id": request_data.data.conversation_id,
+        "event_timestamp": request_data.event_timestamp,
+        "timestamp_utc": None,
+    }
+    try:
+        client_data = request_data.data.conversation_initiation_client_data
+        if client_data and client_data.dynamic_variables:
+            context["timestamp_utc"] = client_data.dynamic_variables.get("system__time_utc")
+    except Exception as e:
+        logger.warning(f"Failed to extract timestamp from conversation context: {e}")
+    return context
+
+
 async def _process_memories(request_data: PostCallWebhookRequest) -> None:
     """Process and store memories from post-call transcription.
 
     This function:
     1. Extracts caller phone number
-    2. Extracts user info from data_collection_results
-    3. Stores profile facts as memories with high salience
-    4. Stores each user message as individual memory
+    2. Extracts conversation context (timestamp, conversation_id)
+    3. Extracts user info from data_collection_results
+    4. Stores profile facts as memories with high salience
+    5. Stores each user message as individual memory with timing
 
     Args:
         request_data: The parsed webhook request.
@@ -204,6 +233,10 @@ async def _process_memories(request_data: PostCallWebhookRequest) -> None:
 
     logger.info(f"Processing memories for caller: {phone_number}")
 
+    # Extract conversation context for memory grouping
+    conversation_context = _extract_conversation_context(request_data)
+    logger.debug(f"Conversation context: {conversation_context}")
+
     # Extract user info from data collection results
     user_info = {}
     if request_data.data.analysis and request_data.data.analysis.data_collection_results:
@@ -213,7 +246,7 @@ async def _process_memories(request_data: PostCallWebhookRequest) -> None:
     # Store profile facts as memories
     if user_info:
         try:
-            results = await create_profile_memories(user_info, phone_number)
+            results = await create_profile_memories(user_info, phone_number, conversation_context)
             logger.info(f"Stored {len(results)} profile memories for {phone_number}")
         except Exception as e:
             logger.error(f"Failed to store profile memories: {e}")
@@ -223,7 +256,7 @@ async def _process_memories(request_data: PostCallWebhookRequest) -> None:
         user_messages = extract_user_messages(request_data.data.transcript)
         if user_messages:
             try:
-                results = await store_conversation_memories(user_messages, phone_number)
+                results = await store_conversation_memories(user_messages, phone_number, conversation_context)
                 logger.info(f"Stored {len(results)} conversation memories for {phone_number}")
             except Exception as e:
                 logger.error(f"Failed to store conversation memories: {e}")

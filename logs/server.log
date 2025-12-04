@@ -1156,3 +1156,627 @@ INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
 INFO:     127.0.0.1:52560 - "GET /health HTTP/1.1" 200 OK
 INFO:     127.0.0.1:52568 - "GET /docs HTTP/1.1" 200 OK
 INFO:     127.0.0.1:52568 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [94173] using WatchFiles
+INFO:     Started server process [94200]
+INFO:     Waiting for application startup.
+2025-12-03 19:13:17,382 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-03 19:13:17,382 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-03 19:15:05,211 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_9501k8k1nbqtfyvsz4czra51pevp
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 19:15:05,212 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_9501k8k1nbqtfyvsz4czra51pevp
+2025-12-03 19:15:05,214 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_9501k8k1nbqtfyvsz4czra51pevp/conv_9501k8k1nbqtfyvsz4czra51pevp_transcription.json
+2025-12-03 19:15:05,214 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-03 19:15:05,284 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,284 - app.memory.extraction - INFO - Stored profile memory for +16129782029: last_name=Brien
+2025-12-03 19:15:05,286 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,286 - app.memory.extraction - INFO - Stored profile memory for +16129782029: first_name=Stefan
+2025-12-03 19:15:05,286 - app.webhooks.post_call - INFO - Stored 2 profile memories for +16129782029
+2025-12-03 19:15:05,310 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,314 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,319 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,324 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,329 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,333 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:15:05,334 - app.memory.extraction - INFO - Stored 6 conversation memories for +16129782029
+2025-12-03 19:15:05,334 - app.webhooks.post_call - INFO - Stored 6 conversation memories for +16129782029
+2025-12-03 19:15:05,334 - app.webhooks.post_call - INFO - Completed transcription processing for conv_9501k8k1nbqtfyvsz4czra51pevp
+INFO:     127.0.0.1:51644 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51644 - "GET /openapi.json HTTP/1.1" 200 OK
+2025-12-03 19:22:49,885 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_8901kakrh31nf62vrryrdyyp11rw
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-03 19:22:49,885 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_8901kakrh31nf62vrryrdyyp11rw
+2025-12-03 19:22:49,887 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_8901kakrh31nf62vrryrdyyp11rw/conv_8901kakrh31nf62vrryrdyyp11rw_transcription.json
+2025-12-03 19:22:49,887 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-03 19:22:49,906 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,906 - app.memory.extraction - INFO - Stored profile memory for +16129782029: first_name=Stefan
+2025-12-03 19:22:49,911 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,911 - app.memory.extraction - INFO - Stored profile memory for +16129782029: last_name=Breit
+2025-12-03 19:22:49,911 - app.webhooks.post_call - INFO - Stored 2 profile memories for +16129782029
+2025-12-03 19:22:49,930 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,934 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,940 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,944 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,949 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,954 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,958 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,963 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,968 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-03 19:22:49,969 - app.memory.extraction - INFO - Stored 9 conversation memories for +16129782029
+2025-12-03 19:22:49,969 - app.webhooks.post_call - INFO - Stored 9 conversation memories for +16129782029
+2025-12-03 19:22:49,969 - app.webhooks.post_call - INFO - Completed transcription processing for conv_8901kakrh31nf62vrryrdyyp11rw
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-04 04:56:08,872 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [94200]
+INFO:     Stopping reloader process [94173]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [99691] using WatchFiles
+INFO:     Started server process [99721]
+INFO:     Waiting for application startup.
+2025-12-04 04:56:27,432 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-04 04:56:27,433 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-04 05:14:26,267 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [99721]
+INFO:     Stopping reloader process [99691]
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elevenlabs_agents_open_memory_system']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [21687] using WatchFiles
+INFO:     Started server process [21717]
+INFO:     Waiting for application startup.
+2025-12-04 07:03:53,022 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-04 07:03:53,023 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-04 07:04:17,546 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jvfntbqdfh5bd4q8g98y22gz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:04:17,548 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jvfntbqdfh5bd4q8g98y22gz
+2025-12-04 07:04:17,552 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jvfntbqdfh5bd4q8g98y22gz/conv_01jvfntbqdfh5bd4q8g98y22gz_transcription.json
+2025-12-04 07:04:17,552 - app.webhooks.post_call - INFO - Processing memories for caller: +16125082017
+2025-12-04 07:04:17,628 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,628 - app.memory.extraction - INFO - Stored profile memory for +16125082017: participant_details=founder of Arbez
+2025-12-04 07:04:17,641 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,641 - app.memory.extraction - INFO - Stored profile memory for +16125082017: company_overview=Mission: To help people find their dream job and get paid top dollar. Founding Year: Not explicitly mentioned. Core Products/Services: Online platform providing tools and inspiration for job seekers and career counselors. Industry Sector: Career development and job search assistance.
+2025-12-04 07:04:17,649 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,650 - app.memory.extraction - INFO - Stored profile memory for +16125082017: quotes_and_highlights=If you can dream it, you can do it. And really, the sky's the limit... If you're not falling down, you're not dreaming big enough and you're not trying enough. You're playing it safe.
+2025-12-04 07:04:17,660 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,661 - app.memory.extraction - INFO - Stored profile memory for +16125082017: founder’s_background=We know what employers want, and now after so many years working with job seekers, we know what job seekers want and need. And because we've got that unique perspective of both sides of the hiring desk, we're able to give both sides what they want. And that's been a really powerful differentiator for us.
+2025-12-04 07:04:17,669 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,669 - app.memory.extraction - INFO - Stored profile memory for +16125082017: key_milestones=None
+2025-12-04 07:04:17,670 - app.webhooks.post_call - INFO - Stored 5 profile memories for +16125082017
+2025-12-04 07:04:17,698 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,707 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,715 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,718 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,928 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:17,936 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,147 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,154 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,367 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,375 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,382 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,389 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,397 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:18,399 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:19,012 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:19,019 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:19,442 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:19,449 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:19,451 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,069 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,078 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,288 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,297 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,305 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,315 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,323 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,325 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,333 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,542 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,955 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:20,963 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:21,175 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:21,185 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:21,194 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,019 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,650 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,658 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,666 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,673 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,681 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,690 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,692 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,701 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:22,710 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,126 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,135 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,551 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,772 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,782 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:04:23,782 - app.memory.extraction - INFO - Stored 49 conversation memories for +16125082017
+2025-12-04 07:04:23,782 - app.webhooks.post_call - INFO - Stored 49 conversation memories for +16125082017
+2025-12-04 07:04:23,782 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jvfntbqdfh5bd4q8g98y22gz
+2025-12-04 07:06:09,433 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jvf7y0g5f6wb4szenqxdcgc9
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:06:09,434 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jvf7y0g5f6wb4szenqxdcgc9
+2025-12-04 07:06:09,437 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jvf7y0g5f6wb4szenqxdcgc9/conv_01jvf7y0g5f6wb4szenqxdcgc9_transcription.json
+2025-12-04 07:06:09,437 - app.webhooks.post_call - INFO - Processing memories for caller: +16125082017
+2025-12-04 07:06:09,459 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:09,460 - app.memory.extraction - INFO - Stored profile memory for +16125082017: participant_details=Founder of Arbez
+2025-12-04 07:06:09,471 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:09,471 - app.memory.extraction - INFO - Stored profile memory for +16125082017: company_overview=Mission, founding year, core products/services, and industry sector
+2025-12-04 07:06:09,481 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:09,481 - app.memory.extraction - INFO - Stored profile memory for +16125082017: quotes_and_highlights=I don't want to drive a car I can't afford.
+2025-12-04 07:06:10,112 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,112 - app.memory.extraction - INFO - Stored profile memory for +16125082017: founder’s_background=Oh my gosh, I took a job at a global IT consulting firm and I was a recruiter and my job was to help us hire fantastic people to go work at companies and I was absolutely horrified to learn at how hard it was for individuals to get a job. They had absolutely no idea what was happening on the hiring side of the desk, and we hired about one in 20, which means I had to reject, I had to turn down 19 people. And to make things even worse, I couldn't tell them all the things they were doing wrong. I couldn't tell them that they had the skills, but they bombed the interview. And it was just, it was really heartbreaking for me, and I wanted to help everybody, and I couldn't. I couldn't because I didn't have time. I couldn't because I really wasn't allowed. You know, companies are afraid of lawsuits, and if I give feedback to every single candidate about why we didn't hire them, it was opening the company up to, you know, legal risk. And so there I sat at the tender age of 24, desperately trying to treat people who were well and give them an opportunity to find their dream job while taking care of my company. And I just wanted to help everybody, and I couldn't. And so starting Arbez really, you know, the other side of it is that, you know, people really weren't being treated well in that recruiting world. So we're going to be working with our team and our team is going to be working with our team on how we can get them to work in that consulting world. The company didn't get paid to help individuals. It got paid to help companies hire. And so, you know, all these people were out on their own floundering, bombing interviews, missing out on jobs that they would have probably been great at doing in the past and then getting a job in the future. So it was a very, very difficult time for them. And starting Arvez was an opportunity for me to finally tell everybody what is happening on the hiring side of the desk. And with just a little bit of knowledge they would have the power to go get their dream job, negotiate for top dollar and not get into the hiring process for something silly. And with Arvez, running our own company we had the power to do that. So I think it's really important that we have this kind of relationship between us and our clients because if you're not in a relationship where you can't work together, you can't be in a relationship where you can't work together. We could do both. We could help companies hire top talent and help people really find that career and that company and that job that was perfect for them and gave them an opportunity to harness all their talents, all their passions, and get paid really well for it without banging their head against a wall.
+2025-12-04 07:06:10,116 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,116 - app.memory.extraction - INFO - Stored profile memory for +16125082017: key_milestones=None
+2025-12-04 07:06:10,116 - app.webhooks.post_call - INFO - Stored 5 profile memories for +16125082017
+2025-12-04 07:06:10,138 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,147 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,370 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,378 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,387 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,608 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,617 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,836 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,846 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,856 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,865 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,875 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:10,885 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:11,516 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:11,729 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:12,143 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:12,152 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:12,375 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:12,800 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,228 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,449 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,662 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,671 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,681 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,691 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,701 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:13,923 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:14,142 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:14,151 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:06:14,152 - app.memory.extraction - INFO - Stored 29 conversation memories for +16125082017
+2025-12-04 07:06:14,152 - app.webhooks.post_call - INFO - Stored 29 conversation memories for +16125082017
+2025-12-04 07:06:14,152 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jvf7y0g5f6wb4szenqxdcgc9
+2025-12-04 07:14:51,450 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jx1bewdjfhjbbt4vvjvwdg8n
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:14:51,450 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jx1bewdjfhjbbt4vvjvwdg8n
+2025-12-04 07:14:51,453 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jx1bewdjfhjbbt4vvjvwdg8n/conv_01jx1bewdjfhjbbt4vvjvwdg8n_transcription.json
+2025-12-04 07:14:51,453 - app.webhooks.post_call - WARNING - No caller phone number found, skipping memory processing
+2025-12-04 07:14:51,453 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jx1bewdjfhjbbt4vvjvwdg8n
+2025-12-04 07:21:21,308 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jxd5y165f62a0v7gtr6bkg56
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:21:21,311 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jxd5y165f62a0v7gtr6bkg56
+2025-12-04 07:21:21,317 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jxd5y165f62a0v7gtr6bkg56/conv_01jxd5y165f62a0v7gtr6bkg56_transcription.json
+2025-12-04 07:21:21,317 - app.webhooks.post_call - INFO - Processing memories for caller: +15074595005
+2025-12-04 07:21:21,340 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,341 - app.memory.extraction - INFO - Stored profile memory for +15074595005: session_date=June 10, 2024 14:24:26 UTC
+2025-12-04 07:21:21,348 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,349 - app.memory.extraction - INFO - Stored profile memory for +15074595005: comfort_level=Yes.
+2025-12-04 07:21:21,356 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,356 - app.memory.extraction - INFO - Stored profile memory for +15074595005: key_life_event=The user shares stories about growing up in Winona, Minnesota, teaching in Peru, and teaching in Iran.
+2025-12-04 07:21:21,362 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,363 - app.memory.extraction - INFO - Stored profile memory for +15074595005: user_name=Sheila Cunningham
+2025-12-04 07:21:21,370 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,370 - app.memory.extraction - INFO - Stored profile memory for +15074595005: consent_given=None
+2025-12-04 07:21:21,370 - app.webhooks.post_call - INFO - Stored 5 profile memories for +15074595005
+2025-12-04 07:21:21,393 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,395 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,403 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,409 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,416 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,423 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,430 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,438 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,445 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,451 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,458 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,465 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,473 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,479 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,486 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,488 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,493 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,495 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,499 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,705 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,709 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,713 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,716 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,720 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,724 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,728 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,731 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,735 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,739 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:21,947 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,158 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,163 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,166 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,170 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,173 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,178 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,181 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,387 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,391 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,396 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,403 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,407 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,411 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,417 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,625 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,630 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,631 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,635 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,639 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,643 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,647 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,652 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,656 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,867 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,873 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,877 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,881 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,885 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:22,890 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,305 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,309 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,314 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,316 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,317 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,322 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,533 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,538 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,752 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,757 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,762 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,768 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,773 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,779 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,783 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,788 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:23,792 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:24,214 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:24,428 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:24,433 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:24,435 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:21:24,435 - app.memory.extraction - INFO - Stored 80 conversation memories for +15074595005
+2025-12-04 07:21:24,435 - app.webhooks.post_call - INFO - Stored 80 conversation memories for +15074595005
+2025-12-04 07:21:24,435 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jxd5y165f62a0v7gtr6bkg56
+2025-12-04 07:22:06,347 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jxk1wejhenk8x8tt9enzxw4a
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:22:06,348 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jxk1wejhenk8x8tt9enzxw4a
+2025-12-04 07:22:06,356 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jxk1wejhenk8x8tt9enzxw4a/conv_01jxk1wejhenk8x8tt9enzxw4a_transcription.json
+2025-12-04 07:22:06,356 - app.webhooks.post_call - INFO - Processing memories for caller: +15074595005
+2025-12-04 07:22:06,377 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,377 - app.memory.extraction - INFO - Stored profile memory for +15074595005: session_date=1749764946
+2025-12-04 07:22:06,381 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,382 - app.memory.extraction - INFO - Stored profile memory for +15074595005: comfort_level=Yes.
+2025-12-04 07:22:06,388 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,388 - app.memory.extraction - INFO - Stored profile memory for +15074595005: key_life_event=The user shared a story about traveling to Russia, Scandinavia, and Europe. She described the challenges of traveling in Russia in 1968, including being ignored in restaurants and having to use foreign currency in special shops. She also talked about her experiences in Leningrad and Helsinki, and her travels through Scandinavia, Paris, and her friend's home in Akechon.
+2025-12-04 07:22:06,395 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,395 - app.memory.extraction - INFO - Stored profile memory for +15074595005: user_name=Sheila
+2025-12-04 07:22:06,399 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,399 - app.memory.extraction - INFO - Stored profile memory for +15074595005: consent_given=None
+2025-12-04 07:22:06,399 - app.webhooks.post_call - INFO - Stored 5 profile memories for +15074595005
+2025-12-04 07:22:06,418 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,424 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,428 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,435 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,442 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,448 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,063 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,070 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,277 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,283 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,288 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,293 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,299 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,302 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,710 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,713 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,341 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,347 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,350 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,353 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,570 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,576 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:06,988 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,407 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,413 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,622 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,629 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,636 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,643 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,649 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:07,656 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,270 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,276 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,279 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,282 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,288 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,294 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,715 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,722 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,936 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:08,944 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:09,354 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:09,978 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:09,982 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:09,990 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:09,996 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,003 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,614 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,620 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,626 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,632 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,638 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,644 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,650 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,653 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,862 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,865 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:10,865 - app.memory.extraction - INFO - Stored 57 conversation memories for +15074595005
+2025-12-04 07:22:10,866 - app.webhooks.post_call - INFO - Stored 57 conversation memories for +15074595005
+2025-12-04 07:22:10,866 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jxk1wejhenk8x8tt9enzxw4a
+2025-12-04 07:22:29,584 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jy1xxqmje7arqq7m1pqrfmav
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:22:29,584 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jy1xxqmje7arqq7m1pqrfmav
+2025-12-04 07:22:29,587 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jy1xxqmje7arqq7m1pqrfmav/conv_01jy1xxqmje7arqq7m1pqrfmav_transcription.json
+2025-12-04 07:22:29,587 - app.webhooks.post_call - INFO - Processing memories for caller: +15074595005
+2025-12-04 07:22:29,607 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,608 - app.memory.extraction - INFO - Stored profile memory for +15074595005: session_date=Tuesday, 11 June 2024 14:28:30 UTC
+2025-12-04 07:22:29,617 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,617 - app.memory.extraction - INFO - Stored profile memory for +15074595005: comfort_level=I'm ready, I guess, to go on to other adventures.
+2025-12-04 07:22:29,625 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,625 - app.memory.extraction - INFO - Stored profile memory for +15074595005: key_life_event=While living in Iran, the user traveled through Europe with her mother and a friend, selling a car at the border, encountering a German prisoner of war, buying a dress in Germany, and losing gold coins.
+2025-12-04 07:22:29,632 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,632 - app.memory.extraction - INFO - Stored profile memory for +15074595005: user_name=Sheila
+2025-12-04 07:22:29,639 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,639 - app.memory.extraction - INFO - Stored profile memory for +15074595005: consent_given=None
+2025-12-04 07:22:29,639 - app.webhooks.post_call - INFO - Stored 5 profile memories for +15074595005
+2025-12-04 07:22:29,662 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,671 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,885 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:29,893 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:30,313 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:30,320 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:30,324 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:30,324 - app.memory.extraction - INFO - Stored 7 conversation memories for +15074595005
+2025-12-04 07:22:30,324 - app.webhooks.post_call - INFO - Stored 7 conversation memories for +15074595005
+2025-12-04 07:22:30,324 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jy1xxqmje7arqq7m1pqrfmav
+2025-12-04 07:22:53,405 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jy1zdbj8emq934gk1kby2pqh
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:22:53,405 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jy1zdbj8emq934gk1kby2pqh
+2025-12-04 07:22:53,410 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jy1zdbj8emq934gk1kby2pqh/conv_01jy1zdbj8emq934gk1kby2pqh_transcription.json
+2025-12-04 07:22:53,410 - app.webhooks.post_call - INFO - Processing memories for caller: +15074595005
+2025-12-04 07:22:53,430 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,431 - app.memory.extraction - INFO - Stored profile memory for +15074595005: session_date=2025-07-17T16:54:31Z
+2025-12-04 07:22:53,439 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,440 - app.memory.extraction - INFO - Stored profile memory for +15074595005: comfort_level=How do you feel about that, Eleanor?
+2025-12-04 07:22:53,448 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,448 - app.memory.extraction - INFO - Stored profile memory for +15074595005: key_life_event=The user recounts a trip across Europe in the late 1960s/early 1970s with friends Peggy and Gwen. The story includes selling a car at the border, traveling to Munich, Vienna, and Spain, meeting a former prisoner of war on a train, and eventually leaving a BMW at Schiphol Airport before returning to the United States.
+2025-12-04 07:22:53,453 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,454 - app.memory.extraction - INFO - Stored profile memory for +15074595005: user_name=Sheila
+2025-12-04 07:22:53,459 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,460 - app.memory.extraction - INFO - Stored profile memory for +15074595005: consent_given=false
+2025-12-04 07:22:53,460 - app.webhooks.post_call - INFO - Stored 5 profile memories for +15074595005
+2025-12-04 07:22:53,478 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,486 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,490 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,498 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,505 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,509 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,515 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:53,519 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,158 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,165 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,172 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,180 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,188 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,813 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:54,817 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,026 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,033 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,245 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,458 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,465 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:22:55,465 - app.memory.extraction - INFO - Stored 20 conversation memories for +15074595005
+2025-12-04 07:22:55,465 - app.webhooks.post_call - INFO - Stored 20 conversation memories for +15074595005
+2025-12-04 07:22:55,465 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jy1zdbj8emq934gk1kby2pqh
+2025-12-04 07:23:34,734 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01jyqd6gkmed4ty6xfjpwrf20c
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:23:34,735 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01jyqd6gkmed4ty6xfjpwrf20c
+2025-12-04 07:23:34,737 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01jyqd6gkmed4ty6xfjpwrf20c/conv_01jyqd6gkmed4ty6xfjpwrf20c_transcription.json
+2025-12-04 07:23:34,737 - app.webhooks.post_call - INFO - Processing memories for caller: +15074595005
+2025-12-04 07:23:34,758 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:34,758 - app.memory.extraction - INFO - Stored profile memory for +15074595005: session_date=1750984770
+2025-12-04 07:23:34,765 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:34,765 - app.memory.extraction - INFO - Stored profile memory for +15074595005: comfort_level=Is that okay?
+2025-12-04 07:23:34,985 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:34,985 - app.memory.extraction - INFO - Stored profile memory for +15074595005: key_life_event=The user shared memories of childhood, including playing dress-up, riding the bus, visiting her grandmother, playing in St. Michael's Field, and visiting a farm with no electricity or running water. She also mentioned moving to New York City and then to West Howard Street, and plans to continue her story from West Broadway Street in the next session.
+2025-12-04 07:23:34,988 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:34,988 - app.memory.extraction - INFO - Stored profile memory for +15074595005: user_name=Sheila
+2025-12-04 07:23:34,992 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:34,992 - app.memory.extraction - INFO - Stored profile memory for +15074595005: consent_given=false
+2025-12-04 07:23:34,992 - app.webhooks.post_call - INFO - Stored 5 profile memories for +15074595005
+2025-12-04 07:23:35,641 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,649 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,656 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,660 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,667 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,674 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:23:35,675 - app.memory.extraction - INFO - Stored 6 conversation memories for +15074595005
+2025-12-04 07:23:35,675 - app.webhooks.post_call - INFO - Stored 6 conversation memories for +15074595005
+2025-12-04 07:23:35,675 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01jyqd6gkmed4ty6xfjpwrf20c
+2025-12-04 07:24:40,693 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-04 07:24:40,695 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_01k04qved0ej19h9h0ddcgqnbz
+2025-12-04 07:24:40,703 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_01k04qved0ej19h9h0ddcgqnbz/conv_01k04qved0ej19h9h0ddcgqnbz_transcription.json
+2025-12-04 07:24:40,703 - app.webhooks.post_call - INFO - Processing memories for caller: +16124833213
+2025-12-04 07:24:40,722 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,722 - app.memory.extraction - INFO - Stored profile memory for +16124833213: session_date=2025-07-14T15:11:31+00:00
+2025-12-04 07:24:40,724 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,724 - app.memory.extraction - INFO - Stored profile memory for +16124833213: comfort_level=And I need to stop at this point in time.
+2025-12-04 07:24:40,725 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,725 - app.memory.extraction - INFO - Stored profile memory for +16124833213: key_life_event=The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach. He swam in the ocean and was impressed by its size. He drove through the desert at night because it was too hot during the day. The biggest takeaway from the trip was the fact that they could drive that far in those older cars.
+2025-12-04 07:24:40,726 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,727 - app.memory.extraction - INFO - Stored profile memory for +16124833213: user_name=Ken
+2025-12-04 07:24:40,728 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,728 - app.memory.extraction - INFO - Stored profile memory for +16124833213: consent_given=false
+2025-12-04 07:24:40,728 - app.webhooks.post_call - INFO - Stored 5 profile memories for +16124833213
+2025-12-04 07:24:40,746 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,748 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,749 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,750 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,752 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,754 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,755 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,757 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,758 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,759 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,761 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,762 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,764 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,765 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,767 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,769 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,770 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,771 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,773 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,774 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,775 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,777 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,779 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,780 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,782 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,783 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,785 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,786 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,788 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,789 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,790 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,792 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,793 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,794 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,796 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,797 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,799 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,801 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,803 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,804 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,806 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,807 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,809 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,811 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,812 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,814 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,815 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,817 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,819 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,820 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,821 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,823 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,824 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,826 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,827 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,828 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,830 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,832 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,834 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,835 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,836 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,838 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,839 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,841 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,842 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,843 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,844 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,846 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,847 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,849 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,850 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,851 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,853 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,854 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,855 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,857 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,858 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,860 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,861 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,862 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,864 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,865 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,866 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,868 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,870 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,871 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,873 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,874 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,876 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,877 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,878 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,879 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,881 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,882 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,883 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,887 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,892 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,895 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,897 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,901 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,904 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,906 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,909 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,913 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,917 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,920 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,924 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,926 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,929 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,933 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,937 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,941 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,944 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,948 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,953 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,956 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,960 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,964 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,968 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,972 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,977 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,981 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,985 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:40,989 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,206 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,210 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,214 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,218 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,220 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,224 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,429 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,433 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,437 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,441 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,446 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,450 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,451 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,453 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,455 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-04 07:24:41,455 - app.memory.extraction - INFO - Stored 139 conversation memories for +16124833213
+2025-12-04 07:24:41,455 - app.webhooks.post_call - INFO - Stored 139 conversation memories for +16124833213
+2025-12-04 07:24:41,455 - app.webhooks.post_call - INFO - Completed transcription processing for conv_01k04qved0ej19h9h0ddcgqnbz
