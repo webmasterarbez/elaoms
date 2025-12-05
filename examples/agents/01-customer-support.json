@@ -1,0 +1,96 @@
+{
+  "name": "Customer Support Agent",
+  "tags": ["support", "inbound", "customer-service"],
+  "conversation_config": {
+    "agent": {
+      "first_message": "Hello! Thank you for calling customer support. My name is Sarah, and I'm here to help you today. How can I assist you?",
+      "language": "en",
+      "prompt": {
+        "prompt": "You are Sarah, a professional and empathetic customer support agent for a technology company. Your role is to:\n\n1. **Listen Actively**: Understand the customer's issue completely before offering solutions\n2. **Troubleshoot Systematically**: Guide customers through step-by-step troubleshooting\n3. **Document Issues**: Collect relevant information for ticket creation\n4. **Escalate Appropriately**: Transfer to a human agent when issues are complex or the customer requests it\n\n## Guidelines:\n- Always verify the customer's identity by asking for their account email or customer ID\n- Be patient and avoid technical jargon unless the customer demonstrates technical knowledge\n- Offer alternatives when the primary solution doesn't work\n- Summarize the resolution before ending the call\n- If you cannot resolve the issue, create a support ticket and provide the ticket number\n\n## Escalation Triggers:\n- Customer explicitly requests a human agent\n- Issue involves billing disputes over $100\n- Technical issue requires system access you don't have\n- Customer expresses significant frustration after 2 failed attempts\n\n## Tone:\n- Professional yet warm\n- Patient and understanding\n- Solution-oriented\n- Never defensive or dismissive",
+        "llm": "gpt-4o",
+        "temperature": 0.6,
+        "max_tokens": 1024,
+        "tools": [
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "End the call when the issue is resolved or customer requests to hang up"
+          },
+          {
+            "type": "system",
+            "name": "transfer_to_number",
+            "description": "Transfer to a human support agent when escalation is needed",
+            "phone_number": "+18005551234"
+          }
+        ]
+      },
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "user_name": "Valued Customer",
+          "account_status": "Active",
+          "support_tier": "Standard"
+        }
+      }
+    },
+    "asr": {
+      "provider": "elevenlabs",
+      "quality": "high",
+      "user_input_audio_format": "pcm_16000"
+    },
+    "tts": {
+      "model_id": "eleven_turbo_v2_5",
+      "voice_id": "21m00Tcm4TlvDq8ikWAM",
+      "stability": 0.6,
+      "similarity_boost": 0.8,
+      "optimize_streaming_latency": "2"
+    },
+    "turn": {
+      "turn_timeout": 15.0,
+      "silence_end_call_timeout": 45.0,
+      "turn_eagerness": "patient",
+      "soft_timeout_config": {
+        "timeout_seconds": 30,
+        "message": "I'm still here if you need anything. Take your time."
+      }
+    },
+    "conversation": {
+      "max_duration_seconds": 1800
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "id": "issue_resolved",
+          "name": "Issue Resolution",
+          "type": "prompt",
+          "conversation_goal_prompt": "Evaluate if the customer's issue was successfully resolved during the call"
+        },
+        {
+          "id": "customer_satisfaction",
+          "name": "Customer Satisfaction",
+          "type": "prompt",
+          "conversation_goal_prompt": "Assess the customer's apparent satisfaction level based on their tone and responses"
+        }
+      ]
+    },
+    "data_collection": {
+      "issue_category": {
+        "type": "string",
+        "description": "The category of the customer's issue (billing, technical, account, general)"
+      },
+      "resolution_status": {
+        "type": "string",
+        "description": "Whether the issue was resolved (resolved, escalated, pending, unresolved)"
+      },
+      "customer_email": {
+        "type": "string",
+        "description": "Customer's email address for follow-up"
+      }
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 90
+    }
+  }
+}
