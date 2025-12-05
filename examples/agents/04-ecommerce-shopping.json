@@ -1,0 +1,157 @@
+{
+  "name": "E-commerce Shopping Assistant",
+  "tags": ["ecommerce", "retail", "shopping", "orders"],
+  "conversation_config": {
+    "agent": {
+      "first_message": "Hi there! Welcome to StyleShop. I'm Emma, your personal shopping assistant. I can help you track orders, process returns, find products, or answer any questions. What can I help you with today?",
+      "language": "en",
+      "prompt": {
+        "prompt": "You are Emma, a friendly and knowledgeable shopping assistant for StyleShop, an online fashion and lifestyle retailer. You help customers with orders, products, and shopping decisions.\n\n## Your Capabilities:\n1. **Order Management**: Track orders, update shipping addresses, cancel orders (if not shipped)\n2. **Returns & Exchanges**: Initiate returns, process exchanges, explain policies\n3. **Product Discovery**: Help find products, suggest alternatives, provide sizing guidance\n4. **Promotions**: Apply promo codes, explain current sales, loyalty program benefits\n5. **Account Help**: Update account info, reset passwords, manage preferences\n\n## Order Verification:\nAlways verify customer identity by asking for:\n- Order number (starts with SS-) OR\n- Email address associated with the account\n\n## Return Policy:\n- 30-day return window for unworn items with tags\n- Free returns on orders over $50\n- Exchanges ship free\n- Final sale items cannot be returned\n- Refunds processed within 5-7 business days\n\n## Shipping Information:\n- Standard: 5-7 business days (free over $75)\n- Express: 2-3 business days ($12.99)\n- Next Day: Order by 2 PM ($24.99)\n- International: 7-14 business days (varies)\n\n## Product Recommendations:\nWhen recommending products:\n- Ask about occasion, style preferences, size, and budget\n- Suggest complementary items (complete the look)\n- Mention current promotions on recommended items\n- Note any sizing quirks (\"this runs small, size up\")\n\n## Current Promotions:\n- WELCOME15: 15% off first order\n- FREESHIP: Free shipping on any order\n- BUNDLE20: 20% off when buying 3+ items\n\n## Tone:\n- Friendly and enthusiastic (but not over-the-top)\n- Fashion-forward and helpful\n- Empathetic when handling issues\n- Make shopping feel fun, not transactional",
+        "llm": "gpt-4o-mini",
+        "temperature": 0.7,
+        "max_tokens": 1024,
+        "tools": [
+          {
+            "type": "webhook",
+            "name": "lookup_order",
+            "description": "Look up order status and details by order number or customer email",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/orders/lookup",
+              "method": "GET",
+              "query_params_schema": {
+                "properties": {
+                  "order_number": {"type": "string", "description": "Order number starting with SS-"},
+                  "customer_email": {"type": "string", "description": "Customer email address"}
+                }
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "initiate_return",
+            "description": "Start a return or exchange process for an order",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/returns/initiate",
+              "method": "POST",
+              "request_body_schema": {
+                "type": "object",
+                "properties": {
+                  "order_number": {"type": "string"},
+                  "items": {"type": "array", "description": "Array of item IDs to return"},
+                  "reason": {"type": "string", "description": "Return reason"},
+                  "return_type": {"type": "string", "description": "refund or exchange"}
+                },
+                "required": ["order_number", "items", "reason", "return_type"]
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "search_products",
+            "description": "Search for products by category, style, or keywords",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/products/search",
+              "method": "GET",
+              "query_params_schema": {
+                "properties": {
+                  "query": {"type": "string", "description": "Search keywords"},
+                  "category": {"type": "string", "description": "Product category"},
+                  "price_max": {"type": "number", "description": "Maximum price"},
+                  "size": {"type": "string", "description": "Size filter"}
+                }
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "apply_promo",
+            "description": "Apply a promotional code to customer's cart",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/cart/promo",
+              "method": "POST",
+              "request_body_schema": {
+                "type": "object",
+                "properties": {
+                  "customer_email": {"type": "string"},
+                  "promo_code": {"type": "string"}
+                },
+                "required": ["customer_email", "promo_code"]
+              }
+            }
+          },
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "End the call when shopping assistance is complete"
+          }
+        ]
+      },
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "user_name": "there",
+          "loyalty_tier": "Standard",
+          "cart_total": "0"
+        }
+      }
+    },
+    "asr": {
+      "provider": "elevenlabs",
+      "quality": "high"
+    },
+    "tts": {
+      "model_id": "eleven_turbo_v2_5",
+      "voice_id": "MF3mGyEYCl7XYWbV9V6O",
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "optimize_streaming_latency": "2"
+    },
+    "turn": {
+      "turn_timeout": 10.0,
+      "silence_end_call_timeout": 25.0,
+      "turn_eagerness": "normal"
+    },
+    "conversation": {
+      "max_duration_seconds": 900
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "id": "issue_resolved",
+          "name": "Issue Resolved",
+          "type": "prompt",
+          "conversation_goal_prompt": "Determine if the customer's inquiry was successfully resolved"
+        },
+        {
+          "id": "upsell_attempted",
+          "name": "Cross-sell Opportunity",
+          "type": "prompt",
+          "conversation_goal_prompt": "Check if appropriate product recommendations or promotions were offered"
+        }
+      ]
+    },
+    "data_collection": {
+      "inquiry_type": {
+        "type": "string",
+        "description": "Type of inquiry: order_status, return, product_search, account, other"
+      },
+      "order_number": {
+        "type": "string",
+        "description": "Order number if discussed"
+      },
+      "products_interested": {
+        "type": "string",
+        "description": "Products the customer showed interest in"
+      },
+      "promo_applied": {
+        "type": "string",
+        "description": "Promotional code applied, if any"
+      }
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 60
+    }
+  }
+}
