@@ -1817,3 +1817,59 @@ INFO:     192.145.247.124:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
 2025-12-04 12:49:37,645 - app.memory.extraction - INFO - Stored 12 conversation memories for +16129782029
 2025-12-04 12:49:37,646 - app.webhooks.post_call - INFO - Stored 12 conversation memories for +16129782029
 2025-12-04 12:49:37,646 - app.webhooks.post_call - INFO - Completed transcription processing for conv_4001k9n21zsyfbtvf85z3xgpv8x8
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elaoms']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [26591] using StatReload
+INFO:     Started server process [26626]
+INFO:     Waiting for application startup.
+2025-12-06 15:27:50,123 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-06 15:27:50,125 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-06 15:28:05,318 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 15:28:05,553 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 15:28:05,554 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 15:28:05,554 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User's last name is Breit User's last name is Brien", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56960 - "GET /health HTTP/1.1" 200 OK
+2025-12-06 16:38:24,104 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 16:38:24,275 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 16:38:24,276 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 16:38:24,276 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User Name: Ken User name is Stefan User's last name is Brien", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"}}}
+INFO:     127.0.0.1:40686 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-06 16:39:17,691 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 16:39:17,712 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 16:39:17,713 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 16:39:17,713 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User Name: Ken User name is Stefan User's last name is Brien", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"}}}
+INFO:     192.145.247.124:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-06 16:40:00,338 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 16:40:00,510 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 16:40:00,511 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 16:40:00,511 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User Name: Ken User name is Stefan User's last name is Breet", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-06 16:40:16,112 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_6901kbtx4twwengvj26d55n8csvx
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-06 16:40:16,113 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_6901kbtx4twwengvj26d55n8csvx
+2025-12-06 16:40:16,114 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_6901kbtx4twwengvj26d55n8csvx/conv_6901kbtx4twwengvj26d55n8csvx_transcription.json
+2025-12-06 16:40:16,114 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-06 16:40:16,114 - app.webhooks.post_call - INFO - Completed transcription processing for conv_6901kbtx4twwengvj26d55n8csvx
+2025-12-06 16:40:16,318 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_6901kbtx4twwengvj26d55n8csvx
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-06 16:40:16,318 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_6901kbtx4twwengvj26d55n8csvx
+2025-12-06 16:40:16,319 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_6901kbtx4twwengvj26d55n8csvx/conv_6901kbtx4twwengvj26d55n8csvx_audio.mp3
+2025-12-06 16:40:16,319 - app.webhooks.post_call - INFO - Completed audio processing for conv_6901kbtx4twwengvj26d55n8csvx
+2025-12-06 16:50:22,729 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 16:50:22,896 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 16:50:22,896 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 16:50:22,897 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User Name: Ken User name is Stefan User's last name is Breet", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-06 16:50:53,164 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_6101kbtxqsr9frgvkrefcpdnzz1p
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-06 16:50:53,165 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_6101kbtxqsr9frgvkrefcpdnzz1p
+2025-12-06 16:50:53,166 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_6101kbtxqsr9frgvkrefcpdnzz1p/conv_6101kbtxqsr9frgvkrefcpdnzz1p_transcription.json
+2025-12-06 16:50:53,166 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-06 16:50:53,167 - app.webhooks.post_call - INFO - Completed transcription processing for conv_6101kbtxqsr9frgvkrefcpdnzz1p
+2025-12-06 16:50:53,504 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_6101kbtxqsr9frgvkrefcpdnzz1p
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-06 16:50:53,504 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_6101kbtxqsr9frgvkrefcpdnzz1p
+2025-12-06 16:50:53,506 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_6101kbtxqsr9frgvkrefcpdnzz1p/conv_6101kbtxqsr9frgvkrefcpdnzz1p_audio.mp3
+2025-12-06 16:50:53,506 - app.webhooks.post_call - INFO - Completed audio processing for conv_6101kbtxqsr9frgvkrefcpdnzz1p
