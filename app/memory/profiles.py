@@ -187,7 +187,7 @@ def build_conversation_override(
     """Generate personalized firstMessage for ElevenLabs.
 
     Creates a conversation configuration override with a personalized
-    greeting for returning callers.
+    greeting for returning callers, incorporating their profile and last call context.
 
     Args:
         profile: User profile data from get_user_profile() or None for new callers.
@@ -201,11 +201,40 @@ def build_conversation_override(
         return None
 
     name = profile.get("name")
+    summary = profile.get("summary")
+    memories = profile.get("memories", [])
+    last_call = _get_last_call_summary(memories)
 
-    if name:
-        first_message = f"Welcome back, {name}! How can I help you today?"
+    # Build a personalized greeting based on available context
+    if name and last_call:
+        # Rich context: name + last conversation
+        first_message = (
+            f"Hello {name}, it's Margaret again. It's so lovely to hear from you. "
+            f"I've been thinking about our last conversation. {last_call} "
+            "I'd love to pick up where we left off, or explore a new chapter of your story. "
+            "What feels right to you today?"
+        )
+    elif name and summary:
+        # Name + profile summary
+        first_message = (
+            f"Hello {name}, it's Margaret. How wonderful to speak with you again. "
+            f"I remember {summary[:100]}... "
+            "Shall we continue exploring your memories together?"
+        )
+    elif name:
+        # Just name
+        first_message = (
+            f"Hello {name}, it's Margaret again. It's so good to hear your voice. "
+            "I'm looking forward to continuing our journey through your life stories. "
+            "What would you like to share today?"
+        )
     else:
-        first_message = "Welcome back! How can I help you today?"
+        # Returning caller but no name
+        first_message = (
+            "Hello, it's Margaret. Welcome back. "
+            "I'm glad you've returned to continue sharing your story. "
+            "What's on your mind today?"
+        )
 
     return ConversationConfigOverride(
         agent=AgentConfig(first_message=first_message)
