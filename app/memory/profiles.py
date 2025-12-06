@@ -188,6 +188,7 @@ def build_conversation_override(
 
     Creates a conversation configuration override with a personalized
     greeting for returning callers, incorporating their profile and last call context.
+    Falls back to simpler greetings if no clean summary is available.
 
     Args:
         profile: User profile data from get_user_profile() or None for new callers.
@@ -205,24 +206,34 @@ def build_conversation_override(
     memories = profile.get("memories", [])
     last_call = _get_last_call_summary(memories)
 
+    # Validate summary is meaningful before using it
+    # Must be long enough and not conversational filler
+    valid_summary = (
+        summary
+        and len(summary) > 20
+        and not _is_conversational_filler(summary)
+    )
+
     # Build a personalized greeting based on available context
     if name and last_call:
-        # Rich context: name + last conversation
+        # Rich context: name + meaningful last conversation
         first_message = (
             f"Hello {name}, it's Margaret again. It's so lovely to hear from you. "
             f"I've been thinking about our last conversation. {last_call} "
             "I'd love to pick up where we left off, or explore a new chapter of your story. "
             "What feels right to you today?"
         )
-    elif name and summary:
-        # Name + profile summary
+    elif name and valid_summary:
+        # Name + validated profile summary
+        # Truncate summary at sentence boundary for natural speech
+        clean_summary = _truncate_at_sentence(summary, max_length=100) or summary[:100]
         first_message = (
             f"Hello {name}, it's Margaret. How wonderful to speak with you again. "
-            f"I remember {summary[:100]}... "
+            f"I remember {clean_summary}. "
             "Shall we continue exploring your memories together?"
         )
     elif name:
-        # Just name
+        # Just name - use a warm but simple greeting
         first_message = (
             f"Hello {name}, it's Margaret again. It's so good to hear your voice. "
             "I'm looking forward to continuing our journey through your life stories. "
@@ -258,6 +269,56 @@ def build_profile_data(profile: Optional[dict[str, Any]]) -> Optional[ProfileDat
         summary=profile.get("summary"),
         phone_number=profile.get("phone_number")
     )
+
+
+def _is_conversational_filler(content: str) -> bool:
+    """Check if content is conversational filler that shouldn't be in summaries.
+
+    Filters out raw transcript content, filler words, and meta-commentary
+    that would make greetings sound awkward or incoherent.
+
+    Args:
+        content: The memory content to check.
+
+    Returns:
+        True if the content is conversational filler, False if it's meaningful.
+    """
+    if not content or len(content.strip()) < 10:
+        return True
+
+    content_lower = content.lower().strip()
+
+    # Filler patterns that indicate raw transcript content
+    filler_patterns = [
+        # Conversational fillers
+        "you know", "um", "uh", "okay", "ok", "great", "yeah", "yep",
+        "right", "sure", "well", "so", "like", "actually",
+        # Meta-commentary and session notes
+        "session quality", "surface-level", "moderate", "rich",
+        "chapters discussed", "stories shared", "emotional moments",
+        # Agent speech patterns (shouldn't be in user memories)
+        "can you tell me", "tell me about", "what do you",
+        "how did you", "that's wonderful", "thank you for sharing",
+        # Short affirmations
+        "yes", "no", "maybe", "i see", "i understand",
+    ]
+
+    # Check if content starts with or is dominated by filler
+    for pattern in filler_patterns:
+        if content_lower.startswith(pattern) or content_lower == pattern:
+            return True
+
+    # Check if content is mostly filler (appears multiple times or is very short)
+    filler_count = sum(1 for p in filler_patterns if p in content_lower)
+    if filler_count >= 2 and len(content) < 50:
+        return True
+
+    # Filter out content that looks like questions (likely agent speech)
+    question_starters = ["can you", "could you", "would you", "do you", "what", "how", "why", "where", "when"]
+    if any(content_lower.startswith(q) for q in question_starters) and "?" in content:
+        return True
+
+    return False
 
 
 def _extract_name_from_memories(memories: list[dict[str, Any]]) -> Optional[str]:
@@ -303,7 +364,9 @@ def _extract_name_from_memories(memories: list[dict[str, Any]]) -> Optional[str]
 def _build_summary_from_memories(memories: list[dict[str, Any]]) -> Optional[str]:
     """Build a summary from user memories.
 
-    Creates a concise summary based on the stored memories.
+    Creates a concise summary based on stored memories, filtering for
+    semantic (profile facts) memories with high salience. Excludes
+    raw conversational content that would sound awkward in greetings.
 
     Args:
         memories: List of memory objects from OpenMemory.
@@ -314,18 +377,37 @@ def _build_summary_from_memories(memories: list[dict[str, Any]]) -> Optional[str
     if not memories:
         return None
 
-    # Get the most relevant memories (highest salience)
+    # Only use semantic memories (profile facts), not episodic (raw conversation)
+    # Also filter for high-salience memories (>= 0.8)
+    profile_memories = [
+        m for m in memories
+        if m.get("primary_sector") == "semantic"
+        and m.get("salience", 0) >= 0.8
+    ]
+
+    # If no semantic memories, try high-salience memories of any type
+    if not profile_memories:
+        profile_memories = [
+            m for m in memories
+            if m.get("salience", 0) >= 0.85
+        ]
+
+    if not profile_memories:
+        return None
+
+    # Sort by salience and take top 3
     sorted_memories = sorted(
-        memories,
+        profile_memories,
         key=lambda m: m.get("salience", 0.5),
         reverse=True
     )[:3]
 
-    # Build summary from top memories
+    # Build summary from clean memories only
     summary_parts = []
     for memory in sorted_memories:
-        content = memory.get("content", "")
-        if content and len(content) < 200:  # Reasonable length
+        content = memory.get("content", "").strip()
+        # Filter out conversational filler and keep reasonable length
+        if content and len(content) < 200 and not _is_conversational_filler(content):
             summary_parts.append(content)
 
     if summary_parts:
@@ -337,16 +419,19 @@ def _build_summary_from_memories(memories: list[dict[str, Any]]) -> Optional[str
 def _get_last_call_summary(memories: list[dict[str, Any]]) -> Optional[str]:
     """Get summary of the last call from memories.
 
+    Extracts meaningful content from episodic memories, filtering out
+    raw conversational filler and truncating at sentence boundaries.
+
     Args:
         memories: List of memory objects from OpenMemory.
 
     Returns:
-        A summary of the last call or None.
+        A summary of the last call or None if no meaningful content found.
     """
     if not memories:
         return None
 
-    # Sort by timestamp if available, get the most recent
+    # Get episodic memories (conversation records)
     episodic_memories = [
         m for m in memories
         if m.get("primary_sector") == "episodic"
@@ -355,11 +440,64 @@ def _get_last_call_summary(memories: list[dict[str, Any]]) -> Optional[str]:
     if not episodic_memories:
         return None
 
-    # Get the most recent episodic memory as last call context
-    recent = episodic_memories[0]
-    content = recent.get("content", "")
+    # Try to find a meaningful episodic memory (not just filler)
+    for memory in episodic_memories:
+        content = memory.get("content", "").strip()
 
-    if content:
-        return f"Previous conversation: {content[:150]}..."
+        # Skip conversational filler
+        if _is_conversational_filler(content):
+            continue
+
+        if content:
+            # Truncate at sentence boundary instead of character count
+            truncated = _truncate_at_sentence(content, max_length=150)
+            if truncated and not _is_conversational_filler(truncated):
+                return f"Last time we talked about: {truncated}"
+
+    return None
+
+
+def _truncate_at_sentence(text: str, max_length: int = 150) -> Optional[str]:
+    """Truncate text at a sentence boundary.
+
+    Args:
+        text: The text to truncate.
+        max_length: Maximum length of the result.
+
+    Returns:
+        Text truncated at a sentence boundary, or None if no valid content.
+    """
+    if not text or len(text.strip()) < 10:
+        return None
+
+    text = text.strip()
+
+    # If text is already short enough, return it
+    if len(text) <= max_length:
+        return text
+
+    # Find the last sentence boundary before max_length
+    truncated = text[:max_length]
+
+    # Look for sentence endings
+    sentence_endings = [". ", "! ", "? "]
+    last_boundary = -1
+    for ending in sentence_endings:
+        pos = truncated.rfind(ending)
+        if pos > last_boundary:
+            last_boundary = pos + 1  # Include the punctuation
+
+    if last_boundary > 20:  # Ensure we have at least some content
+        return truncated[:last_boundary].strip()
+
+    # If no sentence boundary, try to break at a comma or natural pause
+    comma_pos = truncated.rfind(", ")
+    if comma_pos > 30:
+        return truncated[:comma_pos].strip()
+
+    # Last resort: truncate at word boundary
+    space_pos = truncated.rfind(" ")
+    if space_pos > 30:
+        return truncated[:space_pos].strip() + "..."
 
     return None
