@@ -1873,3 +1873,19 @@ INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
 2025-12-06 16:50:53,504 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_6101kbtxqsr9frgvkrefcpdnzz1p
 2025-12-06 16:50:53,506 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_6101kbtxqsr9frgvkrefcpdnzz1p/conv_6101kbtxqsr9frgvkrefcpdnzz1p_audio.mp3
 2025-12-06 16:50:53,506 - app.webhooks.post_call - INFO - Completed audio processing for conv_6101kbtxqsr9frgvkrefcpdnzz1p
+WARNING:  StatReload detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-06 16:54:28,397 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26626]
+INFO:     Started server process [68610]
+INFO:     Waiting for application startup.
+2025-12-06 16:54:28,904 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-06 16:54:28,905 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+2025-12-06 16:54:33,785 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-06 16:54:33,954 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-06 16:54:33,955 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-06 16:54:33,955 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'user_profile_summary': "User Name: Ken User name is Stefan User's last name is Breet", 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}}
+INFO:     127.0.0.1:39506 - "POST /webhook/client-data HTTP/1.1" 200 OK
