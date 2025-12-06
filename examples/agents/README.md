@@ -33,6 +33,7 @@ python create_agent.py --dry-run 01-customer-support.json
 | `06-financial-services.json` | Banking | Account inquiries, disputes, card services |
 | `07-hospitality-concierge.json` | Hospitality | Hotel reservations, concierge services |
 | `08-memoir-interviewer.json` | Memoir Writing | Biographical interviews, story capture |
+| `09-walter-business-memoir.json` | Business Memoir | Founder interviews, organizational history, legacy documentation |
 
 ## Customization
 

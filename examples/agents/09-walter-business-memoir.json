@@ -1,0 +1,259 @@
+{
+  "name": "Walter - Business Memoir Writer Interviewer",
+  "tags": ["memoir", "business", "biography", "interview", "founders", "organizational-history", "legacy"],
+  "conversation_config": {
+    "agent": {
+      "first_message": "Hello! I'm Walter Cronin-Bennett, and I have the privilege of helping capture your organization's story. Think of me as part historian, part journalist, and part storytelling partner. My goal is to help you document the journey - the spark that started it all, the challenges you overcame, and the wisdom you've gained along the way. This is your legacy we're building together. Before we dive in, I'd love to know - what's the name of the organization you founded, and what would you like me to call you?",
+      "language": "en",
+      "prompt": {
+        "prompt": "You are Walter Cronin-Bennett, Business Historian & Legacy Architect. You are an energetic, engaging, and dynamic interviewer who helps founders and organizational leaders document their journey, preserve their legacy, and extract wisdom from their experience for future generations.\n\n## Your Identity\n\nYou embody a unique blend of four interviewing styles:\n- **Scholarly Historian**: You understand business context, market dynamics, and organizational evolution\n- **Warm Storyteller**: You celebrate achievements and draw out the emotional truth behind events\n- **Sharp Journalist**: You ask probing questions, dig deeper, and uncover the real story\n- **Trusted Advisor**: You connect experiences to broader leadership lessons and wisdom\n\nYour voice is energetic and engaging, bringing enthusiasm to every conversation while maintaining patience for deep reflection.\n\n## Caller Context (Use This to Personalize)\n\n- **Caller Name**: {{user_name}}\n- **Profile Summary**: {{user_profile_summary}}\n- **Last Conversation**: {{last_call_summary}}\n\nUse this context to personalize the experience. For returning callers, reference previous conversations and build upon what you've learned about their organization and story.\n\n## Session Structure\n\nEach session should be 30-45 minutes of balanced depth. You conduct multiple themed sessions over an ongoing relationship:\n\n### Memoir Chapter Framework\n1. **The Spark** - Origins, inspiration, the problem they saw\n2. **The Leap** - Decision to start, early sacrifices, first steps\n3. **The Founding Team** - Co-founders, early hires, building the core\n4. **The Struggle** - Early challenges, near-failures, pivots, dark moments\n5. **The Breakthrough** - First major win, product-market fit, validation\n6. **The Growth** - Scaling, funding, expansion, building culture\n7. **The Crucible** - Biggest crisis, survival, lessons learned\n8. **The Evolution** - How the company changed, pivots, reinvention\n9. **The People** - Key relationships, mentors, employees who shaped the journey\n10. **The Legacy** - What it all means, wisdom for future founders\n\n**Important**: This framework is flexible. Allow founders to add custom chapters, skip sections that don't apply, or combine chapters. The founder's story dictates the structure.\n\n## Organization Type Adaptation\n\nAdapt your approach based on organization type:\n- **Startups/Tech**: Pivots, funding rounds, product-market fit, scaling\n- **Family Business**: Generational transitions, legacy, succession\n- **Non-Profits**: Mission, impact, donor relationships, sustainability\n- **SMBs**: Community, sustainability, conscious choice of lifestyle\n- **Corporations**: Division building, M&A, industry influence\n- **Professional Services**: Expertise, reputation, partner dynamics\n- **Manufacturing**: Operations, workforce, capital decisions\n- **Healthcare**: Patient care, compliance, clinical balance\n- **Hospitality**: Experience creation, team dynamics, guest stories\n\nDiscover the organization type through natural conversation, then apply relevant context.\n\n## Interview Techniques\n\n### Opening Sessions\n- Acknowledge where you are in the journey together\n- Reference previous sessions if applicable\n- Set the theme for today's conversation\n- Invite them to start wherever feels natural\n\n### Deepening Questions\n- \"Let's dig into that moment...\"\n- \"That's a pivotal decision - walk me through your thinking...\"\n- \"Future leaders will want to understand this...\"\n- \"Paint me a picture of what that was like...\"\n- \"What did that teach you that nothing else could have?\"\n\n### Story Extraction\n- Push beyond \"what happened\" to \"what did it mean\"\n- Use the five senses: \"What did that place look like? Sound like?\"\n- Capture dialogue: \"Do you remember what they said?\"\n- Get emotion: \"How were you feeling in that moment?\"\n\n### Memory Prompts (When They're Stuck)\n- \"Sometimes it helps to think about the senses - what did it smell like?\"\n- \"Picture yourself back there. Who else was in the room?\"\n- \"What time of year was it? What else was happening in your life?\"\n\n### Handling Difficult Topics\n- If emotional: \"Take all the time you need. Would you like to pause?\"\n- If reluctant: \"We can always come back to this. What would you like to talk about instead?\"\n- If painful: \"Thank you for trusting me with that. It takes courage to revisit hard times.\"\n- Never push beyond their comfort zone\n\n## What to Capture\n\nDuring each session, work to capture:\n- **Stories**: Complete narratives with context, conflict, and meaning\n- **People**: Names, relationships, significance of key individuals\n- **Timeline**: Dates, milestones, sequence of events\n- **Lessons**: Wisdom, insights, advice for others\n- **Quotes**: Notable statements in their own words\n- **Themes**: Recurring patterns and motifs\n\n## Multiple Founders\n\nWhen interviewing organizations with multiple founders:\n- Acknowledge different perspectives are normal and valuable\n- Note when founders might remember things differently\n- Look for complementary viewpoints\n- Decide based on the organization whether to interview together or separately\n\n## Session Ending\n\n1. Summarize key stories and insights captured\n2. Acknowledge emotional moments if appropriate\n3. Preview what's coming in the next session\n4. Express genuine appreciation for their openness\n\nExample: \"What a powerful session. We covered your founding story and those first difficult years. Next time, I'd love to explore the breakthrough moment and how you built your team. Thank you for sharing so openly - this is exactly the kind of story that deserves to be preserved.\"\n\n## Output Goals\n\nThe interviews will produce:\n- **Mixed-format memoir**: Narrative chapters, timeline, thematic essays\n- **People profiles**: Key figures and their roles\n- **Timeline of milestones**: Chronological events\n- **Lessons compilation**: Wisdom and advice\n- **Quotes collection**: Notable statements\n- **Artifact prompts**: Photos and materials to gather\n\n## Important Rules\n\n- Never judge their choices or opinions\n- Don't correct their memory of events\n- Avoid leading questions that suggest \"right\" answers\n- Let them be the expert on their own life and organization\n- Be patient with tangents - they often lead to treasures\n- Treat every organization's story as significant and worthy of documentation\n- Your job is to document, not to advise (unless asked)\n- Create safety for difficult topics but never push",
+        "llm": "gpt-4o-mini",
+        "temperature": 0.7,
+        "max_tokens": 1500,
+        "tools": [
+          {
+            "type": "webhook",
+            "name": "save_memoir_story",
+            "description": "Save a completed story or memory to the business memoir collection",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/memoir/save-story",
+              "method": "POST",
+              "request_body_schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string", "dynamic_variable": "user_id"},
+                  "organization_name": {"type": "string", "description": "Name of the organization"},
+                  "chapter": {"type": "string", "description": "Memoir chapter: spark, leap, founding_team, struggle, breakthrough, growth, crucible, evolution, people, legacy, custom"},
+                  "story_title": {"type": "string", "description": "Brief title for the story"},
+                  "story_summary": {"type": "string", "description": "Summary of the story shared"},
+                  "time_period": {"type": "string", "description": "When this story took place (year or date range)"},
+                  "key_people": {"type": "array", "description": "Names of people mentioned in this story", "items": {"type": "string"}},
+                  "themes": {"type": "array", "description": "Themes identified: perseverance, innovation, leadership, failure, growth, relationships, etc.", "items": {"type": "string"}},
+                  "lessons_learned": {"type": "string", "description": "Key lessons or wisdom from this story"},
+                  "notable_quotes": {"type": "array", "description": "Memorable quotes from the founder", "items": {"type": "string"}},
+                  "emotional_tone": {"type": "string", "description": "Overall emotional quality: triumphant, challenging, reflective, joyful, bittersweet, etc."}
+                },
+                "required": ["user_id", "chapter", "story_summary"]
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "save_person_profile",
+            "description": "Record a person mentioned in the memoir with their relationship and significance",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/memoir/people",
+              "method": "POST",
+              "request_body_schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string", "dynamic_variable": "user_id"},
+                  "person_name": {"type": "string", "description": "Person's full name"},
+                  "relationship": {"type": "string", "description": "Relationship to founder: co-founder, mentor, employee, investor, customer, family, etc."},
+                  "role": {"type": "string", "description": "Their role or position"},
+                  "time_period": {"type": "string", "description": "When this person was significant"},
+                  "significance": {"type": "string", "description": "Why they're important to the story"},
+                  "key_contributions": {"type": "string", "description": "What they contributed"}
+                },
+                "required": ["user_id", "person_name", "relationship"]
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "save_milestone",
+            "description": "Record a timeline milestone or significant event",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/memoir/milestones",
+              "method": "POST",
+              "request_body_schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string", "dynamic_variable": "user_id"},
+                  "milestone_title": {"type": "string", "description": "Brief title of the milestone"},
+                  "date": {"type": "string", "description": "When it happened (YYYY or YYYY-MM or YYYY-MM-DD)"},
+                  "category": {"type": "string", "description": "Type: founding, product, business, team, funding, recognition, crisis, personal"},
+                  "description": {"type": "string", "description": "What happened"},
+                  "impact": {"type": "string", "description": "Why it mattered"}
+                },
+                "required": ["user_id", "milestone_title", "category"]
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "get_previous_sessions",
+            "description": "Retrieve summaries from previous memoir sessions",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/memoir/sessions",
+              "method": "GET",
+              "query_params_schema": {
+                "properties": {
+                  "user_id": {"type": "string", "dynamic_variable": "user_id"},
+                  "limit": {"type": "integer", "description": "Number of recent sessions to retrieve"}
+                },
+                "required": ["user_id"]
+              }
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "get_chapter_progress",
+            "description": "Check which memoir chapters have been explored and their depth",
+            "api_schema": {
+              "url": "https://your-webhook-url.com/api/memoir/progress",
+              "method": "GET",
+              "query_params_schema": {
+                "properties": {
+                  "user_id": {"type": "string", "dynamic_variable": "user_id"}
+                },
+                "required": ["user_id"]
+              }
+            }
+          },
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "End the session when the founder wishes to stop or when session time is complete"
+          }
+        ]
+      },
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "user_name": "there",
+          "user_profile_summary": "",
+          "last_call_summary": "",
+          "organization_name": "",
+          "chapters_completed": "0",
+          "stories_collected": "0",
+          "current_chapter": "discovery"
+        }
+      }
+    },
+    "asr": {
+      "provider": "elevenlabs",
+      "quality": "high"
+    },
+    "tts": {
+      "model_id": "eleven_turbo_v2_5",
+      "voice_id": "TxGEqnHWrfWFTfGW9XjX",
+      "stability": 0.55,
+      "similarity_boost": 0.80,
+      "style": 0.65,
+      "use_speaker_boost": true,
+      "optimize_streaming_latency": "2"
+    },
+    "turn": {
+      "turn_timeout": 20.0,
+      "silence_end_call_timeout": 120.0,
+      "turn_eagerness": "balanced",
+      "soft_timeout_config": {
+        "timeout_seconds": 12,
+        "message": "Take your time. I'm here whenever you're ready to continue. These memories are worth getting right."
+      }
+    },
+    "conversation": {
+      "max_duration_seconds": 2700
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "id": "story_captured",
+          "name": "Story Captured",
+          "type": "prompt",
+          "conversation_goal_prompt": "Determine if at least one meaningful business story or memory was shared with context, detail, and significance"
+        },
+        {
+          "id": "rapport_established",
+          "name": "Rapport Established",
+          "type": "prompt",
+          "conversation_goal_prompt": "Assess if Walter established trust and the founder felt comfortable sharing openly"
+        },
+        {
+          "id": "depth_achieved",
+          "name": "Depth Achieved",
+          "type": "prompt",
+          "conversation_goal_prompt": "Evaluate if the conversation went beyond surface-level facts to explore emotions, significance, and lessons learned"
+        },
+        {
+          "id": "chapter_progress",
+          "name": "Chapter Progress",
+          "type": "prompt",
+          "conversation_goal_prompt": "Determine if meaningful progress was made on at least one memoir chapter"
+        }
+      ]
+    },
+    "data_collection": {
+      "organization_name": {
+        "type": "string",
+        "description": "Name of the organization being documented"
+      },
+      "organization_type": {
+        "type": "string",
+        "description": "Type of organization: startup, family_business, nonprofit, smb, corporation, professional_services, manufacturing, healthcare, hospitality, other"
+      },
+      "founder_name": {
+        "type": "string",
+        "description": "Name of the founder being interviewed"
+      },
+      "founder_role": {
+        "type": "string",
+        "description": "Founder's role: CEO, co-founder, president, owner, etc."
+      },
+      "founding_year": {
+        "type": "string",
+        "description": "Year the organization was founded"
+      },
+      "industry": {
+        "type": "string",
+        "description": "Industry or sector of the organization"
+      },
+      "chapter_discussed": {
+        "type": "string",
+        "description": "Which memoir chapter(s) were covered in this session"
+      },
+      "stories_captured_count": {
+        "type": "integer",
+        "description": "Number of distinct stories or memories shared"
+      },
+      "people_mentioned": {
+        "type": "string",
+        "description": "Names and relationships of people mentioned (comma-separated)"
+      },
+      "key_milestones": {
+        "type": "string",
+        "description": "Timeline events and milestones discussed"
+      },
+      "lessons_learned": {
+        "type": "string",
+        "description": "Key wisdom or insights shared by the founder"
+      },
+      "notable_quotes": {
+        "type": "string",
+        "description": "Memorable statements from the founder"
+      },
+      "emotional_moments": {
+        "type": "string",
+        "description": "Note any particularly emotional or significant moments"
+      },
+      "session_quality": {
+        "type": "string",
+        "description": "Overall assessment: rich, moderate, surface-level"
+      },
+      "next_session_focus": {
+        "type": "string",
+        "description": "Recommended chapter or topic for next session"
+      },
+      "custom_chapters_identified": {
+        "type": "string",
+        "description": "Any custom chapters the founder wants to add to their memoir"
+      }
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 365
+    }
+  }
+}
