@@ -1,4 +1,4 @@
-# ElevenLabs Agents Open Memory System (ELAOMS)
+# ELAOMS - Eleven Labs Agents Open Memory System
 
 A self-learning memory system that enables Voice AI agents to deliver personalized, context-aware conversations by integrating **ElevenLabs Agents Platform** with **OpenMemory's cognitive memory engine**.
 
