@@ -81,14 +81,14 @@ async def client_data_webhook(request: ClientDataRequest) -> JSONResponse:
         response_data["dynamic_variables"] = dv_dict
 
         # Build conversation config override (only include if we have a profile)
-        # COMMENTED OUT: Testing Handlebars-style logic in ElevenLabs agent instead
-        # conversation_override = build_conversation_override(profile)
-        # if conversation_override and conversation_override.agent:
-        #     response_data["conversation_config_override"] = {
-        #         "agent": {
-        #             "first_message": conversation_override.agent.first_message
-        #         }
-        #     }
+        # ElevenLabs doesn't support Handlebars conditionals, so we must override first_message
+        conversation_override = build_conversation_override(profile)
+        if conversation_override and conversation_override.agent:
+            response_data["conversation_config_override"] = {
+                "agent": {
+                    "first_message": conversation_override.agent.first_message
+                }
+            }
 
         logger.info(f"Returning client-data response: {response_data}")
         return JSONResponse(content=response_data)

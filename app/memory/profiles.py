@@ -25,11 +25,63 @@ from app.models.responses import (
 logger = logging.getLogger(__name__)
 
 
+def _parse_user_summary(summary_response: dict[str, Any]) -> dict[str, Any]:
+    """Parse OpenMemory /users/:id/summary response.
+
+    Input format:
+    {
+        "user_id": "+16125082017",
+        "summary": "1 memories, 1 patterns | low | avg_sal=0.40 | top: semantic(1, sal=0.36): \"Participant Details: founder of Arbez...\"",
+        "reflection_count": 0,
+        "updated_at": 1764853457629
+    }
+
+    Returns:
+        Parsed summary data with memory_count, activity_level, top_content, has_memories.
+    """
+    import re
+
+    result = {
+        "memory_count": 0,
+        "activity_level": "none",
+        "top_content": None,
+        "has_memories": False,
+    }
+
+    summary_str = summary_response.get("summary", "")
+    if not summary_str:
+        return result
+
+    # Parse memory count: "X memories" at the start
+    memory_match = re.search(r"^(\d+)\s+memories?", summary_str)
+    if memory_match:
+        result["memory_count"] = int(memory_match.group(1))
+        result["has_memories"] = result["memory_count"] > 0
+
+    # Parse activity level: "| low |" or "| medium |" or "| high |"
+    activity_match = re.search(r"\|\s*(low|medium|high)\s*\|", summary_str)
+    if activity_match:
+        result["activity_level"] = activity_match.group(1)
+
+    # Parse top content: everything after the colon in quotes
+    # Format: top: semantic(1, sal=0.36): "Participant Details: founder of Arbez..."
+    content_match = re.search(r'top:.*?:\s*"([^"]+)"', summary_str)
+    if content_match:
+        top_content = content_match.group(1).strip()
+        # Clean up the content - remove "Participant Details:" prefix if present
+        if top_content.lower().startswith("participant details:"):
+            top_content = top_content[20:].strip()
+        if top_content and not _is_conversational_filler(top_content):
+            result["top_content"] = top_content
+
+    return result
+
+
 async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
     """Query OpenMemory for user profile data via REST API.
 
-    Retrieves stored memories for a user to build their profile.
-    Uses direct HTTP calls to avoid async event loop conflicts.
+    Uses the /users/:id/summary endpoint for efficient profile retrieval,
+    then queries memories for name extraction if needed.
 
     Args:
         phone_number: The user's phone number in E.164 format (e.g., +16129782029).
@@ -40,10 +92,14 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
         {
             "name": str | None,
             "summary": str | None,
+            "top_content": str | None,
             "memories": list[dict],
-            "memory_count": int
+            "memory_count": int,
+            "has_memories": bool
         }
     """
+    from urllib.parse import quote
+
     try:
         openmemory_url = settings.openmemory_url
         api_key = settings.OPENMEMORY_KEY
@@ -52,47 +108,59 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
         if api_key:
             headers["Authorization"] = f"Bearer {api_key}"
 
-        # Query memories via REST API
-        query_payload = {
-            "query": "user profile information preferences name",
-            "k": 20,
-            "filters": {"user_id": phone_number}
-        }
+        # First, get user summary via /users/:id/summary endpoint
+        encoded_user_id = quote(phone_number, safe="")
+        summary_url = f"{openmemory_url}/users/{encoded_user_id}/summary"
 
         async with httpx.AsyncClient(timeout=10.0) as client:
-            response = await client.post(
+            summary_response = await client.get(summary_url, headers=headers)
+
+            if summary_response.status_code == 404:
+                logger.info(f"No profile found for user {phone_number}")
+                return None
+
+            if summary_response.status_code != 200:
+                logger.warning(f"OpenMemory summary returned status {summary_response.status_code}: {summary_response.text}")
+                return None
+
+            summary_data = summary_response.json()
+
+        # Parse the summary response
+        parsed = _parse_user_summary(summary_data)
+
+        if not parsed["has_memories"]:
+            logger.info(f"No memories found for user {phone_number}")
+            return None
+
+        # Query memories to extract name (need actual memory content for name extraction)
+        memories = []
+        name = None
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            query_payload = {
+                "query": "user name first_name",
+                "k": 10,
+                "filters": {"user_id": phone_number}
+            }
+            mem_response = await client.post(
                 f"{openmemory_url}/memory/query",
                 json=query_payload,
                 headers=headers
             )
 
-            if response.status_code == 404:
-                logger.info(f"No profile found for user {phone_number}")
-                return None
-
-            if response.status_code != 200:
-                logger.warning(f"OpenMemory query returned status {response.status_code}: {response.text}")
-                return None
-
-            results = response.json()
-
-        if not results or not results.get("matches"):
-            logger.info(f"No profile found for user {phone_number}")
-            return None
-
-        memories = results.get("matches", [])
-
-        # Extract name from memories if available
-        name = _extract_name_from_memories(memories)
-
-        # Build summary from memories
-        summary = _build_summary_from_memories(memories)
+            if mem_response.status_code == 200:
+                results = mem_response.json()
+                memories = results.get("matches", [])
+                name = _extract_name_from_memories(memories)
 
         return {
             "name": name,
-            "summary": summary,
+            "summary": parsed.get("top_content"),  # Use top_content as summary
+            "top_content": parsed.get("top_content"),
             "memories": memories,
-            "memory_count": len(memories),
+            "memory_count": parsed["memory_count"],
+            "has_memories": parsed["has_memories"],
+            "activity_level": parsed.get("activity_level"),
             "phone_number": phone_number
         }
 
@@ -187,8 +255,15 @@ def build_conversation_override(
     """Generate personalized firstMessage for ElevenLabs.
 
     Creates a conversation configuration override with a personalized
-    greeting for returning callers, incorporating their profile and last call context.
-    Falls back to simpler greetings if no clean summary is available.
+    greeting for returning callers. Uses top_content from OpenMemory summary
+    for personalization and asks for name when not available.
+
+    Decision logic:
+    - First-time caller (no profile): Return None (use ElevenLabs default)
+    - Has name + has content: Personalized greeting with name and content
+    - Has name + no content: Simple greeting with name
+    - No name + has content: Reference content + ask for name
+    - No name + no content: Generic returning caller greeting + ask for name
 
     Args:
         profile: User profile data from get_user_profile() or None for new callers.
@@ -202,49 +277,48 @@ def build_conversation_override(
         return None
 
     name = profile.get("name")
-    summary = profile.get("summary")
-    memories = profile.get("memories", [])
-    last_call = _get_last_call_summary(memories)
+    top_content = profile.get("top_content")
 
-    # Validate summary is meaningful before using it
-    # Must be long enough and not conversational filler
-    valid_summary = (
-        summary
-        and len(summary) > 20
-        and not _is_conversational_filler(summary)
+    # Validate content is meaningful before using it
+    has_content = (
+        top_content
+        and len(top_content) > 10
+        and not _is_conversational_filler(top_content)
     )
 
+    # Clean up content for natural speech if available
+    if has_content:
+        clean_content = _truncate_at_sentence(top_content, max_length=100) or top_content[:100]
+    else:
+        clean_content = None
+
     # Build a personalized greeting based on available context
-    if name and last_call:
-        # Rich context: name + meaningful last conversation
+    if name and has_content:
+        # Case 1: Has name + has content - full personalization
         first_message = (
-            f"Hello {name}, it's Margaret again. It's so lovely to hear from you. "
-            f"I've been thinking about our last conversation. {last_call} "
-            "I'd love to pick up where we left off, or explore a new chapter of your story. "
-            "What feels right to you today?"
-        )
-    elif name and valid_summary:
-        # Name + validated profile summary
-        # Truncate summary at sentence boundary for natural speech
-        clean_summary = _truncate_at_sentence(summary, max_length=100) or summary[:100]
-        first_message = (
-            f"Hello {name}, it's Margaret. How wonderful to speak with you again. "
-            f"I remember {clean_summary}. "
-            "Shall we continue exploring your memories together?"
+            f"Hello {name}, it's Margaret. Welcome back! "
+            f"Last time you shared about {clean_content}. "
+            "I'd love to continue that story - what feels right to explore today?"
         )
     elif name:
-        # Just name - use a warm but simple greeting
+        # Case 2: Has name + no content - simple greeting with name
         first_message = (
             f"Hello {name}, it's Margaret again. It's so good to hear your voice. "
             "I'm looking forward to continuing our journey through your life stories. "
             "What would you like to share today?"
         )
-    else:
-        # Returning caller but no name
+    elif has_content:
+        # Case 3: No name + has content - reference content + ask for name
         first_message = (
-            "Hello, it's Margaret. Welcome back. "
-            "I'm glad you've returned to continue sharing your story. "
-            "What's on your mind today?"
+            f"Hello, it's Margaret. Welcome back! "
+            f"Last time you shared about {clean_content} - I'd love to hear more. "
+            "By the way, I don't think I caught your name last time?"
+        )
+    else:
+        # Case 4: No name + no content - generic returning caller + ask for name
+        first_message = (
+            "Hello, it's Margaret. Welcome back - it's lovely to hear from you again. "
+            "Before we continue, I don't think I caught your name last time?"
         )
 
     return ConversationConfigOverride(
@@ -296,11 +370,14 @@ def _is_conversational_filler(content: str) -> bool:
         # Meta-commentary and session notes
         "session quality", "surface-level", "moderate", "rich",
         "chapters discussed", "stories shared", "emotional moments",
+        "session date", "participant details",
         # Agent speech patterns (shouldn't be in user memories)
         "can you tell me", "tell me about", "what do you",
         "how did you", "that's wonderful", "thank you for sharing",
         # Short affirmations
         "yes", "no", "maybe", "i see", "i understand",
+        # Name-only content (not useful for personalized greetings)
+        "user name is", "user's name is", "name is",
     ]
 
     # Check if content starts with or is dominated by filler

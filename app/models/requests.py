@@ -465,9 +465,9 @@ class CallMetadata(BaseModel):
         default=None,
         description="Reason the call was terminated",
     )
-    error: Optional[str] = Field(
+    error: Optional[str | dict[str, Any]] = Field(
         default=None,
-        description="Error message if the call failed",
+        description="Error message or error object if the call failed",
     )
     warnings: list[str] = Field(
         default_factory=list,
