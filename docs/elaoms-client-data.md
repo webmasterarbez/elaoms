@@ -55,7 +55,7 @@ Caller dials phone number
 | Property | Value |
 |----------|-------|
 | **URL** | `POST /webhook/client-data` |
-| **Authentication** | None (webhook called from ElevenLabs infrastructure) |
+| **Authentication** | `X-Api-Key` header (validated against `ELEVENLABS_CLIENT_DATA_KEY`) |
 | **Content-Type** | `application/json` |
 | **Timeout** | Should respond within 5 seconds |
 
@@ -106,7 +106,19 @@ Accept: */*
 | `Accept` | `*/*` | Accepts any response format |
 | `Accept-Encoding` | `gzip, deflate, br` | Compression support |
 | `X-Forwarded-For` | `34.59.11.47` | Original requester IP |
-| `X-Api-Key` | `W7WWH...` | Optional API key if configured |
+| `X-Api-Key` | `W7WWH...` | **Required** - API key for authentication |
+
+### Authentication
+
+The endpoint validates the `X-Api-Key` header against the `ELEVENLABS_CLIENT_DATA_KEY` environment variable.
+
+**Configuration:**
+1. Set `ELEVENLABS_CLIENT_DATA_KEY` in your `.env` file
+2. Configure the same key in your ElevenLabs agent's webhook settings
+
+**Error Responses:**
+- Missing `X-Api-Key` header: `401 Unauthorized` with `"Missing required 'X-Api-Key' header"`
+- Invalid API key: `401 Unauthorized` with `"Invalid API key"`
 
 ### Phone Number Validation
 

@@ -182,6 +182,42 @@ def verify_signature(
     return True
 
 
+async def verify_api_key(request: Request) -> None:
+    """FastAPI dependency for X-Api-Key header verification.
+
+    This dependency validates the X-Api-Key header against the configured
+    ELEVENLABS_CLIENT_DATA_KEY. Used for the client-data webhook authentication.
+
+    Usage:
+        @app.post("/webhook/client-data")
+        async def client_data_webhook(
+            request: ClientDataRequest,
+            _: None = Depends(verify_api_key)
+        ):
+            ...
+
+    Args:
+        request: The FastAPI Request object.
+
+    Raises:
+        HTTPException: 401 Unauthorized if API key validation fails.
+    """
+    api_key = request.headers.get("X-Api-Key")
+    expected_key = settings.ELEVENLABS_CLIENT_DATA_KEY
+
+    if not api_key:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing required 'X-Api-Key' header",
+        )
+
+    if not hmac.compare_digest(api_key, expected_key):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid API key",
+        )
+
+
 async def verify_hmac_signature(request: Request) -> None:
     """FastAPI dependency for HMAC signature verification.
 

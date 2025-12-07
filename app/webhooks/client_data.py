@@ -1,7 +1,7 @@
 """Client data webhook handler for conversation initiation.
 
 This module handles the POST /webhook/client-data endpoint:
-- No HMAC authentication required
+- X-Api-Key authentication required (validated against ELEVENLABS_CLIENT_DATA_KEY)
 - Parses ClientDataRequest from request body
 - Extracts caller phone number from caller_id field
 - Queries OpenMemory for user profile using phone number as userId
@@ -13,9 +13,10 @@ This module handles the POST /webhook/client-data endpoint:
 import logging
 from typing import Any
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 
+from app.auth.hmac import verify_api_key
 from app.models.requests import ClientDataRequest
 from app.memory.profiles import (
     get_user_profile,
@@ -37,7 +38,10 @@ router = APIRouter()
         "for known callers, or empty values for new callers."
     ),
 )
-async def client_data_webhook(request: ClientDataRequest) -> JSONResponse:
+async def client_data_webhook(
+    request: ClientDataRequest,
+    _: None = Depends(verify_api_key),
+) -> JSONResponse:
     """Handle client-data webhook for conversation initiation.
 
     This endpoint:

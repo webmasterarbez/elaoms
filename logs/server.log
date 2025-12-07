@@ -48,3 +48,124 @@ INFO:     127.0.0.1:34906 - "POST /webhook/client-data HTTP/1.1" 200 OK
 2025-12-07 15:17:45,657 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
 2025-12-07 15:17:45,657 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so good to hear your voice. I'm looking forward to continuing our journey through your life stories. What would you like to share today?"}}}
 INFO:     127.0.0.1:35128 - "POST /webhook/client-data HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/auth/hmac.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:32:36,531 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [603087]
+INFO:     Started server process [624014]
+INFO:     Waiting for application startup.
+2025-12-07 16:32:36,981 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:32:36,982 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/auth/__init__.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:32:44,441 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624014]
+INFO:     Started server process [624086]
+INFO:     Waiting for application startup.
+2025-12-07 16:32:44,874 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:32:44,875 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:32:58,864 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624086]
+INFO:     Started server process [624158]
+INFO:     Waiting for application startup.
+2025-12-07 16:32:59,290 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:32:59,291 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:33:04,617 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624158]
+INFO:     Started server process [624199]
+INFO:     Waiting for application startup.
+2025-12-07 16:33:05,117 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:33:05,118 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/webhooks/client_data.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:33:09,519 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624199]
+INFO:     Started server process [624252]
+INFO:     Waiting for application startup.
+2025-12-07 16:33:09,975 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:33:09,977 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_auth.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:33:22,624 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624252]
+INFO:     Started server process [624327]
+INFO:     Waiting for application startup.
+2025-12-07 16:33:23,089 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:33:23,090 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_auth.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:33:40,573 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624327]
+INFO:     Started server process [624427]
+INFO:     Waiting for application startup.
+2025-12-07 16:33:41,015 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:33:41,016 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_webhooks.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:34:25,971 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624427]
+INFO:     Started server process [624772]
+INFO:     Waiting for application startup.
+2025-12-07 16:34:26,424 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:34:26,425 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_webhooks.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:34:32,951 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624772]
+INFO:     Started server process [624832]
+INFO:     Waiting for application startup.
+2025-12-07 16:34:34,744 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:34:34,745 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_webhooks.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:34:43,186 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624832]
+INFO:     Started server process [624951]
+INFO:     Waiting for application startup.
+2025-12-07 16:34:43,624 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:34:43,625 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'tests/test_webhooks.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-07 16:34:48,779 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [624951]
+INFO:     Started server process [624990]
+INFO:     Waiting for application startup.
+2025-12-07 16:34:49,226 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-07 16:34:49,227 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.

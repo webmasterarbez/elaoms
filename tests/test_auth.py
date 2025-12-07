@@ -1,11 +1,18 @@
-"""Tests for HMAC authentication module.
+"""Tests for authentication modules.
 
-This module contains 5 focused tests for HMAC authentication:
+This module contains tests for:
+
+HMAC Authentication (5 tests):
 1. Test valid signature passes verification
 2. Test invalid signature returns 401
 3. Test expired timestamp (>30 min) returns 401
 4. Test malformed signature header returns 401
 5. Test missing signature header returns 401
+
+X-Api-Key Authentication (3 tests):
+1. Test valid API key passes verification
+2. Test invalid API key returns 401
+3. Test missing API key returns 401
 """
 
 import hmac
@@ -271,3 +278,92 @@ class TestHMACFastAPIDependency:
             )
 
             assert response.status_code == 401
+
+
+class TestApiKeyAuthentication:
+    """Test suite for X-Api-Key authentication functionality."""
+
+    def test_valid_api_key_passes_verification(self) -> None:
+        """Test that a valid X-Api-Key passes verification."""
+        from app.auth.hmac import verify_api_key
+
+        # Create a test app with the dependency
+        app = FastAPI()
+
+        @app.post("/test-endpoint")
+        async def test_endpoint(
+            request: Request, _: None = Depends(verify_api_key)
+        ):
+            return {"status": "success"}
+
+        test_api_key = "test_api_key_12345"
+
+        with patch("app.auth.hmac.settings") as mock_settings:
+            mock_settings.ELEVENLABS_CLIENT_DATA_KEY = test_api_key
+
+            client = TestClient(app)
+            response = client.post(
+                "/test-endpoint",
+                json={"test": "data"},
+                headers={"X-Api-Key": test_api_key},
+            )
+
+            assert response.status_code == 200
+            assert response.json() == {"status": "success"}
+
+    def test_invalid_api_key_returns_401(self) -> None:
+        """Test that an invalid X-Api-Key returns 401."""
+        from app.auth.hmac import verify_api_key
+
+        # Create a test app with the dependency
+        app = FastAPI()
+
+        @app.post("/test-endpoint")
+        async def test_endpoint(
+            request: Request, _: None = Depends(verify_api_key)
+        ):
+            return {"status": "success"}
+
+        test_api_key = "test_api_key_12345"
+        wrong_api_key = "wrong_api_key"
+
+        with patch("app.auth.hmac.settings") as mock_settings:
+            mock_settings.ELEVENLABS_CLIENT_DATA_KEY = test_api_key
+
+            client = TestClient(app)
+            response = client.post(
+                "/test-endpoint",
+                json={"test": "data"},
+                headers={"X-Api-Key": wrong_api_key},
+            )
+
+            assert response.status_code == 401
+            assert "Invalid API key" in response.json()["detail"]
+
+    def test_missing_api_key_returns_401(self) -> None:
+        """Test that a missing X-Api-Key header returns 401."""
+        from app.auth.hmac import verify_api_key
+
+        # Create a test app with the dependency
+        app = FastAPI()
+
+        @app.post("/test-endpoint")
+        async def test_endpoint(
+            request: Request, _: None = Depends(verify_api_key)
+        ):
+            return {"status": "success"}
+
+        test_api_key = "test_api_key_12345"
+
+        with patch("app.auth.hmac.settings") as mock_settings:
+            mock_settings.ELEVENLABS_CLIENT_DATA_KEY = test_api_key
+
+            client = TestClient(app)
+            response = client.post(
+                "/test-endpoint",
+                json={"test": "data"},
+                # No X-Api-Key header
+            )
+
+            assert response.status_code == 401
+            assert "Missing" in response.json()["detail"]

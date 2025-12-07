@@ -120,7 +120,6 @@ class TestWebhookEndpoints:
 
         with patch("app.config.settings", mock_settings), \
              patch("app.auth.hmac.settings", mock_settings), \
-             patch("app.webhooks.client_data.settings", mock_settings), \
              patch("app.webhooks.client_data.get_user_profile", return_value=mock_profile):
             from app.main import app
             client = TestClient(app)
@@ -132,7 +131,11 @@ class TestWebhookEndpoints:
                 "call_sid": "CA98d2b6a08ebed6b78880b61ffc0e3299"
             }
 
-            response = client.post("/webhook/client-data", json=request_data)
+            response = client.post(
+                "/webhook/client-data",
+                json=request_data,
+                headers={"X-Api-Key": mock_settings.ELEVENLABS_CLIENT_DATA_KEY}
+            )
 
             assert response.status_code == 200
             data = response.json()
@@ -151,7 +154,6 @@ class TestWebhookEndpoints:
         """Test POST /webhook/client-data returns empty for new caller."""
         with patch("app.config.settings", mock_settings), \
              patch("app.auth.hmac.settings", mock_settings), \
-             patch("app.webhooks.client_data.settings", mock_settings), \
              patch("app.webhooks.client_data.get_user_profile", return_value=None):
             from app.main import app
             client = TestClient(app)
@@ -163,7 +165,11 @@ class TestWebhookEndpoints:
                 "call_sid": "CA98d2b6a08ebed6b78880b61ffc0e3299"
             }
 
-            response = client.post("/webhook/client-data", json=request_data)
+            response = client.post(
+                "/webhook/client-data",
+                json=request_data,
+                headers={"X-Api-Key": mock_settings.ELEVENLABS_CLIENT_DATA_KEY}
+            )
 
             assert response.status_code == 200
             data = response.json()
