@@ -14,6 +14,7 @@ A comprehensive guide to the client-data webhook in the ElevenLabs OpenMemory In
 - [Response Structure](#response-structure)
 - [Dynamic Variables](#dynamic-variables)
 - [Conversation Config Override](#conversation-config-override)
+- [Data Transformations](#data-transformations)
 - [Error Handling](#error-handling)
 - [Configuration](#configuration)
 - [Testing](#testing)
@@ -141,9 +142,8 @@ The webhook handler (`app/webhooks/client_data.py`) follows this sequence:
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                 2. QUERY OPENMEMORY                         │
-│  Call get_user_profile(phone_number)                        │
-│  Query: "user profile information preferences name"         │
-│  Filter: {"user_id": phone_number}                          │
+│  Step 1: GET /users/{encoded_phone}/summary                 │
+│  Step 2: POST /memory/query for name extraction             │
 └─────────────────────────────────────────────────────────────┘
                               ↓
               ┌───────────────┴───────────────┐
@@ -156,8 +156,8 @@ The webhook handler (`app/webhooks/client_data.py`) follows this sequence:
 ┌─────────────────────────┐     ┌─────────────────────────┐
 │ 3a. BUILD RESPONSE      │     │ 3b. BUILD EMPTY RESPONSE│
 │ - Extract name          │     │ - Empty dynamic_vars    │
-│ - Build summary         │     │ - No config override    │
-│ - Get last call context │     │                         │
+│ - Get top_content       │     │ - No config override    │
+│ - Filter filler content │     │                         │
 │ - Create first_message  │     │                         │
 └─────────────────────────┘     └─────────────────────────┘
                               ↓
@@ -175,44 +175,83 @@ The webhook handler (`app/webhooks/client_data.py`) follows this sequence:
 @router.post("/client-data")
 async def client_data_webhook(request: ClientDataRequest) -> JSONResponse:
     phone_number = request.caller_id
+    logger.info(f"Client-data webhook called for caller: {phone_number}")
 
-    # Query OpenMemory for user profile (async)
-    profile = await get_user_profile(phone_number)
+    try:
+        # Query OpenMemory for user profile (async)
+        profile = await get_user_profile(phone_number)
 
-    # Build response
-    response_data = {}
+        if profile:
+            logger.info(f"Found profile for caller {phone_number}: {profile.get('name', 'Unknown')}")
+        else:
+            logger.info(f"No profile found for new caller {phone_number}")
 
-    # Build dynamic variables
-    dynamic_vars = build_dynamic_variables(profile)
-    dv_dict = {}
-    if dynamic_vars.user_name:
-        dv_dict["user_name"] = dynamic_vars.user_name
-    if dynamic_vars.user_profile_summary:
-        dv_dict["user_profile_summary"] = dynamic_vars.user_profile_summary
-    if dynamic_vars.last_call_summary:
-        dv_dict["last_call_summary"] = dynamic_vars.last_call_summary
+        # Build response - exclude None values
+        response_data: dict[str, Any] = {}
 
-    response_data["dynamic_variables"] = dv_dict
+        # Build dynamic variables (only include non-null values)
+        dynamic_vars = build_dynamic_variables(profile)
+        dv_dict = {}
+        if dynamic_vars.user_name:
+            dv_dict["user_name"] = dynamic_vars.user_name
+        if dynamic_vars.user_profile_summary:
+            dv_dict["user_profile_summary"] = dynamic_vars.user_profile_summary
+        if dynamic_vars.last_call_summary:
+            dv_dict["last_call_summary"] = dynamic_vars.last_call_summary
 
-    # Build conversation config override (personalized greeting)
-    conversation_override = build_conversation_override(profile)
-    if conversation_override and conversation_override.agent:
-        response_data["conversation_config_override"] = {
-            "agent": {
-                "first_message": conversation_override.agent.first_message
+        response_data["dynamic_variables"] = dv_dict
+
+        # Build conversation config override (personalized greeting)
+        conversation_override = build_conversation_override(profile)
+        if conversation_override and conversation_override.agent:
+            response_data["conversation_config_override"] = {
+                "agent": {
+                    "first_message": conversation_override.agent.first_message
+                }
             }
-        }
 
-    return JSONResponse(content=response_data)
+        logger.info(f"Returning client-data response: {response_data}")
+        return JSONResponse(content=response_data)
+
+    except Exception as e:
+        logger.error(f"Error processing client-data webhook: {e}", exc_info=True)
+        # Return empty response on error to allow conversation to proceed
+        return JSONResponse(content={"dynamic_variables": {}})
 ```
 
 ---
 
 ## OpenMemory Integration
 
-The webhook queries OpenMemory to retrieve the caller's profile using their phone number as the unique identifier.
+The webhook queries OpenMemory using a two-step process to retrieve the caller's profile.
 
-### Query Request to OpenMemory
+### Step 1: User Summary Request
+
+```http
+GET http://localhost:8080/users/%2B16129782029/summary
+Authorization: Bearer {OPENMEMORY_KEY}
+Content-Type: application/json
+```
+
+**Note:** The phone number is URL-encoded (`+` becomes `%2B`).
+
+#### Summary Response Format
+
+```json
+{
+  "user_id": "+16129782029",
+  "summary": "5 memories, 3 patterns | medium | avg_sal=0.72 | top: semantic(2, sal=0.85): \"founder of Arbez, interested in AI technology...\"",
+  "reflection_count": 2,
+  "updated_at": 1764853457629
+}
+```
+
+The summary string is parsed to extract:
+- **memory_count**: Number of memories (e.g., `5`)
+- **activity_level**: `low`, `medium`, or `high`
+- **top_content**: Content in quotes after `top:` (filtered for conversational filler)
+
+### Step 2: Memory Query for Name Extraction
 
 ```http
 POST http://localhost:8080/memory/query
@@ -220,15 +259,15 @@ Authorization: Bearer {OPENMEMORY_KEY}
 Content-Type: application/json
 
 {
-  "query": "user profile information preferences name",
-  "k": 20,
+  "query": "user name first_name",
+  "k": 10,
   "filters": {
     "user_id": "+16129782029"
   }
 }
 ```
 
-### OpenMemory Response Structure
+#### Memory Query Response
 
 ```json
 {
@@ -250,20 +289,19 @@ Content-Type: application/json
 }
 ```
 
-### Profile Building
+### Profile Building Result
 
-The profile builder (`app/memory/profiles.py`) extracts:
-
-1. **Name**: From memory content or metadata
-2. **Summary**: Built from top 3 highest-salience memories
-3. **Last Call Summary**: From most recent episodic memory
+The combined data produces a profile structure:
 
 ```python
 profile = {
-    "name": "Stefan",
-    "summary": "User's name is Stefan. Called about account setup.",
-    "memories": [...],
-    "memory_count": 5,
+    "name": "Stefan",                    # Extracted from memories
+    "summary": "founder of Arbez...",    # From top_content (cleaned)
+    "top_content": "founder of Arbez...",
+    "memories": [...],                   # Raw memory matches
+    "memory_count": 5,                   # Total memories
+    "has_memories": True,
+    "activity_level": "medium",          # low/medium/high
     "phone_number": "+16129782029"
 }
 ```
@@ -291,18 +329,61 @@ The webhook returns a JSON response with two main sections:
 }
 ```
 
-### Example Response: Returning Caller
+### Example Response: Returning Caller (Name + Content)
 
 ```json
 {
   "dynamic_variables": {
     "user_name": "Stefan",
-    "user_profile_summary": "User's name is Stefan. Regular caller interested in product support.",
-    "last_call_summary": "Previous conversation: User called about account setup on November 28..."
+    "user_profile_summary": "founder of Arbez, interested in AI technology",
+    "last_call_summary": "Last time we talked about: account setup and integration requirements."
   },
   "conversation_config_override": {
     "agent": {
-      "first_message": "Hello Stefan, it's Margaret again. It's so lovely to hear from you. I've been thinking about our last conversation. Previous conversation: User called about account setup... I'd love to pick up where we left off, or explore a new chapter of your story. What feels right to you today?"
+      "first_message": "Hello Stefan, it's Margaret. Welcome back! Last time you shared about founder of Arbez, interested in AI technology. I'd love to continue that story - what feels right to explore today?"
+    }
+  }
+}
+```
+
+### Example Response: Returning Caller (Name Only)
+
+```json
+{
+  "dynamic_variables": {
+    "user_name": "Stefan"
+  },
+  "conversation_config_override": {
+    "agent": {
+      "first_message": "Hello Stefan, it's Margaret again. It's so good to hear your voice. I'm looking forward to continuing our journey through your life stories. What would you like to share today?"
+    }
+  }
+}
+```
+
+### Example Response: Returning Caller (Content Only, No Name)
+
+```json
+{
+  "dynamic_variables": {
+    "user_profile_summary": "discussed product support issues"
+  },
+  "conversation_config_override": {
+    "agent": {
+      "first_message": "Hello, it's Margaret. Welcome back! Last time you shared about discussed product support issues - I'd love to hear more. By the way, I don't think I caught your name last time?"
+    }
+  }
+}
+```
+
+### Example Response: Returning Caller (No Name, No Content)
+
+```json
+{
+  "dynamic_variables": {},
+  "conversation_config_override": {
+    "agent": {
+      "first_message": "Hello, it's Margaret. Welcome back - it's lovely to hear from you again. Before we continue, I don't think I caught your name last time?"
     }
   }
 }
@@ -332,8 +413,8 @@ Dynamic variables are injected into the ElevenLabs agent's context and can be re
 | Variable | Type | Description | Example |
 |----------|------|-------------|---------|
 | `user_name` | string | Caller's name | `"Stefan"` |
-| `user_profile_summary` | string | Profile summary | `"Regular caller..."` |
-| `last_call_summary` | string | Last conversation context | `"Called about..."` |
+| `user_profile_summary` | string | Profile summary from top content | `"founder of Arbez..."` |
+| `last_call_summary` | string | Last conversation context | `"Last time we talked about..."` |
 
 ### Using in Agent Prompt
 
@@ -389,17 +470,17 @@ The conversation config override allows customizing the agent's behavior for spe
 }
 ```
 
-### Personalized Greeting Logic
+### Personalized Greeting Logic (4 Cases)
 
 The greeting is built based on available context:
 
-| Available Data | Greeting Template |
-|----------------|-------------------|
-| Name + Last Call | `"Hello {name}, it's Margaret again... I've been thinking about our last conversation. {last_call}..."` |
-| Name + Summary | `"Hello {name}, it's Margaret. I remember {summary}..."` |
-| Name only | `"Hello {name}, it's Margaret again. It's so good to hear your voice..."` |
-| Profile (no name) | `"Hello, it's Margaret. Welcome back..."` |
-| No profile | No override (use default greeting) |
+| Condition | Greeting Template |
+|-----------|-------------------|
+| **Name + Content** | `"Hello {name}, it's Margaret. Welcome back! Last time you shared about {content}. I'd love to continue that story - what feels right to explore today?"` |
+| **Name only** | `"Hello {name}, it's Margaret again. It's so good to hear your voice. I'm looking forward to continuing our journey through your life stories. What would you like to share today?"` |
+| **Content only (no name)** | `"Hello, it's Margaret. Welcome back! Last time you shared about {content} - I'd love to hear more. By the way, I don't think I caught your name last time?"` |
+| **No name + no content** | `"Hello, it's Margaret. Welcome back - it's lovely to hear from you again. Before we continue, I don't think I caught your name last time?"` |
+| **No profile (new caller)** | No override returned (use ElevenLabs default greeting) |
 
 ### Implementation
 
@@ -408,29 +489,134 @@ The greeting is built based on available context:
 
 def build_conversation_override(profile: Optional[dict]) -> Optional[ConversationConfigOverride]:
     if profile is None:
-        return None  # Use ElevenLabs default greeting
+        # New caller - return None to use ElevenLabs defaults
+        return None
 
     name = profile.get("name")
-    summary = profile.get("summary")
-    last_call = _get_last_call_summary(profile.get("memories", []))
+    top_content = profile.get("top_content")
 
-    if name and last_call:
+    # Validate content is meaningful before using it
+    has_content = (
+        top_content
+        and len(top_content) > 10
+        and not _is_conversational_filler(top_content)
+    )
+
+    # Clean up content for natural speech if available
+    if has_content:
+        clean_content = _truncate_at_sentence(top_content, max_length=100) or top_content[:100]
+    else:
+        clean_content = None
+
+    # Build a personalized greeting based on available context
+    if name and has_content:
+        # Case 1: Has name + has content - full personalization
         first_message = (
-            f"Hello {name}, it's Margaret again. It's so lovely to hear from you. "
-            f"I've been thinking about our last conversation. {last_call} "
-            "I'd love to pick up where we left off..."
+            f"Hello {name}, it's Margaret. Welcome back! "
+            f"Last time you shared about {clean_content}. "
+            "I'd love to continue that story - what feels right to explore today?"
         )
-    elif name and summary:
+    elif name:
+        # Case 2: Has name + no content - simple greeting with name
         first_message = (
-            f"Hello {name}, it's Margaret. How wonderful to speak with you again. "
-            f"I remember {summary[:100]}..."
+            f"Hello {name}, it's Margaret again. It's so good to hear your voice. "
+            "I'm looking forward to continuing our journey through your life stories. "
+            "What would you like to share today?"
         )
-    # ... more cases
+    elif has_content:
+        # Case 3: No name + has content - reference content + ask for name
+        first_message = (
+            f"Hello, it's Margaret. Welcome back! "
+            f"Last time you shared about {clean_content} - I'd love to hear more. "
+            "By the way, I don't think I caught your name last time?"
+        )
+    else:
+        # Case 4: No name + no content - generic returning caller + ask for name
+        first_message = (
+            "Hello, it's Margaret. Welcome back - it's lovely to hear from you again. "
+            "Before we continue, I don't think I caught your name last time?"
+        )
 
     return ConversationConfigOverride(
         agent=AgentConfig(first_message=first_message)
     )
 ```
+
+---
+
+## Data Transformations
+
+The webhook applies several transformations to ensure clean, natural-sounding content.
+
+### Name Extraction
+
+Names are extracted from memories by searching for patterns:
+
+```python
+name_keywords = ["name is", "my name is", "called", "i'm", "i am"]
+```
+
+Also checks memory metadata for `name` or `first_name` fields.
+
+### Conversational Filler Filtering
+
+Content is filtered to remove raw transcript artifacts that would sound awkward:
+
+```python
+filler_patterns = [
+    # Conversational fillers
+    "you know", "um", "uh", "okay", "ok", "great", "yeah", "yep",
+    "right", "sure", "well", "so", "like", "actually",
+    # Meta-commentary and session notes
+    "session quality", "surface-level", "moderate", "rich",
+    "chapters discussed", "stories shared", "emotional moments",
+    # Agent speech patterns
+    "can you tell me", "tell me about", "that's wonderful",
+    # Short affirmations
+    "yes", "no", "maybe", "i see", "i understand",
+]
+```
+
+### Sentence Truncation
+
+Long content is truncated at natural boundaries:
+
+1. **Sentence endings** (`. `, `! `, `? `) - preferred
+2. **Comma boundaries** - fallback
+3. **Word boundaries with ellipsis** - last resort
+
+```python
+def _truncate_at_sentence(text: str, max_length: int = 150) -> Optional[str]:
+    if len(text) <= max_length:
+        return text
+
+    # Look for sentence endings
+    truncated = text[:max_length]
+    for ending in [". ", "! ", "? "]:
+        pos = truncated.rfind(ending)
+        if pos > 20:
+            return truncated[:pos + 1].strip()
+
+    # Fallback to comma
+    comma_pos = truncated.rfind(", ")
+    if comma_pos > 30:
+        return truncated[:comma_pos].strip()
+
+    # Last resort: word boundary with ellipsis
+    space_pos = truncated.rfind(" ")
+    if space_pos > 30:
+        return truncated[:space_pos].strip() + "..."
+```
+
+### Last Call Summary
+
+Extracted from episodic memories with the format:
+
+```
+"Last time we talked about: {content}"
+```
+
+Only meaningful content is included (conversational filler is filtered out).
 
 ---
 
@@ -458,24 +644,32 @@ This allows:
 | Scenario | Behavior |
 |----------|----------|
 | OpenMemory unavailable | Return empty, log error |
-| OpenMemory timeout | Return empty after 10s timeout |
+| OpenMemory timeout (10s) | Return empty after timeout |
+| User not found (404) | Return empty (new caller) |
 | Invalid phone format | HTTP 422 validation error |
 | Malformed JSON | HTTP 422 validation error |
 | Internal error | Return empty, log error |
 
-### Logging
+### Logging Examples
 
-All requests and errors are logged:
-
+**Successful request:**
 ```
 INFO: Client-data webhook called for caller: +16129782029
 INFO: Found profile for caller +16129782029: Stefan
-INFO: Returning client-data response: {...}
+INFO: Returning client-data response: {"dynamic_variables": {"user_name": "Stefan"}, ...}
 ```
 
+**New caller:**
+```
+INFO: Client-data webhook called for caller: +19998887777
+INFO: No profile found for new caller +19998887777
+INFO: Returning client-data response: {"dynamic_variables": {}}
+```
+
+**Error:**
 ```
 ERROR: Error processing client-data webhook: Connection timeout
-ERROR: HTTP error querying OpenMemory for +16129782029: ...
+ERROR: HTTP error querying OpenMemory for +16129782029: ReadTimeout
 ```
 
 ---
@@ -487,7 +681,24 @@ ERROR: HTTP error querying OpenMemory for +16129782029: ...
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `OPENMEMORY_KEY` | Yes | API key for OpenMemory authentication |
-| `OPENMEMORY_PORT` | Yes | OpenMemory service URL or port |
+| `OPENMEMORY_PORT` | Yes | OpenMemory service URL or port number |
+
+### OpenMemory URL Resolution
+
+The `OPENMEMORY_PORT` value is resolved to a full URL:
+
+```python
+@property
+def openmemory_url(self) -> str:
+    port = self.OPENMEMORY_PORT
+    if port.startswith("http://") or port.startswith("https://"):
+        return port  # Already a full URL
+    return f"http://localhost:{port}"  # Port number only
+```
+
+**Examples:**
+- `OPENMEMORY_PORT=8080` → `http://localhost:8080`
+- `OPENMEMORY_PORT=https://api.openmemory.io` → `https://api.openmemory.io`
 
 ### Configuration in ElevenLabs
 
@@ -553,8 +764,11 @@ def test_client_data_returns_profile_for_known_caller():
     mock_profile = {
         "name": "Stefan",
         "summary": "Returning caller interested in support.",
+        "top_content": "founder of Arbez",
         "memories": [{"content": "User's name is Stefan", "salience": 0.9}],
         "memory_count": 1,
+        "has_memories": True,
+        "activity_level": "medium",
         "phone_number": "+16129782029"
     }
 
@@ -588,16 +802,52 @@ pytest tests/test_webhooks.py -v -k "client_data"
 | `app/webhooks/client_data.py` | Webhook handler implementation |
 | `app/models/requests.py` | `ClientDataRequest` model |
 | `app/models/responses.py` | `DynamicVariables`, `ConversationConfigOverride` models |
-| `app/memory/profiles.py` | Profile building functions |
+| `app/memory/profiles.py` | Profile building and transformation functions |
 | `app/config.py` | Configuration and settings |
 | `tests/test_webhooks.py` | Unit tests |
 | `payloads/client_data.json` | Sample request payload |
-| `tests/fixtures/client_data_request.json` | Test fixture |
+
+---
+
+## Sequence Diagram
+
+```
+┌─────────┐          ┌─────────────┐          ┌────────────┐          ┌────────────┐
+│ Caller  │          │  Twilio     │          │ ElevenLabs │          │   ELAOMS   │
+└────┬────┘          └──────┬──────┘          └─────┬──────┘          └─────┬──────┘
+     │                      │                       │                       │
+     │  Dial +16123241623   │                       │                       │
+     │─────────────────────>│                       │                       │
+     │                      │                       │                       │
+     │                      │  Trigger Agent        │                       │
+     │                      │──────────────────────>│                       │
+     │                      │                       │                       │
+     │                      │                       │  POST /webhook/client-data
+     │                      │                       │──────────────────────>│
+     │                      │                       │                       │
+     │                      │                       │                       │ Query OpenMemory
+     │                      │                       │                       │ ─────────────────┐
+     │                      │                       │                       │                  │
+     │                      │                       │                       │<─────────────────┘
+     │                      │                       │                       │
+     │                      │                       │  {dynamic_variables,  │
+     │                      │                       │   config_override}    │
+     │                      │                       │<──────────────────────│
+     │                      │                       │                       │
+     │                      │                       │ Use personalized      │
+     │                      │                       │ greeting              │
+     │                      │                       │                       │
+     │  "Hello Stefan..."   │                       │                       │
+     │<─────────────────────────────────────────────│                       │
+     │                      │                       │                       │
+```
 
 ---
 
 ## See Also
 
 - [ElevenLabs Agent Configuration Guide](./elevenlabs-agent-configuration-guide.md)
+- [ELAOMS Post-Call Webhook](./elaoms-post-call.md)
+- [ELAOMS Search-Data Webhook](./elaoms-search-data.md)
 - [Cloud Deployment Guide](./cloud-deployment-guide.md)
 - [Data Model ERD](./data-model-erd.md)
