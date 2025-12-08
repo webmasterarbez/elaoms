@@ -1,24 +1,37 @@
-t=2025-12-06T16:55:26-0600 lvl=info msg="no configuration paths supplied"
-t=2025-12-06T16:55:26-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
-t=2025-12-06T16:55:26-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
-t=2025-12-06T16:55:26-0600 lvl=info msg="FIPS 140 mode" enabled=false
-t=2025-12-06T16:55:26-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
-t=2025-12-06T16:55:26-0600 lvl=info msg="client session established" obj=tunnels.session
-t=2025-12-06T16:55:26-0600 lvl=info msg="tunnel session started" obj=tunnels.session
-t=2025-12-06T16:55:26-0600 lvl=info msg="update available" obj=updater
-t=2025-12-06T16:55:26-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
-t=2025-12-06T16:55:29-0600 lvl=info msg=start pg=/api/tunnels id=38651f1ca2694538
-t=2025-12-06T16:55:29-0600 lvl=info msg=end pg=/api/tunnels id=38651f1ca2694538 status=200 dur=252.303µs
-t=2025-12-06T16:55:29-0600 lvl=info msg=start pg=/api/tunnels id=dc948f1302909288
-t=2025-12-06T16:55:29-0600 lvl=info msg=end pg=/api/tunnels id=dc948f1302909288 status=200 dur=260.871µs
-t=2025-12-06T16:55:36-0600 lvl=info msg="join connections" obj=join id=e2014876535e l=127.0.0.1:8000 r=34.59.11.47:3072
-t=2025-12-06T16:55:39-0600 lvl=info msg="join connections" obj=join id=2e209a59db1e l=127.0.0.1:8000 r=34.59.11.47:3074
-t=2025-12-06T16:55:39-0600 lvl=info msg="join connections" obj=join id=227c515a77a3 l=127.0.0.1:8000 r=34.59.11.47:3073
-t=2025-12-06T16:59:14-0600 lvl=info msg="join connections" obj=join id=10fc35b25cce l=127.0.0.1:8000 r=34.59.11.47:1024
-t=2025-12-06T16:59:16-0600 lvl=info msg="join connections" obj=join id=1302737ddc52 l=127.0.0.1:8000 r=34.59.11.47:38912
-t=2025-12-06T16:59:16-0600 lvl=info msg="join connections" obj=join id=f90f636b4125 l=127.0.0.1:8000 r=34.59.11.47:35840
-t=2025-12-06T17:00:42-0600 lvl=info msg="join connections" obj=join id=ccb3f60e9e50 l=127.0.0.1:8000 r=34.59.11.47:35840
-t=2025-12-06T17:00:45-0600 lvl=info msg="join connections" obj=join id=82c2e6a6b851 l=127.0.0.1:8000 r=34.59.11.47:38912
-t=2025-12-06T17:00:45-0600 lvl=info msg="join connections" obj=join id=2dd32f0e85f0 l=127.0.0.1:8000 r=34.59.11.47:1025
-t=2025-12-06T22:27:05-0600 lvl=info msg="update available" obj=updater
-t=2025-12-07T03:59:38-0600 lvl=info msg="update available" obj=updater
+t=2025-12-08T12:06:52-0600 lvl=info msg="no configuration paths supplied"
+t=2025-12-08T12:06:52-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
+t=2025-12-08T12:06:52-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
+t=2025-12-08T12:06:52-0600 lvl=info msg="FIPS 140 mode" enabled=false
+t=2025-12-08T12:06:52-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-12-08T12:06:52-0600 lvl=info msg="client session established" obj=tunnels.session
+t=2025-12-08T12:06:52-0600 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-12-08T12:06:52-0600 lvl=info msg="update available" obj=updater
+t=2025-12-08T12:06:52-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
+t=2025-12-08T12:06:55-0600 lvl=info msg=start pg=/api/tunnels id=e180ecb7a580c28a
+t=2025-12-08T12:06:55-0600 lvl=info msg=end pg=/api/tunnels id=e180ecb7a580c28a status=200 dur=1.433705ms
+t=2025-12-08T12:06:55-0600 lvl=info msg=start pg=/api/tunnels id=f80e4ceba0781d4e
+t=2025-12-08T12:06:55-0600 lvl=info msg=end pg=/api/tunnels id=f80e4ceba0781d4e status=200 dur=346.491µs
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/ id=a13554a94e4c6e34
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/ id=a13554a94e4c6e34 status=302 dur=333.612µs
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/inspect/http id=ea42f78ef4a3c359
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/inspect/http id=ea42f78ef4a3c359 status=200 dur=728.249µs
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/css/app.DttJnHmJ.css id=65dfd9180f4268d2
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/js/app.IDyMPwcw.js id=4a9fae919bc354c4
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/css/app.DttJnHmJ.css id=65dfd9180f4268d2 status=200 dur=16.434033ms
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/js/app.IDyMPwcw.js id=4a9fae919bc354c4 status=200 dur=18.179918ms
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=96a96b2fe912defc
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=96a96b2fe912defc status=200 dur=1.83207ms
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/grpc/agent.Web/State id=ea53803c48981878
+t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/favicon.ico id=8e16da5d34b6b6af
+t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/favicon.ico id=8e16da5d34b6b6af status=200 dur=445.369µs
+t=2025-12-08T12:08:32-0600 lvl=info msg="join connections" obj=join id=aa2d9639be4e l=127.0.0.1:8000 r=192.145.247.124:52304
+t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff2 id=8d4deb752e274fbf
+t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff2 id=8d4deb752e274fbf status=404 dur=146.843µs
+t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff id=e5e29063f8e465fa
+t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff id=e5e29063f8e465fa status=404 dur=325.06µs
+t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.ttf id=7e6e7ed9fb8789e8
+t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.ttf id=7e6e7ed9fb8789e8 status=404 dur=175.457µs
+t=2025-12-08T12:08:46-0600 lvl=info msg="join connections" obj=join id=dddcfd0b895d l=127.0.0.1:8000 r=192.145.247.124:52304
+t=2025-12-08T12:09:49-0600 lvl=info msg="join connections" obj=join id=62fff570d532 l=127.0.0.1:8000 r=34.59.11.47:2048
+t=2025-12-08T12:10:49-0600 lvl=info msg="join connections" obj=join id=c7fa2f8613b6 l=127.0.0.1:8000 r=34.59.11.47:35841
+t=2025-12-08T12:10:50-0600 lvl=info msg="join connections" obj=join id=377f6bc7b412 l=127.0.0.1:8000 r=34.59.11.47:35842

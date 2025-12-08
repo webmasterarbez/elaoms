@@ -169,3 +169,58 @@ INFO:     Waiting for application startup.
 2025-12-07 16:34:49,226 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
 2025-12-07 16:34:49,227 - app.main - INFO - Configuration validated successfully
 INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/home/ubuntu/12022025/elaoms']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [15213] using StatReload
+INFO:     Started server process [15252]
+INFO:     Waiting for application startup.
+2025-12-08 12:06:51,730 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-08 12:06:51,731 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.
+INFO:     127.0.0.1:52944 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52944 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52960 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52960 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52966 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57314 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58298 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58298 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58298 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58298 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     192.145.247.124:0 - "GET / HTTP/1.1" 200 OK
+INFO:     192.145.247.124:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     192.145.247.124:0 - "GET /health HTTP/1.1" 200 OK
+2025-12-08 12:09:49,764 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-08 12:09:49,811 - httpx - INFO - HTTP Request: GET http://localhost:8080/users/%2B16129782029/summary "HTTP/1.1 200 OK"
+2025-12-08 12:09:49,967 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-08 12:09:49,968 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-08 12:09:49,968 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. It's so good to hear your voice. I'm looking forward to continuing our journey through your life stories. What would you like to share today?"}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-08 12:10:49,837 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-08 12:10:49,838 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+2025-12-08 12:10:49,840 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_8801kbzjfhjheeqvf1h5m0tm5d4s/conv_8801kbzjfhjheeqvf1h5m0tm5d4s_transcription.json
+2025-12-08 12:10:49,840 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-08 12:10:49,877 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-08 12:10:49,888 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-08 12:10:49,896 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-08 12:10:49,904 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/add "HTTP/1.1 200 OK"
+2025-12-08 12:10:49,904 - app.memory.extraction - INFO - Stored 4 conversation memories for +16129782029
+2025-12-08 12:10:49,904 - app.webhooks.post_call - INFO - Stored 4 conversation memories for +16129782029
+2025-12-08 12:10:49,904 - app.webhooks.post_call - INFO - Completed transcription processing for conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+2025-12-08 12:10:50,575 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-08 12:10:50,576 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+2025-12-08 12:10:50,579 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_8801kbzjfhjheeqvf1h5m0tm5d4s/conv_8801kbzjfhjheeqvf1h5m0tm5d4s_audio.mp3
+2025-12-08 12:10:50,579 - app.webhooks.post_call - INFO - Completed audio processing for conv_8801kbzjfhjheeqvf1h5m0tm5d4s
+WARNING:  StatReload detected changes in 'app/memory/profiles.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-12-08 12:24:27,054 - app.main - INFO - Shutting down ElevenLabs OpenMemory Integration...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15252]
+INFO:     Started server process [53521]
+INFO:     Waiting for application startup.
+2025-12-08 12:24:27,735 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
+2025-12-08 12:24:27,737 - app.main - INFO - Configuration validated successfully
+INFO:     Application startup complete.

@@ -303,9 +303,8 @@ def build_conversation_override(
     elif name:
         # Case 2: Has name + no content - simple greeting with name
         first_message = (
-            f"Hello {name}, it's Margaret again. It's so good to hear your voice. "
-            "I'm looking forward to continuing our journey through your life stories. "
-            "What would you like to share today?"
+            f"Hello {name}, it's Margaret again. So nice to have you back. "
+            "What's on your mind today?"
         )
     elif has_content:
         # Case 3: No name + has content - reference content + ask for name
