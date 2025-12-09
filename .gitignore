@@ -1,3 +1,9 @@
 .env
-test
-venv
+.env.*
+*.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+logs/
+payloads/
