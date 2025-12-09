@@ -336,6 +336,8 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
   "type": "webhook",
   "name": "search_data",
   "description": "Search memories and profile data for the current caller. Returns profile information (name, summary) and relevant memories from previous conversations.",
+  "disable_interruptions": false,
+  "force_pre_tool_speech": "auto",
   "assignments": [
     {
       "source": "response",
@@ -349,6 +351,7 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
     }
   ],
   "tool_call_sound": "typing",
+  "tool_call_sound_behavior": "auto",
   "execution_mode": "immediate",
   "api_schema": {
     "url": "https://your-webhook-url.com/webhook/search-data",
@@ -356,15 +359,15 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
     "path_params_schema": [],
     "query_params_schema": [],
     "request_body_schema": {
-      "id": "search_data_body",
-      "description": "Request body for searching caller memories and profile data",
+      "id": "body",
       "type": "object",
+      "description": "Request body for searching caller memories",
       "properties": [
         {
           "id": "user_id",
           "type": "string",
           "value_type": "dynamic_variable",
-          "description": "Caller's phone number in E.164 format",
+          "description": "",
           "dynamic_variable": "system__caller_id",
           "constant_value": "",
           "enum": null,
@@ -375,7 +378,7 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
           "id": "query",
           "type": "string",
           "value_type": "llm_prompt",
-          "description": "Natural language search query to find relevant memories",
+          "description": "Natural language search query",
           "dynamic_variable": "",
           "constant_value": "",
           "enum": null,
@@ -386,7 +389,7 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
           "id": "agent_id",
           "type": "string",
           "value_type": "dynamic_variable",
-          "description": "The ElevenLabs agent identifier",
+          "description": "",
           "dynamic_variable": "system__agent_id",
           "constant_value": "",
           "enum": null,
@@ -394,7 +397,8 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
           "required": true
         }
       ],
-      "required": false
+      "required": false,
+      "value_type": "llm_prompt"
     },
     "request_headers": [
       {
@@ -407,7 +411,8 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
         "name": "X-Api-Key",
         "secret_id": "YOUR_SECRET_ID"
       }
-    ]
+    ],
+    "auth_connection": null
   },
   "response_timeout_secs": 10,
   "dynamic_variables": {
