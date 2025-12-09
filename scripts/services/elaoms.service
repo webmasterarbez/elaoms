@@ -1,0 +1,70 @@
+#===============================================================================
+# ELAOMS Systemd Service Configuration
+# ElevenLabs Agents Open Memory System
+#===============================================================================
+#
+# Installation:
+#   sudo cp scripts/services/elaoms.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable elaoms
+#   sudo systemctl start elaoms
+#
+# Management:
+#   sudo systemctl status elaoms    # Check status
+#   sudo systemctl start elaoms     # Start service
+#   sudo systemctl stop elaoms      # Stop service
+#   sudo systemctl restart elaoms   # Restart service
+#   sudo journalctl -u elaoms -f    # View logs
+#
+#===============================================================================
+
+[Unit]
+Description=ELAOMS - ElevenLabs Agents Open Memory System
+Documentation=https://github.com/your-repo/elaoms
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/elaoms
+
+# Environment configuration
+Environment="PATH=/home/ubuntu/elaoms/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=/home/ubuntu/elaoms/.env
+
+# Start command - adjust workers based on CPU cores (2x cores recommended)
+ExecStart=/home/ubuntu/elaoms/venv/bin/uvicorn app.main:app \
+    --host 127.0.0.1 \
+    --port 8000 \
+    --workers 4 \
+    --access-log \
+    --log-level info
+
+# Reload and restart configuration
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+TimeoutStartSec=30
+TimeoutStopSec=30
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/elaoms/logs /home/ubuntu/elaoms/payloads /home/ubuntu/elaoms/data
+
+# Logging
+StandardOutput=append:/home/ubuntu/elaoms/logs/uvicorn.log
+StandardError=append:/home/ubuntu/elaoms/logs/uvicorn-error.log
+SyslogIdentifier=elaoms
+
+[Install]
+WantedBy=multi-user.target
