@@ -139,14 +139,14 @@ Caller → Twilio → ElevenLabs Agents
 ## Project Structure
 
 ```
-elevenlabs_agents_open_memory_system/
+elaoms/
 ├── app/                          # Main application source code
 │   ├── __init__.py
-│   ├── main.py                   # FastAPI application entry point
-│   ├── config.py                 # Environment configuration
+│   ├── main.py                   # FastAPI application entry point (v1.0.0)
+│   ├── config.py                 # Environment configuration & validation
 │   ├── auth/                     # Authentication & Security
 │   │   ├── __init__.py
-│   │   └── hmac.py               # HMAC-SHA256 signature validation
+│   │   └── hmac.py               # HMAC-SHA256 signature & API key validation
 │   ├── models/                   # Pydantic request/response models
 │   │   ├── __init__.py
 │   │   ├── requests.py           # Request models for webhooks
@@ -158,9 +158,9 @@ elevenlabs_agents_open_memory_system/
 │   │   └── extraction.py         # Memory extraction from transcripts
 │   └── webhooks/                 # Webhook endpoint handlers
 │       ├── __init__.py
-│       ├── client_data.py        # POST /webhook/client-data
-│       ├── search_data.py        # POST /webhook/search-data
-│       └── post_call.py          # POST /webhook/post-call
+│       ├── client_data.py        # POST /webhook/client-data (X-Api-Key auth)
+│       ├── search_data.py        # POST /webhook/search-data (no auth)
+│       └── post_call.py          # POST /webhook/post-call (HMAC auth)
 ├── tests/                        # Test suite
 │   ├── conftest.py               # Pytest configuration and fixtures
 │   ├── test_auth.py              # HMAC authentication tests
@@ -170,18 +170,9 @@ elevenlabs_agents_open_memory_system/
 │   ├── test_webhooks.py          # Webhook endpoint tests
 │   ├── test_integration.py       # End-to-end integration tests
 │   └── fixtures/                 # Test data and fixtures
-├── payloads/                     # Sample ElevenLabs webhook payloads
 ├── scripts/                      # Utility scripts
 │   └── run_local.sh              # Local development server script
-├── docs/                         # Documentation
-│   └── data-model-erd.md         # Entity Relationship Diagram
-├── agent-os/                     # Project specifications
-│   ├── product/                  # Product documentation
-│   │   ├── mission.md            # Product mission and vision
-│   │   ├── tech-stack.md         # Technology decisions
-│   │   └── roadmap.md            # Implementation roadmap
-│   └── specs/                    # Technical specifications
-├── pyproject.toml                # Project configuration
+├── pyproject.toml                # Project configuration & dev dependencies
 ├── requirements.txt              # Production dependencies
 ├── .env.example                  # Environment variables template
 └── README.md                     # This file
@@ -202,8 +193,8 @@ elevenlabs_agents_open_memory_system/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-org/elevenlabs-agents-open-memory-system.git
-   cd elevenlabs-agents-open-memory-system
+   git clone https://github.com/your-org/elaoms.git
+   cd elaoms
    ```
 
 2. **Create and activate virtual environment**
@@ -251,17 +242,17 @@ Create a `.env` file based on `.env.example`:
 ```bash
 # ElevenLabs Configuration
 ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
-ELEVENLABS_POST_CALL_KEY=your_post_call_hmac_secret_here
-ELEVENLABS_CLIENT_DATA_KEY=your_client_data_hmac_secret_here
-ELEVENLABS_SEARCH_DATA_KEY=your_search_data_hmac_secret_here
+ELEVENLABS_POST_CALL_KEY=your_post_call_hmac_secret_here        # REQUIRED for post-call webhook auth
+ELEVENLABS_CLIENT_DATA_KEY=your_client_data_api_key_here        # REQUIRED for client-data webhook auth
+ELEVENLABS_SEARCH_DATA_KEY=your_search_data_hmac_secret_here    # Reserved for future use
 
 # OpenMemory Configuration
-OPENMEMORY_KEY=your_openmemory_api_key_here
-OPENMEMORY_PORT=8000
-OPENMEMORY_DB_PATH=./data/openmemory.db
+OPENMEMORY_KEY=your_openmemory_api_key_here                     # Required for REMOTE mode
+OPENMEMORY_PORT=8000                                            # Port or full URL (e.g., http://localhost:8000)
+OPENMEMORY_DB_PATH=./data/openmemory.db                         # Path for local mode reference
 
 # Storage Configuration
-PAYLOAD_STORAGE_PATH=./payloads
+PAYLOAD_STORAGE_PATH=./payloads                                 # Directory for conversation payloads
 ```
 
 ### Getting API Keys
@@ -269,7 +260,8 @@ PAYLOAD_STORAGE_PATH=./payloads
 | Service | Where to Get |
 |---------|--------------|
 | ElevenLabs API Key | [ElevenLabs Settings](https://elevenlabs.io/app/settings/api-keys) |
-| Post-Call HMAC Secret | ElevenLabs Agent webhook configuration |
+| Post-Call HMAC Secret | ElevenLabs Agent webhook configuration panel |
+| Client-Data API Key | ElevenLabs Agent webhook configuration panel |
 | OpenMemory Key | Your OpenMemory server configuration |
 
 ---
@@ -280,9 +272,9 @@ PAYLOAD_STORAGE_PATH=./payloads
 
 | Endpoint | Method | Auth | Purpose |
 |----------|--------|------|---------|
-| `/webhook/client-data` | POST | None | Conversation initiation personalization |
+| `/webhook/client-data` | POST | X-Api-Key | Conversation initiation personalization |
 | `/webhook/search-data` | POST | None | Mid-conversation memory search |
-| `/webhook/post-call` | POST | HMAC | Post-call transcript & memory storage |
+| `/webhook/post-call` | POST | HMAC-SHA256 | Post-call transcript & memory storage |
 
 ### Utility Endpoints
 
@@ -315,7 +307,7 @@ PAYLOAD_STORAGE_PATH=./payloads
   },
   "conversation_config_override": {
     "agent": {
-      "firstMessage": "Welcome back, Stefan! How can I help you today?"
+      "first_message": "Welcome back, Stefan! How can I help you today?"
     }
   }
 }
@@ -397,13 +389,24 @@ All memories are stored with `decayLambda=0` (zero decay), ensuring permanent re
 
 ## Security
 
-### HMAC-SHA256 Authentication
+### Authentication Methods
+
+#### X-Api-Key Authentication (Client-Data Webhook)
+
+The client-data webhook uses API key authentication:
+
+- **Header:** `X-Api-Key`
+- **Validation:** Compared against `ELEVENLABS_CLIENT_DATA_KEY` environment variable
+- **Purpose:** Validates that requests come from authorized sources
+
+#### HMAC-SHA256 Authentication (Post-Call Webhook)
 
 The post-call webhook requires HMAC signature validation:
 
 - **Header:** `elevenlabs-signature`
 - **Format:** `t=timestamp,v0=hash`
 - **Algorithm:** SHA256 HMAC of `{timestamp}.{body}`
+- **Secret:** Uses `ELEVENLABS_POST_CALL_KEY` environment variable
 - **Tolerance:** 30-minute timestamp window
 - **Protection:** Constant-time comparison prevents timing attacks
 
@@ -411,9 +414,10 @@ The post-call webhook requires HMAC signature validation:
 
 | Feature | Implementation |
 |---------|----------------|
-| Webhook Authentication | HMAC-SHA256 signature validation |
+| Post-Call Authentication | HMAC-SHA256 signature validation |
+| Client-Data Authentication | X-Api-Key header validation |
 | Secret Management | Environment variables (not committed to git) |
-| Timestamp Validation | 30-minute tolerance window |
+| Timestamp Validation | 30-minute tolerance window for HMAC |
 | Per-Caller Isolation | Phone number-based user ID separation |
 | Replay Prevention | Timestamp validation prevents replay attacks |
 
@@ -448,6 +452,7 @@ mypy app/
 
 3. Configure ElevenLabs Agent webhooks with your ngrok URL:
    - Client-Data: `https://your-ngrok-url.ngrok.io/webhook/client-data`
+   - Search-Data: `https://your-ngrok-url.ngrok.io/webhook/search-data`
    - Post-Call: `https://your-ngrok-url.ngrok.io/webhook/post-call`
 
 ---
@@ -561,7 +566,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues:** [GitHub Issues](https://github.com/your-org/elevenlabs-agents-open-memory-system/issues)
-- **Documentation:** [docs/](docs/)
+- **Issues:** [GitHub Issues](https://github.com/your-org/elaoms/issues)
 - **ElevenLabs Docs:** [ElevenLabs Documentation](https://elevenlabs.io/docs)
 - **OpenMemory Docs:** [OpenMemory Documentation](https://github.com/CaviraOSS/openmemory)
