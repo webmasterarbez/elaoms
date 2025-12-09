@@ -224,3 +224,23 @@ INFO:     Waiting for application startup.
 2025-12-08 12:24:27,735 - app.main - INFO - Starting ElevenLabs OpenMemory Integration...
 2025-12-08 12:24:27,737 - app.main - INFO - Configuration validated successfully
 INFO:     Application startup complete.
+2025-12-08 14:04:37,077 - app.webhooks.client_data - INFO - Client-data webhook called for caller: +16129782029
+2025-12-08 14:04:37,117 - httpx - INFO - HTTP Request: GET http://localhost:8080/users/%2B16129782029/summary "HTTP/1.1 200 OK"
+2025-12-08 14:04:37,236 - httpx - INFO - HTTP Request: POST http://localhost:8080/memory/query "HTTP/1.1 200 OK"
+2025-12-08 14:04:37,236 - app.webhooks.client_data - INFO - Found profile for caller +16129782029: Stefan
+2025-12-08 14:04:37,237 - app.webhooks.client_data - INFO - Returning client-data response: {'dynamic_variables': {'user_name': 'Stefan', 'last_call_summary': 'Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.'}, 'conversation_config_override': {'agent': {'first_message': "Hello Stefan, it's Margaret again. So nice to have you back. What's on your mind today?"}}}
+INFO:     34.59.11.47:0 - "POST /webhook/client-data HTTP/1.1" 200 OK
+2025-12-08 14:04:48,586 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_transcription, conversation_id=conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-08 14:04:48,587 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_transcription, conversation_id=conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+2025-12-08 14:04:48,588 - app.webhooks.post_call - INFO - Saved transcription to payloads/conv_0201kbzs1rjnf5jrp5mb3rw81nrk/conv_0201kbzs1rjnf5jrp5mb3rw81nrk_transcription.json
+2025-12-08 14:04:48,588 - app.webhooks.post_call - INFO - Processing memories for caller: +16129782029
+2025-12-08 14:04:48,588 - app.webhooks.post_call - INFO - Completed transcription processing for conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+2025-12-08 14:04:48,734 - app.webhooks.post_call - INFO - Post-call webhook received: type=post_call_audio, conversation_id=conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+INFO:     34.59.11.47:0 - "POST /webhook/post-call HTTP/1.1" 200 OK
+2025-12-08 14:04:48,734 - app.webhooks.post_call - INFO - Background processing webhook: type=post_call_audio, conversation_id=conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+2025-12-08 14:04:48,735 - app.webhooks.post_call - INFO - Saved audio to payloads/conv_0201kbzs1rjnf5jrp5mb3rw81nrk/conv_0201kbzs1rjnf5jrp5mb3rw81nrk_audio.mp3
+2025-12-08 14:04:48,735 - app.webhooks.post_call - INFO - Completed audio processing for conv_0201kbzs1rjnf5jrp5mb3rw81nrk
+INFO:     127.0.0.1:39218 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39218 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39218 - "GET /openapi.json HTTP/1.1" 200 OK

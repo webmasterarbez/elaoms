@@ -35,3 +35,24 @@ t=2025-12-08T12:08:46-0600 lvl=info msg="join connections" obj=join id=dddcfd0b8
 t=2025-12-08T12:09:49-0600 lvl=info msg="join connections" obj=join id=62fff570d532 l=127.0.0.1:8000 r=34.59.11.47:2048
 t=2025-12-08T12:10:49-0600 lvl=info msg="join connections" obj=join id=c7fa2f8613b6 l=127.0.0.1:8000 r=34.59.11.47:35841
 t=2025-12-08T12:10:50-0600 lvl=info msg="join connections" obj=join id=377f6bc7b412 l=127.0.0.1:8000 r=34.59.11.47:35842
+t=2025-12-08T14:04:37-0600 lvl=info msg="join connections" obj=join id=6841c9aa8cc5 l=127.0.0.1:8000 r=34.59.11.47:35840
+t=2025-12-08T14:04:48-0600 lvl=info msg="join connections" obj=join id=a22706f2dc8c l=127.0.0.1:8000 r=34.59.11.47:38913
+t=2025-12-08T14:04:48-0600 lvl=info msg="join connections" obj=join id=bf85c4b666b2 l=127.0.0.1:8000 r=34.59.11.47:1024
+t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/inspect/http id=d43f0cc882bda8be
+t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/inspect/http id=d43f0cc882bda8be status=200 dur=5.223187ms
+t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/grpc/agent.Web/State id=ea53803c48981878 status=200 dur=2h26m53.500379034s
+t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/static/css/app.DttJnHmJ.css id=4e463cb0c4e7c684
+t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/static/css/app.DttJnHmJ.css id=4e463cb0c4e7c684 status=304 dur=534.783µs
+t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/static/js/app.IDyMPwcw.js id=8a51ccb9b9b759da
+t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/static/js/app.IDyMPwcw.js id=8a51ccb9b9b759da status=304 dur=2.051424ms
+t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=aaa43d827e5e4a5a
+t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=aaa43d827e5e4a5a status=200 dur=5.139953ms
+t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/grpc/agent.Web/State id=0e7c94164309194f
+t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff2 id=19c1ff6b5339b0d1
+t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff2 id=19c1ff6b5339b0d1 status=404 dur=73.405µs
+t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff id=de2be87194586363
+t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff id=de2be87194586363 status=404 dur=36.628µs
+t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.ttf id=1a8031845b996161
+t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.ttf id=1a8031845b996161 status=404 dur=39.392µs
+t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/favicon.ico id=bca185ea773c9168
+t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/favicon.ico id=bca185ea773c9168 status=304 dur=121.425µs
