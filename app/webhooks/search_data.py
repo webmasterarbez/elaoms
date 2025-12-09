@@ -57,7 +57,7 @@ async def search_data_webhook(request: SearchDataRequest) -> SearchDataResponse:
 
     try:
         # Query OpenMemory for relevant memories
-        search_result = search_memories(
+        search_result = await search_memories(
             query=query,
             phone_number=phone_number,
         )

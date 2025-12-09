@@ -1,58 +1,23 @@
-t=2025-12-08T12:06:52-0600 lvl=info msg="no configuration paths supplied"
-t=2025-12-08T12:06:52-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
-t=2025-12-08T12:06:52-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
-t=2025-12-08T12:06:52-0600 lvl=info msg="FIPS 140 mode" enabled=false
-t=2025-12-08T12:06:52-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
-t=2025-12-08T12:06:52-0600 lvl=info msg="client session established" obj=tunnels.session
-t=2025-12-08T12:06:52-0600 lvl=info msg="tunnel session started" obj=tunnels.session
-t=2025-12-08T12:06:52-0600 lvl=info msg="update available" obj=updater
-t=2025-12-08T12:06:52-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
-t=2025-12-08T12:06:55-0600 lvl=info msg=start pg=/api/tunnels id=e180ecb7a580c28a
-t=2025-12-08T12:06:55-0600 lvl=info msg=end pg=/api/tunnels id=e180ecb7a580c28a status=200 dur=1.433705ms
-t=2025-12-08T12:06:55-0600 lvl=info msg=start pg=/api/tunnels id=f80e4ceba0781d4e
-t=2025-12-08T12:06:55-0600 lvl=info msg=end pg=/api/tunnels id=f80e4ceba0781d4e status=200 dur=346.491µs
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/ id=a13554a94e4c6e34
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/ id=a13554a94e4c6e34 status=302 dur=333.612µs
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/inspect/http id=ea42f78ef4a3c359
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/inspect/http id=ea42f78ef4a3c359 status=200 dur=728.249µs
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/css/app.DttJnHmJ.css id=65dfd9180f4268d2
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/js/app.IDyMPwcw.js id=4a9fae919bc354c4
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/css/app.DttJnHmJ.css id=65dfd9180f4268d2 status=200 dur=16.434033ms
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/js/app.IDyMPwcw.js id=4a9fae919bc354c4 status=200 dur=18.179918ms
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=96a96b2fe912defc
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=96a96b2fe912defc status=200 dur=1.83207ms
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/grpc/agent.Web/State id=ea53803c48981878
-t=2025-12-08T12:08:27-0600 lvl=info msg=start pg=/static/favicon.ico id=8e16da5d34b6b6af
-t=2025-12-08T12:08:27-0600 lvl=info msg=end pg=/static/favicon.ico id=8e16da5d34b6b6af status=200 dur=445.369µs
-t=2025-12-08T12:08:32-0600 lvl=info msg="join connections" obj=join id=aa2d9639be4e l=127.0.0.1:8000 r=192.145.247.124:52304
-t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff2 id=8d4deb752e274fbf
-t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff2 id=8d4deb752e274fbf status=404 dur=146.843µs
-t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff id=e5e29063f8e465fa
-t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff id=e5e29063f8e465fa status=404 dur=325.06µs
-t=2025-12-08T12:08:33-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.ttf id=7e6e7ed9fb8789e8
-t=2025-12-08T12:08:33-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.ttf id=7e6e7ed9fb8789e8 status=404 dur=175.457µs
-t=2025-12-08T12:08:46-0600 lvl=info msg="join connections" obj=join id=dddcfd0b895d l=127.0.0.1:8000 r=192.145.247.124:52304
-t=2025-12-08T12:09:49-0600 lvl=info msg="join connections" obj=join id=62fff570d532 l=127.0.0.1:8000 r=34.59.11.47:2048
-t=2025-12-08T12:10:49-0600 lvl=info msg="join connections" obj=join id=c7fa2f8613b6 l=127.0.0.1:8000 r=34.59.11.47:35841
-t=2025-12-08T12:10:50-0600 lvl=info msg="join connections" obj=join id=377f6bc7b412 l=127.0.0.1:8000 r=34.59.11.47:35842
-t=2025-12-08T14:04:37-0600 lvl=info msg="join connections" obj=join id=6841c9aa8cc5 l=127.0.0.1:8000 r=34.59.11.47:35840
-t=2025-12-08T14:04:48-0600 lvl=info msg="join connections" obj=join id=a22706f2dc8c l=127.0.0.1:8000 r=34.59.11.47:38913
-t=2025-12-08T14:04:48-0600 lvl=info msg="join connections" obj=join id=bf85c4b666b2 l=127.0.0.1:8000 r=34.59.11.47:1024
-t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/inspect/http id=d43f0cc882bda8be
-t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/inspect/http id=d43f0cc882bda8be status=200 dur=5.223187ms
-t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/grpc/agent.Web/State id=ea53803c48981878 status=200 dur=2h26m53.500379034s
-t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/static/css/app.DttJnHmJ.css id=4e463cb0c4e7c684
-t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/static/css/app.DttJnHmJ.css id=4e463cb0c4e7c684 status=304 dur=534.783µs
-t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/static/js/app.IDyMPwcw.js id=8a51ccb9b9b759da
-t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/static/js/app.IDyMPwcw.js id=8a51ccb9b9b759da status=304 dur=2.051424ms
-t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/grpc/agent.Web/Preloaded id=aaa43d827e5e4a5a
-t=2025-12-08T14:27:43-0600 lvl=info msg=end pg=/grpc/agent.Web/Preloaded id=aaa43d827e5e4a5a status=200 dur=5.139953ms
-t=2025-12-08T14:27:43-0600 lvl=info msg=start pg=/grpc/agent.Web/State id=0e7c94164309194f
-t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff2 id=19c1ff6b5339b0d1
-t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff2 id=19c1ff6b5339b0d1 status=404 dur=73.405µs
-t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.woff id=de2be87194586363
-t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.woff id=de2be87194586363 status=404 dur=36.628µs
-t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/assets/glyphicons-halflings-regular.ttf id=1a8031845b996161
-t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/assets/glyphicons-halflings-regular.ttf id=1a8031845b996161 status=404 dur=39.392µs
-t=2025-12-08T14:27:44-0600 lvl=info msg=start pg=/static/favicon.ico id=bca185ea773c9168
-t=2025-12-08T14:27:44-0600 lvl=info msg=end pg=/static/favicon.ico id=bca185ea773c9168 status=304 dur=121.425µs
+t=2025-12-09T07:12:50-0600 lvl=info msg="no configuration paths supplied"
+t=2025-12-09T07:12:50-0600 lvl=info msg="using configuration at default config path" path=/home/ubuntu/.config/ngrok/ngrok.yml
+t=2025-12-09T07:12:50-0600 lvl=info msg="open config file" path=/home/ubuntu/.config/ngrok/ngrok.yml err=nil
+t=2025-12-09T07:12:50-0600 lvl=info msg="FIPS 140 mode" enabled=false
+t=2025-12-09T07:12:50-0600 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-12-09T07:12:50-0600 lvl=info msg="client session established" obj=tunnels.session
+t=2025-12-09T07:12:50-0600 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-12-09T07:12:50-0600 lvl=info msg="update available" obj=updater
+t=2025-12-09T07:12:50-0600 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://localhost:8000 url=https://rockered-marisol-nonlimitative.ngrok-free.dev
+t=2025-12-09T07:12:53-0600 lvl=info msg=start pg=/api/tunnels id=b8a19b68b16d4fdd
+t=2025-12-09T07:12:53-0600 lvl=info msg=end pg=/api/tunnels id=b8a19b68b16d4fdd status=200 dur=366.647µs
+t=2025-12-09T07:12:53-0600 lvl=info msg=start pg=/api/tunnels id=5419c4308ca206a0
+t=2025-12-09T07:12:53-0600 lvl=info msg=end pg=/api/tunnels id=5419c4308ca206a0 status=200 dur=162.142µs
+t=2025-12-09T07:13:05-0600 lvl=info msg="join connections" obj=join id=eac71ef98c0c l=127.0.0.1:8000 r=34.59.11.47:38914
+t=2025-12-09T07:13:16-0600 lvl=info msg="join connections" obj=join id=0911e07ee40e l=127.0.0.1:8000 r=34.59.11.47:1024
+t=2025-12-09T07:13:37-0600 lvl=info msg="join connections" obj=join id=c0d848f29b90 l=127.0.0.1:8000 r=34.59.11.47:38913
+t=2025-12-09T07:13:56-0600 lvl=info msg="join connections" obj=join id=e356a4cacb14 l=127.0.0.1:8000 r=34.59.11.47:35845
+t=2025-12-09T07:14:28-0600 lvl=info msg="join connections" obj=join id=47b63c723c52 l=127.0.0.1:8000 r=34.59.11.47:1028
+t=2025-12-09T07:14:28-0600 lvl=info msg="join connections" obj=join id=0cf3d66fcf3c l=127.0.0.1:8000 r=34.59.11.47:1029
+t=2025-12-09T07:16:17-0600 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-12-09T07:16:17-0600 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-12-09T07:16:17-0600 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=ccc9e42b3d0b err="reconnecting session closed"
+t=2025-12-09T07:16:17-0600 lvl=info msg="failed to accept connection: Listener closed" obj=tunnels.session clientid=f0fae09dcb1f3279dd9486891bd8ea4b

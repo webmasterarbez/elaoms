@@ -1,0 +1,929 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1765286067,
+  "data": {
+    "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+    "conversation_id": "conv_4501kc1kwyh3ez4t9y1xvqp9me1q",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Hello Stefan, it's Margaret again. So nice to have you back. What's on your mind today?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 0,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.3198608459933894
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, uh, what is my favorite color?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 7,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.04192408199014608
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "webhook",
+            "request_id": "search_data_1a1ce2c5a3594327b31cb0285ede9344",
+            "tool_name": "search_data",
+            "params_as_json": "{\"query\": \"What is the user's favorite color?\", \"user_id\": \"+16129782029\"}",
+            "tool_has_been_called": true,
+            "tool_details": {
+              "type": "webhook",
+              "method": "POST",
+              "url": "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data",
+              "headers": {
+                "Content-Type": "application/json",
+                "X-Api-Key": "<REDACTED>"
+              },
+              "path_params": {},
+              "query_params": {},
+              "body": "{\"user_id\": \"+16129782029\", \"query\": \"What is the user's favorite color?\", \"agent_id\": \"agent_3001kbqvw1c7efwvkbcqv8n0743v\"}"
+            }
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 10,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8440363650006475
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.8449014289944898
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "search_data_1a1ce2c5a3594327b31cb0285ede9344",
+            "tool_name": "search_data",
+            "result_value": "{\"profile\":{\"name\":null,\"summary\":\"My favorite color is blue. You know, I'd like you to know that my favorite color is blue. Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\",\"phone_number\":\"+16129782029\"},\"memories\":[{\"content\":\"You know, what is my favorite color?\",\"sector\":\"semantic\",\"salience\":0.39999465095211467,\"timestamp\":null},{\"content\":\"You know, um, can you use the search data tool that you have access to and see what my favorite color is?\",\"sector\":\"semantic\",\"salience\":0.39999151476064904,\"timestamp\":null},{\"content\":\"Um, let me check and see what my favorite color is.\",\"sector\":\"semantic\",\"salience\":0.3999915143532524,\"timestamp\":null},{\"content\":\"You know, my favorite color is white.\",\"sector\":\"semantic\",\"salience\":0.3987331221412778,\"timestamp\":null},{\"content\":\"No, blue is my favorite color.\",\"sector\":\"semantic\",\"salience\":0.3987331224364011,\"timestamp\":null},{\"content\":\"My favorite color is blue.\",\"sector\":\"semantic\",\"salience\":0.9744034246506008,\"timestamp\":null},{\"content\":\"You know, I'd like you to know that my favorite color is blue.\",\"sector\":\"emotional\",\"salience\":0.9535211047481211,\"timestamp\":null},{\"content\":\"What is the last thing we talked about?\",\"sector\":\"semantic\",\"salience\":0.3999915145939868,\"timestamp\":null},{\"content\":\"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\",\"sector\":\"episodic\",\"salience\":0.9999981108074952,\"timestamp\":null},{\"content\":\"They had a house on the lake they'd live there the vast majority of their lives\",\"sector\":\"semantic\",\"salience\":0.974865723380565,\"timestamp\":null}]}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.2510905189992627,
+            "dynamic_variable_updates": [
+              {
+                "variable_name": "profile",
+                "old_value": null,
+                "new_value": "{'name': None, 'summary': \"My favorite color is blue. You know, I'd like you to know that my favorite color is blue. Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'phone_number': '+16129782029'}",
+                "updated_at": 1765285996.1678014,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_1a1ce2c5a3594327b31cb0285ede9344"
+              },
+              {
+                "variable_name": "memories",
+                "old_value": null,
+                "new_value": "[{'content': 'You know, what is my favorite color?', 'sector': 'semantic', 'salience': 0.39999465095211467, 'timestamp': None}, {'content': 'You know, um, can you use the search data tool that you have access to and see what my favorite color is?', 'sector': 'semantic', 'salience': 0.39999151476064904, 'timestamp': None}, {'content': 'Um, let me check and see what my favorite color is.', 'sector': 'semantic', 'salience': 0.3999915143532524, 'timestamp': None}, {'content': 'You know, my favorite color is white.', 'sector': 'semantic', 'salience': 0.3987331221412778, 'timestamp': None}, {'content': 'No, blue is my favorite color.', 'sector': 'semantic', 'salience': 0.3987331224364011, 'timestamp': None}, {'content': 'My favorite color is blue.', 'sector': 'semantic', 'salience': 0.9744034246506008, 'timestamp': None}, {'content': \"You know, I'd like you to know that my favorite color is blue.\", 'sector': 'emotional', 'salience': 0.9535211047481211, 'timestamp': None}, {'content': 'What is the last thing we talked about?', 'sector': 'semantic', 'salience': 0.3999915145939868, 'timestamp': None}, {'content': \"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'sector': 'episodic', 'salience': 0.9999981108074952, 'timestamp': None}, {'content': \"They had a house on the lake they'd live there the vast majority of their lives\", 'sector': 'semantic', 'salience': 0.974865723380565, 'timestamp': None}]",
+                "updated_at": 1765285996.1678014,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_1a1ce2c5a3594327b31cb0285ede9344"
+              }
+            ],
+            "type": "webhook"
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 10,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Your favorite color is blue, Stefan. You know, you've mentioned that you really like blue.\n\nI was wondering, thinking back on your life, is there a particular time or place when the color blue was especially important to you?\n",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 11,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.6389407980022952
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5105611479957588
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 1.0461901990056504
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.20592545499675907
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 5510,
+                "price": 0.0005510000000000001
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 78,
+                "price": 3.12e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "I can't remember. Um, what is the last thing we talked about?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 25,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.0629710599896498
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "webhook",
+            "request_id": "search_data_8665c4e7647747ffad31b2e96706c4f7",
+            "tool_name": "search_data",
+            "params_as_json": "{\"user_id\": \"+16129782029\", \"query\": \"What is the last thing we talked about?\"}",
+            "tool_has_been_called": true,
+            "tool_details": {
+              "type": "webhook",
+              "method": "POST",
+              "url": "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data",
+              "headers": {
+                "Content-Type": "application/json",
+                "X-Api-Key": "<REDACTED>"
+              },
+              "path_params": {},
+              "query_params": {},
+              "body": "{\"user_id\": \"+16129782029\", \"query\": \"What is the last thing we talked about?\", \"agent_id\": \"agent_3001kbqvw1c7efwvkbcqv8n0743v\"}"
+            }
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 31,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.6700823499995749
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.6708135519875214
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "search_data_8665c4e7647747ffad31b2e96706c4f7",
+            "tool_name": "search_data",
+            "result_value": "{\"profile\":{\"name\":null,\"summary\":\"What is the last thing we talked about? You know, can you tell me what we spoke about last time? You know, what is my favorite color?\",\"phone_number\":\"+16129782029\"},\"memories\":[{\"content\":\"What is the last thing we talked about?\",\"sector\":\"semantic\",\"salience\":0.8999990096418017,\"timestamp\":null},{\"content\":\"You know, I don't know. Can you tell me what the last thing was we talked about?\",\"sector\":\"semantic\",\"salience\":0.39999426423659046,\"timestamp\":null},{\"content\":\"You know, can you tell me what we spoke about last time?\",\"sector\":\"semantic\",\"salience\":0.992534368399465,\"timestamp\":null},{\"content\":\"You know, what is my favorite color?\",\"sector\":\"semantic\",\"salience\":0.8999990094994408,\"timestamp\":null},{\"content\":\"You know, um, can you use the search data tool that you have access to and see what my favorite color is?\",\"sector\":\"semantic\",\"salience\":0.8999990094045336,\"timestamp\":null},{\"content\":\"We would... we would see what he was working on and then we would probably go down to the candy store or the grocery store to get some ice cream\",\"sector\":\"procedural\",\"salience\":0.9601142872163699,\"timestamp\":null},{\"content\":\"Different neighborhood friends of mine and I, a couple in particular, would go over to a field, an open field. At that time it was open, now it's not. We'd take our bows and arrows over there, we'd pull out the trap and if the gopher was still alive we would shoot the or we would kill the gopher wit\",\"sector\":\"episodic\",\"salience\":0.9778290110496675,\"timestamp\":null},{\"content\":\"It was a small suburb community south of the Twin Cities and lots of open spaces. World War... post-World War II housing, and as a child, freedom to go anywhere on your bikes,\",\"sector\":\"semantic\",\"salience\":0.9748646189367279,\"timestamp\":null},{\"content\":\"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\",\"sector\":\"episodic\",\"salience\":0.9999966666032611,\"timestamp\":null},{\"content\":\", it was decorated appropriately for the 50s and 60s. And you shared bedrooms with other kids or your parents and it was heavily wooded property.\",\"sector\":\"semantic\",\"salience\":0.9881523185355096,\"timestamp\":null}]}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.22947956901043653,
+            "dynamic_variable_updates": [
+              {
+                "variable_name": "profile",
+                "old_value": "{'name': None, 'summary': \"My favorite color is blue. You know, I'd like you to know that my favorite color is blue. Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'phone_number': '+16129782029'}",
+                "new_value": "{'name': None, 'summary': 'What is the last thing we talked about? You know, can you tell me what we spoke about last time? You know, what is my favorite color?', 'phone_number': '+16129782029'}",
+                "updated_at": 1765286017.5742657,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_8665c4e7647747ffad31b2e96706c4f7"
+              },
+              {
+                "variable_name": "memories",
+                "old_value": "[{'content': 'You know, what is my favorite color?', 'sector': 'semantic', 'salience': 0.39999465095211467, 'timestamp': None}, {'content': 'You know, um, can you use the search data tool that you have access to and see what my favorite color is?', 'sector': 'semantic', 'salience': 0.39999151476064904, 'timestamp': None}, {'content': 'Um, let me check and see what my favorite color is.', 'sector': 'semantic', 'salience': 0.3999915143532524, 'timestamp': None}, {'content': 'You know, my favorite color is white.', 'sector': 'semantic', 'salience': 0.3987331221412778, 'timestamp': None}, {'content': 'No, blue is my favorite color.', 'sector': 'semantic', 'salience': 0.3987331224364011, 'timestamp': None}, {'content': 'My favorite color is blue.', 'sector': 'semantic', 'salience': 0.9744034246506008, 'timestamp': None}, {'content': \"You know, I'd like you to know that my favorite color is blue.\", 'sector': 'emotional', 'salience': 0.9535211047481211, 'timestamp': None}, {'content': 'What is the last thing we talked about?', 'sector': 'semantic', 'salience': 0.3999915145939868, 'timestamp': None}, {'content': \"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'sector': 'episodic', 'salience': 0.9999981108074952, 'timestamp': None}, {'content': \"They had a house on the lake they'd live there the vast majority of their lives\", 'sector': 'semantic', 'salience': 0.974865723380565, 'timestamp': None}]",
+                "new_value": "[{'content': 'What is the last thing we talked about?', 'sector': 'semantic', 'salience': 0.8999990096418017, 'timestamp': None}, {'content': \"You know, I don't know. Can you tell me what the last thing was we talked about?\", 'sector': 'semantic', 'salience': 0.39999426423659046, 'timestamp': None}, {'content': 'You know, can you tell me what we spoke about last time?', 'sector': 'semantic', 'salience': 0.992534368399465, 'timestamp': None}, {'content': 'You know, what is my favorite color?', 'sector': 'semantic', 'salience': 0.8999990094994408, 'timestamp': None}, {'content': 'You know, um, can you use the search data tool that you have access to and see what my favorite color is?', 'sector': 'semantic', 'salience': 0.8999990094045336, 'timestamp': None}, {'content': 'We would... we would see what he was working on and then we would probably go down to the candy store or the grocery store to get some ice cream', 'sector': 'procedural', 'salience': 0.9601142872163699, 'timestamp': None}, {'content': \"Different neighborhood friends of mine and I, a couple in particular, would go over to a field, an open field. At that time it was open, now it's not. We'd take our bows and arrows over there, we'd pull out the trap and if the gopher was still alive we would shoot the or we would kill the gopher wit\", 'sector': 'episodic', 'salience': 0.9778290110496675, 'timestamp': None}, {'content': 'It was a small suburb community south of the Twin Cities and lots of open spaces. World War... post-World War II housing, and as a child, freedom to go anywhere on your bikes,', 'sector': 'semantic', 'salience': 0.9748646189367279, 'timestamp': None}, {'content': \"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'sector': 'episodic', 'salience': 0.9999966666032611, 'timestamp': None}, {'content': ', it was decorated appropriately for the 50s and 60s. And you shared bedrooms with other kids or your parents and it was heavily wooded property.', 'sector': 'semantic', 'salience': 0.9881523185355096, 'timestamp': None}]",
+                "updated_at": 1765286017.5742657,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_8665c4e7647747ffad31b2e96706c4f7"
+              }
+            ],
+            "type": "webhook"
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 31,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "We were just talking about your favorite color, blue, Stefan, and I asked if there was a time or place when that color was particularly important to you.\n\nIs there something else on your mind, or would you like me to repeat the...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 33,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.8388600859907456
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5561671589966863
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 1.2404301049973583
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.26050138199934736
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 8554,
+                "price": 0.0008554000000000001
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 80,
+                "price": 3.2000000000000005e-05
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "We were just talking about your favorite color, blue, Stefan, and I asked if there was a time or place when that color was particularly important to you.\n\nIs there something else on your mind, or would you like me to repeat the question?\n",
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "Hello, the last time I called you, what did we talk about?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 44,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.050001402996713296
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "webhook",
+            "request_id": "search_data_d34d2c67843541999b8a790a0af1ccbf",
+            "tool_name": "search_data",
+            "params_as_json": "{\"user_id\": \"+16129782029\", \"query\": \"What did we talk about last time?\"}",
+            "tool_has_been_called": true,
+            "tool_details": {
+              "type": "webhook",
+              "method": "POST",
+              "url": "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data",
+              "headers": {
+                "Content-Type": "application/json",
+                "X-Api-Key": "<REDACTED>"
+              },
+              "path_params": {},
+              "query_params": {},
+              "body": "{\"user_id\": \"+16129782029\", \"query\": \"What did we talk about last time?\", \"agent_id\": \"agent_3001kbqvw1c7efwvkbcqv8n0743v\"}"
+            }
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 48,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8663773230073275
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.8671117100020638
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "search_data_d34d2c67843541999b8a790a0af1ccbf",
+            "tool_name": "search_data",
+            "result_value": "{\"profile\":{\"name\":null,\"summary\":\"You know, can you tell me what we spoke about last time? What is the last thing we talked about? You know, I don't know. Can you tell me what the last thing was we talked about?\",\"phone_number\":\"+16129782029\"},\"memories\":[{\"content\":\"You know, can you tell me what we spoke about last time?\",\"sector\":\"semantic\",\"salience\":0.9999990187736715,\"timestamp\":null},{\"content\":\"What is the last thing we talked about?\",\"sector\":\"semantic\",\"salience\":0.99999901866719,\"timestamp\":null},{\"content\":\"You know, I don't know. Can you tell me what the last thing was we talked about?\",\"sector\":\"semantic\",\"salience\":0.8999991253337998,\"timestamp\":null},{\"content\":\"Yeah, let's talk about living in Winona, Minnesota.\",\"sector\":\"semantic\",\"salience\":0.9750482771024566,\"timestamp\":null},{\"content\":\"I don't think it was, I don't have any lasting impressions because his gas station was many, many miles away from where we lived, so I didn't get there much at all. The only time I saw him working on cars was when he was working on our cars in our garage.\",\"sector\":\"episodic\",\"salience\":0.9778138479991743,\"timestamp\":null},{\"content\":\"of times. A couple of times we went to South Dakota, to the Badlands. One time we went out to Montana. Another time we drove all the way to California. This was all in the 50s.\",\"sector\":\"semantic\",\"salience\":0.9925485210300792,\"timestamp\":null},{\"content\":\"Different neighborhood friends of mine and I, a couple in particular, would go over to a field, an open field. At that time it was open, now it's not. We'd take our bows and arrows over there, we'd pull out the trap and if the gopher was still alive we would shoot the or we would kill the gopher wit\",\"sector\":\"episodic\",\"salience\":0.9999970569630406,\"timestamp\":null},{\"content\":\"I can't, I can't really recall what I felt like. It was just a very large body of water. You couldn't see any land when you looked across the water. That's all I remember.\",\"sector\":\"emotional\",\"salience\":0.970554250581344,\"timestamp\":null},{\"content\":\"I didn't get to see him much maybe three four times a year so his impact wasn't that great I just remember he was tall he was friendly he seemed like he could fix anything and that's it\",\"sector\":\"emotional\",\"salience\":0.9535131466431406,\"timestamp\":null},{\"content\":\"We would... we would see what he was working on and then we would probably go down to the candy store or the grocery store to get some ice cream\",\"sector\":\"procedural\",\"salience\":0.9999984288457859,\"timestamp\":null}]}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.2249027229991043,
+            "dynamic_variable_updates": [
+              {
+                "variable_name": "profile",
+                "old_value": "{'name': None, 'summary': 'What is the last thing we talked about? You know, can you tell me what we spoke about last time? You know, what is my favorite color?', 'phone_number': '+16129782029'}",
+                "new_value": "{'name': None, 'summary': \"You know, can you tell me what we spoke about last time? What is the last thing we talked about? You know, I don't know. Can you tell me what the last thing was we talked about?\", 'phone_number': '+16129782029'}",
+                "updated_at": 1765286034.602944,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_d34d2c67843541999b8a790a0af1ccbf"
+              },
+              {
+                "variable_name": "memories",
+                "old_value": "[{'content': 'What is the last thing we talked about?', 'sector': 'semantic', 'salience': 0.8999990096418017, 'timestamp': None}, {'content': \"You know, I don't know. Can you tell me what the last thing was we talked about?\", 'sector': 'semantic', 'salience': 0.39999426423659046, 'timestamp': None}, {'content': 'You know, can you tell me what we spoke about last time?', 'sector': 'semantic', 'salience': 0.992534368399465, 'timestamp': None}, {'content': 'You know, what is my favorite color?', 'sector': 'semantic', 'salience': 0.8999990094994408, 'timestamp': None}, {'content': 'You know, um, can you use the search data tool that you have access to and see what my favorite color is?', 'sector': 'semantic', 'salience': 0.8999990094045336, 'timestamp': None}, {'content': 'We would... we would see what he was working on and then we would probably go down to the candy store or the grocery store to get some ice cream', 'sector': 'procedural', 'salience': 0.9601142872163699, 'timestamp': None}, {'content': \"Different neighborhood friends of mine and I, a couple in particular, would go over to a field, an open field. At that time it was open, now it's not. We'd take our bows and arrows over there, we'd pull out the trap and if the gopher was still alive we would shoot the or we would kill the gopher wit\", 'sector': 'episodic', 'salience': 0.9778290110496675, 'timestamp': None}, {'content': 'It was a small suburb community south of the Twin Cities and lots of open spaces. World War... post-World War II housing, and as a child, freedom to go anywhere on your bikes,', 'sector': 'semantic', 'salience': 0.9748646189367279, 'timestamp': None}, {'content': \"Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert. Los Angeles was the largest city he had ever been to. He visited relatives and went to the beach, but doesn't remember the name of the beach\", 'sector': 'episodic', 'salience': 0.9999966666032611, 'timestamp': None}, {'content': ', it was decorated appropriately for the 50s and 60s. And you shared bedrooms with other kids or your parents and it was heavily wooded property.', 'sector': 'semantic', 'salience': 0.9881523185355096, 'timestamp': None}]",
+                "new_value": "[{'content': 'You know, can you tell me what we spoke about last time?', 'sector': 'semantic', 'salience': 0.9999990187736715, 'timestamp': None}, {'content': 'What is the last thing we talked about?', 'sector': 'semantic', 'salience': 0.99999901866719, 'timestamp': None}, {'content': \"You know, I don't know. Can you tell me what the last thing was we talked about?\", 'sector': 'semantic', 'salience': 0.8999991253337998, 'timestamp': None}, {'content': \"Yeah, let's talk about living in Winona, Minnesota.\", 'sector': 'semantic', 'salience': 0.9750482771024566, 'timestamp': None}, {'content': \"I don't think it was, I don't have any lasting impressions because his gas station was many, many miles away from where we lived, so I didn't get there much at all. The only time I saw him working on cars was when he was working on our cars in our garage.\", 'sector': 'episodic', 'salience': 0.9778138479991743, 'timestamp': None}, {'content': 'of times. A couple of times we went to South Dakota, to the Badlands. One time we went out to Montana. Another time we drove all the way to California. This was all in the 50s.', 'sector': 'semantic', 'salience': 0.9925485210300792, 'timestamp': None}, {'content': \"Different neighborhood friends of mine and I, a couple in particular, would go over to a field, an open field. At that time it was open, now it's not. We'd take our bows and arrows over there, we'd pull out the trap and if the gopher was still alive we would shoot the or we would kill the gopher wit\", 'sector': 'episodic', 'salience': 0.9999970569630406, 'timestamp': None}, {'content': \"I can't, I can't really recall what I felt like. It was just a very large body of water. You couldn't see any land when you looked across the water. That's all I remember.\", 'sector': 'emotional', 'salience': 0.970554250581344, 'timestamp': None}, {'content': \"I didn't get to see him much maybe three four times a year so his impact wasn't that great I just remember he was tall he was friendly he seemed like he could fix anything and that's it\", 'sector': 'emotional', 'salience': 0.9535131466431406, 'timestamp': None}, {'content': 'We would... we would see what he was working on and then we would probably go down to the candy store or the grocery store to get some ice cream', 'sector': 'procedural', 'salience': 0.9999984288457859, 'timestamp': None}]",
+                "updated_at": 1765286034.602944,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_d34d2c67843541999b8a790a0af1ccbf"
+              }
+            ],
+            "type": "webhook"
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 48,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Last time, Stefan, we were talking about living in Winona, Minnesota, and some of your childhood memories, like going to a field with friends to shoot gophers with bows and arrows. We also touched on a road trip you took to California in the nineteen fifties.\n\nWould you like to continue with those memories of Winona, or perhaps talk more about that California trip?\n",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 49,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.745195950003108
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.5828017199964961
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 1.251257962998352
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.25978217500960454
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 10566,
+                "price": 0.0010566
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 105,
+                "price": 4.2000000000000004e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "No, I have to run. Thanks. Bye.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 71,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.05242363600700628
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Goodbye, Stefan. It was a...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 75,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.6211330299993278
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.4614889079966815
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.7842971270001726
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.26543777200276963
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": true,
+        "original_message": "Goodbye, Stefan. It was a pleasure talking with you. I'm here whenever you're ready to continue your story.\n",
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "system",
+            "request_id": "end_call_de89f4b5e234411db9ba8902973d4784",
+            "tool_name": "end_call",
+            "params_as_json": "{\"reason\": \"The user ended the call.\", \"system__message_to_speak\": \"Goodbye, Stefan. It was a pleasure talking with you. I'm here whenever you're ready to continue your story.\"}",
+            "tool_has_been_called": false,
+            "tool_details": null
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 75,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.6211330299993278
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.4614889079966815
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.46888857100566383
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.7842971270001726
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.26543777200276963
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "end_call_de89f4b5e234411db9ba8902973d4784",
+            "tool_name": "end_call",
+            "result_value": "Tool execution was abandoned due to user input",
+            "is_error": true,
+            "tool_has_been_called": false,
+            "tool_latency_secs": 0.0,
+            "dynamic_variable_updates": [],
+            "type": "system",
+            "result": null
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 75,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1765285985,
+      "accepted_time_unix_secs": 1765285985,
+      "call_duration_secs": 78,
+      "cost": 538,
+      "deletion_settings": {
+        "deletion_time_unix_secs": 1796822067,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "signed_url",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "gemini-2.0-flash": {
+                "input": {
+                  "tokens": 24630,
+                  "price": 0.002463
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 263,
+                  "price": 0.00010520000000000001
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "gemini-2.0-flash": {
+                "input": {
+                  "tokens": 32955,
+                  "price": 0.0032955
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 296,
+                  "price": 0.0001184
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 0.0034138999999999997,
+        "llm_charge": 16,
+        "call_charge": 522,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "phnum_01jxj3hwx1fava7g3snzm5e2f8",
+        "agent_number": "+16123241623",
+        "external_number": "+16129782029",
+        "type": "twilio",
+        "stream_sid": "MZee04c38b6bb142f30cd8949b131ed79e",
+        "call_sid": "CA8363a2db020f29c7bd9a227f74e76776"
+      },
+      "batch_call": null,
+      "termination_reason": "Call ended by remote party",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": null,
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": false,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": true,
+          "used": true
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "twilio",
+      "conversation_initiation_source_version": null,
+      "timezone": "America/Chicago",
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "api",
+      "agent_last_updated_from": "ui"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {},
+      "data_collection_results": {},
+      "call_successful": "success",
+      "transcript_summary": "Stefan called Margaret and asked what his favorite color was, which is blue. Margaret asked about a time when blue was important to him. Stefan then asked what they last talked about. Margaret reminded him of their conversation about Winona, Minnesota and a California trip. Stefan ended the call.\n",
+      "call_summary_title": "Memory Retrieval and Recall"
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": null,
+        "conversation": null,
+        "agent": {
+          "first_message": "Hello Stefan, it's Margaret again. So nice to have you back. What's on your mind today?",
+          "language": null,
+          "prompt": null
+        }
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "user_name": "Stefan",
+        "last_call_summary": "Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.",
+        "system__agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+        "system__agent_turns": 5,
+        "system__current_agent_turns": 5,
+        "system__current_subagent_turns": 5,
+        "system__current_agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+        "system__conversation_id": "conv_4501kc1kwyh3ez4t9y1xvqp9me1q",
+        "system__call_duration_secs": 78,
+        "system__time_utc": "2025-12-09T13:14:23.589585+00:00",
+        "system__time": "Tuesday, 07:14 09 December 2025",
+        "system__timezone": "America/Chicago",
+        "system__caller_id": "+16129782029",
+        "system__called_number": "+16123241623",
+        "system__call_sid": "CA8363a2db020f29c7bd9a227f74e76776"
+      }
+    }
+  }
+}

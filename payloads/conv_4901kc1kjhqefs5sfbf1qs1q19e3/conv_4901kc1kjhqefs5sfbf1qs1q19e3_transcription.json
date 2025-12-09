@@ -1,0 +1,745 @@
+{
+  "type": "post_call_transcription",
+  "event_timestamp": 1765285705,
+  "data": {
+    "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+    "conversation_id": "conv_4901kc1kjhqefs5sfbf1qs1q19e3",
+    "status": "done",
+    "user_id": null,
+    "branch_id": null,
+    "transcript": [
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Hello Stefan, it's Margaret again. So nice to have you back. What's on your mind today?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 0,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.329095524999957
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, what is my favorite color?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 7,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.04031958500036126
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "webhook",
+            "request_id": "search_data_325c6ea29569434785a649d75cec77b1",
+            "tool_name": "search_data",
+            "params_as_json": "{\"query\": \"What is the caller's name and preferences?\", \"user_id\": \"16129782029\"}",
+            "tool_has_been_called": true,
+            "tool_details": {
+              "type": "webhook",
+              "method": "POST",
+              "url": "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data",
+              "headers": {
+                "Content-Type": "application/json",
+                "X-Api-Key": "<REDACTED>"
+              },
+              "path_params": {},
+              "query_params": {},
+              "body": "{\"user_id\": \"+16129782029\", \"query\": \"What is the caller's name and preferences?\", \"agent_id\": \"agent_3001kbqvw1c7efwvkbcqv8n0743v\"}"
+            }
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 11,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.9634352359998957
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.9642935699998816
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "search_data_325c6ea29569434785a649d75cec77b1",
+            "tool_name": "search_data",
+            "result_value": "{\"profile\":null,\"memories\":[]}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.11644039400016482,
+            "dynamic_variable_updates": [
+              {
+                "variable_name": "memories",
+                "old_value": null,
+                "new_value": "[]",
+                "updated_at": 1765285656.8196588,
+                "tool_name": "search_data",
+                "tool_request_id": "search_data_325c6ea29569434785a649d75cec77b1"
+              }
+            ],
+            "type": "webhook"
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 11,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "I don't have that information on hand, Stefan. But, instead of me telling you, what is your favorite color?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 12,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.5850194650001868
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.34705384700009745
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.7009480370002166
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.23381007800026055
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 3623,
+                "price": 0.00036229999999999997
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 54,
+                "price": 2.1600000000000003e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "My favorite color is blue.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 19,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.03360046299985697
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Blue, that's a lovely color. Is there a particular shade of blue that you prefer, or a reason why blue is your favorite?\n",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 22,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.6106824710000183
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.4118644950003727
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.7592045670003245
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.21592478799993842
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 1861,
+                "price": 0.00018610000000000002
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 30,
+                "price": 1.2e-05
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "No.",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 32,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.027169983000021602
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "Alright. Thinking about your life so far, what's the earliest memory that comes to mind?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 33,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.6173882459997913
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.3983190280000599
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.6173678420000215
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.3605787399997098
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 1893,
+                "price": 0.00018930000000000002
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 21,
+                "price": 8.400000000000001e-06
+              }
+            }
+          }
+        },
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "user",
+        "agent_metadata": null,
+        "message": "You know, I don't know. Can you tell me what the last thing was we talked about?",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 42,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_asr_trailing_service_latency": {
+              "elapsed_time": 0.08664209600010508
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": "audio"
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [
+          {
+            "type": "webhook",
+            "request_id": "search_data_64718b24a5c64d8da75870b0a7723911",
+            "tool_name": "search_data",
+            "params_as_json": "{\"user_id\": \"16129782029\", \"query\": \"What did we discuss in previous calls?\"}",
+            "tool_has_been_called": true,
+            "tool_details": {
+              "type": "webhook",
+              "method": "POST",
+              "url": "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data",
+              "headers": {
+                "Content-Type": "application/json",
+                "X-Api-Key": "<REDACTED>"
+              },
+              "path_params": {},
+              "query_params": {},
+              "body": "{\"user_id\": \"+16129782029\", \"query\": \"What did we discuss in previous calls?\", \"agent_id\": \"agent_3001kbqvw1c7efwvkbcqv8n0743v\"}"
+            }
+          }
+        ],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 48,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.8151517080000303
+            },
+            "convai_llm_tool_request_generation_latency": {
+              "elapsed_time": 0.8158211760000995
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": null,
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [
+          {
+            "request_id": "search_data_64718b24a5c64d8da75870b0a7723911",
+            "tool_name": "search_data",
+            "result_value": "{\"profile\":null,\"memories\":[]}",
+            "is_error": false,
+            "tool_has_been_called": true,
+            "tool_latency_secs": 0.15588745399963955,
+            "dynamic_variable_updates": [],
+            "type": "webhook"
+          }
+        ],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 48,
+        "conversation_turn_metrics": null,
+        "rag_retrieval_info": null,
+        "llm_usage": null,
+        "interrupted": false,
+        "original_message": null,
+        "source_medium": null
+      },
+      {
+        "role": "agent",
+        "agent_metadata": {
+          "agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+          "branch_id": null,
+          "workflow_node_id": null
+        },
+        "message": "I don't seem to have any record of our previous conversations, Stefan. Perhaps we can just start fresh. Would you like to talk about...",
+        "multivoice_message": null,
+        "tool_calls": [],
+        "tool_results": [],
+        "feedback": null,
+        "llm_override": null,
+        "time_in_call_secs": 49,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_llm_service_ttf_sentence": {
+              "elapsed_time": 0.5606642210000246
+            },
+            "convai_llm_service_ttfb": {
+              "elapsed_time": 0.431470394000371
+            },
+            "convai_llm_service_tt_last_sentence": {
+              "elapsed_time": 0.7545461940003406
+            },
+            "convai_tts_service_ttfb": {
+              "elapsed_time": 0.2742481229997793
+            }
+          }
+        },
+        "rag_retrieval_info": null,
+        "llm_usage": {
+          "model_usage": {
+            "gemini-2.0-flash": {
+              "input": {
+                "tokens": 3909,
+                "price": 0.0003909
+              },
+              "input_cache_read": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "input_cache_write": {
+                "tokens": 0,
+                "price": 0.0
+              },
+              "output_total": {
+                "tokens": 65,
+                "price": 2.6000000000000002e-05
+              }
+            }
+          }
+        },
+        "interrupted": true,
+        "original_message": "I don't seem to have any record of our previous conversations, Stefan. Perhaps we can just start fresh. Would you like to talk about your childhood, maybe where you grew up?",
+        "source_medium": null
+      }
+    ],
+    "metadata": {
+      "start_time_unix_secs": 1765285645,
+      "accepted_time_unix_secs": 1765285645,
+      "call_duration_secs": 56,
+      "cost": 385,
+      "deletion_settings": {
+        "deletion_time_unix_secs": 1796821705,
+        "deleted_logs_at_time_unix_secs": null,
+        "deleted_audio_at_time_unix_secs": null,
+        "deleted_transcript_at_time_unix_secs": null,
+        "delete_transcript_and_pii": false,
+        "delete_audio": false
+      },
+      "feedback": {
+        "type": null,
+        "overall_score": null,
+        "likes": 0,
+        "dislikes": 0,
+        "rating": null,
+        "comment": null
+      },
+      "authorization_method": "signed_url",
+      "charging": {
+        "dev_discount": false,
+        "is_burst": false,
+        "tier": "creator",
+        "llm_usage": {
+          "irreversible_generation": {
+            "model_usage": {
+              "gemini-2.0-flash": {
+                "input": {
+                  "tokens": 11286,
+                  "price": 0.0011286
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 170,
+                  "price": 6.8e-05
+                }
+              }
+            }
+          },
+          "initiated_generation": {
+            "model_usage": {
+              "gemini-2.0-flash": {
+                "input": {
+                  "tokens": 11286,
+                  "price": 0.0011286
+                },
+                "input_cache_read": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "input_cache_write": {
+                  "tokens": 0,
+                  "price": 0.0
+                },
+                "output_total": {
+                  "tokens": 170,
+                  "price": 6.800000000000001e-05
+                }
+              }
+            }
+          }
+        },
+        "llm_price": 0.0011966,
+        "llm_charge": 5,
+        "call_charge": 380,
+        "free_minutes_consumed": 0.0,
+        "free_llm_dollars_consumed": 0.0
+      },
+      "phone_call": {
+        "direction": "inbound",
+        "phone_number_id": "phnum_01jxj3hwx1fava7g3snzm5e2f8",
+        "agent_number": "+16123241623",
+        "external_number": "+16129782029",
+        "type": "twilio",
+        "stream_sid": "MZe84a8a60468f4744e278e742d22099dc",
+        "call_sid": "CAe2f8abd71975d2b899b8c400e9fe4b13"
+      },
+      "batch_call": null,
+      "termination_reason": "Call ended by remote party",
+      "error": null,
+      "warnings": [],
+      "main_language": "en",
+      "rag_usage": null,
+      "text_only": false,
+      "features_usage": {
+        "language_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_agent": {
+          "enabled": false,
+          "used": false
+        },
+        "transfer_to_number": {
+          "enabled": false,
+          "used": false
+        },
+        "multivoice": {
+          "enabled": false,
+          "used": false
+        },
+        "dtmf_tones": {
+          "enabled": false,
+          "used": false
+        },
+        "external_mcp_servers": {
+          "enabled": false,
+          "used": false
+        },
+        "pii_zrm_workspace": false,
+        "pii_zrm_agent": false,
+        "tool_dynamic_variable_updates": {
+          "enabled": true,
+          "used": true
+        },
+        "is_livekit": false,
+        "voicemail_detection": {
+          "enabled": false,
+          "used": false
+        },
+        "workflow": {
+          "enabled": false,
+          "tool_node": {
+            "enabled": false,
+            "used": false
+          },
+          "standalone_agent_node": {
+            "enabled": false,
+            "used": false
+          },
+          "phone_number_node": {
+            "enabled": false,
+            "used": false
+          },
+          "end_node": {
+            "enabled": false,
+            "used": false
+          }
+        },
+        "agent_testing": {
+          "enabled": false,
+          "tests_ran_after_last_modification": false,
+          "tests_ran_in_last_7_days": false
+        }
+      },
+      "eleven_assistant": {
+        "is_eleven_assistant": false
+      },
+      "initiator_id": null,
+      "conversation_initiation_source": "twilio",
+      "conversation_initiation_source_version": null,
+      "timezone": "America/Chicago",
+      "initiation_trigger": {
+        "trigger_type": "default"
+      },
+      "async_metadata": null,
+      "whatsapp": null,
+      "agent_created_from": "api",
+      "agent_last_updated_from": "ui"
+    },
+    "analysis": {
+      "evaluation_criteria_results": {},
+      "data_collection_results": {},
+      "call_successful": "success",
+      "transcript_summary": "Margaret greets Stefan and asks what's on his mind. Stefan asks what his favorite color is. Margaret doesn't have that info, so Stefan says it's blue. Margaret asks about his earliest memory, but Stefan doesn't know. He asks what they last talked about, but Margaret has no record of past conversations.\n",
+      "call_summary_title": "Favorite color inquiry"
+    },
+    "conversation_initiation_client_data": {
+      "conversation_config_override": {
+        "turn": null,
+        "tts": null,
+        "conversation": null,
+        "agent": {
+          "first_message": "Hello Stefan, it's Margaret again. So nice to have you back. What's on your mind today?",
+          "language": null,
+          "prompt": null
+        }
+      },
+      "custom_llm_extra_body": {},
+      "user_id": null,
+      "source_info": {
+        "source": null,
+        "version": null
+      },
+      "dynamic_variables": {
+        "user_name": "Stefan",
+        "last_call_summary": "Last time we talked about: Key Life Event: The user took a road trip to California in the 1950s, before high school. He remembers going through the mountains and the desert.",
+        "system__agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+        "system__agent_turns": 5,
+        "system__current_agent_turns": 5,
+        "system__current_subagent_turns": 5,
+        "system__current_agent_id": "agent_3001kbqvw1c7efwvkbcqv8n0743v",
+        "system__conversation_id": "conv_4901kc1kjhqefs5sfbf1qs1q19e3",
+        "system__call_duration_secs": 56,
+        "system__time_utc": "2025-12-09T13:08:21.950929+00:00",
+        "system__time": "Tuesday, 07:08 09 December 2025",
+        "system__timezone": "America/Chicago",
+        "system__caller_id": "+16129782029",
+        "system__called_number": "+16123241623",
+        "system__call_sid": "CAe2f8abd71975d2b899b8c400e9fe4b13"
+      }
+    }
+  }
+}
