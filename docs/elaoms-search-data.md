@@ -353,35 +353,52 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
   "api_schema": {
     "url": "https://your-webhook-url.com/webhook/search-data",
     "method": "POST",
+    "path_params_schema": [],
+    "query_params_schema": [],
     "request_body_schema": {
+      "id": "search_data_body",
+      "description": "Request body for searching caller memories and profile data",
       "type": "object",
-      "properties": {
-        "user_id": {
+      "properties": [
+        {
+          "id": "user_id",
           "type": "string",
+          "value_type": "dynamic_variable",
           "description": "Caller's phone number in E.164 format",
-          "value_type": "dynamic_variable",
           "dynamic_variable": "system__caller_id",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
           "required": true
         },
-        "query": {
+        {
+          "id": "query",
           "type": "string",
-          "description": "Natural language search query to find relevant memories",
           "value_type": "llm_prompt",
+          "description": "Natural language search query to find relevant memories",
+          "dynamic_variable": "",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
           "required": true
         },
-        "agent_id": {
+        {
+          "id": "agent_id",
           "type": "string",
-          "description": "The ElevenLabs agent identifier",
           "value_type": "dynamic_variable",
+          "description": "The ElevenLabs agent identifier",
           "dynamic_variable": "system__agent_id",
+          "constant_value": "",
+          "enum": null,
+          "is_system_provided": false,
           "required": true
         }
-      },
-      "required": ["user_id", "query", "agent_id"]
+      ],
+      "required": false
     },
     "request_headers": [
       {
-        "type": "static",
+        "type": "value",
         "name": "Content-Type",
         "value": "application/json"
       },
@@ -392,7 +409,10 @@ Add this tool to your agent's tools array. See `examples/tools/search-data-tool.
       }
     ]
   },
-  "response_timeout_secs": 10
+  "response_timeout_secs": 10,
+  "dynamic_variables": {
+    "dynamic_variable_placeholders": {}
+  }
 }
 ```
 
