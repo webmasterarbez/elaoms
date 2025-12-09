@@ -1,4 +1,5 @@
 {
+  "_comment": "ElevenLabs Dashboard UI format - Paste directly into agent tool configuration",
   "type": "webhook",
   "name": "search_data",
   "description": "Search memories and profile data for the current caller. Returns profile information (name, summary) and relevant memories from previous conversations. Use when you need to recall information about the caller, personalize responses, or continue previous conversation topics.",

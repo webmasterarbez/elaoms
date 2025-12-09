@@ -458,6 +458,78 @@ The webhook is invoked when the ElevenLabs agent:
 - Wants to personalize responses based on history
 - Attempts to continue a previous conversation topic
 
+### Creating Tool via API
+
+You can create the tool programmatically using the ElevenLabs API. See `scripts/create_search_data_tool.py` or `scripts/create-search-data-tool.sh`.
+
+**Important:** The API format differs from the Dashboard UI format.
+
+| Feature | Dashboard UI | API |
+|---------|-------------|-----|
+| Wrapper | None | `tool_config` object |
+| `properties` | Array of objects | Object with keys |
+| `required` | Boolean per property | Array of field names |
+| `request_headers` | Array | Object |
+| `path_params_schema` | Required (empty array) | Omit if empty |
+| `query_params_schema` | Required (empty array) | Omit if empty |
+
+**API Request:**
+
+```bash
+curl -X POST "https://api.elevenlabs.io/v1/convai/tools" \
+  -H "xi-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "tool_config": {
+    "type": "webhook",
+    "name": "search_data",
+    "description": "Search memories and profile data for the current caller.",
+    "api_schema": {
+      "url": "https://your-webhook-url.com/webhook/search-data",
+      "method": "POST",
+      "request_body_schema": {
+        "type": "object",
+        "description": "Request body for searching caller memories",
+        "properties": {
+          "user_id": {"type": "string", "description": "Caller phone number in E.164 format"},
+          "query": {"type": "string", "description": "Natural language search query"},
+          "agent_id": {"type": "string", "description": "ElevenLabs agent ID"}
+        },
+        "required": ["user_id", "query", "agent_id"]
+      },
+      "request_headers": {
+        "Content-Type": "application/json",
+        "X-Api-Key": "{{YOUR_SECRET_ID}}"
+      }
+    },
+    "response_timeout_secs": 10,
+    "assignments": [
+      {"source": "response", "dynamic_variable": "profile", "value_path": "profile"},
+      {"source": "response", "dynamic_variable": "memories", "value_path": "memories"}
+    ],
+    "tool_call_sound": "typing",
+    "execution_mode": "immediate",
+    "dynamic_variables": {"dynamic_variable_placeholders": {}}
+  }
+}'
+```
+
+**Using Python Script:**
+
+```bash
+# Set API key and run
+ELEVENLABS_API_KEY=sk_xxx python scripts/create_search_data_tool.py
+
+# Or with custom webhook URL
+python scripts/create_search_data_tool.py --api-key sk_xxx --webhook-url https://your-url.com/webhook/search-data
+```
+
+**Using Bash Script:**
+
+```bash
+ELEVENLABS_API_KEY=sk_xxx ./scripts/create-search-data-tool.sh
+```
+
 ---
 
 ## Source Code Reference

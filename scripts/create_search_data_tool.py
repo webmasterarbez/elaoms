@@ -7,110 +7,87 @@ Usage:
 
 Or with custom values:
     python create_search_data_tool.py --webhook-url https://your-url.com/webhook/search-data
+    python create_search_data_tool.py --api-key YOUR_API_KEY
 """
 
 import requests
 import json
 import argparse
+import os
 
-API_KEY = "sk_aa411c875d9182d31437003aa9a552147403180bf43274d6"
 DEFAULT_WEBHOOK_URL = "https://rockered-marisol-nonlimitative.ngrok-free.dev/webhook/search-data"
-SECRET_ID = "tlQBfIowXZc8rwqDKGmf"
+DEFAULT_SECRET_ID = "tlQBfIowXZc8rwqDKGmf"
 
 
-def create_tool(webhook_url: str = DEFAULT_WEBHOOK_URL) -> dict:
+def create_tool(
+    api_key: str,
+    webhook_url: str = DEFAULT_WEBHOOK_URL,
+    secret_id: str = DEFAULT_SECRET_ID
+) -> dict:
     """Create the search_data tool via ElevenLabs API."""
 
     url = "https://api.elevenlabs.io/v1/convai/tools"
 
     headers = {
-        "xi-api-key": API_KEY,
+        "xi-api-key": api_key,
         "Content-Type": "application/json"
     }
 
+    # API format differs from Dashboard UI format
+    # - Wrapped in tool_config
+    # - Properties as object (not array)
+    # - request_headers as object (not array)
+    # - Omit empty path_params_schema and query_params_schema
     payload = {
-        "type": "webhook",
-        "name": "search_data",
-        "description": "Search memories and profile data for the current caller. Returns profile information (name, summary) and relevant memories from previous conversations. Use when you need to recall information about the caller, personalize responses, or continue previous conversation topics.",
-        "api_schema": {
-            "url": webhook_url,
-            "method": "POST",
-            "path_params_schema": [],
-            "query_params_schema": [],
-            "request_body_schema": {
-                "id": "search_data_body",
-                "description": "Request body for searching caller memories and profile data",
-                "type": "object",
-                "properties": [
-                    {
-                        "id": "user_id",
-                        "type": "string",
-                        "value_type": "dynamic_variable",
-                        "description": "Caller phone number in E.164 format",
-                        "dynamic_variable": "system__caller_id",
-                        "constant_value": "",
-                        "enum": None,
-                        "is_system_provided": False,
-                        "required": True
+        "tool_config": {
+            "type": "webhook",
+            "name": "search_data",
+            "description": "Search memories and profile data for the current caller. Returns profile information (name, summary) and relevant memories from previous conversations.",
+            "api_schema": {
+                "url": webhook_url,
+                "method": "POST",
+                "request_body_schema": {
+                    "type": "object",
+                    "description": "Request body for searching caller memories",
+                    "properties": {
+                        "user_id": {
+                            "type": "string",
+                            "description": "Caller phone number in E.164 format"
+                        },
+                        "query": {
+                            "type": "string",
+                            "description": "Natural language search query"
+                        },
+                        "agent_id": {
+                            "type": "string",
+                            "description": "ElevenLabs agent ID"
+                        }
                     },
-                    {
-                        "id": "query",
-                        "type": "string",
-                        "value_type": "llm_prompt",
-                        "description": "Natural language search query to find relevant memories",
-                        "dynamic_variable": "",
-                        "constant_value": "",
-                        "enum": None,
-                        "is_system_provided": False,
-                        "required": True
-                    },
-                    {
-                        "id": "agent_id",
-                        "type": "string",
-                        "value_type": "dynamic_variable",
-                        "description": "The ElevenLabs agent identifier",
-                        "dynamic_variable": "system__agent_id",
-                        "constant_value": "",
-                        "enum": None,
-                        "is_system_provided": False,
-                        "required": True
-                    }
-                ],
-                "required": False
+                    "required": ["user_id", "query", "agent_id"]
+                },
+                "request_headers": {
+                    "Content-Type": "application/json",
+                    "X-Api-Key": "{{" + secret_id + "}}"
+                }
             },
-            "request_headers": [
+            "response_timeout_secs": 10,
+            "assignments": [
                 {
-                    "type": "value",
-                    "name": "Content-Type",
-                    "value": "application/json"
+                    "source": "response",
+                    "dynamic_variable": "profile",
+                    "value_path": "profile"
                 },
                 {
-                    "type": "secret",
-                    "name": "X-Api-Key",
-                    "secret_id": SECRET_ID
+                    "source": "response",
+                    "dynamic_variable": "memories",
+                    "value_path": "memories"
                 }
-            ]
-        },
-        "response_timeout_secs": 10,
-        "assignments": [
-            {
-                "source": "response",
-                "dynamic_variable": "profile",
-                "value_path": "profile"
-            },
-            {
-                "source": "response",
-                "dynamic_variable": "memories",
-                "value_path": "memories"
+            ],
+            "tool_call_sound": "typing",
+            "execution_mode": "immediate",
+            "dynamic_variables": {
+                "dynamic_variable_placeholders": {}
             }
-        ],
-        "tool_call_sound": "typing",
-        "tool_call_sound_behavior": "auto",
-        "execution_mode": "immediate",
-        "disable_interruptions": False,
-        "force_pre_tool_speech": "auto",
-        "dynamic_variables": {
-            "dynamic_variable_placeholders": {}
         }
     }
 
@@ -125,17 +102,31 @@ def create_tool(webhook_url: str = DEFAULT_WEBHOOK_URL) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="Create search_data tool via ElevenLabs API")
     parser.add_argument(
+        "--api-key",
+        default=os.getenv("ELEVENLABS_API_KEY"),
+        help="ElevenLabs API key (or set ELEVENLABS_API_KEY env var)"
+    )
+    parser.add_argument(
         "--webhook-url",
         default=DEFAULT_WEBHOOK_URL,
         help="Webhook URL for the search-data endpoint"
     )
+    parser.add_argument(
+        "--secret-id",
+        default=DEFAULT_SECRET_ID,
+        help="ElevenLabs secret ID for X-Api-Key header"
+    )
     args = parser.parse_args()
+
+    if not args.api_key:
+        print("Error: API key required. Use --api-key or set ELEVENLABS_API_KEY")
+        return
 
     print(f"Creating search_data tool...")
     print(f"Webhook URL: {args.webhook_url}")
     print()
 
-    result = create_tool(args.webhook_url)
+    result = create_tool(args.api_key, args.webhook_url, args.secret_id)
 
     print(f"Status Code: {result['status_code']}")
     print(f"Response:")
