@@ -318,6 +318,119 @@ To use the search-data webhook, configure it as a **server tool** in your Eleven
 2. Add a server tool with the webhook URL
 3. Configure the tool to pass `user_id`, `query`, and `agent_id`
 
+### Tool Configuration
+
+Add this tool to your agent's tools array. See `examples/tools/search-data-tool.json` for the full configuration.
+
+**Critical Configuration Requirements:**
+
+| Setting | Required Value | Notes |
+|---------|----------------|-------|
+| Method | `POST` | NOT GET - server expects JSON body |
+| Parameters | `request_body_schema` | NOT `query_params_schema` |
+| Content-Type | `application/json` | Add as static header |
+| Timeout | `10` seconds | Match OpenMemory timeout |
+
+```json
+{
+  "type": "webhook",
+  "name": "search_data",
+  "description": "Search memories and profile data for the current caller. Returns profile information (name, summary) and relevant memories from previous conversations.",
+  "assignments": [
+    {
+      "source": "response",
+      "dynamic_variable": "profile",
+      "value_path": "profile"
+    },
+    {
+      "source": "response",
+      "dynamic_variable": "memories",
+      "value_path": "memories"
+    }
+  ],
+  "tool_call_sound": "typing",
+  "execution_mode": "immediate",
+  "api_schema": {
+    "url": "https://your-webhook-url.com/webhook/search-data",
+    "method": "POST",
+    "request_body_schema": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "Caller's phone number in E.164 format",
+          "value_type": "dynamic_variable",
+          "dynamic_variable": "system__caller_id",
+          "required": true
+        },
+        "query": {
+          "type": "string",
+          "description": "Natural language search query to find relevant memories",
+          "value_type": "llm_prompt",
+          "required": true
+        },
+        "agent_id": {
+          "type": "string",
+          "description": "The ElevenLabs agent identifier",
+          "value_type": "dynamic_variable",
+          "dynamic_variable": "system__agent_id",
+          "required": true
+        }
+      },
+      "required": ["user_id", "query", "agent_id"]
+    },
+    "request_headers": [
+      {
+        "type": "static",
+        "name": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "type": "secret",
+        "name": "X-Api-Key",
+        "secret_id": "YOUR_SECRET_ID"
+      }
+    ]
+  },
+  "response_timeout_secs": 10
+}
+```
+
+### System Prompt Integration
+
+Add this section to your agent's system prompt to guide proper tool usage:
+
+```markdown
+# Tools
+
+## search_data - Memory Retrieval
+Use the search_data tool when you need to:
+- Recall the caller's name or personal details
+- Reference previous conversation topics
+- Personalize responses based on caller history
+- Answer questions about past interactions
+
+**How to use:**
+1. Formulate a natural language query describing what you want to know
+2. Wait for the response containing {{profile}} and {{memories}}
+3. Use the returned information naturally in your response
+
+**Query examples:**
+- "What is the caller's name and preferences?"
+- "What did we discuss in previous calls?"
+- "Does the caller have any pending issues?"
+
+**After receiving results:**
+- If {{profile.name}} is available, use it to address the caller by name
+- Reference {{memories}} to provide continuity with past conversations
+- If no memories found, proceed without personalization
+
+**Do NOT use search_data:**
+- For general knowledge questions (use your training)
+- When caller explicitly starts a new topic
+- Multiple times in quick succession for the same query
+```
+
 ### When It's Called
 
 The webhook is invoked when the ElevenLabs agent:
