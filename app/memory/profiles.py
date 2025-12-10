@@ -420,6 +420,7 @@ def _extract_name_from_memories(memories: list[dict[str, Any]]) -> Optional[str]
     """Extract user name from memories.
 
     Searches through memories for content that indicates the user's name.
+    Uses strict patterns to avoid false positives from common phrases.
 
     Args:
         memories: List of memory objects from OpenMemory.
@@ -427,22 +428,57 @@ def _extract_name_from_memories(memories: list[dict[str, Any]]) -> Optional[str]
     Returns:
         The user's name if found, or None.
     """
-    name_keywords = ["name is", "my name is", "called", "i'm", "i am"]
+    # Common words that are NOT names - filter these out
+    not_names = {
+        # Common verbs/adjectives after "I'm" / "I am"
+        "a", "an", "the", "so", "just", "really", "very", "not", "also",
+        "doing", "going", "trying", "looking", "working", "thinking",
+        "sure", "glad", "happy", "sorry", "afraid", "excited", "worried",
+        "here", "there", "back", "home", "now", "still", "always",
+        # Common after "called"
+        "me", "him", "her", "them", "us", "it", "that", "this",
+        "for", "to", "by", "on", "in", "at", "up", "out",
+        # Other common words
+        "and", "but", "or", "the", "absolutely", "astonished", "horrified",
+        "lucky", "founder", "recruiter", "counselor",
+    }
+
+    # More specific patterns that actually indicate a name introduction
+    # Only match phrases that are explicitly introducing a name
+    import re
 
     for memory in memories:
-        content = memory.get("content", "").lower()
-        for keyword in name_keywords:
-            if keyword in content:
-                # Try to extract the name after the keyword
-                idx = content.find(keyword)
-                after_keyword = content[idx + len(keyword):].strip()
-                # Get the first word (likely the name)
-                words = after_keyword.split()
-                if words:
-                    # Capitalize the name properly
-                    name = words[0].strip(".,!?").capitalize()
-                    if len(name) > 1:  # Valid name
-                        return name
+        content = memory.get("content", "")
+        content_lower = content.lower()
+
+        # Pattern 1: "my name is [Name]" - most reliable
+        match = re.search(r"my name is\s+([a-z]+)", content_lower)
+        if match:
+            name = match.group(1).capitalize()
+            if name.lower() not in not_names and len(name) > 1:
+                return name
+
+        # Pattern 2: "name is [Name]" at start or after punctuation
+        match = re.search(r"(?:^|[.!?]\s*)name is\s+([a-z]+)", content_lower)
+        if match:
+            name = match.group(1).capitalize()
+            if name.lower() not in not_names and len(name) > 1:
+                return name
+
+        # Pattern 3: "I'm [Name]" or "I am [Name]" - only when followed by punctuation
+        # This filters out "I'm doing", "I'm just", etc.
+        match = re.search(r"(?:i'm|i am)\s+([a-z]+)[.,!?]", content_lower)
+        if match:
+            name = match.group(1).capitalize()
+            if name.lower() not in not_names and len(name) > 1:
+                return name
+
+        # Pattern 4: "call me [Name]" or "they call me [Name]"
+        match = re.search(r"call me\s+([a-z]+)", content_lower)
+        if match:
+            name = match.group(1).capitalize()
+            if name.lower() not in not_names and len(name) > 1:
+                return name
 
     # Check for explicit name in metadata
     for memory in memories:
