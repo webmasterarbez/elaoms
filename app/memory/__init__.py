@@ -1,14 +1,21 @@
-"""OpenMemory memory operations via REST API.
+"""OpenMemory integration for caller profile and memory management.
 
-This module provides the memory integration layer for the ElevenLabs OpenMemory
-integration. It includes:
+This module provides the memory integration layer with two-tier architecture:
 
-- Profiles: Caller profile management and dynamic variable building
-- Extraction: Transcript processing and memory storage
+Tier 1 (Universal Profile):
+- Cross-agent user profiles shared across all agents
+- Basic user info: name, first_seen, total_interactions
 
-All memory operations use direct HTTP calls via httpx.AsyncClient to avoid
-async event loop conflicts. Phone numbers are used as userId for multi-tenant
-isolation, and memories are stored with decayLambda=0 for permanent retention.
+Tier 2 (Agent-Specific State):
+- Per-agent conversation states
+- Pre-generated greetings, topics, sentiment, summaries
+
+Key Components:
+- profiles.py: Tier 1/2 profile operations and dynamic variable building
+- extraction.py: Transcript processing and memory storage
+
+All operations use shared HTTP clients from app.utils.http_client and phone
+numbers as userId for multi-tenant isolation.
 """
 
 from app.memory.profiles import (
