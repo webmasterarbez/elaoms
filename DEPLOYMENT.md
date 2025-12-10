@@ -10,6 +10,9 @@ Complete guide for deploying ELAOMS (ElevenLabs Agents Open Memory System) on a 
 4. [SSL Configuration](#ssl-configuration)
 5. [Service Management](#service-management)
 6. [Troubleshooting](#troubleshooting)
+7. [Production Environment Configuration](#production-environment-configuration)
+8. [Production Checklist](#production-checklist)
+9. [Architecture Overview](#architecture-overview)
 
 ---
 
@@ -432,20 +435,191 @@ sudo ufw enable
 
 ---
 
+## Production Environment Configuration
+
+This section details the complete production environment setup for ELAOMS with OpenMemory.
+
+### Quick Production Setup
+
+```bash
+# 1. Copy the production environment template
+cp .env.production .env
+
+# 2. Generate secure API keys
+# Use strong, random 32+ character strings for all keys
+openssl rand -hex 32  # Generate random secrets
+
+# 3. Edit with your actual values
+nano .env
+
+# 4. Set secure file permissions
+chmod 600 .env
+```
+
+### Required API Keys
+
+| Variable | Description | Where to Get It |
+|----------|-------------|-----------------|
+| `ELEVENLABS_API_KEY` | ElevenLabs SDK access | [ElevenLabs Settings](https://elevenlabs.io/app/settings/api-keys) |
+| `ELEVENLABS_POST_CALL_KEY` | HMAC webhook secret | Agent webhook configuration in ElevenLabs |
+| `ELEVENLABS_CLIENT_DATA_KEY` | Client-data API key | Generate with `openssl rand -hex 32` |
+| `ELEVENLABS_SEARCH_DATA_KEY` | Search-data HMAC secret | Generate with `openssl rand -hex 32` |
+| `OPENMEMORY_KEY` / `OM_API_KEY` | OpenMemory auth (must match) | Generate with `openssl rand -hex 32` |
+| `OPENAI_API_KEY` | Embeddings API access | [OpenAI Platform](https://platform.openai.com/api-keys) |
+
+### OpenMemory Production Settings
+
+For production, the `.env.production` file includes optimized OpenMemory settings:
+
+#### Database Backend (PostgreSQL)
+
+```bash
+# Create PostgreSQL database for OpenMemory
+sudo -u postgres psql
+
+CREATE DATABASE openmemory;
+CREATE USER openmemory WITH ENCRYPTED PASSWORD 'your-strong-password';
+GRANT ALL PRIVILEGES ON DATABASE openmemory TO openmemory;
+\q
+```
+
+#### Key Production Settings
+
+| Category | Setting | Production Value | Purpose |
+|----------|---------|-----------------|---------|
+| **Security** | `OM_RATE_LIMIT_ENABLED` | `true` | Prevent abuse |
+| **Security** | `OM_TELEMETRY` | `false` | Privacy |
+| **Database** | `OM_METADATA_BACKEND` | `postgres` | Scalability |
+| **Database** | `OM_PG_SSL` | `require` | Encrypted connections |
+| **Embeddings** | `OM_EMBEDDINGS` | `openai` | Quality vectors |
+| **Embeddings** | `OM_EMBED_MODE` | `batch` | Efficiency |
+| **Performance** | `OM_TIER` | `hybrid` | Balanced performance |
+| **Performance** | `OM_DECAY_THREADS` | `4` | Parallel processing |
+| **Memory** | `OM_AUTO_REFLECT` | `true` | Context awareness |
+| **Memory** | `OM_COMPRESSION_ENABLED` | `true` | Storage efficiency |
+
+### Production Directory Structure
+
+```bash
+# Create production directories with proper permissions
+sudo mkdir -p /var/lib/elaoms/payloads
+sudo mkdir -p /var/lib/openmemory
+sudo mkdir -p /var/log/elaoms
+
+# Set ownership
+sudo chown -R ubuntu:ubuntu /var/lib/elaoms
+sudo chown -R ubuntu:ubuntu /var/lib/openmemory
+sudo chown -R ubuntu:ubuntu /var/log/elaoms
+
+# Set permissions
+chmod 755 /var/lib/elaoms
+chmod 755 /var/lib/openmemory
+chmod 755 /var/log/elaoms
+```
+
+### Running OpenMemory Alongside ELAOMS
+
+If running OpenMemory locally on the same server:
+
+```bash
+# Install OpenMemory
+pip install openmemory
+
+# Create systemd service for OpenMemory (example)
+sudo tee /etc/systemd/system/openmemory.service > /dev/null <<EOF
+[Unit]
+Description=OpenMemory Cognitive Memory Engine
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/openmemory
+EnvironmentFile=/home/ubuntu/elaoms/.env
+ExecStart=/home/ubuntu/openmemory/venv/bin/openmemory serve
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Enable and start
+sudo systemctl daemon-reload
+sudo systemctl enable openmemory
+sudo systemctl start openmemory
+```
+
+### Environment Files Summary
+
+| File | Purpose | Git Tracked |
+|------|---------|-------------|
+| `.env.example` | Template with all variables documented | Yes |
+| `.env.production` | Production-optimized template | Yes |
+| `.env` | Active configuration (your secrets) | **No** |
+
+### Security Best Practices
+
+1. **API Key Management**
+   - Use minimum 32-character random strings for all secrets
+   - Rotate keys periodically (every 90 days recommended)
+   - Never log or expose API keys in error messages
+
+2. **File Permissions**
+   ```bash
+   chmod 600 .env              # Owner read/write only
+   chmod 700 /var/lib/elaoms   # Owner full access only
+   ```
+
+3. **Network Security**
+   - OpenMemory should only bind to localhost (`127.0.0.1:8080`)
+   - Use HTTPS for all external webhook traffic
+   - Enable rate limiting on both ELAOMS and OpenMemory
+
+4. **Database Security**
+   - Use strong PostgreSQL passwords
+   - Enable SSL connections (`OM_PG_SSL=require`)
+   - Restrict database user permissions
+
+---
+
 ## Production Checklist
 
 Before going live, verify:
 
-- [ ] All environment variables configured in `.env`
-- [ ] Firewall rules properly configured
-- [ ] SSL certificate installed and working
-- [ ] Service starts automatically on reboot
-- [ ] Log rotation configured
-- [ ] Health check endpoint accessible
-- [ ] OpenMemory service connectivity verified
+### ELAOMS Application
+- [ ] All environment variables configured in `.env` (copy from `.env.production`)
+- [ ] File permissions set correctly (`chmod 600 .env`)
+- [ ] Service starts automatically on reboot (`systemctl enable elaoms`)
+- [ ] Health check endpoint accessible (`curl http://localhost:8000/health`)
 - [ ] Webhook endpoints accessible via HTTPS
+
+### OpenMemory Integration
+- [ ] OpenMemory service running and healthy
+- [ ] `OPENMEMORY_KEY` matches `OM_API_KEY` on OpenMemory server
+- [ ] PostgreSQL database created and configured (production)
+- [ ] OpenAI API key configured for embeddings
+- [ ] Memory storage directories exist with proper permissions
+
+### Security & Infrastructure
+- [ ] Firewall rules properly configured (UFW enabled)
+- [ ] SSL certificate installed and working (Let's Encrypt)
+- [ ] Rate limiting enabled on both services
 - [ ] Fail2ban running for security
-- [ ] Backup strategy in place
+- [ ] Log rotation configured
+- [ ] Backup strategy in place for PostgreSQL and payload storage
+
+### Connectivity Testing
+```bash
+# Test ELAOMS
+curl -s http://localhost:8000/health | jq .
+
+# Test OpenMemory
+curl -s -H "Authorization: Bearer $OM_API_KEY" http://localhost:8080/health | jq .
+
+# Test webhook accessibility (from external)
+curl -s https://your-domain.com/webhooks/client-data -H "X-Api-Key: test" | jq .
+```
 
 ---
 
