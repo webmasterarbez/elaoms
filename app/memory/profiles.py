@@ -19,6 +19,7 @@ import logging
 import re
 from datetime import datetime
 from typing import Any, Optional
+from urllib.parse import quote
 
 import httpx
 
@@ -29,6 +30,7 @@ from app.models.responses import (
     AgentConfig,
     ProfileData,
 )
+from app.utils.http_client import get_openmemory_client
 
 logger = logging.getLogger(__name__)
 
@@ -61,18 +63,8 @@ async def get_universal_user_profile(phone_number: str) -> Optional[dict[str, An
             - total_interactions: int
         Returns None if user has never called any agent.
     """
-    from urllib.parse import quote
-
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
-        # Query for universal profile memories
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             query_payload = {
                 "query": "universal profile user name",
                 "k": 5,
@@ -81,11 +73,7 @@ async def get_universal_user_profile(phone_number: str) -> Optional[dict[str, An
                     "tags": ["universal_profile"]
                 }
             }
-            response = await client.post(
-                f"{openmemory_url}/memory/query",
-                json=query_payload,
-                headers=headers
-            )
+            response = await client.post("/memory/query", json=query_payload)
 
             if response.status_code != 200:
                 logger.warning(f"OpenMemory query failed: {response.status_code}")
@@ -150,17 +138,10 @@ async def store_universal_user_profile(
         True if successful, False otherwise.
     """
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
         # Get existing profile
         existing = await get_universal_user_profile(phone_number)
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             # Determine values to store
             current_name = existing.get("name") if existing else None
             current_interactions = existing.get("total_interactions", 0) if existing else 0
@@ -194,11 +175,7 @@ async def store_universal_user_profile(
                     "decay_lambda": PERMANENT_DECAY
                 }
 
-                response = await client.post(
-                    f"{openmemory_url}/memory/add",
-                    json=payload,
-                    headers=headers
-                )
+                response = await client.post("/memory/add", json=payload)
 
                 if response.status_code != 200:
                     logger.warning(
@@ -248,15 +225,7 @@ async def get_agent_conversation_state(
         Returns None if user has never called this specific agent.
     """
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
-        # Query for agent-specific state
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             query_payload = {
                 "query": f"agent greeting {agent_id}",
                 "k": 3,
@@ -265,11 +234,7 @@ async def get_agent_conversation_state(
                     "tags": ["agent_state", agent_id]
                 }
             }
-            response = await client.post(
-                f"{openmemory_url}/memory/query",
-                json=query_payload,
-                headers=headers
-            )
+            response = await client.post("/memory/query", json=query_payload)
 
             if response.status_code != 200:
                 logger.warning(f"OpenMemory query failed: {response.status_code}")
@@ -348,18 +313,11 @@ async def store_agent_conversation_state(
         True if successful, False otherwise.
     """
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
         # Get existing state to increment conversation count
         existing = await get_agent_conversation_state(phone_number, agent_id)
         conversation_count = (existing.get("conversation_count", 0) if existing else 0) + 1
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             # Build metadata
             metadata = {
                 "agent_id": agent_id,
@@ -390,11 +348,7 @@ async def store_agent_conversation_state(
                 "decay_lambda": PERMANENT_DECAY
             }
 
-            response = await client.post(
-                f"{openmemory_url}/memory/add",
-                json=payload,
-                headers=headers
-            )
+            response = await client.post("/memory/add", json=payload)
 
             if response.status_code != 200:
                 logger.warning(
@@ -566,22 +520,12 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
             "has_memories": bool
         }
     """
-    from urllib.parse import quote
-
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
-        # First, get user summary via /users/:id/summary endpoint
         encoded_user_id = quote(phone_number, safe="")
-        summary_url = f"{openmemory_url}/users/{encoded_user_id}/summary"
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
-            summary_response = await client.get(summary_url, headers=headers)
+        async with get_openmemory_client() as client:
+            # First, get user summary via /users/:id/summary endpoint
+            summary_response = await client.get(f"/users/{encoded_user_id}/summary")
 
             if summary_response.status_code == 404:
                 logger.info(f"No profile found for user {phone_number}")
@@ -593,32 +537,27 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
 
             summary_data = summary_response.json()
 
-        # Parse the summary response
-        parsed = _parse_user_summary(summary_data)
+            # Parse the summary response
+            parsed = _parse_user_summary(summary_data)
 
-        # Check if summary is still initializing (OpenMemory hasn't processed yet)
-        summary_str = summary_data.get("summary", "")
-        is_initializing = "initializing" in summary_str.lower()
+            # Check if summary is still initializing (OpenMemory hasn't processed yet)
+            summary_str = summary_data.get("summary", "")
+            is_initializing = "initializing" in summary_str.lower()
 
-        if not parsed["has_memories"] and not is_initializing:
-            logger.info(f"No memories found for user {phone_number}")
-            return None
+            if not parsed["has_memories"] and not is_initializing:
+                logger.info(f"No memories found for user {phone_number}")
+                return None
 
-        # Query memories to extract name (need actual memory content for name extraction)
-        memories = []
-        name = None
+            # Query memories to extract name (need actual memory content for name extraction)
+            memories = []
+            name = None
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
             query_payload = {
                 "query": "user name first_name",
                 "k": 10,
                 "filters": {"user_id": phone_number}
             }
-            mem_response = await client.post(
-                f"{openmemory_url}/memory/query",
-                json=query_payload,
-                headers=headers
-            )
+            mem_response = await client.post("/memory/query", json=query_payload)
 
             if mem_response.status_code == 200:
                 results = mem_response.json()
@@ -679,20 +618,10 @@ async def get_user_summary(phone_number: str) -> Optional[dict[str, Any]]:
         }
     """
     try:
-        openmemory_url = settings.openmemory_url
-        api_key = settings.OPENMEMORY_KEY
-
-        headers = {"Content-Type": "application/json"}
-        if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
-
-        # URL encode the phone number for the path
-        from urllib.parse import quote
         encoded_user_id = quote(phone_number, safe="")
-        url = f"{openmemory_url}/users/{encoded_user_id}/summary"
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
-            response = await client.get(url, headers=headers)
+        async with get_openmemory_client() as client:
+            response = await client.get(f"/users/{encoded_user_id}/summary")
 
             if response.status_code == 404:
                 logger.info(f"No summary found for user {phone_number}")

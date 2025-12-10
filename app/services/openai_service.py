@@ -13,6 +13,7 @@ from typing import Any, Optional
 import httpx
 
 from app.config import settings
+from app.utils.http_client import get_openai_client
 
 logger = logging.getLogger(__name__)
 
@@ -213,13 +214,6 @@ async def _call_openai_api(prompt: str) -> Optional[dict[str, Any]]:
     Returns:
         Parsed JSON response or None on failure
     """
-    url = "https://api.openai.com/v1/chat/completions"
-
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {settings.OPENAI_API_KEY}"
-    }
-
     payload = {
         "model": settings.OPENAI_MODEL,
         "messages": [
@@ -238,9 +232,8 @@ async def _call_openai_api(prompt: str) -> Optional[dict[str, Any]]:
     }
 
     try:
-        timeout = float(settings.OPENAI_TIMEOUT)
-        async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, json=payload, headers=headers)
+        async with get_openai_client() as client:
+            response = await client.post("/v1/chat/completions", json=payload)
 
             if response.status_code != 200:
                 logger.error(f"OpenAI API error: {response.status_code} - {response.text}")

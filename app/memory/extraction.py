@@ -18,8 +18,8 @@ from typing import Any, Optional
 
 import httpx
 
-from app.config import settings
 from app.models.requests import TranscriptEntry, DataCollectionResult
+from app.utils.http_client import get_openmemory_client
 
 logger = logging.getLogger(__name__)
 
@@ -107,17 +107,10 @@ async def create_profile_memories(
         logger.info("No user info to store")
         return []
 
-    openmemory_url = settings.openmemory_url
-    api_key = settings.OPENMEMORY_KEY
-
-    headers = {"Content-Type": "application/json"}
-    if api_key:
-        headers["Authorization"] = f"Bearer {api_key}"
-
     results = []
 
     try:
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             for key, value in user_info.items():
                 if value is None:
                     continue
@@ -147,11 +140,7 @@ async def create_profile_memories(
                     "decay_lambda": PERMANENT_DECAY
                 }
 
-                response = await client.post(
-                    f"{openmemory_url}/memory/add",
-                    json=payload,
-                    headers=headers
-                )
+                response = await client.post("/memory/add", json=payload)
 
                 if response.status_code == 200:
                     results.append(response.json())
@@ -192,17 +181,10 @@ async def store_conversation_memories(
         logger.info("No messages to store")
         return []
 
-    openmemory_url = settings.openmemory_url
-    api_key = settings.OPENMEMORY_KEY
-
-    headers = {"Content-Type": "application/json"}
-    if api_key:
-        headers["Authorization"] = f"Bearer {api_key}"
-
     results = []
 
     try:
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             for idx, msg_data in enumerate(messages):
                 message = msg_data.get("message", "")
                 time_in_call_secs = msg_data.get("time_in_call_secs")
@@ -230,11 +212,7 @@ async def store_conversation_memories(
                     "decay_lambda": PERMANENT_DECAY
                 }
 
-                response = await client.post(
-                    f"{openmemory_url}/memory/add",
-                    json=payload,
-                    headers=headers
-                )
+                response = await client.post("/memory/add", json=payload)
 
                 if response.status_code == 200:
                     results.append(response.json())
@@ -272,26 +250,15 @@ async def search_memories(
         A dictionary with 'profile' and 'memories' keys.
         Handles empty results gracefully.
     """
-    openmemory_url = settings.openmemory_url
-    api_key = settings.OPENMEMORY_KEY
-
-    headers = {"Content-Type": "application/json"}
-    if api_key:
-        headers["Authorization"] = f"Bearer {api_key}"
-
     try:
-        async with httpx.AsyncClient(timeout=10.0) as client:
+        async with get_openmemory_client() as client:
             payload = {
                 "query": query,
                 "k": limit,
                 "filters": {"user_id": phone_number}
             }
 
-            response = await client.post(
-                f"{openmemory_url}/memory/query",
-                json=payload,
-                headers=headers
-            )
+            response = await client.post("/memory/query", json=payload)
 
             if response.status_code != 200:
                 logger.warning(f"OpenMemory query failed: {response.status_code}")

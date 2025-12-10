@@ -12,7 +12,7 @@ from typing import Any, Optional
 
 import httpx
 
-from app.config import settings
+from app.utils.http_client import get_elevenlabs_client
 
 logger = logging.getLogger(__name__)
 
@@ -94,16 +94,9 @@ class AgentProfileCache:
         Returns:
             Parsed agent profile or None on failure.
         """
-        url = f"https://api.elevenlabs.io/v1/convai/agents/{agent_id}"
-
-        headers = {
-            "xi-api-key": settings.ELEVENLABS_API_KEY,
-            "Content-Type": "application/json"
-        }
-
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
-                response = await client.get(url, headers=headers)
+            async with get_elevenlabs_client() as client:
+                response = await client.get(f"/v1/convai/agents/{agent_id}")
 
                 if response.status_code == 404:
                     logger.warning(f"Agent not found: {agent_id}")
