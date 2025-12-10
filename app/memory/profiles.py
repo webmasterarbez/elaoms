@@ -1,15 +1,23 @@
 """Caller profile management for OpenMemory integration.
 
 This module provides functions for:
+- Two-tier memory architecture:
+  - Tier 1: Universal user profiles (cross-agent)
+  - Tier 2: Agent-specific conversation states (per-agent)
 - Retrieving user profiles from OpenMemory via REST API
 - Getting user summaries via the OpenMemory API
 - Building dynamic variables for ElevenLabs response
-- Generating personalized conversation overrides
+
+Storage Keys:
+- Tier 1: user:{phone_number}:profile (universal profile)
+- Tier 2: user:{phone_number}:agent:{agent_id}:next_greeting (agent-specific state)
 
 All operations use the phone number as the userId for multi-tenant isolation.
 """
 
 import logging
+import re
+from datetime import datetime
 from typing import Any, Optional
 
 import httpx
@@ -23,6 +31,466 @@ from app.models.responses import (
 )
 
 logger = logging.getLogger(__name__)
+
+# Constants for memory storage
+PERMANENT_DECAY = 0  # decayLambda=0 for permanent retention
+HIGH_SALIENCE = 0.9  # High importance for profile facts and greetings
+
+
+# =============================================================================
+# TIER 1: Universal User Profile Functions (Cross-Agent)
+# =============================================================================
+
+
+async def get_universal_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
+    """Query Tier 1: Universal user profile shared across all agents.
+
+    Retrieves the universal profile that is shared across all agents,
+    containing basic user information like name and total interactions.
+
+    Storage key pattern: user:{phone_number}:profile
+
+    Args:
+        phone_number: The user's phone number in E.164 format.
+
+    Returns:
+        Dictionary containing:
+            - name: str | None
+            - phone_number: str
+            - first_seen: str (ISO timestamp)
+            - total_interactions: int
+        Returns None if user has never called any agent.
+    """
+    from urllib.parse import quote
+
+    try:
+        openmemory_url = settings.openmemory_url
+        api_key = settings.OPENMEMORY_KEY
+
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        # Query for universal profile memories
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            query_payload = {
+                "query": "universal profile user name",
+                "k": 5,
+                "filters": {
+                    "user_id": phone_number,
+                    "tags": ["universal_profile"]
+                }
+            }
+            response = await client.post(
+                f"{openmemory_url}/memory/query",
+                json=query_payload,
+                headers=headers
+            )
+
+            if response.status_code != 200:
+                logger.warning(f"OpenMemory query failed: {response.status_code}")
+                return None
+
+            results = response.json()
+            memories = results.get("matches", [])
+
+            if not memories:
+                logger.info(f"No universal profile found for {phone_number}")
+                return None
+
+            # Parse universal profile from memories
+            name = None
+            first_seen = None
+            total_interactions = 0
+
+            for memory in memories:
+                metadata = memory.get("metadata", {})
+                if isinstance(metadata, dict):
+                    if metadata.get("field") == "name" and metadata.get("value"):
+                        name = metadata.get("value")
+                    if metadata.get("field") == "first_seen":
+                        first_seen = metadata.get("value")
+                    if metadata.get("field") == "total_interactions":
+                        try:
+                            total_interactions = int(metadata.get("value", 0))
+                        except (ValueError, TypeError):
+                            total_interactions = 0
+
+            return {
+                "name": name,
+                "phone_number": phone_number,
+                "first_seen": first_seen or datetime.utcnow().isoformat(),
+                "total_interactions": total_interactions
+            }
+
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error querying universal profile for {phone_number}: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"Error retrieving universal profile for {phone_number}: {e}")
+        return None
+
+
+async def store_universal_user_profile(
+    phone_number: str,
+    name: Optional[str] = None,
+    increment_interactions: bool = True
+) -> bool:
+    """Create or update Tier 1 universal profile.
+
+    Creates a new universal profile if one doesn't exist, or updates
+    the existing profile with new information.
+
+    Args:
+        phone_number: The user's phone number in E.164 format.
+        name: User's name (if known). Only updates if currently None.
+        increment_interactions: Whether to increment total_interactions.
+
+    Returns:
+        True if successful, False otherwise.
+    """
+    try:
+        openmemory_url = settings.openmemory_url
+        api_key = settings.OPENMEMORY_KEY
+
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        # Get existing profile
+        existing = await get_universal_user_profile(phone_number)
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            # Determine values to store
+            current_name = existing.get("name") if existing else None
+            current_interactions = existing.get("total_interactions", 0) if existing else 0
+            first_seen = existing.get("first_seen") if existing else datetime.utcnow().isoformat()
+
+            # Update name only if not already set
+            new_name = name if (name and not current_name) else current_name
+            new_interactions = current_interactions + 1 if increment_interactions else current_interactions
+
+            # Store profile fields as individual memories
+            fields = [
+                ("name", new_name),
+                ("first_seen", first_seen),
+                ("total_interactions", str(new_interactions)),
+            ]
+
+            for field_name, field_value in fields:
+                if field_value is None:
+                    continue
+
+                payload = {
+                    "content": f"Universal profile: {field_name} = {field_value}",
+                    "tags": ["universal_profile", field_name],
+                    "metadata": {
+                        "field": field_name,
+                        "value": str(field_value),
+                        "profile_type": "universal"
+                    },
+                    "user_id": phone_number,
+                    "salience": HIGH_SALIENCE,
+                    "decay_lambda": PERMANENT_DECAY
+                }
+
+                response = await client.post(
+                    f"{openmemory_url}/memory/add",
+                    json=payload,
+                    headers=headers
+                )
+
+                if response.status_code != 200:
+                    logger.warning(
+                        f"Failed to store universal profile field {field_name}: "
+                        f"{response.status_code}"
+                    )
+
+            logger.info(f"Stored universal profile for {phone_number}")
+            return True
+
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error storing universal profile: {e}")
+        return False
+    except Exception as e:
+        logger.error(f"Error storing universal profile: {e}")
+        return False
+
+
+# =============================================================================
+# TIER 2: Agent-Specific Conversation State Functions (Per-Agent)
+# =============================================================================
+
+
+async def get_agent_conversation_state(
+    phone_number: str,
+    agent_id: str
+) -> Optional[dict[str, Any]]:
+    """Query Tier 2: Agent-specific conversation state.
+
+    Retrieves the conversation state specific to a particular agent,
+    including the pre-generated next greeting.
+
+    Storage key pattern: user:{phone_number}:agent:{agent_id}:next_greeting
+
+    Args:
+        phone_number: The user's phone number in E.164 format.
+        agent_id: The unique identifier of the ElevenLabs agent.
+
+    Returns:
+        Dictionary containing:
+            - next_greeting: str | None
+            - key_topics: List[str]
+            - sentiment: str
+            - conversation_summary: str
+            - last_call_date: str (ISO timestamp)
+            - conversation_count: int
+        Returns None if user has never called this specific agent.
+    """
+    try:
+        openmemory_url = settings.openmemory_url
+        api_key = settings.OPENMEMORY_KEY
+
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        # Query for agent-specific state
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            query_payload = {
+                "query": f"agent greeting {agent_id}",
+                "k": 3,
+                "filters": {
+                    "user_id": phone_number,
+                    "tags": ["agent_state", agent_id]
+                }
+            }
+            response = await client.post(
+                f"{openmemory_url}/memory/query",
+                json=query_payload,
+                headers=headers
+            )
+
+            if response.status_code != 200:
+                logger.warning(f"OpenMemory query failed: {response.status_code}")
+                return None
+
+            results = response.json()
+            memories = results.get("matches", [])
+
+            if not memories:
+                logger.info(f"No agent state found for {phone_number} with agent {agent_id}")
+                return None
+
+            # Parse agent-specific state from memories
+            state = {
+                "next_greeting": None,
+                "key_topics": [],
+                "sentiment": "neutral",
+                "conversation_summary": "",
+                "last_call_date": None,
+                "conversation_count": 0
+            }
+
+            for memory in memories:
+                metadata = memory.get("metadata", {})
+                if isinstance(metadata, dict):
+                    if metadata.get("next_greeting"):
+                        state["next_greeting"] = metadata.get("next_greeting")
+                    if metadata.get("key_topics"):
+                        topics = metadata.get("key_topics")
+                        if isinstance(topics, list):
+                            state["key_topics"] = topics
+                        elif isinstance(topics, str):
+                            state["key_topics"] = [t.strip() for t in topics.split(",")]
+                    if metadata.get("sentiment"):
+                        state["sentiment"] = metadata.get("sentiment")
+                    if metadata.get("conversation_summary"):
+                        state["conversation_summary"] = metadata.get("conversation_summary")
+                    if metadata.get("last_call_date"):
+                        state["last_call_date"] = metadata.get("last_call_date")
+                    if metadata.get("conversation_count"):
+                        try:
+                            state["conversation_count"] = int(metadata.get("conversation_count", 0))
+                        except (ValueError, TypeError):
+                            pass
+
+            return state
+
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error querying agent state for {phone_number}/{agent_id}: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"Error retrieving agent state for {phone_number}/{agent_id}: {e}")
+        return None
+
+
+async def store_agent_conversation_state(
+    phone_number: str,
+    agent_id: str,
+    greeting_data: dict[str, Any]
+) -> bool:
+    """Store Tier 2 agent-specific conversation state.
+
+    Stores the pre-generated greeting and conversation context for
+    the next call from this user to this specific agent.
+
+    Args:
+        phone_number: The user's phone number in E.164 format.
+        agent_id: The unique identifier of the ElevenLabs agent.
+        greeting_data: Output from OpenAI generate_next_greeting() containing:
+            - next_greeting: str | None
+            - key_topics: List[str]
+            - sentiment: str
+            - conversation_summary: str
+
+    Returns:
+        True if successful, False otherwise.
+    """
+    try:
+        openmemory_url = settings.openmemory_url
+        api_key = settings.OPENMEMORY_KEY
+
+        headers = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        # Get existing state to increment conversation count
+        existing = await get_agent_conversation_state(phone_number, agent_id)
+        conversation_count = (existing.get("conversation_count", 0) if existing else 0) + 1
+
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            # Build metadata
+            metadata = {
+                "agent_id": agent_id,
+                "next_greeting": greeting_data.get("next_greeting"),
+                "key_topics": greeting_data.get("key_topics", []),
+                "sentiment": greeting_data.get("sentiment", "neutral"),
+                "conversation_summary": greeting_data.get("conversation_summary", ""),
+                "last_call_date": datetime.utcnow().isoformat(),
+                "conversation_count": conversation_count,
+                "profile_type": "agent_specific"
+            }
+
+            # Build content for embedding
+            topics_str = ", ".join(greeting_data.get("key_topics", []))
+            content = (
+                f"Agent {agent_id} conversation state: "
+                f"Next greeting prepared. Topics: {topics_str}. "
+                f"Sentiment: {greeting_data.get('sentiment', 'neutral')}. "
+                f"Summary: {greeting_data.get('conversation_summary', '')}"
+            )
+
+            payload = {
+                "content": content,
+                "tags": ["agent_state", agent_id, "next_greeting"],
+                "metadata": metadata,
+                "user_id": phone_number,
+                "salience": HIGH_SALIENCE,
+                "decay_lambda": PERMANENT_DECAY
+            }
+
+            response = await client.post(
+                f"{openmemory_url}/memory/add",
+                json=payload,
+                headers=headers
+            )
+
+            if response.status_code != 200:
+                logger.warning(
+                    f"Failed to store agent state: {response.status_code} - {response.text}"
+                )
+                return False
+
+            logger.info(f"Stored agent state for {phone_number} with agent {agent_id}")
+            return True
+
+    except httpx.RequestError as e:
+        logger.error(f"HTTP error storing agent state: {e}")
+        return False
+    except Exception as e:
+        logger.error(f"Error storing agent state: {e}")
+        return False
+
+
+# =============================================================================
+# Name Extraction Utilities
+# =============================================================================
+
+
+def extract_name_from_transcript(transcript: str) -> Optional[str]:
+    """Extract user's name from transcript using regex patterns.
+
+    Searches for common name introduction patterns in the transcript
+    and returns the first valid name found.
+
+    Patterns (in priority order):
+    1. "my name is {Name}"
+    2. "I'm {Name}" / "I am {Name}"
+    3. "call me {Name}"
+    4. "this is {Name}"
+
+    Args:
+        transcript: The conversation transcript as a string.
+
+    Returns:
+        Capitalized name or None if no name found.
+    """
+    # Common words that are NOT names
+    not_names = {
+        "a", "an", "the", "so", "just", "really", "very", "not", "also",
+        "doing", "going", "trying", "looking", "working", "thinking",
+        "sure", "glad", "happy", "sorry", "afraid", "excited", "worried",
+        "here", "there", "back", "home", "now", "still", "always",
+        "me", "him", "her", "them", "us", "it", "that", "this",
+        "for", "to", "by", "on", "in", "at", "up", "out",
+        "and", "but", "or", "absolutely", "astonished", "horrified",
+        "lucky", "founder", "recruiter", "counselor", "calling",
+    }
+
+    transcript_lower = transcript.lower()
+
+    # Pattern 1: "my name is {Name}" - most reliable
+    match = re.search(r"my name is\s+([a-z]+)", transcript_lower)
+    if match:
+        name = match.group(1).capitalize()
+        if name.lower() not in not_names and len(name) > 1:
+            return name
+
+    # Pattern 2: "name is {Name}" at start or after punctuation
+    match = re.search(r"(?:^|[.!?]\s*)name is\s+([a-z]+)", transcript_lower)
+    if match:
+        name = match.group(1).capitalize()
+        if name.lower() not in not_names and len(name) > 1:
+            return name
+
+    # Pattern 3: "I'm {Name}" or "I am {Name}" - only when followed by punctuation
+    match = re.search(r"(?:i'm|i am)\s+([a-z]+)[.,!?]", transcript_lower)
+    if match:
+        name = match.group(1).capitalize()
+        if name.lower() not in not_names and len(name) > 1:
+            return name
+
+    # Pattern 4: "call me {Name}" or "they call me {Name}"
+    match = re.search(r"call me\s+([a-z]+)", transcript_lower)
+    if match:
+        name = match.group(1).capitalize()
+        if name.lower() not in not_names and len(name) > 1:
+            return name
+
+    # Pattern 5: "this is {Name}" - when introducing themselves
+    match = re.search(r"this is\s+([a-z]+)[.,!?]", transcript_lower)
+    if match:
+        name = match.group(1).capitalize()
+        if name.lower() not in not_names and len(name) > 1:
+            return name
+
+    return None
+
+
+# =============================================================================
+# Legacy Functions (kept for backward compatibility)
+# =============================================================================
 
 
 def _parse_user_summary(summary_response: dict[str, Any]) -> dict[str, Any]:

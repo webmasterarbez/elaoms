@@ -88,6 +88,10 @@ Caller → Twilio → ElevenLabs Agents
 
 ## Architecture
 
+### Two-Tier Memory Architecture
+
+ELAOMS implements a sophisticated two-tier memory system that enables both cross-agent continuity and agent-specific personalization:
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              ELEVENLABS AGENTS                              │
@@ -98,24 +102,46 @@ Caller → Twilio → ElevenLabs Agents
     ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐
     │  Client-Data      │ │   Search-Data     │ │   Post-Call       │
     │  Webhook          │ │   Webhook         │ │   Webhook         │
-    │  (Call Start)     │ │   (Mid-Call)      │ │   (Call End)      │
+    │  (Retrieval)      │ │   (Mid-Call)      │ │  (Learning+OpenAI)│
     └─────────┬─────────┘ └─────────┬─────────┘ └─────────┬─────────┘
               │                     │                     │
               ▼                     ▼                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           APPLICATION LAYER                                 │
-│              (FastAPI Webhooks + Pydantic Request/Response Models)          │
+│              FastAPI + OpenAI Service + Agent Cache                         │
 └─────────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              OPENMEMORY                                     │
-│                    (Persistent Long-Term Memory Engine)                     │
-│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐       │
-│  │   Semantic   │ │   Episodic   │ │  Procedural  │ │  Emotional   │       │
-│  │   Memory     │ │   Memory     │ │   Memory     │ │   Memory     │       │
-│  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘       │
+│  ┌────────────────────────────┐  ┌────────────────────────────┐            │
+│  │   Tier 1: Universal        │  │   Tier 2: Agent-Specific   │            │
+│  │   User Profile             │  │   Conversation State       │            │
+│  │   (Name, Phone, Count)     │  │   (Next Greeting, Topics)  │            │
+│  └────────────────────────────┘  └────────────────────────────┘            │
 └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Memory Tiers
+
+| Tier | Scope | Contents | Access |
+|------|-------|----------|--------|
+| **Tier 1: Universal Profile** | Cross-agent | Name, phone, first_seen, total_interactions | All agents |
+| **Tier 2: Agent State** | Per-agent | Next greeting, key topics, sentiment, summary | Specific agent only |
+
+### Data Flow
+
+**Client-Data Webhook (Call Start):**
+```
+Call arrives → Query Tier 1 (name) → Query Tier 2 (greeting) →
+Return: Custom greeting OR name-only OR empty → Agent responds
+```
+
+**Post-Call Webhook (Call End):**
+```
+Call ends → Extract transcript → Query agent profile (cached) →
+OpenAI generates next greeting → Store Tier 1 + Tier 2 →
+Ready for next call
 ```
 
 ---
@@ -130,6 +156,7 @@ Caller → Twilio → ElevenLabs Agents
 | **Data Validation** | Pydantic v2 | Request/response validation |
 | **Voice AI** | ElevenLabs Agents Platform | Conversational AI with speech synthesis |
 | **Memory Engine** | OpenMemory | Cognitive memory for persistent profiles |
+| **AI Generation** | OpenAI GPT-4o-mini | Personalized greeting generation |
 | **Telephony** | Twilio (via ElevenLabs) | Inbound/outbound call handling |
 | **Code Quality** | Black, Ruff, mypy | Formatting, linting, type checking |
 | **Testing** | pytest, pytest-asyncio | Test framework with async support |
@@ -150,26 +177,28 @@ elaoms/
 │   ├── models/                   # Pydantic request/response models
 │   │   ├── __init__.py
 │   │   ├── requests.py           # Request models for webhooks
-│   │   └── responses.py          # Response models for webhooks
+│   │   └── responses.py          # Response models for webhooks (incl. two-tier models)
 │   ├── memory/                   # OpenMemory integration
 │   │   ├── __init__.py
 │   │   ├── client.py             # OpenMemory SDK client wrapper
-│   │   ├── profiles.py           # Caller profile management
+│   │   ├── profiles.py           # Two-tier profile management (Universal + Agent-specific)
 │   │   └── extraction.py         # Memory extraction from transcripts
+│   ├── services/                 # External service integrations
+│   │   ├── __init__.py
+│   │   ├── openai_service.py     # OpenAI greeting generation
+│   │   └── agent_cache.py        # ElevenLabs agent profile caching
 │   └── webhooks/                 # Webhook endpoint handlers
 │       ├── __init__.py
-│       ├── client_data.py        # POST /webhook/client-data (X-Api-Key auth)
+│       ├── client_data.py        # POST /webhook/client-data (two-tier retrieval)
 │       ├── search_data.py        # POST /webhook/search-data (no auth)
-│       └── post_call.py          # POST /webhook/post-call (HMAC auth)
+│       └── post_call.py          # POST /webhook/post-call (two-tier storage + OpenAI)
 ├── tests/                        # Test suite
+│   ├── __init__.py
 │   ├── conftest.py               # Pytest configuration and fixtures
-│   ├── test_auth.py              # HMAC authentication tests
-│   ├── test_config.py            # Configuration validation tests
-│   ├── test_models.py            # Request/response model tests
-│   ├── test_memory.py            # Memory operations tests
+│   ├── test_openai_service.py    # OpenAI greeting generation tests
+│   ├── test_agent_cache.py       # Agent profile caching tests
+│   ├── test_memory_profiles.py   # Two-tier memory profile tests
 │   ├── test_webhooks.py          # Webhook endpoint tests
-│   ├── test_integration.py       # End-to-end integration tests
-│   └── fixtures/                 # Test data and fixtures
 ├── scripts/                      # Utility scripts
 │   └── run_local.sh              # Local development server script
 ├── pyproject.toml                # Project configuration & dev dependencies
@@ -253,6 +282,12 @@ OPENMEMORY_DB_PATH=./data/openmemory.db                         # Path for local
 
 # Storage Configuration
 PAYLOAD_STORAGE_PATH=./payloads                                 # Directory for conversation payloads
+
+# OpenAI Configuration (for two-tier memory greeting generation)
+OPENAI_API_KEY=sk-your-openai-api-key                           # Required for personalized greetings
+OPENAI_MODEL=gpt-4o-mini                                        # Model for greeting generation
+OPENAI_MAX_TOKENS=150                                           # Max tokens for greeting response
+OPENAI_TEMPERATURE=0.7                                          # Creativity level (0.0-1.0)
 ```
 
 ### Getting API Keys
@@ -263,6 +298,7 @@ PAYLOAD_STORAGE_PATH=./payloads                                 # Directory for 
 | Post-Call HMAC Secret | ElevenLabs Agent webhook configuration panel |
 | Client-Data API Key | ElevenLabs Agent webhook configuration panel |
 | OpenMemory Key | Your OpenMemory server configuration |
+| OpenAI API Key | [OpenAI Platform](https://platform.openai.com/api-keys) |
 
 ---
 
@@ -319,17 +355,27 @@ PAYLOAD_STORAGE_PATH=./payloads                                 # Directory for 
 
 ### 1. Client-Data Webhook (Call Initiation)
 
-When a call begins, ElevenLabs sends caller information:
+When a call begins, the two-tier memory system retrieves personalization:
 
 ```
 Caller calls → Twilio → ElevenLabs → Client-Data Webhook
                                            ↓
-                                    Query OpenMemory for caller profile
+                                    Query Tier 1: Universal Profile (name)
                                            ↓
-                                    Return personalized variables
+                                    Query Tier 2: Agent State (greeting)
                                            ↓
-                                    Agent greets with "Welcome back, [Name]!"
+                                    Return response based on available data:
+                                    - Has greeting: Use personalized greeting
+                                    - Has name only: Add to dynamic_variables
+                                    - New caller: Use agent defaults
 ```
+
+**Response Logic:**
+| Scenario | Response |
+|----------|----------|
+| Returning caller to same agent | Custom greeting override + context variables |
+| Known caller, first call to this agent | Name in dynamic_variables only |
+| First-time caller | Empty response (agent uses defaults) |
 
 ### 2. Search-Data Webhook (Mid-Call)
 
@@ -347,17 +393,33 @@ Agent needs context → Server Tool call → Search-Data Webhook
 
 ### 3. Post-Call Webhook (Call Completion)
 
-After the call ends, the system learns:
+After the call ends, the system learns and prepares for the next call:
 
 ```
 Call ends → ElevenLabs → Post-Call Webhook
                               ↓
-                       Extract transcript & data collection results
+                       ┌──────────────────────────────────────┐
+                       │ TIER 1: Universal Profile Update     │
+                       │ - Extract name from transcript       │
+                       │ - Increment interaction count        │
+                       │ - Update first_seen if new           │
+                       └──────────────────────────────────────┘
                               ↓
-                       Store as memories in OpenMemory
+                       ┌──────────────────────────────────────┐
+                       │ TIER 2: Agent-Specific State         │
+                       │ - Fetch agent profile (cached)       │
+                       │ - Generate greeting via OpenAI       │
+                       │ - Store next_greeting + context      │
+                       └──────────────────────────────────────┘
                               ↓
-                       Profile updated for next call
+                       Ready for next call with personalized greeting
 ```
+
+**OpenAI Greeting Generation:**
+- Uses GPT-4o-mini for cost efficiency
+- Generates natural, personalized greetings (max 30 words)
+- Extracts key topics and sentiment
+- Creates conversation summary for context
 
 ---
 

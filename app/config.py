@@ -15,6 +15,12 @@ Required environment variables:
 - OPENMEMORY_PORT: OpenMemory service port/URL
 - OPENMEMORY_DB_PATH: Path to OpenMemory database file
 - PAYLOAD_STORAGE_PATH: Directory for saving conversation payloads
+
+Optional environment variables:
+- OPENAI_API_KEY: OpenAI API key for greeting generation
+- OPENAI_MODEL: Model for greeting generation (default: gpt-4o-mini)
+- OPENAI_MAX_TOKENS: Max tokens for greeting response (default: 150)
+- OPENAI_TEMPERATURE: Creativity level (default: 0.7)
 """
 
 import os
@@ -53,6 +59,12 @@ class Settings:
     # Storage Configuration
     PAYLOAD_STORAGE_PATH: str = field(default="")
 
+    # OpenAI Configuration (for greeting generation)
+    OPENAI_API_KEY: str = field(default="")
+    OPENAI_MODEL: str = field(default="gpt-4o-mini")
+    OPENAI_MAX_TOKENS: int = field(default=150)
+    OPENAI_TEMPERATURE: float = field(default=0.7)
+
     def __post_init__(self) -> None:
         """Load environment variables after initialization."""
         self._load_from_environment()
@@ -75,6 +87,12 @@ class Settings:
 
         # Storage Configuration
         self.PAYLOAD_STORAGE_PATH = os.getenv("PAYLOAD_STORAGE_PATH", "")
+
+        # OpenAI Configuration
+        self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+        self.OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+        self.OPENAI_MAX_TOKENS = int(os.getenv("OPENAI_MAX_TOKENS", "150"))
+        self.OPENAI_TEMPERATURE = float(os.getenv("OPENAI_TEMPERATURE", "0.7"))
 
     def validate(self) -> None:
         """Validate that all required environment variables are set.

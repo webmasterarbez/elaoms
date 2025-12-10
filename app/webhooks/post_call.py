@@ -10,6 +10,9 @@ This module handles the POST /webhook/post-call endpoint:
   - call_initiation_failure: Save failure log
 - Implements payload storage with configurable directory
 - Implements memory processing for OpenMemory integration
+- TWO-TIER MEMORY ARCHITECTURE:
+  - Tier 1: Updates universal user profile (name, interactions)
+  - Tier 2: Generates and stores agent-specific next greeting via OpenAI
 """
 
 import asyncio
@@ -30,6 +33,14 @@ from app.memory.extraction import (
     create_profile_memories,
     store_conversation_memories,
 )
+from app.memory.profiles import (
+    get_universal_user_profile,
+    store_universal_user_profile,
+    store_agent_conversation_state,
+    extract_name_from_transcript,
+)
+from app.services.openai_service import generate_next_greeting, build_transcript_string
+from app.services.agent_cache import get_agent_profile_cache
 
 logger = logging.getLogger(__name__)
 
@@ -215,12 +226,21 @@ def _extract_conversation_context(request_data: PostCallWebhookRequest) -> dict[
 async def _process_memories(request_data: PostCallWebhookRequest) -> None:
     """Process and store memories from post-call transcription.
 
-    This function:
-    1. Extracts caller phone number
-    2. Extracts conversation context (timestamp, conversation_id)
-    3. Extracts user info from data_collection_results
-    4. Stores profile facts as memories with high salience
-    5. Stores each user message as individual memory with timing
+    This function implements the two-tier memory architecture:
+
+    TIER 1 (Universal Profile):
+    1. Get/create universal user profile
+    2. Extract name from transcript if not already set
+    3. Increment interaction count
+
+    TIER 2 (Agent-Specific State):
+    1. Fetch agent profile (from cache or ElevenLabs API)
+    2. Generate next greeting via OpenAI
+    3. Store agent-specific conversation state
+
+    LEGACY (backward compatible):
+    - Store profile facts from data_collection_results
+    - Store individual user messages
 
     Args:
         request_data: The parsed webhook request.
@@ -231,11 +251,111 @@ async def _process_memories(request_data: PostCallWebhookRequest) -> None:
         logger.warning("No caller phone number found, skipping memory processing")
         return
 
-    logger.info(f"Processing memories for caller: {phone_number}")
+    # Extract agent_id
+    agent_id = request_data.data.agent_id
+
+    logger.info(f"Processing memories for caller: {phone_number}, agent: {agent_id}")
 
     # Extract conversation context for memory grouping
     conversation_context = _extract_conversation_context(request_data)
     logger.debug(f"Conversation context: {conversation_context}")
+
+    # Build transcript string for name extraction and greeting generation
+    transcript_str = ""
+    if request_data.data.transcript:
+        transcript_entries = [
+            {"role": entry.role, "message": entry.message}
+            for entry in request_data.data.transcript
+            if entry.message
+        ]
+        transcript_str = build_transcript_string(transcript_entries)
+
+    # =========================================================================
+    # TIER 1: Universal User Profile (Cross-Agent)
+    # =========================================================================
+    try:
+        # Get existing universal profile
+        universal_profile = await get_universal_user_profile(phone_number)
+
+        # Extract name from transcript if not already known
+        extracted_name = None
+        if transcript_str:
+            extracted_name = extract_name_from_transcript(transcript_str)
+            if extracted_name:
+                logger.info(f"Extracted name from transcript: {extracted_name}")
+
+        # Also check data_collection_results for name
+        if not extracted_name and request_data.data.analysis:
+            data_results = request_data.data.analysis.data_collection_results or {}
+            user_info = extract_user_info(data_results)
+            extracted_name = user_info.get("first_name") or user_info.get("name")
+
+        # Determine if we need to update name
+        current_name = universal_profile.get("name") if universal_profile else None
+        name_to_store = extracted_name if (extracted_name and not current_name) else None
+
+        # Store/update universal profile (increments interaction count)
+        await store_universal_user_profile(
+            phone_number=phone_number,
+            name=name_to_store,
+            increment_interactions=True
+        )
+        logger.info(f"Updated universal profile for {phone_number}")
+
+        # Refresh universal profile after update
+        universal_profile = await get_universal_user_profile(phone_number)
+
+    except Exception as e:
+        logger.error(f"Failed to process Tier 1 (universal profile): {e}", exc_info=True)
+        universal_profile = None
+
+    # =========================================================================
+    # TIER 2: Agent-Specific Conversation State (Per-Agent)
+    # =========================================================================
+    try:
+        # Get agent profile from cache or ElevenLabs API
+        agent_cache = get_agent_profile_cache()
+        agent_profile = await agent_cache.get_agent_profile(agent_id)
+
+        if not agent_profile:
+            logger.warning(f"Could not fetch agent profile for {agent_id}, skipping greeting generation")
+        elif transcript_str:
+            # Generate next greeting via OpenAI
+            logger.info(f"Generating next greeting for {phone_number} with agent {agent_id}")
+
+            # Build conversation metadata
+            conv_metadata = {
+                "duration": None,
+                "last_call_date": conversation_context.get("timestamp_utc"),
+            }
+            if request_data.data.metadata:
+                conv_metadata["duration"] = request_data.data.metadata.call_duration_secs
+
+            greeting_data = await generate_next_greeting(
+                agent_profile=agent_profile,
+                user_profile=universal_profile or {"name": None, "phone_number": phone_number, "total_interactions": 1},
+                transcript=transcript_str,
+                conversation_metadata=conv_metadata
+            )
+
+            if greeting_data:
+                # Store agent-specific conversation state
+                await store_agent_conversation_state(
+                    phone_number=phone_number,
+                    agent_id=agent_id,
+                    greeting_data=greeting_data
+                )
+                logger.info(f"Stored agent-specific state for {phone_number} with agent {agent_id}")
+            else:
+                logger.warning(f"No greeting data generated for {phone_number}")
+
+    except Exception as e:
+        logger.error(f"Failed to process Tier 2 (agent state): {e}", exc_info=True)
+        # Continue processing - greeting generation is optional
+
+    # =========================================================================
+    # LEGACY: Store additional memories (backward compatible)
+    # =========================================================================
 
     # Extract user info from data collection results
     user_info = {}
