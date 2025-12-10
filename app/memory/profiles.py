@@ -128,7 +128,11 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
         # Parse the summary response
         parsed = _parse_user_summary(summary_data)
 
-        if not parsed["has_memories"]:
+        # Check if summary is still initializing (OpenMemory hasn't processed yet)
+        summary_str = summary_data.get("summary", "")
+        is_initializing = "initializing" in summary_str.lower()
+
+        if not parsed["has_memories"] and not is_initializing:
             logger.info(f"No memories found for user {phone_number}")
             return None
 
@@ -153,13 +157,28 @@ async def get_user_profile(phone_number: str) -> Optional[dict[str, Any]]:
                 memories = results.get("matches", [])
                 name = _extract_name_from_memories(memories)
 
+        # If summary was initializing but we found memories, update the flags
+        actual_has_memories = len(memories) > 0
+        if is_initializing and actual_has_memories:
+            logger.info(f"Summary initializing but found {len(memories)} memories for {phone_number}")
+
+        # If no memories found at all, return None
+        if not actual_has_memories and not parsed["has_memories"]:
+            logger.info(f"No memories found for user {phone_number}")
+            return None
+
+        # Build summary from memories if top_content not available
+        top_content = parsed.get("top_content")
+        if not top_content and memories:
+            top_content = _build_summary_from_memories(memories)
+
         return {
             "name": name,
-            "summary": parsed.get("top_content"),  # Use top_content as summary
-            "top_content": parsed.get("top_content"),
+            "summary": top_content,
+            "top_content": top_content,
             "memories": memories,
-            "memory_count": parsed["memory_count"],
-            "has_memories": parsed["has_memories"],
+            "memory_count": len(memories) if is_initializing else parsed["memory_count"],
+            "has_memories": actual_has_memories or parsed["has_memories"],
             "activity_level": parsed.get("activity_level"),
             "phone_number": phone_number
         }
