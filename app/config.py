@@ -64,10 +64,65 @@ class Settings:
     OPENAI_MODEL: str = field(default="gpt-4o-mini")
     OPENAI_MAX_TOKENS: int = field(default=150)
     OPENAI_TEMPERATURE: float = field(default=0.7)
+    OPENAI_TIMEOUT: int = field(default=30)  # seconds
 
     def __post_init__(self) -> None:
         """Load environment variables after initialization."""
         self._load_from_environment()
+
+    def _validate_int_range(
+        self, value: str, min_val: int, max_val: int, name: str, default: int
+    ) -> int:
+        """Validate an integer is within range.
+
+        Args:
+            value: String value to parse
+            min_val: Minimum allowed value
+            max_val: Maximum allowed value
+            name: Name of the setting for error messages
+            default: Default value if parsing fails
+
+        Returns:
+            Validated integer within range
+        """
+        try:
+            parsed = int(value)
+            if parsed < min_val or parsed > max_val:
+                import logging
+                logging.warning(
+                    f"{name}={parsed} out of range [{min_val}, {max_val}], using {default}"
+                )
+                return default
+            return parsed
+        except (ValueError, TypeError):
+            return default
+
+    def _validate_float_range(
+        self, value: str, min_val: float, max_val: float, name: str, default: float
+    ) -> float:
+        """Validate a float is within range.
+
+        Args:
+            value: String value to parse
+            min_val: Minimum allowed value
+            max_val: Maximum allowed value
+            name: Name of the setting for error messages
+            default: Default value if parsing fails
+
+        Returns:
+            Validated float within range
+        """
+        try:
+            parsed = float(value)
+            if parsed < min_val or parsed > max_val:
+                import logging
+                logging.warning(
+                    f"{name}={parsed} out of range [{min_val}, {max_val}], using {default}"
+                )
+                return default
+            return parsed
+        except (ValueError, TypeError):
+            return default
 
     def _load_from_environment(self) -> None:
         """Load all settings from environment variables."""
@@ -91,8 +146,15 @@ class Settings:
         # OpenAI Configuration
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
         self.OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-        self.OPENAI_MAX_TOKENS = int(os.getenv("OPENAI_MAX_TOKENS", "150"))
-        self.OPENAI_TEMPERATURE = float(os.getenv("OPENAI_TEMPERATURE", "0.7"))
+        self.OPENAI_MAX_TOKENS = self._validate_int_range(
+            os.getenv("OPENAI_MAX_TOKENS", "150"), 50, 500, "OPENAI_MAX_TOKENS", 150
+        )
+        self.OPENAI_TEMPERATURE = self._validate_float_range(
+            os.getenv("OPENAI_TEMPERATURE", "0.7"), 0.0, 2.0, "OPENAI_TEMPERATURE", 0.7
+        )
+        self.OPENAI_TIMEOUT = self._validate_int_range(
+            os.getenv("OPENAI_TIMEOUT", "30"), 5, 120, "OPENAI_TIMEOUT", 30
+        )
 
     def validate(self) -> None:
         """Validate that all required environment variables are set.

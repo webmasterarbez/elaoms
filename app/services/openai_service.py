@@ -95,7 +95,10 @@ def _build_greeting_prompt(
     transcript: str,
     conversation_metadata: Optional[dict[str, Any]] = None
 ) -> str:
-    """Build the OpenAI prompt for greeting generation.
+    """Build the OpenAI prompt for greeting generation using XML structure.
+
+    Uses XML formatting for structured data as per Sean Kochel's prompt
+    engineering guidelines for better LLM comprehension.
 
     Args:
         agent_profile: Agent configuration dictionary
@@ -104,7 +107,7 @@ def _build_greeting_prompt(
         conversation_metadata: Optional conversation metadata
 
     Returns:
-        Formatted prompt string for OpenAI
+        Formatted prompt string for OpenAI with XML structure
     """
     # Extract agent details
     agent_id = agent_profile.get("agent_id", "unknown")
@@ -121,7 +124,7 @@ def _build_greeting_prompt(
             agent_role = first_sentence
 
     # Extract user details
-    user_name = user_profile.get("name", "Unknown")
+    user_name = user_profile.get("name") or "Unknown"
     total_interactions = user_profile.get("total_interactions", 1)
     last_call_date = conversation_metadata.get("last_call_date") if conversation_metadata else None
 
@@ -130,45 +133,73 @@ def _build_greeting_prompt(
     if len(transcript) > 2000:
         truncated_transcript = f"[...earlier conversation omitted...]\n{transcript[-2000:]}"
 
-    prompt = f"""You are generating a personalized greeting for a voice AI agent's next interaction with a caller.
+    prompt = f"""<agent_profile>
+<agent_id>{agent_id}</agent_id>
+<agent_name>{agent_name}</agent_name>
+<agent_role>{agent_role}</agent_role>
+<default_first_message>{first_message}</default_first_message>
+</agent_profile>
 
-Agent Profile:
-- Agent ID: {agent_id}
-- Agent Name: {agent_name}
-- Agent Role: {agent_role}
-- Default First Message: {first_message}
+<caller_profile>
+<name>{user_name if user_name != "Unknown" else "Not yet known"}</name>
+<total_interactions>{total_interactions}</total_interactions>
+<last_call_date>{last_call_date or "This was their first call"}</last_call_date>
+</caller_profile>
 
-Caller Profile:
-- Name: {user_name if user_name != "Unknown" else "Not yet known"}
-- Total Interactions: {total_interactions}
-- Last Call: {last_call_date or "This was their first call"}
-
-Conversation Context:
+<conversation_transcript>
 {truncated_transcript}
+</conversation_transcript>
 
-Based on this conversation:
-1. Write a natural, warm greeting (max 30 words) that:
-   - Acknowledges the caller by name if known
-   - References a specific topic from the conversation naturally
-   - Maintains the agent's personality and tone
-   - Creates continuity from where the last call ended
+<task>
+Generate a personalized greeting for this agent's next call with this caller.
+</task>
 
-2. Identify 3-5 key topics discussed
+<explicit_instructions>
+1. Write a natural, warm greeting (MAXIMUM 30 words, NO EXCEPTIONS)
+2. If caller's name is known, acknowledge them by name naturally
+3. Reference ONE specific topic from the conversation (be specific, not generic)
+4. Maintain the agent's personality and tone from the system_prompt
+5. Create continuity - pick up where this call ended
+6. If this was first call AND no name captured, return next_greeting as null
+7. Identify 3-5 key topics discussed (be specific, e.g., "Arbez founding story" not "business")
+8. Assess sentiment based on caller's language and tone
+9. Summarize conversation in ONE sentence focusing on the main outcome
+</explicit_instructions>
 
-3. Assess the caller's sentiment (satisfied/neutral/frustrated/confused)
-
-4. Provide a 1-sentence conversation summary
-
-Return ONLY valid JSON in this exact format:
+<output_format>
+Return ONLY valid JSON, no markdown formatting:
 {{
-    "next_greeting": "Your personalized greeting here (or null if first call with no name)",
+    "next_greeting": "Your personalized greeting here or null",
     "key_topics": ["topic1", "topic2", "topic3"],
     "sentiment": "satisfied",
-    "conversation_summary": "One sentence summary of what was discussed."
+    "conversation_summary": "One sentence summary."
+}}
+</output_format>
+
+<constraints>
+- Do NOT use ellipses (...) as greetings will be read by text-to-speech
+- Do NOT make assumptions about topics not explicitly discussed
+- Do NOT create generic greetings like "welcome back" without specific context
+- Do NOT exceed 30 words for next_greeting under any circumstances
+</constraints>
+
+<examples>
+GOOD Example:
+{{
+  "next_greeting": "Hi Stefan! I've been thinking about your Arbez founding story - ready to continue where we left off?",
+  "key_topics": ["Arbez founding details", "childhood memories", "business challenges"],
+  "sentiment": "engaged",
+  "conversation_summary": "Explored early entrepreneurial journey and formative childhood experiences."
 }}
 
-If this was the first call and no name was captured, return next_greeting as null.
-Do not include any text outside the JSON object."""
+BAD Example (too generic):
+{{
+  "next_greeting": "Welcome back! How can I help you today?",
+  "key_topics": ["general conversation", "small talk"],
+  "sentiment": "neutral",
+  "conversation_summary": "Had a conversation."
+}}
+</examples>"""
 
     return prompt
 
@@ -207,7 +238,8 @@ async def _call_openai_api(prompt: str) -> Optional[dict[str, Any]]:
     }
 
     try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        timeout = float(settings.OPENAI_TIMEOUT)
+        async with httpx.AsyncClient(timeout=timeout) as client:
             response = await client.post(url, json=payload, headers=headers)
 
             if response.status_code != 200:
